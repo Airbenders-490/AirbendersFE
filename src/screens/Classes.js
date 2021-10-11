@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, } from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 class Classes extends Component {
   constructor(props) {
