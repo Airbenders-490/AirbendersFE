@@ -108,7 +108,7 @@ export default function App() {
 
 
 // STYLED-COMPONENTS
-const NavigationBarContainer = styled.View`
+const NavigationBarContainer = styled.View `
   position: absolute;
   bottom: 0;
   left: 0;
@@ -124,7 +124,7 @@ const NavigationBarContainer = styled.View`
   elevation: 30;
 `
 
-const TabIcon = styled.Image`
+const TabIcon = styled.Image `
   width: 30;
   height: 30;
   tint-color: ${props => props.tabIconTint};
