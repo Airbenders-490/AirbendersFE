@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
 import { StyleSheet, Text, View } from 'react-native';
+import Labels from '../components/Labels';
 
 class Feed extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class Feed extends Component {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Feed!</Text>
+            <Labels labelValue="SOEN 490"></Labels>
         </View>
     );
   }
