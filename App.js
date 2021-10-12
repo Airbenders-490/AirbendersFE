@@ -1,8 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import styled from 'styled-components';
 
 import ClassesScreen from './src/screens/Classes.js';
 import MessagesScreen from './src/screens/Messages.js';
@@ -24,26 +24,31 @@ import ProfileIconFill from './src/assets/images/icons/user_fill.png';
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+function NavigationBar({ state, descriptors, navigation }) {
   return (
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
-    <NavigationContainer>
-      <Tab.Navigator // headerShown: false
-        initialRouteName="Feed"
-        screenOptions={({route}) => ({
-          tabBarActiveTintColor: '#5089E9',
-          tabBarInactiveTintColor: '#CAD8F0',
-          headerShown: false,
-          showIcon: true,
-          tabBarShowLabel: false,
-          tabBarIcon: ({focused, color, size}) => {
-            let icon;
-            switch(route.name) {
+    <NavigationBarContainer>
+      {state.routes.map((route, index) => {
+        const { options } = descriptors[route.key];
+
+        const isFocused = state.index === index;
+
+        const onPress = () => {
+          const event = navigation.emit({
+            type: 'tabPress',
+            target: route.key,
+          });
+
+          if (!isFocused && !event.defaultPrevented) {
+            navigation.navigate(route.name);
+          }
+
+          console.log(options)
+        };
+
+        const renderTabIcons = (routeName, focused) => {
+          let icon;
+            switch(routeName) {
               case 'Classes':
-                console.log('we are here');
                 icon = focused ? ClassesIconFill : ClassesIconOutline
                 break;
               case 'Messages':
@@ -60,12 +65,36 @@ export default function App() {
                 break;
             }
 
-            return <Image
-              style={{ width: size, height: size, tintColor: color }}
-              source={ icon }
-            />;
-          },
+          return <TabIcon
+            tabIconTint={ isFocused ? options.tabBarActiveTintColor : options.tabBarInactiveTintColor }
+            source={ icon }
+          />
+        };
+
+        return (
+          <TouchableOpacity
+            onPress={onPress} >
+            { renderTabIcons(route.name, isFocused) }
+          </TouchableOpacity>
+        );
+      })}
+    </NavigationBarContainer>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        initialRouteName="Feed"
+        screenOptions={ () => ({
+          tabBarActiveTintColor: '#5089E9',
+          tabBarInactiveTintColor: '#CAD8F0',
+          headerShown: false,
+          showIcon: true,
+          tabBarShowLabel: false,
         })}
+        tabBar={(props) => <NavigationBar {...props} />}
       >
         <Tab.Screen name="Classes" component={ClassesScreen} />
         <Tab.Screen name="Messages" component={MessagesScreen} />
@@ -77,11 +106,26 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+// STYLED-COMPONENTS
+const NavigationBarContainer = styled.View`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-direction: row;
+  background-color: #fff;
+  height: 60;
+  border-top-left-radius: 20;
+  border-top-right-radius: 20;
+  padding-horizontal: 20;
+  justify-content: space-between;
+  align-items: center;
+  elevation: 30;
+`
+
+const TabIcon = styled.Image`
+  width: 30;
+  height: 30;
+  tint-color: ${props => props.tabIconTint};
+`
