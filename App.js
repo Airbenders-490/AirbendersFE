@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import styled from 'styled-components';
+import AppLoading from 'expo-app-loading';
+import { useFonts } from 'expo-font';
+import * as Font from 'expo-font';
 
 import ClassesScreen from './src/screens/Classes.js';
 import MessagesScreen from './src/screens/Messages.js';
@@ -23,6 +26,14 @@ import ScheduleIconFill from './src/assets/images/icons/calendar_fill.png';
 import ProfileIconFill from './src/assets/images/icons/user_fill.png';
 
 const Tab = createBottomTabNavigator();
+
+let customFonts = {
+  'ProximaNova-Light': require('./src/assets/fonts/ProximaNova-Light.otf'),
+  'ProximaNova-Regular': require('./src/assets/fonts/ProximaNova-Regular.otf'),
+  'ProximaNova-Semibold': require('./src/assets/fonts/ProximaNova-Semibold.otf'),
+  'ProximaNova-Bold': require('./src/assets/fonts/ProximaNova-Bold.otf'),
+  'ProximaNova-Black': require('./src/assets/fonts/ProximaNova-Black.otf'),
+};
 
 function NavigationBar({ state, descriptors, navigation }) {
   return (
@@ -82,29 +93,49 @@ function NavigationBar({ state, descriptors, navigation }) {
   );
 }
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Feed"
-        screenOptions={ () => ({
-          tabBarActiveTintColor: '#5089E9',
-          tabBarInactiveTintColor: '#CAD8F0',
-          headerShown: false,
-          showIcon: true,
-          tabBarShowLabel: false,
-        })}
-        tabBar={(props) => <NavigationBar {...props} />}
-      >
-        <Tab.Screen name="Classes" component={ClassesScreen} />
-        <Tab.Screen name="Messages" component={MessagesScreen} />
-        <Tab.Screen name="Feed" component={FeedScreen} />
-        <Tab.Screen name="Schedule" component={ScheduleScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
+export default class App extends React.Component {
+  state = {
+    fontsLoaded: false,
+  }
+
+  async _loadFontsAsync() {
+    await Font.loadAsync(customFonts);
+    this.setState({ fontsLoaded: true });
+  }
+
+  componentDidMount() {
+    this._loadFontsAsync();
+  }
+
+  render() {
+    if (this.state.fontsLoaded) {
+      return (
+        <NavigationContainer>
+          <Tab.Navigator
+            initialRouteName="Feed"
+            screenOptions={ () => ({
+              tabBarActiveTintColor: '#5089E9',
+              tabBarInactiveTintColor: '#CAD8F0',
+              headerShown: false,
+              showIcon: true,
+              tabBarShowLabel: false,
+            })}
+            tabBar={(props) => <NavigationBar {...props} />}
+          >
+            <Tab.Screen name="Classes" component={ClassesScreen} />
+            <Tab.Screen name="Messages" component={MessagesScreen} />
+            <Tab.Screen name="Feed" component={FeedScreen} />
+            <Tab.Screen name="Schedule" component={ScheduleScreen} />
+            <Tab.Screen name="Profile" component={ProfileScreen} />
+          </Tab.Navigator>
+        </NavigationContainer>
+      );
+    } else {
+      return <AppLoading />
+    }
+  }
 }
+
 
 
 // STYLED-COMPONENTS
