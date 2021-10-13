@@ -7,40 +7,28 @@ class GeneralButton extends Component {
   constructor(props) {
     super(props);
   }
-  
-  onpress
 
   render() {
     return (
-   <CustomButton type="submit" value={this.props.buttonValue} />
+    <CustomButton type="submit" backgroundColor={this.props.buttonColorBackground} >
+      <Text>
+        {this.props.children}
+      </Text>
+    </CustomButton>
     );
   }
 }
 
 // STYLED-COMPONENTS
-const CustomButton = styled.input`
-    border-radius: 12px;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    color: white;
-    font-size: 10pt;
-    background: #FF7A67;
+const CustomButton = styled.TouchableOpacity `
+    border-radius: 12;
+    padding-horizontal: 15;
+    padding-vertical: 10;
+    background: ${props => props.backgroundColor};
     color: white;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 2;
     font-weight: 500;
-    width: 50%;
-    cursor: pointer;
-    transition: 1000ms;
-    &:focus {
-        outline: none;
-    }
-    &:hover {
-        background: #FF7A67;
-    }
 `
 
 GeneralButton.propTypes = {
