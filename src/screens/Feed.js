@@ -15,7 +15,7 @@ class Feed extends Component {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Feed!</Text>
-            <Labels labelValue="SOEN 490"></Labels>
+            <Labels>SOEN 490</Labels>
         </View>
     );
   }

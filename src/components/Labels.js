@@ -10,22 +10,25 @@ class Labels extends Component {
 
   render() {
     return (
-      <View>
-        <Text readOnly value={this.props.labelValue} />
-      </View>
-
+      <SimpleLabel>
+        <LabelText>{this.props.children}</LabelText>
+      </SimpleLabel>
     );
   }
 }
 
 // STYLED-COMPONENTS
 const SimpleLabel = styled.View`
-  height: 17px;
-  width: 71px;
-  left: 42px;
-  top: 524px;
-  border-radius: 8.5px;
+  padding-horizontal: 10;
+  padding-vertical: 5;
+  background-color: blue;
+  border-radius: 100;
+`
 
+const LabelText = styled.Text `
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2;
 `
 
 Labels.propTypes = {
