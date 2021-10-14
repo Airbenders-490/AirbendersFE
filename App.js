@@ -151,7 +151,12 @@ const NavigationBarContainer = styled.View `
   padding-horizontal: ${theme.SPACING_MEDIUM};
   justify-content: space-between;
   align-items: center;
-  elevation: ${theme.CARD_ELEVATION};
+  elevation: 30;
+
+  /* iOS Shadows */
+  shadowColor: #555;
+  shadowOpacity: 0.05;
+  shadowRadius: 10;
 `
 
 const TabIcon = styled.Image `
