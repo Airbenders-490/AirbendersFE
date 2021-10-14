@@ -16,7 +16,7 @@ class Feed extends Component {
 
   render() {
     return (
-      <ScreenContainer screenTitle="Classes" isSecondaryScreen >
+      <ScreenContainer screenTitle="Feed" isSecondaryScreen >
       <MainContainer isElevated backgroundColor={theme.COLOR_BLUE}>
         <Title>Hola</Title>
         <Subtitle>Amiga</Subtitle>
