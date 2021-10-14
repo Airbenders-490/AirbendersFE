@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import PropTypes from "prop-types";
 import styled from 'styled-components';
-import theme from '../styles/theme.style.js'
+import theme from '../styles/theme.style.js';
 
 class ScreenContainer extends Component {
     constructor(props) {
