@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import PropTypes from "prop-types";
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
+import { Title } from '../containers/TextContainer.js';
 
 class ScreenContainer extends Component {
     constructor(props) {
@@ -13,11 +14,11 @@ class ScreenContainer extends Component {
         return (
             <Container>
                 <Header>
-                    <Title>{this.props.title}</Title>
+                    <Title titleColor={theme.COLOR_BLACK}>{this.props.screenTitle}</Title>
                 </Header>
-                <Content>
+                <View>
                     {this.props.children}
-                </Content>
+                </View>
             </Container>
         );
     }
@@ -27,31 +28,16 @@ class ScreenContainer extends Component {
 const Container = styled.View`
   /* padding separated as the following to allow unitless values */
   padding-horizontal: ${theme.SPACING_MEDIUM};
-  padding-top: 50;
+  padding-top: ${theme.SPACING_LARGE};
   padding-bottom: ${theme.SPACING_MEDIUM};
 `
 
 const Header = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`
-
-const Title = styled.Text`
-    font-size: ${theme.FONT_SIZE_LARGE};
-    color: black;
-    text-transform: uppercase;
-    letter-spacing: ${theme.LETTER_SPACING_LARGE};
-    font-family: ${theme.FONT_BOLD};
-`
-
-const Content = styled.View`
-    margin-top: ${theme.SPACING_MEDIUM};
+  margin-bottom: ${theme.SPACING_MEDIUM};
 `
 
 ScreenContainer.propTypes = {
-    title: PropTypes.string.isRequired,
+    screenTitle: PropTypes.string.isRequired,
     children: PropTypes.element.isRequired
 };
 

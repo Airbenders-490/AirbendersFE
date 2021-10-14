@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import ScreenContainer from '../containers/ScreenContainer';
 import theme from '../styles/theme.style.js';
+import { TextBody } from '../containers/TextContainer.js'
 
 class Classes extends Component {
   constructor(props) {
@@ -14,8 +15,8 @@ class Classes extends Component {
 
   render() {
     return (
-        <ScreenContainer title="Classes" >
-          <Text>Classes!</Text>
+        <ScreenContainer screenTitle="Classes" >
+          <TextBody>Classes!</TextBody>
         </ScreenContainer>
     );
   }
