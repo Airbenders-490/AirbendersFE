@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import PropTypes from "prop-types";
 import styled from 'styled-components';
+import theme from '../styles/theme.style.js'
 
 class ScreenContainer extends Component {
     constructor(props) {
@@ -25,13 +26,12 @@ class ScreenContainer extends Component {
 //STYLED-COMPONENTS
 const Container = styled.View`
   /* padding separated as the following to allow unitless values */
-  padding-horizontal: 20;
+  padding-horizontal: ${theme.SPACING_MEDIUM};
   padding-top: 50;
-  padding-bottom: 20;
+  padding-bottom: ${theme.SPACING_MEDIUM};
 `
 
 const Header = styled.View`
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -39,15 +39,15 @@ const Header = styled.View`
 `
 
 const Title = styled.Text`
-    font-size: 20;
+    font-size: ${theme.FONT_SIZE_LARGE};
     color: black;
     text-transform: uppercase;
-    letter-spacing: 3;
-    font-weight: 800;
-    font-family: ProximaNova-Bold;
+    letter-spacing: ${theme.LETTER_SPACING_LARGE};
+    font-family: ${theme.FONT_BOLD};
 `
 
 const Content = styled.View`
+    margin-top: ${theme.SPACING_MEDIUM};
 `
 
 ScreenContainer.propTypes = {
