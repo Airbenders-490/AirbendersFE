@@ -2,9 +2,11 @@ import React, { Component, } from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import ScreenContainer from '../containers/ScreenContainer';
 import theme from '../styles/theme.style.js';
-import { TextBody } from '../containers/TextContainer.js'
+
+import ScreenContainer from '../containers/ScreenContainer';
+import { Title, Subtitle, TextBody } from '../containers/TextContainer.js'
+import MainContainer from '../containers/MainContainer.js';
 
 class Classes extends Component {
   constructor(props) {
@@ -16,7 +18,7 @@ class Classes extends Component {
   render() {
     return (
         <ScreenContainer screenTitle="Classes" >
-          <TextBody>Classes!</TextBody>
+          <TextBody bodyColor={theme.COLOR_BLACK}>Classes!</TextBody>
         </ScreenContainer>
     );
   }

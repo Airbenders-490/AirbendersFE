@@ -1,7 +1,8 @@
 export default {
     // FONTS
-    FONT_SIZE_SMALL: 12,
-    FONT_SIZE_MEDIUM: 16,
+    FONT_SIZE_SMALL: 10,
+    FONT_SIZE_MEDIUM: 14,
+    FONT_SIZE_SLIGHT_LARGE: 16,
     FONT_SIZE_LARGE: 20,
 
     FONT_LIGHT:  'ProximaNova-Light',
@@ -27,7 +28,8 @@ export default {
     SPACING_LARGE: 50,
 
     LETTER_SPACING_LARGE: 3,
+    LETTER_SPACING_SMALL: 1,
 
     // ELEVATION
-    CARD_ELEVATION: 30,
+    CARD_ELEVATION: 10,
   };
