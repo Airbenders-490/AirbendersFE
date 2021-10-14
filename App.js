@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import styled from 'styled-components';
 import AppLoading from 'expo-app-loading';
-import { useFonts } from 'expo-font';
 import * as Font from 'expo-font';
+import theme from './src/styles/theme.style.js'
 
 import ClassesScreen from './src/screens/Classes.js';
 import MessagesScreen from './src/screens/Messages.js';
@@ -137,7 +137,6 @@ export default class App extends React.Component {
 }
 
 
-
 // STYLED-COMPONENTS
 const NavigationBarContainer = styled.View `
   position: absolute;
@@ -147,12 +146,12 @@ const NavigationBarContainer = styled.View `
   flex-direction: row;
   background-color: #fff;
   height: 60;
-  border-top-left-radius: 20;
-  border-top-right-radius: 20;
-  padding-horizontal: 20;
+  border-top-left-radius: ${theme.SPACING_MEDIUM};
+  border-top-right-radius: ${theme.SPACING_MEDIUM};
+  padding-horizontal: ${theme.SPACING_MEDIUM};
   justify-content: space-between;
   align-items: center;
-  elevation: 30;
+  elevation: ${theme.CARD_ELEVATION};
 `
 
 const TabIcon = styled.Image `
