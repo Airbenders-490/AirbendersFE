@@ -1,6 +1,6 @@
 import React,  { Component, } from "react";
 import PropTypes from "prop-types";
-import { Button, View, TouchableOpacity, Text,} from 'react-native';
+import { Button, View, TouchableOpacity, Text} from 'react-native';
 import styled from 'styled-components';
 
 class GeneralButton extends Component {
@@ -11,9 +11,9 @@ class GeneralButton extends Component {
   render() {
     return (
     <CustomButton type="submit" backgroundColor={this.props.buttonColorBackground} >
-      <Text>
+      <ButtonText>
         {this.props.children}
-      </Text>
+      </ButtonText>
     </CustomButton>
     );
   }
@@ -21,18 +21,26 @@ class GeneralButton extends Component {
 
 // STYLED-COMPONENTS
 const CustomButton = styled.TouchableOpacity `
-    border-radius: 12;
-    padding-horizontal: 15;
-    padding-vertical: 10;
+    border-radius: 12px;
+    width: 350px;
+    padding-horizontal: 15px;
+    padding-vertical: 18px;
     background: ${props => props.backgroundColor};
+    font-weight: 500;
+    alignItems: center;
+    justifyContent: center;
+`
+const ButtonText = styled.Text `
     color: white;
     text-transform: uppercase;
-    letter-spacing: 2;
-    font-weight: 500;
+    font-weight: bold;
+    font-size: 18;
+    letter-spacing: 5px;
 `
 
 GeneralButton.propTypes = {
-    value: PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string.isRequired
 };
 
 export default GeneralButton;
