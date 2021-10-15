@@ -12,7 +12,6 @@ class Labels extends Component {
   }
 
   render() {
-<<<<<<< HEAD
     const isReadOnly = this.state.isReadOnly;
     let tag;
     if(isReadOnly) {
@@ -29,18 +28,11 @@ class Labels extends Component {
           {tag}
           </LabelText>
       </CustomLabel>
-=======
-    return (
-      <SimpleLabel>
-        <LabelText>{this.props.children}</LabelText>
-      </SimpleLabel>
->>>>>>> bd8ef62bee45f4ccce82f10d48d9d7ae9ca06481
     );
   }
 }
 
 // STYLED-COMPONENTS
-<<<<<<< HEAD
 const CustomLabel = styled.View`
   padding-horizontal: 10;
   padding-vertical: 5;
@@ -69,19 +61,6 @@ tintColor: #FFFFFF;
 background-color: cyan;
 width: 20;
 height: 20;
-=======
-const SimpleLabel = styled.View`
-  padding-horizontal: 10;
-  padding-vertical: 5;
-  background-color: blue;
-  border-radius: 100;
-`
-
-const LabelText = styled.Text `
-  color: white;
-  font-weight: bold;
-  letter-spacing: 2;
->>>>>>> bd8ef62bee45f4ccce82f10d48d9d7ae9ca06481
 `
 
 
