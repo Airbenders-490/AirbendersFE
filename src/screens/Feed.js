@@ -16,8 +16,12 @@ class Feed extends Component {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Feed!</Text>
+<<<<<<< HEAD
             <CustomLabel isReadOnly = {true}>SOEN 490</CustomLabel>
             <SimpleLabel>SOEN 321</SimpleLabel>
+=======
+            <Labels>SOEN 490</Labels>
+>>>>>>> bd8ef62bee45f4ccce82f10d48d9d7ae9ca06481
         </View>
     );
   }
