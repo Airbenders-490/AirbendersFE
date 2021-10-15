@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from 'styled-components';
 import { StyleSheet, Text, View } from 'react-native';
 import CustomButton from "../components/button";
+import AddCustomButton from "../components/AddButton";
 
 class Schedule extends Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class Schedule extends Component {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Schedule!</Text>
-            <CustomButton type="submit" buttonColorBackground="#FF7A67">Login</CustomButton>
         </View>
     );
   }

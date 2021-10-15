@@ -21,10 +21,10 @@ class GeneralButton extends Component {
 
 // STYLED-COMPONENTS
 const CustomButton = styled.TouchableOpacity `
-    border-radius: 12px;
-    width: 350px;
-    padding-horizontal: 15px;
-    padding-vertical: 18px;
+    border-radius: 12;
+    width: 350;
+    padding-horizontal: 15;
+    padding-vertical: 18;
     background: ${props => props.backgroundColor};
     font-weight: 500;
     alignItems: center;
@@ -35,7 +35,7 @@ const ButtonText = styled.Text `
     text-transform: uppercase;
     font-weight: bold;
     font-size: 18;
-    letter-spacing: 5px;
+    letter-spacing: 5;
 `
 
 GeneralButton.propTypes = {

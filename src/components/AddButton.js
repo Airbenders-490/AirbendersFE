@@ -12,7 +12,7 @@ class AddButton extends Component {
     render() {
       return (
       <AddCustomButton type="submit" >
-          <Image style={{ backgroundColor: 'transparent', tintColor: '#5089E9', bottom: 10, height: 40, width: 40 }} source= {AddIcon}/>
+          <AddCustomIcon source= {AddIcon}/>
         <ButtonText>
           {this.props.children}
         </ButtonText>
@@ -23,16 +23,14 @@ class AddButton extends Component {
   
   // STYLED-COMPONENTS
 const AddCustomButton = styled.TouchableOpacity `
-border-radius: 12px;
+border-radius: 12;
 borderColor: #CCCCCC;
 borderWidth: 2;
 borderStyle: dotted;
-width: 350px;
-padding-horizontal: 15px;
-padding-vertical: 25px;
+width: 350;
+padding-horizontal: 15;
+padding-vertical: 25;
 background: transparent;
-position: absolute;
-bottom: 30px;
 alignItems: center;
 justifyContent: center;
 `
@@ -42,10 +40,16 @@ text-transform: uppercase;
 font-weight: bold;
 font-size: 12;
 position: absolute;
-bottom: 15px;
-letter-spacing: 2px;
+bottom: 15;
+letter-spacing: 2;
 `
-
+const AddCustomIcon = styled.Image `
+backgroundColor: transparent;
+tintColor: #5089E9;
+bottom: 10;
+width: 40; 
+height: 40;
+`
 AddButton.propTypes = {
   
 };
