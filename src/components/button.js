@@ -21,11 +21,19 @@ class GeneralButton extends Component {
 
 // STYLED-COMPONENTS
 const CustomButton = styled.TouchableOpacity `
+<<<<<<< HEAD
     border-radius: 12;
     width: 350;
     padding-horizontal: 15;
     padding-vertical: 18;
     background: ${props => props.backgroundColor};
+=======
+    border-radius: 12px;
+    width: 350px;
+    padding-horizontal: 15px;
+    padding-vertical: 18px;
+    background: ${(props) => props.backgroundColor};
+>>>>>>> 25fbc66cd684ee7bd7cded25d105123b54fde554
     font-weight: 500;
     alignItems: center;
     justifyContent: center;
