@@ -8,7 +8,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 class Labels extends Component {
   constructor(props) {
     super(props);
-    this.state = {isReadOnly: false};
+    this.state = {isReadOnly: true};
   }
 
   render() {
@@ -38,7 +38,7 @@ const CustomLabel = styled.View`
   padding-vertical: 5;
   background-color: #16D2FA;
   border-radius: 100;
-  borderRightWidth: 20;
+  borderRightWidth: 25;
   borderRightColor: black;
 `
 
@@ -51,16 +51,15 @@ const LabelText = styled.Text`
 
 const CustomStarIcon = styled.Image`
 tintColor: #FFFFFF;
-background-color: cyan;
-width: 20;
-height: 20;
+width: 15;
+height: 15;
 `
 
 const CustomXIcon = styled.TouchableOpacity`
 tintColor: #FFFFFF;
-background-color: cyan;
-width: 20;
-height: 20;
+background-color: green;
+width: 15;
+height: 15;
 `
 
 

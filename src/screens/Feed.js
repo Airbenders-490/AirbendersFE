@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
@@ -30,4 +28,3 @@ class Feed extends Component {
 }
 
 export default Feed;
->>>>>>> c8ebfee6f241c4117c85a83a81bbe902be555c17
