@@ -7,7 +7,7 @@ import MainContainer from '../containers/MainContainer.js';
 import ScreenContainer from '../containers/ScreenContainer.js';
 import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
 import { TextInputContainer } from '../containers/TextInputContainer';
-
+import CustomButton from '../components/button';
 import { Actions } from 'react-native-router-flux';
 
 class Login extends Component {
@@ -42,9 +42,7 @@ class Login extends Component {
           <TouchableOpacity style={styles.forgotPasswordLink} onPress={this.forgotPassword}>
             <TextBody>Forgot password?</TextBody>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.loginButton} onPress={this.feed}>
-            <TextBody>LOGIN</TextBody>
-          </TouchableOpacity>
+          <CustomButton type="submit" buttonColorBackground="#FF7A67" onPress={this.feed}>Login</CustomButton>
           <TouchableOpacity style={styles.registerLink} onPress={this.register}>
             <TextBody>Don't have an account? Register</TextBody>
           </TouchableOpacity>
@@ -56,7 +54,7 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    top: 200,
+    top: 180,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -64,9 +62,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFF',
     borderColor: '#FDEFE1',
     borderWidth: 1,
-    borderRadius: 8,
-    width: '80%',
-    height: 45,
+    borderRadius: 12,
+    width: 350,
+    height: 55,
     marginBottom: 10,
     marginTop: 10,
 
@@ -79,16 +77,12 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: 'center',
   },
-  loginButton: {
-    borderRadius: 8,
-    height: 48,
-    width: '80%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 40,
-    marginBottom: 10,
-    backgroundColor: '#F77E54',
+  forgotPasswordLink: {
+    paddingBottom: 15,
   },
+  registerLink: {
+    paddingTop: 10,
+  }
 });
 
 export default Login;
