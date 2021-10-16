@@ -17,7 +17,7 @@ class Messages extends Component {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Messages!</Text>
-            <CustomLabel isReadOnly = {true}>SOEN 490</CustomLabel>
+            <CustomLabel isReadOnly={true} labelColor={theme.COLOR_ORANGE}>SOEN 490</CustomLabel>
             <SimpleLabel>SOEN 321</SimpleLabel>
         </View>
     );
