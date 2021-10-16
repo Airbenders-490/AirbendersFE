@@ -51,6 +51,7 @@ const StyledSubtitle = styled.Text `
   font-family: ${theme.FONT_BOLD};
 `;
 
+
 const StyledTextBody = styled.Text `
   font-size: ${theme.FONT_SIZE_MEDIUM};
   font-family: ${theme.FONT_REGULAR};
