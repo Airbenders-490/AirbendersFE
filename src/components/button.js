@@ -10,7 +10,7 @@ class Button extends Component {
 
   render() {
     return (
-    <CustomButton backgroundColor={this.props.buttonColorBackground} >
+    <CustomButton onPress={this.props.redirect} backgroundColor={this.props.buttonColorBackground} >
       <ButtonText>
         {this.props.children}
       </ButtonText>
@@ -41,6 +41,6 @@ const ButtonText = styled.Text `
 Button.propTypes = {
     children: PropTypes.element.isRequired,
     backgroundColor: PropTypes.string.isRequired
-};
+  };
 
 export default Button;

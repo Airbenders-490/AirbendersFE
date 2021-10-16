@@ -42,7 +42,7 @@ class Login extends Component {
           <TouchableOpacity style={styles.forgotPasswordLink} onPress={this.forgotPassword}>
             <TextBody>Forgot password?</TextBody>
           </TouchableOpacity>
-          <CustomButton type="submit" buttonColorBackground="#FF7A67" onPress={this.feed}>Login</CustomButton>
+          <CustomButton redirect={this.feed} buttonColorBackground="#FF7A67">Login</CustomButton>
           <TouchableOpacity style={styles.registerLink} onPress={this.register}>
             <TextBody>Don't have an account? Register</TextBody>
           </TouchableOpacity>
