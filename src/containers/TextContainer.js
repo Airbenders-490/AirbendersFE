@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 export function Title(props) {
   return (
@@ -41,7 +41,7 @@ const StyledTitle = styled.Text `
   text-transform: uppercase;
   letter-spacing: ${theme.LETTER_SPACING_LARGE};
   font-family: ${theme.FONT_BOLD};
-`
+`;
 
 const StyledSubtitle = styled.Text `
   font-size: ${theme.FONT_SIZE_SLIGHT_LARGE};
@@ -49,17 +49,18 @@ const StyledSubtitle = styled.Text `
   text-transform: uppercase;
   letter-spacing: ${theme.LETTER_SPACING_SMALL};
   font-family: ${theme.FONT_BOLD};
-`
+`;
+
 
 const StyledTextBody = styled.Text `
   font-size: ${theme.FONT_SIZE_MEDIUM};
   font-family: ${theme.FONT_REGULAR};
   line-height: ${theme.SPACING_SLIGHT_MEDIUM}
   color: ${props => props.textColor ? props.textColor : theme.COLOR_BLACK};
-`
+`;
 
 const StyledCaption = styled.Text `
 font-size: ${theme.FONT_SIZE_SMALL};
 font-family: ${theme.FONT_REGULAR};
 color: ${props => props.textColor ? props.textColor : theme.COLOR_BLACK};
-`
+`;
