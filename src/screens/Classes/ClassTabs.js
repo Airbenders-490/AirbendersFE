@@ -1,5 +1,5 @@
 
-import React , { Component } from "react";
+import React , { Component } from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import ClassForum from './Tabs/ClassForum';
 import Participants from './Tabs/Partcipants';
