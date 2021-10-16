@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StyleSheet, Text, View } from 'react-native';
 import theme from '../styles/theme.style.js';
@@ -13,9 +13,9 @@ class Profile extends Component {
 
   render() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Profile!</Text>
-        </View>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Profile!</Text>
+      </View>
     );
   }
 }

@@ -1,4 +1,4 @@
-import React, { Component, } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StyleSheet, Text, View, Image } from 'react-native';
@@ -8,7 +8,7 @@ import ScreenContainer from '../containers/ScreenContainer';
 import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
 
-class Classes extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
   }
@@ -17,11 +17,11 @@ class Classes extends Component {
 
   render() {
     return (
-      <ScreenContainer screenTitle='Classes'>
-        <TextBody bodyColor={theme.COLOR_BLACK}>Classes!</TextBody>
+      <ScreenContainer screenTitle='Register'>
+        <TextBody bodyColor={theme.COLOR_BLACK}>Register!</TextBody>
       </ScreenContainer>
     );
   }
 }
 
-export default Classes;
+export default Register;
