@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import styled from 'styled-components';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
-import theme from './src/styles/theme.style.js'
+import theme from './src/styles/theme.style.js';
 
 import ClassesScreen from './src/screens/Classes.js';
 import MessagesScreen from './src/screens/Messages.js';
@@ -52,8 +52,6 @@ function NavigationBar({ state, descriptors, navigation }) {
           if (!isFocused && !event.defaultPrevented) {
             navigation.navigate(route.name);
           }
-
-          console.log(options)
         };
 
         const renderTabIcons = (routeName, focused) => {
@@ -79,7 +77,7 @@ function NavigationBar({ state, descriptors, navigation }) {
           return <TabIcon
             tabIconTint={ isFocused ? options.tabBarActiveTintColor : options.tabBarInactiveTintColor }
             source={ icon }
-          />
+          />;
         };
 
         return (
@@ -131,7 +129,7 @@ export default class App extends React.Component {
         </NavigationContainer>
       );
     } else {
-      return <AppLoading />
+      return <AppLoading />;
     }
   }
 }
@@ -157,10 +155,10 @@ const NavigationBarContainer = styled.View `
   shadowColor: #555;
   shadowOpacity: 0.05;
   shadowRadius: 10;
-`
+`;
 
 const TabIcon = styled.Image `
   width: 30;
   height: 30;
   tint-color: ${props => props.tabIconTint};
-`
+`;

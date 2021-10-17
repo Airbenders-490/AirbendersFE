@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { View } from 'react-native';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
 
@@ -31,7 +31,7 @@ const Container = styled.View`
     shadowColor: ${props => props.backgroundColor ? props.backgroundColor : '#555'};
     shadowOpacity: ${props => props.backgroundColor ? '0.4' : '0.1'};
     shadowRadius: 10;
-`
+`;
 
 MainContainer.propTypes = {
     children: PropTypes.element.isRequired,
