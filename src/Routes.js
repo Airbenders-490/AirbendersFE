@@ -6,6 +6,7 @@ import Register from './screens/Register';
 import Feed from './screens/Feed';
 import ForgotPassword from './screens/ForgotPassword';
 
+// TODO: check if we can replace this with react-navigation
 export default class Routes extends Component {
   render() {
     return (
