@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import styled from 'styled-components';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
@@ -12,6 +13,8 @@ import MessagesScreen from './src/screens/Messages.js';
 import FeedScreen from './src/screens/Feed.js';
 import ScheduleScreen from './src/screens/Schedule.js';
 import ProfileScreen from './src/screens/Profile.js';
+import LoginScreen from './src/screens/Login.js';
+import Routes from './src/Routes.js';
 
 import ClassesIconOutline from './src/assets/images/icons/graduation_cap.png';
 import MessagesIconOutline from './src/assets/images/icons/message_bubble.png';
@@ -80,12 +83,7 @@ function NavigationBar({ state, descriptors, navigation }) {
           />;
         };
 
-        return (
-          <TouchableOpacity
-            onPress={onPress} >
-            { renderTabIcons(route.name, isFocused) }
-          </TouchableOpacity>
-        );
+        return <TouchableOpacity onPress={onPress}>{renderTabIcons(route.name, isFocused)}</TouchableOpacity>;
       })}
     </NavigationBarContainer>
   );
@@ -94,7 +92,7 @@ function NavigationBar({ state, descriptors, navigation }) {
 export default class App extends React.Component {
   state = {
     fontsLoaded: false,
-  }
+  };
 
   async _loadFontsAsync() {
     await Font.loadAsync(customFonts);
@@ -110,21 +108,21 @@ export default class App extends React.Component {
       return (
         <NavigationContainer>
           <Tab.Navigator
-            initialRouteName="Feed"
-            screenOptions={ () => ({
+            initialRouteName='Login'
+            screenOptions={() => ({
               tabBarActiveTintColor: '#5089E9',
               tabBarInactiveTintColor: '#CAD8F0',
               headerShown: false,
               showIcon: true,
               tabBarShowLabel: false,
             })}
-            tabBar={(props) => <NavigationBar {...props} />}
-          >
-            <Tab.Screen name="Classes" component={ClassesScreen} />
-            <Tab.Screen name="Messages" component={MessagesScreen} />
-            <Tab.Screen name="Feed" component={FeedScreen} />
-            <Tab.Screen name="Schedule" component={ScheduleScreen} />
-            <Tab.Screen name="Profile" component={ProfileScreen} />
+            tabBar={(props) => <NavigationBar {...props} />}>
+            <Tab.Screen name='Routes' component={Routes} />
+            <Tab.Screen name='Classes' component={ClassesScreen} />
+            <Tab.Screen name='Messages' component={MessagesScreen} />
+            <Tab.Screen name='Feed' component={FeedScreen} />
+            <Tab.Screen name='Schedule' component={ScheduleScreen} />
+            <Tab.Screen name='Profile' component={ProfileScreen} />
           </Tab.Navigator>
         </NavigationContainer>
       );
@@ -134,9 +132,8 @@ export default class App extends React.Component {
   }
 }
 
-
 // STYLED-COMPONENTS
-const NavigationBarContainer = styled.View `
+const NavigationBarContainer = styled.View`
   position: absolute;
   bottom: 0;
   left: 0;
@@ -150,6 +147,7 @@ const NavigationBarContainer = styled.View `
   justify-content: space-between;
   align-items: center;
   elevation: 30;
+
 
   /* iOS Shadows */
   shadowColor: #555;
