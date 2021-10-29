@@ -10,7 +10,7 @@ class Button extends Component {
 
   render() {
     return (
-    <CustomButton backgroundColor={this.props.buttonColorBackground} >
+    <CustomButton onPress={this.props.redirect} backgroundColor={this.props.buttonColorBackground} >
       <ButtonText>
         {this.props.children}
       </ButtonText>
