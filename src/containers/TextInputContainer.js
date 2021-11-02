@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
 import PropTypes from 'prop-types';
 
-class TextInputContainer extends Component {
+class TextInputContainer extends Component { //TODO: if isConfirmed == true, readOnly textinput
   constructor(props) {
     super(props);
   }
@@ -14,7 +14,7 @@ class TextInputContainer extends Component {
       <Container>
         <Label>{this.props.labelName}</Label>
         <StyledInputContainer>
-          <StyledTextInput>test</StyledTextInput>
+          <StyledTextInput editable={this.props.isConfirmed}>Test</StyledTextInput>
         </StyledInputContainer>
       </Container>
     );
@@ -33,6 +33,10 @@ const StyledInputContainer = styled.View`
   width: 250;
   height: 25;
   left: 25;
+  margin-top: 10
+  border-color: black;
+  border-width: 0.5;
+  border-radius: 4
 `
 const Label = styled.Text `
   margin-top: 10
@@ -52,6 +56,7 @@ const StyledTextInput = styled.TextInput`
 
 TextInputContainer.propTypes = {
   labelName: PropTypes.string.isRequired,
+  isConfirmed: PropTypes.bool.isRequired
 };
 
 export default TextInputContainer;

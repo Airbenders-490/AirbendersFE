@@ -25,7 +25,7 @@ class Profile extends Component {
           <ToggleButton labelName='Team chats'></ToggleButton>
           <ToggleButton labelName='DMs'></ToggleButton>
           <ToggleButton labelName='Schedule'></ToggleButton>
-          <TextInputContainer labelName='School email'></TextInputContainer>
+          <TextInputContainer isConfirmed={false} labelName='School email'></TextInputContainer>
         </MainContainer>
       </ScreenContainer>
     );
