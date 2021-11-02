@@ -1,15 +1,19 @@
-import React,  { Component, } from 'react';
+import React,  { Component, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, View, TouchableOpacity, Text, Image} from 'react-native';
 import styled from 'styled-components';
 import { TextBody } from '../containers/TextContainer';
 import theme from '../styles/theme.style.js';
 
+
 class ToggleButton extends Component {
     constructor(props) {
       super(props);
+      this.state = {
+        value: true
+      };
     }
-  
+
     render() {
       return (
         <ToggleContainer>
@@ -17,7 +21,8 @@ class ToggleButton extends Component {
             <CustomSwitch
               style={{ transform: [{ scaleX: 0.6 }, { scaleY: 0.6 }] }}
               trackColor={{true: 'green', false: 'grey'}}
-              value={true}
+              value={ this.state.value }
+              onValueChange={(value) => this.setState({value})}            
             />
         </ToggleContainer>
       );
