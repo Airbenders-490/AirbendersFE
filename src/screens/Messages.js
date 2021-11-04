@@ -1,23 +1,47 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, TouchableOpacity, LayoutAnimation } from 'react-native';
 import theme from '../styles/theme.style.js';
+import Icon from "react-native-vector-icons/MaterialIcons";
+import ScreenContainer from '../containers/ScreenContainer.js';
+import MainContainer from '../containers/ScreenContainer.js';
+
 
 class Messages extends Component {
   constructor(props) {
     super(props);
+    this.state = { 
+      data: props.data,
+      expanded : false,
+    }
   }
 
-  // Write functions here
 
   render() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Messages!</Text>
-        </View>
+      <ScreenContainer screenTitle = 'Messages'>
+          <TouchableOpacity ref={this.accordian} onPress={()=>this.toggleExpand()}>
+              <Text>{this.props.title}</Text>
+              <Icon name={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} size={30}/>
+          </TouchableOpacity>
+        {
+            this.state.expanded &&
+            <View>
+                <Text>{this.props.data}</Text>    
+            </View>
+        }
+      </ScreenContainer>
     );
   }
+
+
+toggleExpand=()=>{
+  LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+  this.setState({expanded : !this.state.expanded})
+  }
+
 }
+
 
 export default Messages;
