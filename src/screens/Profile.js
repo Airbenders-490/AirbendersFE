@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Text, View, Switch } from 'react-native';
-import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
+import { TextBody, Title, Subtitle, Caption } from '../containers/TextContainer.js';
 import theme from '../styles/theme.style.js';
 import ScreenContainer from '../containers/ScreenContainer';
 import MainContainer from '../containers/MainContainer.js';
@@ -25,7 +25,7 @@ class Profile extends Component {
           <ToggleButton labelName='Team chats'></ToggleButton>
           <ToggleButton labelName='DMs'></ToggleButton>
           <ToggleButton labelName='Schedule'></ToggleButton>
-          <TextInputContainer isConfirmed={false} labelName='School email'></TextInputContainer>
+          <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
         </MainContainer>
       </ScreenContainer>
     );

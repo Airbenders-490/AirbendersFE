@@ -10,7 +10,7 @@ class ToggleButton extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        value: true
+        value: true // keep it true for now
       };
     }
 
@@ -20,7 +20,7 @@ class ToggleButton extends Component {
             <Label>{this.props.labelName}</Label>
             <CustomSwitch
               style={{ transform: [{ scaleX: 0.6 }, { scaleY: 0.6 }] }}
-              trackColor={{true: 'green', false: 'grey'}}
+              trackColor={{true: '#7CDD6D', false: 'grey'}}
               value={ this.state.value }
               onValueChange={(value) => this.setState({value})}            
             />
