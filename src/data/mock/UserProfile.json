@@ -1,0 +1,20 @@
+{"12345": {  
+    "id": "12345",  
+    "name": "John Smith",  
+    "program": "Software Engineering",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "links": [
+        {"rel": "linkedin", "href": "linkedin.com"},
+        {"rel": "youtube", "href": "youtube.com"},
+        {"rel": "loremipsum", "href": "loremipsum.com"}
+    ],
+    "classes": [
+        {"hidden": false, "classID": "ABC 123"},
+        {"hidden": true, "classID": "DEF 456"},
+        {"hidden": true, "classID": "GHI 789"},
+        {"hidden": false, "classID": "JKL 1011"},
+        {"hidden": true, "classID": "MNO 1213"},
+        {"hidden": false, "classID": "PQR 1314"}
+    ],
+    "skills": [ "management", "punctuality" ]
+  }}  
