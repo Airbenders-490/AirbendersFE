@@ -26,8 +26,8 @@ TextInputContainer.propTypes = {
 };
 
 const Container = styled.View`
-    flexDirection: row
-  `
+    flexDirection: row;
+`
 
 const StyledInputContainer = styled.View`
   left: 80;

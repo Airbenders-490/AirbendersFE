@@ -30,16 +30,15 @@ class ToggleButton extends Component {
   }
 
   const CustomSwitch = styled.Switch `
-  left: 10   
-  
+    left: 10;
 `
 
   const ToggleContainer = styled.View`
-    flexDirection: row
+    flexDirection: row;
   `
   const Label = styled.Text `
-    width: 290
-    margin-top: 10
+    width: 290;
+    margin-top: 10;
     font-size: ${theme.FONT_SIZE_MEDIUM};
     font-family: ${theme.FONT_REGULAR};
     line-height: ${theme.SPACING_SLIGHT_MEDIUM}
