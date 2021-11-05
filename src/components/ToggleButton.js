@@ -20,7 +20,7 @@ class ToggleButton extends Component {
             <Label>{this.props.labelName}</Label>
             <CustomSwitch
               style={{ transform: [{ scaleX: 0.6 }, { scaleY: 0.6 }] }}
-              trackColor={{true: '#7CDD6D', false: 'grey'}}
+              trackColor={{true: '#0CD59E', false: 'grey'}}
               value={ this.state.value }
               onValueChange={(value) => this.setState({value})}            
             />
