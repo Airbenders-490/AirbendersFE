@@ -41,7 +41,7 @@ const Container = styled.View`
 
 const Header = styled.View`
   margin-bottom: ${theme.SPACING_MEDIUM};
-  display: flex;
+  display: ${props => props.screenTitle ? 'flex' : 'none'};
   flex-direction: row;
   align-items: center;
 `;

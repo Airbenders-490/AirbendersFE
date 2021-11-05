@@ -1,9 +1,11 @@
 export default {
     // FONTS
     FONT_SIZE_SMALL: 10,
+    FONT_SIZE_SLIGHT_MEDIUM: 12,
     FONT_SIZE_MEDIUM: 14,
     FONT_SIZE_SLIGHT_LARGE: 16,
     FONT_SIZE_LARGE: 20,
+    FONT_SIZE_X_LARGE: 25,
 
     FONT_LIGHT:  'ProximaNova-Light',
     FONT_REGULAR: 'ProximaNova-Regular',

@@ -8,6 +8,12 @@
         {"rel": "youtube", "href": "youtube.com"},
         {"rel": "loremipsum", "href": "loremipsum.com"}
     ],
+    "qualities": [
+        {"quality": "Leader", "times": 3},
+        {"quality": "Sweet", "times": 3},
+        {"quality": "Diligent", "times": 3},
+        {"quality": "Timely", "times": 3}
+    ],
     "classes": [
         {"hidden": false, "classID": "ABC 123"},
         {"hidden": true, "classID": "DEF 456"},
