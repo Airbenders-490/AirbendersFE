@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StyleSheet, Text, View } from 'react-native';
 import theme from '../styles/theme.style.js';
@@ -16,7 +16,7 @@ class Feed extends Component {
 
   render() {
     return (
-      <ScreenContainer screenTitle="Feed" isSecondaryScreen >
+      <ScreenContainer screenTitle="Feed" >
       <MainContainer isElevated backgroundColor={theme.COLOR_BLUE}>
         <Title>Hola</Title>
         <Subtitle>Amiga</Subtitle>

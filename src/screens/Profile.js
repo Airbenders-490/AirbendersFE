@@ -10,6 +10,7 @@ import ToggleButton from '../components/ToggleButton.js';
 import { TextInput } from 'react-native-gesture-handler';
 import TextInputContainer from '../containers/TextInputContainer.js';
 import SaveButton from '../components/SaveButton.js';
+import UserProfile from '../components/profile/UserProfile.js';
 
 class Profile extends Component {
   constructor(props) {
@@ -20,14 +21,15 @@ class Profile extends Component {
 
   render() {
     return (
-      <ScreenContainer screenTitle='Profile'>
-        <MainContainer>
-          <Subtitle>Settings</Subtitle>
-          <ToggleButton labelName='Team chats'></ToggleButton>
-          <ToggleButton labelName='DMs'></ToggleButton>
-          <ToggleButton labelName='Schedule'></ToggleButton>
-          <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
-          <SaveButton></SaveButton>
+      <ScreenContainer>
+          <UserProfile isReadOnly={false} userID={12345} />
+          <MainContainer marginTop={15}>
+            <Subtitle>Settings</Subtitle>
+              <ToggleButton labelName='Team chats'></ToggleButton>
+              <ToggleButton labelName='DMs'></ToggleButton>
+              <ToggleButton labelName='Schedule'></ToggleButton>
+              <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
+              <SaveButton></SaveButton>
         </MainContainer>
       </ScreenContainer>
     );

@@ -41,6 +41,6 @@ const ButtonText = styled.Text `
 Button.propTypes = {
     children: PropTypes.element.isRequired,
     backgroundColor: PropTypes.string.isRequired
-  };
+};
 
 export default Button;
