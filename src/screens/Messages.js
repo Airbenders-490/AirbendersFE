@@ -11,9 +11,9 @@ import MainContainer from '../containers/ScreenContainer.js';
 class Messages extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      data: props.data,
+    this.state = {
       expanded : false,
+      isCurrentlyTeammate : true
     }
   }
 
@@ -21,16 +21,9 @@ class Messages extends Component {
   render() {
     return (
       <ScreenContainer screenTitle = 'Messages'>
-          <TouchableOpacity ref={this.accordian} onPress={()=>this.toggleExpand()}>
-              <Text>{this.props.title}</Text>
+          <TouchableOpacity onPress={()=>this.toggleExpand()}>
               <Icon name={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} size={30}/>
           </TouchableOpacity>
-        {
-            this.state.expanded &&
-            <View>
-                <Text>{this.props.data}</Text>    
-            </View>
-        }
       </ScreenContainer>
     );
   }
