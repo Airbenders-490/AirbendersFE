@@ -18,7 +18,7 @@ class UserProfile extends Component {
     render() {
         let classesTaken = UserData[this.props.userID].classes.map((data) => {
             return (
-                <TouchableOpacity>
+                <TouchableOpacity disabled={this.props.isReadOnly}>
                     <ClassLabel>{data.classID}</ClassLabel>
                 </TouchableOpacity>
             )
@@ -26,7 +26,7 @@ class UserProfile extends Component {
 
         let userPersonalSkills = UserData[this.props.userID].skills.map((data) => {
             return (
-                <TouchableOpacity>
+                <TouchableOpacity disabled={this.props.isReadOnly}>
                     <SkillLabel>{data}</SkillLabel>
                 </TouchableOpacity>
             )
