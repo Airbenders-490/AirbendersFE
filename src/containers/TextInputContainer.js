@@ -45,6 +45,7 @@ const StyledTextInput = styled.TextInput`
   font-family: ${theme.FONT_REGULAR};
   color: ${(props) => (props.textColor ? props.textColor : theme.COLOR_BLACK)};
   width: 100%;
+  top: 3;
   left: 65;
   flex: 1;
 `;
