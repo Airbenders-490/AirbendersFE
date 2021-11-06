@@ -19,7 +19,6 @@ class ToggleButton extends Component {
         <ToggleContainer>
             <Label>{this.props.labelName}</Label>
             <CustomSwitch
-              style={{ transform: [{ scaleX: 0.6 }, { scaleY: 0.6 }] }}
               trackColor={{true: '#0CD59E', false: 'grey'}}
               value={ this.state.value }
               onValueChange={(value) => this.setState({value})}            
@@ -31,20 +30,20 @@ class ToggleButton extends Component {
 
   const CustomSwitch = styled.Switch `
     left: 10;
-`
+    transform: scaleX(0.6) scaleY(0.6);
+  `;
 
   const ToggleContainer = styled.View`
     flexDirection: row;
-  `
+  `;
   const Label = styled.Text `
     width: 290;
     margin-top: 10;
     font-size: ${theme.FONT_SIZE_MEDIUM};
     font-family: ${theme.FONT_REGULAR};
-    line-height: ${theme.SPACING_SLIGHT_MEDIUM}
+    line-height: ${theme.SPACING_SLIGHT_MEDIUM};
     color: ${(props) => (props.textColor ? props.textColor : theme.COLOR_BLACK)};  
-  `
-;
+  `;
 
 ToggleButton.propTypes = {
   labelName: PropTypes.string.isRequired,

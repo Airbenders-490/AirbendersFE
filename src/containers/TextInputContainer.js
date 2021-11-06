@@ -27,19 +27,21 @@ TextInputContainer.propTypes = {
 
 const Container = styled.View`
   flexDirection: row;
-`
+`;
 
 const StyledInputContainer = styled.View`
   left: 80;
   margin-top: 10;
-`
+`;
+
 const Label = styled.Text `
   font-size: ${theme.FONT_SIZE_MEDIUM};
   font-family: ${theme.FONT_REGULAR};
-  line-height: ${theme.SPACING_SLIGHT_MEDIUM}
+  line-height: ${theme.SPACING_SLIGHT_MEDIUM};
   color: ${(props) => (props.textColor ? props.textColor : theme.COLOR_BLACK)};  
   margin-top: 10;
-`
+`;
+
 const StyledTextInput = styled.TextInput`
   font-size: ${theme.FONT_SIZE_MEDIUM};
   font-family: ${theme.FONT_REGULAR};

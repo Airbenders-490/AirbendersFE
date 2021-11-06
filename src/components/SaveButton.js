@@ -21,7 +21,7 @@ class SaveButton extends Component {
   
   // STYLED-COMPONENTS
 const CustomSaveButton = styled.TouchableOpacity `
-  padding-top: 20
+  padding-top: 20;
   alignItems: center;
 `;
 
