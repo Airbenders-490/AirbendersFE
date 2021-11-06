@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
+import StarIcon from '../assets/images/icons/star-icon.png';
 import { StyleSheet, Text, View } from 'react-native';
 import theme from '../styles/theme.style.js';
 import SimpleLabel from '../components/SimpleLabels';
@@ -17,7 +18,7 @@ class Messages extends Component {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Messages!</Text>
-            <CustomLabel isReadOnly={true} labelColor={theme.COLOR_ORANGE}>SOEN 490</CustomLabel>
+            <CustomLabel isReadOnly={false} labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>SOEN 490</CustomLabel>
             <SimpleLabel>SOEN 321</SimpleLabel>
         </View>
     );
