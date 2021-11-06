@@ -21,14 +21,14 @@ class SaveButton extends Component {
   
   // STYLED-COMPONENTS
 const CustomSaveButton = styled.TouchableOpacity `
-padding-top: 20
-alignItems: center;
+  padding-top: 20
+  alignItems: center;
 `;
 
 const CustomSaveIcon = styled.Image `
-tintColor: ${theme.COLOR_GREEN};
-width: 30; 
-height: 30;
+  tintColor: ${theme.COLOR_GREEN};
+  width: 30; 
+  height: 30;
 `;
 
 export default SaveButton;
