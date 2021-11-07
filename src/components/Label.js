@@ -57,13 +57,6 @@ const LabelIcon = styled.Image`
   height: 15;
 `;
 
-const CustomXIcon = styled.View`
-  tintColor: #FFFFFF;
-  background-color: green;
-  width: 15;
-  height: 15;
-`;
-
 const IconTag = styled.View `
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
