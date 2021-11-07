@@ -29,6 +29,7 @@ class Profile extends Component {
               <ToggleButton labelName='Team chats'></ToggleButton>
               <ToggleButton labelName='DMs'></ToggleButton>
               <ToggleButton labelName='Schedule'></ToggleButton>
+              {/* TODO: If confirmed, placeholder will be student's university email */}
               <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
               <SaveButton />
         </MainContainer>
