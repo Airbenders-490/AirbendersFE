@@ -23,17 +23,27 @@ class Profile extends Component {
     return (
       <ScreenContainer>
           <UserProfile isReadOnly={false} userID={12345} />
-          <MainContainer marginTop={15}>
+          <Separator />
+          <MainContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
             <Subtitle>Settings</Subtitle>
               <ToggleButton labelName='Team chats'></ToggleButton>
               <ToggleButton labelName='DMs'></ToggleButton>
               <ToggleButton labelName='Schedule'></ToggleButton>
               <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
-              <SaveButton></SaveButton>
+              <SaveButton />
         </MainContainer>
       </ScreenContainer>
     );
   }
 }
+
+// STYLED-COMPONENTS
+const Separator = styled.View `
+  height: 1;
+  background-color: ${theme.COLOR_GRAY};
+  width: 100;
+  align-self: center;
+  margin-vertical: 20;
+`;
 
 export default Profile;

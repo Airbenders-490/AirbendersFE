@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -32,11 +32,10 @@ class ScreenContainer extends Component {
 }
 
 //STYLED-COMPONENTS
-const Container = styled.View`
+const Container = styled.ScrollView`
   /* padding separated as the following to allow unitless values */
   padding-horizontal: ${theme.SPACING_MEDIUM};
   padding-top: ${theme.SPACING_LARGE};
-  padding-bottom: ${theme.SPACING_MEDIUM};
 `;
 
 const Header = styled.View`

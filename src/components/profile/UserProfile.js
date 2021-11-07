@@ -91,7 +91,7 @@ const UserName = styled.TextInput`
 `;
 
 const ProgramName = styled.TextInput`
-    color: #9E9E9E;
+    color: ${theme.COLOR_GRAY};
     font-size: ${theme.FONT_SIZE_SLIGHT_LARGE};
     font-family: ${theme.FONT_REGULAR};
     border-radius: 5;
@@ -115,7 +115,7 @@ const UserDescription = styled.TextInput`
 `;
 
 const SectionTitle = styled.Text`
-    color: #9E9E9E;
+    color: ${theme.COLOR_GRAY};
     font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
     font-family: ${theme.FONT_SEMIBOLD};
     letter-spacing: ${theme.LETTER_SPACING_LARGE};
@@ -126,7 +126,7 @@ const SectionTitle = styled.Text`
 const SearchIcon = styled.Image `
   width: 15;
   height: 15;
-  tint-color: #9E9E9E;
+  tint-color: ${theme.COLOR_GRAY};
 `;
 
 const SectionHeader = styled.View `
