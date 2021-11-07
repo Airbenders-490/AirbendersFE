@@ -7,6 +7,10 @@ import MainContainer from '../../containers/MainContainer.js';
 import { Title, Subtitle, TextBody, Caption } from '../../containers/TextContainer';
 import UserData from '../../data/mock/UserProfile.json';
 import MagnifyingIcon from '../../assets/images/icons/magnifying.png';
+import ToggleButton from '../ToggleButton.js';
+import { TextInput } from 'react-native-gesture-handler';
+import TextInputContainer from '../../containers/TextInputContainer.js';
+import SaveButton from '../SaveButton.js';
 
 class UserProfile extends Component {
     constructor(props) {
@@ -62,6 +66,16 @@ class UserProfile extends Component {
                     <LabelContainer>
                         {userPersonalSkills}
                     </LabelContainer>
+                </MainContainer>
+                <Separator />
+                <MainContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
+                    <Subtitle>Settings</Subtitle>
+                    <ToggleButton labelName='Team chats'></ToggleButton>
+                    <ToggleButton labelName='DMs'></ToggleButton>
+                    <ToggleButton labelName='Schedule'></ToggleButton>
+                    {/* TODO: If confirmed, placeholder will be student's university email */}
+                    <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
+                    <SaveButton />
                 </MainContainer>
             </View>
         );
@@ -153,6 +167,14 @@ const LabelContainer = styled.View `
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+`;
+
+const Separator = styled.View `
+  height: 1;
+  background-color: ${theme.COLOR_GRAY};
+  width: 100;
+  align-self: center;
+  margin-vertical: 20;
 `;
 
 export default UserProfile;
