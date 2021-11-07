@@ -14,7 +14,7 @@ class Messages extends Component {
   render() {
     return (
       <ScreenContainer screenTitle = 'Messages'>
-        <CollapsibleButton isCurrentlyTeammate={true}></CollapsibleButton>
+        <CollapsibleButton isCurrentlyTeammate={true} />
       </ScreenContainer>
     );
   }

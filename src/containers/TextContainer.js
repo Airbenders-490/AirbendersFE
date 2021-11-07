@@ -49,7 +49,6 @@ const StyledTitle = styled.Text`
   text-transform: uppercase;
   letter-spacing: ${theme.LETTER_SPACING_LARGE};
   font-family: ${theme.FONT_BOLD};
-  padding-bottom: 30;
 `;
 
 const StyledSubtitle = styled.Text`
