@@ -7,7 +7,7 @@ import MainContainer from '../containers/MainContainer.js';
 import ScreenContainer from '../containers/ScreenContainer.js';
 import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
 import { TextInputContainer } from '../containers/TextInputContainer';
-import CustomButton from '../components/button';
+import CustomButton from '../components/Button';
 import { Actions } from 'react-native-router-flux';
 
 class Login extends Component {

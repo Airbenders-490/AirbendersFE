@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import styled from 'styled-components';
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styled from 'styled-components';
 import StarIcon from '../assets/images/icons/star-icon.png';
 import { StyleSheet, Text, View } from 'react-native';
 import theme from '../styles/theme.style.js';
-import CustomLabel from '../components/Labels';
+import CustomLabel from '../components/Label';
 
 class Messages extends Component {
   constructor(props) {
