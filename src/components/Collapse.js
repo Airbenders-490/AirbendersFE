@@ -21,8 +21,10 @@ class Collapse extends Component {
   render() {
     return (
         <CollapsibleButton onPress={()=>this.toggleExpand()} isCurrentlyTeammate={this.props.isCurrentlyTeammate}>
-            <Icon name={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} 
-              size={30} 
+            <Icon
+              name={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} 
+              size={25}
+              color={theme.COLOR_GRAY}
             />
         </CollapsibleButton>
     );
@@ -31,6 +33,8 @@ class Collapse extends Component {
 
 const CollapsibleButton = styled.TouchableOpacity`
   display: ${props => props.isCurrentlyTeammate ? 'flex' : 'none'};
+  margin-right: -8;
+  margin-top: -8;
 `;
 
 Collapse.propTypes = {

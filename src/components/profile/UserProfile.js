@@ -11,6 +11,7 @@ import ToggleButton from '../ToggleButton.js';
 import { TextInput } from 'react-native-gesture-handler';
 import TextInputContainer from '../../containers/TextInputContainer.js';
 import SaveButton from '../SaveButton.js';
+import Collapse from '../Collapse.js';
 
 class UserProfile extends Component {
     constructor(props) {
@@ -50,8 +51,12 @@ class UserProfile extends Component {
                 </UserDescription>
 
                 <MainContainer marginTop={15}>
-                    <SectionTitle>Rated Qualities</SectionTitle>
+                    <SectionHeader>
+                        <SectionTitle>Rated Qualities</SectionTitle>
+                        <Collapse isCurrentlyTeammate={this.props.isReadOnly} />
+                    </SectionHeader>
                 </MainContainer>
+
                 <MainContainer marginTop={15}>
                     <SectionHeader>
                         <SectionTitle>Classes Taken</SectionTitle>
@@ -61,13 +66,16 @@ class UserProfile extends Component {
                         {classesTaken}
                     </LabelContainer>
                 </MainContainer>
+
                 <MainContainer marginTop={15}>
                     <SectionTitle>Self-Promoted Skills</SectionTitle>
                     <LabelContainer>
                         {userPersonalSkills}
                     </LabelContainer>
                 </MainContainer>
+
                 <Separator settingsAvailable={!this.props.isReadOnly} />
+                
                 <View settingsAvailable={!this.props.isReadOnly} >
                     <SettingsContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
                         <Subtitle>Settings</Subtitle>
@@ -149,6 +157,7 @@ const SectionHeader = styled.View `
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 `;
 
 const ClassLabel = styled.Text `
