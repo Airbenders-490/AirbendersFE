@@ -16,6 +16,8 @@ class Collapse extends Component {
   toggleExpand = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({expanded : !this.state.expanded})
+
+    
   }
 
   render() {

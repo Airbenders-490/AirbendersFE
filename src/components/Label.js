@@ -33,6 +33,7 @@ class Labels extends Component {
 const Container = styled.TouchableOpacity `
   display: flex;
   flex-direction: row;
+  margin-right: 10;
 `;
 
 const TextContainer = styled.View `

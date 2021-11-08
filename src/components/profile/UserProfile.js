@@ -12,13 +12,19 @@ import { TextInput } from 'react-native-gesture-handler';
 import TextInputContainer from '../../containers/TextInputContainer.js';
 import SaveButton from '../SaveButton.js';
 import Collapse from '../Collapse.js';
+import Label from '../Label.js';
+import StarIcon from '../../assets/images/icons/star-icon.png';
 
 class UserProfile extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            expanded : false,
+          }
     }
 
-    // Write functions here
+    // Write functions
     
     render() {
         let classesTaken = UserData[this.props.userID].classes.map((data) => {
@@ -55,6 +61,13 @@ class UserProfile extends Component {
                         <SectionTitle>Rated Qualities</SectionTitle>
                         <Collapse isCurrentlyTeammate={this.props.isReadOnly} />
                     </SectionHeader>
+                    <View>
+                        <Separator isDisplayed={this.props.isReadOnly} />
+                        <LabelContainer>
+                            <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Integrity</Label>
+                            <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Communication</Label>
+                        </LabelContainer>
+                    </View>
                 </MainContainer>
 
                 <MainContainer marginTop={15}>
@@ -74,8 +87,8 @@ class UserProfile extends Component {
                     </LabelContainer>
                 </MainContainer>
 
-                <Separator settingsAvailable={!this.props.isReadOnly} />
-                
+                <Separator isDisplayed={!this.props.isReadOnly} />
+
                 <View settingsAvailable={!this.props.isReadOnly} >
                     <SettingsContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
                         <Subtitle>Settings</Subtitle>
@@ -186,7 +199,7 @@ const Separator = styled.View `
   width: 100;
   align-self: center;
   margin-vertical: 20;
-  display: ${props => props.settingsAvailable ? 'flex': 'none'}
+  display: ${props => props.isDisplayed ? 'flex': 'none'}
 `;
 
 const SettingsContainer = styled.View `
