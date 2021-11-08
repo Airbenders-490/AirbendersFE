@@ -33,7 +33,7 @@ class UserProfile extends Component {
                     <ClassLabel>{data.classID}</ClassLabel>
                 </TouchableOpacity>
             )
-        })
+        });
 
         let userPersonalSkills = UserData[this.props.userID].skills.map((data) => {
             return (
@@ -41,7 +41,15 @@ class UserProfile extends Component {
                     <SkillLabel>{data}</SkillLabel>
                 </TouchableOpacity>
             )
-        })
+        });
+
+        let ratedQualities = UserData[this.props.userID].qualities.map((data) => {
+            return (
+                <Label labelColor={theme.COLOR_PURPLE} isReadOnly>
+                    {data.quality}
+                </Label>
+            )
+        });
 
         return (
             <View isReadOnly={this.props.isReadOnly} >
@@ -61,6 +69,9 @@ class UserProfile extends Component {
                         <SectionTitle>Rated Qualities</SectionTitle>
                         <Collapse isCurrentlyTeammate={this.props.isReadOnly} />
                     </SectionHeader>
+                    <LabelContainer>
+                        {ratedQualities}
+                    </LabelContainer>
                     <View>
                         <Separator isDisplayed={this.props.isReadOnly} />
                         <LabelContainer>
@@ -70,6 +81,7 @@ class UserProfile extends Component {
                     </View>
                 </MainContainer>
 
+                {/* Rated Qualities */}
                 <MainContainer marginTop={15}>
                     <SectionHeader>
                         <SectionTitle>Classes Taken</SectionTitle>

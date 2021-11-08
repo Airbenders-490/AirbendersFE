@@ -10,18 +10,25 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 class Labels extends Component {
   constructor(props) {
     super(props);
-    this.state = {isReadOnly: true};
+    this.state = {
+      isReadOnly: true,
+      isPressed: false,
+    };
+  }
+
+  selectLabel = () => {
+    this.setState({isPressed : !this.state.isPressed})
   }
 
   render() {
     return (
-      <Container disabled={this.props.isReadOnly}>
-        <TextContainer backgroundColor={this.props.labelColor} isReadOnly={this.props.isReadOnly}>
+      <Container disabled={this.props.isReadOnly} onPress={this.selectLabel}>
+        <TextContainer isPressed={this.state.isPressed} backgroundColor={this.props.labelColor} isReadOnly={this.props.isReadOnly}>
             <LabelText> 
               {this.props.children}
             </LabelText>
         </TextContainer>
-        <IconTag backgroundColor={this.props.labelColor} isReadOnly={this.props.isReadOnly}>
+        <IconTag isPressed={this.state.isPressed} backgroundColor={this.props.labelColor} isReadOnly={this.props.isReadOnly}>
           <LabelIcon source={this.props.labelIcon} />
         </IconTag>
       </Container>
@@ -34,6 +41,7 @@ const Container = styled.TouchableOpacity `
   display: flex;
   flex-direction: row;
   margin-right: 10;
+  margin-top: 5;
 `;
 
 const TextContainer = styled.View `
@@ -43,7 +51,7 @@ const TextContainer = styled.View `
   border-bottom-left-radius: 100;
   border-top-right-radius: ${props => props.isReadOnly ? '100' : '0'};
   border-bottom-right-radius: ${props => props.isReadOnly ? '100' : '0'};
-  background-color: ${props => props.backgroundColor ? props.backgroundColor : theme.COLOR_BLUE};
+  background-color: ${props => props.isPressed ? '#CECECE' : (props.backgroundColor ? props.backgroundColor : theme.COLOR_BLUE)};
 `;
 
 const LabelText = styled.Text`
@@ -66,7 +74,7 @@ const IconTag = styled.View `
   display: ${props => props.isReadOnly ? 'none' : 'flex'};
   justify-content: center;
   padding-horizontal: 5;
-  background-color: ${props => props.backgroundColor ? `${props.backgroundColor}50` : `${theme.COLOR_BLUE}50`};
+  background-color: ${props => props.isPressed ? '#CECECE' : (props.backgroundColor ? `${props.backgroundColor}50` : `${theme.COLOR_BLUE}50`)};
 `;
 
 Labels.propTypes = {
