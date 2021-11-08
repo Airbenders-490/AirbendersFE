@@ -17,7 +17,7 @@ class ScreenContainer extends Component {
 
         return (
             <Container>
-                <Header>
+                <Header screenTitle={this.props.screenTitle}>
                     <BackButton isVisible={this.props.isSecondaryScreen} onPress={ () => navigation.goBack() } >
                         <StyledBackIcon source={ BackIcon } />
                     </BackButton>

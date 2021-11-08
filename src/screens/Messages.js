@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import PropTypes from "prop-types";
-import StarIcon from '../assets/images/icons/star-icon.png';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import theme from '../styles/theme.style.js';
+import ScreenContainer from '../containers/ScreenContainer.js';
+import CollapsibleButton from '../components/Collapse.js';
+import StarIcon from '../assets/images/icons/star-icon.png';
 import CustomLabel from '../components/Label';
 
 class Messages extends Component {
@@ -11,14 +13,12 @@ class Messages extends Component {
     super(props);
   }
 
-  // Write functions here
-
   render() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Messages!</Text>
-            <CustomLabel isReadOnly={false} labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>SOEN 490</CustomLabel>
-        </View>
+        <ScreenContainer screenTitle="Messages">
+          <CustomLabel isReadOnly={false} labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>SOEN 490</CustomLabel>
+          <CollapsibleButton isCurrentlyTeammate={true} />
+        </ScreenContainer>
     );
   }
 }
