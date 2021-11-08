@@ -30,6 +30,7 @@ const CustomButton = styled.TouchableOpacity `
     alignItems: center;
     justifyContent: center;
 `;
+
 const ButtonText = styled.Text `
     color: white;
     text-transform: uppercase;
