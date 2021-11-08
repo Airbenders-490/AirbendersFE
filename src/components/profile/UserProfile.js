@@ -20,12 +20,18 @@ class UserProfile extends Component {
         super(props);
 
         this.state = {
-            expanded : false,
-          }
+            expanded: false,
+        }
+
+        this.toggleExpansion = this.toggleExpansion.bind(this);
     }
 
     // Write functions
-    
+    toggleExpansion() {
+        this.setState({ expanded: !this.state.expanded })
+        console.log(this.state.expanded)
+    }
+
     render() {
         let classesTaken = UserData[this.props.userID].classes.map((data) => {
             return (
@@ -64,28 +70,29 @@ class UserProfile extends Component {
                     {UserData[this.props.userID].description}
                 </UserDescription>
 
+                {/* Rated Qualities */}
                 <MainContainer marginTop={15}>
                     <SectionHeader>
                         <SectionTitle>Rated Qualities</SectionTitle>
-                        <Collapse isCurrentlyTeammate={this.props.isReadOnly} />
+                        <Collapse isCurrentlyTeammate={this.props.isReadOnly} onPress={this.toggleExpansion} />
                     </SectionHeader>
                     <LabelContainer>
                         {ratedQualities}
                     </LabelContainer>
-                    <View>
+                    <EndorsementContainer isDisplayed={this.state.expanded}>
                         <Separator isDisplayed={this.props.isReadOnly} />
                         <LabelContainer>
                             <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Integrity</Label>
                             <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Communication</Label>
                         </LabelContainer>
-                    </View>
+                        <SaveButton onPress={this.toggleExpansion} />
+                    </EndorsementContainer>
                 </MainContainer>
 
-                {/* Rated Qualities */}
                 <MainContainer marginTop={15}>
                     <SectionHeader>
                         <SectionTitle>Classes Taken</SectionTitle>
-                        <SearchIcon source={ MagnifyingIcon } />
+                        <SearchIcon source={MagnifyingIcon} />
                     </SectionHeader>
                     <LabelContainer>
                         {classesTaken}
@@ -101,7 +108,7 @@ class UserProfile extends Component {
 
                 <Separator isDisplayed={!this.props.isReadOnly} />
 
-                <View settingsAvailable={!this.props.isReadOnly} >
+                <View isDisplayed={!this.props.isReadOnly} >
                     <SettingsContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
                         <Subtitle>Settings</Subtitle>
                         <ToggleButton labelName='Team chats'></ToggleButton>
@@ -172,50 +179,54 @@ const SectionTitle = styled.Text`
     margin-bottom: 5;
 `;
 
-const SearchIcon = styled.Image `
+const SearchIcon = styled.Image`
   width: 15;
   height: 15;
   tint-color: ${theme.COLOR_GRAY};
 `;
 
-const SectionHeader = styled.View `
+const SectionHeader = styled.View`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 `;
 
-const ClassLabel = styled.Text `
+const ClassLabel = styled.Text`
     font-size: ${theme.FONT_SIZE_MEDIUM};
     font-family: ${theme.FONT_REGULAR};
     margin-right: 15;
     text-transform: uppercase;
 `;
 
-const SkillLabel = styled.Text `
+const SkillLabel = styled.Text`
     font-size: ${theme.FONT_SIZE_MEDIUM};
     font-family: ${theme.FONT_REGULAR};
     margin-right: 15;
     text-transform: capitalize;
 `;
 
-const LabelContainer = styled.View `
+const LabelContainer = styled.View`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 `;
 
-const Separator = styled.View `
+const Separator = styled.View`
   height: 1;
   background-color: ${theme.COLOR_GRAY};
   width: 100;
   align-self: center;
   margin-vertical: 20;
-  display: ${props => props.isDisplayed ? 'flex': 'none'}
+  display: ${props => props.isDisplayed ? 'flex' : 'none'}
 `;
 
-const SettingsContainer = styled.View `
-  display: ${props => props.settingsAvailable ? 'flex': 'none'}
+const SettingsContainer = styled(MainContainer)`
+  display: ${props => props.isDisplayed ? 'flex' : 'none'}
+  `;
+
+const EndorsementContainer = styled.View`
+  display: ${props => props.isDisplayed ? 'flex' : 'none'}
 `;
 
 export default UserProfile;

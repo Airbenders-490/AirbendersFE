@@ -8,11 +8,17 @@ import theme from '../styles/theme.style.js';
 class SaveButton extends Component {
     constructor(props) {
       super(props);
+
+      this.onButtonPress = this.onButtonPress.bind(this);
+    }
+
+    onButtonPress() {
+      this.props.onPress();
     }
   
     render() {
       return (
-      <CustomSaveButton>
+      <CustomSaveButton onPress={this.onButtonPress}>
           <CustomSaveIcon source= {SaveIcon}/>
       </CustomSaveButton>
       );
