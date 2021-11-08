@@ -18,65 +18,50 @@ class Schedule extends Component {
 
   Schedule({ navigation }) {
     // navigate to when to meet
-       const onPressHandler = () => {
-         navigation.navigate('ExternalProfile');
-       }
-     
-       return (
-         <View >
-           <Text >
-             Schedule!
-           </Text>
-           <Pressable
-             onPress={onPressHandler}
-             style={({ pressed }) => ({ backgroundColor: pressed ? '#ddd' : '#6958' })}
-           >
-             <Text >
-             Access to External Profile 
-             </Text>
-           </Pressable>
-         </View>
-       )
-     }
-     // Write functions here
-   
-     render() {
-       return(
-       <Stack2.Navigator
-    screenOptions={{ 
-      headerStyle: {   
-       height: 90,
-   
-           backgroundColor: 'transparent',
-           elevation: 0,
-           shadowOpacity: 0,
-           borderBottomWidth: 0, } ,
-           headerTitleStyle: {
-             marginLeft:0,
-             paddingRight:0,
-               fontWeight: 'bold',
-               fontSize:25,
-             },}}
-       
-         
-       
-       >
-         <Stack2.Screen
-       
-           name="Schedule"
-           component={this.Schedule}
-           
-        
-         />
-         <Stack2.Screen
-           name="ExternalProfile"
-           component={ExternalProfile}
-     
-         />
-       </Stack2.Navigator>
-   
-       )
-     }
-   }
+    const onPressHandler = () => {
+      navigation.navigate('ExternalProfile');
+    };
+
+    return (
+      <View >
+        <Text>Schedule!</Text>
+        <Pressable
+          onPress={onPressHandler}
+          style={({ pressed }) => ({ backgroundColor: pressed ? '#ddd' : '#6958' })}>
+          <Text>Access to External Profile</Text>
+        </Pressable>
+      </View>
+    );
+  }
+
+  render() {
+    return (
+      <Stack2.Navigator
+        screenOptions = {{
+          headerStyle: {
+            height: 90,
+            backgroundColor: 'transparent',
+            elevation: 0,
+            shadowOpacity: 0,
+            borderBottomWidth: 0,
+          },
+          headerTitleStyle: {
+            marginLeft: 0,
+            paddingRight: 0,
+            fontWeight: 'bold',
+            fontSize: 25,
+          },
+        }}
+      >
+        <Stack2.Screen
+          name="Schedule"
+          component={this.Schedule} />
+        <Stack2.Screen
+          name="ExternalProfile"
+          component={ExternalProfile} />
+      </Stack2.Navigator>
+    );
+  }
+}
 
 export default Schedule;
