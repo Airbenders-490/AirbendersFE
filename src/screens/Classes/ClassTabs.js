@@ -26,7 +26,6 @@ export default function  ClassTabs({ navigation }) {
       
         <Tab.Navigator
         
-        // style to be updated later 
            screenOptions={{
                 tabBarLabelStyle: { fontSize: 10, fontWeight:'bold',},
                 tabBarStyle:{paddingTop: 10,  // just to visualize before adding the view containing the screen title
@@ -69,3 +68,26 @@ export default function  ClassTabs({ navigation }) {
     
     )
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
 import { StyleSheet, Text, View } from 'react-native';
+import theme from '../styles/theme.style.js';
+
 
 class Schedule extends Component {
   constructor(props) {
@@ -20,3 +22,11 @@ class Schedule extends Component {
 }
 
 export default Schedule;
+
+
+
+
+
+
+
+

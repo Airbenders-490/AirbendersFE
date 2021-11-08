@@ -10,7 +10,7 @@ import When2meet from './When2meet'
 
 
 
-const Stack2 = createStackNavigator();
+const ClassStack = createStackNavigator();
 class Messages extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +42,7 @@ class Messages extends Component {
 
   render() {
     return(
-    <Stack2.Navigator
+    <ClassStack.Navigator
  screenOptions={{ 
    headerStyle: {   
     height: 90,
@@ -61,22 +61,46 @@ class Messages extends Component {
       
     
     >
-      <Stack2.Screen
+      <ClassStack.Screen
     
         name="Messages"
         component={this.Message}
         
      
       />
-      <Stack2.Screen
+      <ClassStack.Screen
         name="When2meet"
         component={When2meet}
   
       />
-    </Stack2.Navigator>
+    </ClassStack.Navigator>
 
     )
   }
 }
 
 export default Messages;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
