@@ -11,7 +11,11 @@ class MainContainer extends Component {
 
     render() {
         return (
-            <Container isElevated={this.props.isElevated} backgroundColor={this.props.backgroundColor}>
+            <Container
+                isElevated={this.props.isElevated}
+                backgroundColor={this.props.backgroundColor}
+                marginTop={this.props.marginTop}
+                marginBottom={this.props.marginBottom}>
                 {this.props.children}
             </Container>
         );
@@ -21,8 +25,10 @@ class MainContainer extends Component {
 //STYLED-COMPONENTS
 const Container = styled.View`
     /* padding separated as the following to allow unitless values */
-    padding-horizontal: ${theme.SPACING_MEDIUM};
-    padding-vertical: ${theme.SPACING_MEDIUM};
+    padding-horizontal: ${theme.SPACING_SLIGHT_MEDIUM};
+    padding-vertical: ${theme.SPACING_SLIGHT_MEDIUM};
+    margin-top: ${props => props.marginTop ? props.marginTop : 0}
+    margin-bottom: ${props => props.marginBottom ? props.marginBottom : 0}
     border-radius: ${theme.SPACING_SMALL};
     background: ${props => props.backgroundColor ? props.backgroundColor : '#fff'};
     elevation: ${props => props.isElevated ? theme.CARD_ELEVATION : 0};

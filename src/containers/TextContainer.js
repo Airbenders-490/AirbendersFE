@@ -63,11 +63,11 @@ const StyledTextBody = styled.Text`
   font-size: ${theme.FONT_SIZE_MEDIUM};
   font-family: ${theme.FONT_REGULAR};
   line-height: ${theme.SPACING_SLIGHT_MEDIUM}
-  color: ${(props) => (props.textColor ? props.textColor : theme.COLOR_BLACK)};
+  color: ${props => props.textColor ? props.textColor : theme.COLOR_BLACK};
 `;
 
 const StyledCaption = styled.Text`
   font-size: ${theme.FONT_SIZE_SMALL};
   font-family: ${theme.FONT_REGULAR};
-  color: ${(props) => (props.textColor ? props.textColor : theme.COLOR_BLACK)};
+  color: ${props => props.textColor ? props.textColor : theme.COLOR_BLACK};
 `;

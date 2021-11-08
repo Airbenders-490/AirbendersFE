@@ -14,7 +14,7 @@ import FeedScreen from './src/screens/Feed.js';
 import ScheduleScreen from './src/screens/Schedule.js';
 import ProfileScreen from './src/screens/Profile.js';
 import LoginScreen from './src/screens/Login.js';
-import Routes from './src/Routes.js';
+// import Routes from './src/Routes.js';
 
 import ClassesIconOutline from './src/assets/images/icons/graduation_cap.png';
 import MessagesIconOutline from './src/assets/images/icons/message_bubble.png';
@@ -58,7 +58,7 @@ function NavigationBar({ state, descriptors, navigation }) {
         };
 
         const renderTabIcons = (routeName, focused) => {
-          let icon;
+          let icon; 
             switch(routeName) {
               case 'Classes':
                 icon = focused ? ClassesIconFill : ClassesIconOutline
@@ -108,7 +108,7 @@ export default class App extends React.Component {
       return (
         <NavigationContainer>
           <Tab.Navigator
-            initialRouteName='Login'
+            initialRouteName='Feed'
             screenOptions={() => ({
               tabBarActiveTintColor: '#5089E9',
               tabBarInactiveTintColor: '#CAD8F0',
@@ -117,7 +117,7 @@ export default class App extends React.Component {
               tabBarShowLabel: false,
             })}
             tabBar={(props) => <NavigationBar {...props} />}>
-            <Tab.Screen name='Routes' component={Routes} />
+            {/* <Tab.Screen name='Routes' component={Routes} /> */}
             <Tab.Screen name='Classes' component={ClassesScreen} />
             <Tab.Screen name='Messages' component={MessagesScreen} />
             <Tab.Screen name='Feed' component={FeedScreen} />

@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, Switch } from 'react-native';
+import { TextBody, Title, Subtitle, Caption } from '../containers/TextContainer.js';
 import theme from '../styles/theme.style.js';
+import ScreenContainer from '../containers/ScreenContainer';
+import UserProfile from '../components/profile/UserProfile.js';
 
 class Profile extends Component {
   constructor(props) {
     super(props);
   }
-
+  
   // Write functions here
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Profile!</Text>
-      </View>
+      <ScreenContainer>
+          <UserProfile isReadOnly={false} userID={12345} />
+      </ScreenContainer>
     );
   }
 }

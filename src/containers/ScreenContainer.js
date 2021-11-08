@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
 import { Title } from '../containers/TextContainer.js';
 import BackIcon from '../assets/images/icons/left-arrow.png';
 
-function goBack() {
-
-}
 class ScreenContainer extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
+        const { navigation } = this.props;
+
         return (
             <Container>
-                <Header>
-                    <BackButton isVisible={this.props.isSecondaryScreen} onPress={ goBack } >
+                <Header screenTitle={this.props.screenTitle}>
+                    <BackButton isVisible={this.props.isSecondaryScreen} onPress={ () => navigation.goBack() } >
                         <StyledBackIcon source={ BackIcon } />
                     </BackButton>
                     <Title titleColor={theme.COLOR_BLACK}>{this.props.screenTitle}</Title>
@@ -32,16 +32,15 @@ class ScreenContainer extends Component {
 }
 
 //STYLED-COMPONENTS
-const Container = styled.View`
+const Container = styled.ScrollView`
   /* padding separated as the following to allow unitless values */
   padding-horizontal: ${theme.SPACING_MEDIUM};
   padding-top: ${theme.SPACING_LARGE};
-  padding-bottom: ${theme.SPACING_MEDIUM};
 `;
 
 const Header = styled.View`
   margin-bottom: ${theme.SPACING_MEDIUM};
-  display: flex;
+  display: ${props => props.screenTitle ? 'flex' : 'none'};
   flex-direction: row;
   align-items: center;
 `;
@@ -62,4 +61,9 @@ ScreenContainer.propTypes = {
     children: PropTypes.element.isRequired
 };
 
-export default ScreenContainer;
+// Wrap and export
+export default function(props) {
+    const navigation = useNavigation();
+  
+    return <ScreenContainer {...props} navigation={navigation} />;
+}
