@@ -17,7 +17,7 @@ class Profile extends Component {
   render() {
     return (
       <ScreenContainer>
-          <UserProfile isReadOnly={false} userID={12345} />
+          <UserProfile isReadOnly={true} userID={12345} />
       </ScreenContainer>
     );
   }

@@ -52,12 +52,12 @@ class Schedule extends Component {
             fontWeight: 'bold',
             fontSize: 25,
           },
+          headerShown: false,
         }}
       >
         <Stack2.Screen
           name="Schedule"
-          component={this.Schedule}
-          options={{ headerShown: false }} />
+          component={this.Schedule} />
         <Stack2.Screen
           name="ExternalProfile"
           component={ExternalProfile} />

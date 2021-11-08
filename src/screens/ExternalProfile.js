@@ -17,7 +17,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <ScreenContainer>
+      <ScreenContainer isSecondaryScreen screenTitle="John Smith">
         <UserProfile isReadOnly={true} userID={12345} />
       </ScreenContainer>
     );

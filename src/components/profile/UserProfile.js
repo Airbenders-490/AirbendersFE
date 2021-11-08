@@ -67,16 +67,18 @@ class UserProfile extends Component {
                         {userPersonalSkills}
                     </LabelContainer>
                 </MainContainer>
-                <Separator />
-                <MainContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
-                    <Subtitle>Settings</Subtitle>
-                    <ToggleButton labelName='Team chats'></ToggleButton>
-                    <ToggleButton labelName='DMs'></ToggleButton>
-                    <ToggleButton labelName='Schedule'></ToggleButton>
-                    {/* TODO: If confirmed, placeholder will be student's university email */}
-                    <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
-                    <SaveButton />
-                </MainContainer>
+                <Separator settingsAvailable={!this.props.isReadOnly} />
+                <View settingsAvailable={!this.props.isReadOnly} >
+                    <SettingsContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
+                        <Subtitle>Settings</Subtitle>
+                        <ToggleButton labelName='Team chats'></ToggleButton>
+                        <ToggleButton labelName='DMs'></ToggleButton>
+                        <ToggleButton labelName='Schedule'></ToggleButton>
+                        {/* TODO: If confirmed, placeholder will be student's university email */}
+                        <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
+                        <SaveButton />
+                    </SettingsContainer>
+                </View>
             </View>
         );
     }
@@ -175,6 +177,11 @@ const Separator = styled.View `
   width: 100;
   align-self: center;
   margin-vertical: 20;
+  display: ${props => props.settingsAvailable ? 'flex': 'none'}
+`;
+
+const SettingsContainer = styled.View `
+  display: ${props => props.settingsAvailable ? 'flex': 'none'}
 `;
 
 export default UserProfile;
