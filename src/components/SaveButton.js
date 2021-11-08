@@ -13,7 +13,9 @@ class SaveButton extends Component {
     }
 
     onButtonPress() {
-      this.props.onPress();
+      if (this.props.onPress) {
+        this.props.onPress();
+      }
     }
   
     render() {

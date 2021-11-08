@@ -7,6 +7,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Pressable } from 'react-native';
 import ExternalProfile from './ExternalProfile';
 import ScreenContainer from '../containers/ScreenContainer.js';
+import MainContainer from '../containers/MainContainer.js';
+import { Subtitle } from '../containers/TextContainer.js';
 
 const Stack2 = createStackNavigator();
 
@@ -25,11 +27,11 @@ class Schedule extends Component {
 
     return (
       <ScreenContainer screenTitle={'Schedule'} >
-        <Text>Schedule!</Text>
         <Pressable
-          onPress={onPressHandler}
-          style={({ pressed }) => ({ backgroundColor: pressed ? '#ddd' : '#6958' })}>
-          <Text>Access to External Profile</Text>
+          onPress={onPressHandler}>
+            <MainContainer>
+              <Subtitle>John Smith</Subtitle>
+            </MainContainer>
         </Pressable>
       </ScreenContainer>
     );
