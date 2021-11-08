@@ -79,14 +79,14 @@ class UserProfile extends Component {
                     <LabelContainer>
                         {ratedQualities}
                     </LabelContainer>
-                    <EndorsementContainer isDisplayed={this.state.expanded}>
+                    <ToggableContainer isDisplayed={this.state.expanded}>
                         <Separator isDisplayed={this.props.isReadOnly} />
                         <LabelContainer>
                             <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Integrity</Label>
                             <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Communication</Label>
                         </LabelContainer>
                         <SaveButton onPress={this.toggleExpansion} />
-                    </EndorsementContainer>
+                    </ToggableContainer>
                 </MainContainer>
 
                 <MainContainer marginTop={15}>
@@ -108,7 +108,7 @@ class UserProfile extends Component {
 
                 <Separator isDisplayed={!this.props.isReadOnly} />
 
-                <View isDisplayed={!this.props.isReadOnly} >
+                <ToggableContainer isDisplayed={!this.props.isReadOnly} >
                     <SettingsContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
                         <Subtitle>Settings</Subtitle>
                         <ToggleButton labelName='Team chats'></ToggleButton>
@@ -118,7 +118,7 @@ class UserProfile extends Component {
                         <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
                         <SaveButton />
                     </SettingsContainer>
-                </View>
+                </ToggableContainer>
             </View>
         );
     }
@@ -225,7 +225,7 @@ const SettingsContainer = styled(MainContainer)`
   display: ${props => props.isDisplayed ? 'flex' : 'none'}
   `;
 
-const EndorsementContainer = styled.View`
+const ToggableContainer = styled.View`
   display: ${props => props.isDisplayed ? 'flex' : 'none'}
 `;
 
