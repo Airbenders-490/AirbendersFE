@@ -7,6 +7,10 @@ import MainContainer from '../../containers/MainContainer.js';
 import { Title, Subtitle, TextBody, Caption } from '../../containers/TextContainer';
 import UserData from '../../data/mock/UserProfile.json';
 import MagnifyingIcon from '../../assets/images/icons/magnifying.png';
+import ToggleButton from '../ToggleButton.js';
+import { TextInput } from 'react-native-gesture-handler';
+import TextInputContainer from '../../containers/TextInputContainer.js';
+import SaveButton from '../SaveButton.js';
 
 class UserProfile extends Component {
     constructor(props) {
@@ -63,6 +67,16 @@ class UserProfile extends Component {
                         {userPersonalSkills}
                     </LabelContainer>
                 </MainContainer>
+                <Separator />
+                <MainContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
+                    <Subtitle>Settings</Subtitle>
+                    <ToggleButton labelName='Team chats'></ToggleButton>
+                    <ToggleButton labelName='DMs'></ToggleButton>
+                    <ToggleButton labelName='Schedule'></ToggleButton>
+                    {/* TODO: If confirmed, placeholder will be student's university email */}
+                    <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
+                    <SaveButton />
+                </MainContainer>
             </View>
         );
     }
@@ -91,7 +105,7 @@ const UserName = styled.TextInput`
 `;
 
 const ProgramName = styled.TextInput`
-    color: #9E9E9E;
+    color: ${theme.COLOR_GRAY};
     font-size: ${theme.FONT_SIZE_SLIGHT_LARGE};
     font-family: ${theme.FONT_REGULAR};
     border-radius: 5;
@@ -115,7 +129,7 @@ const UserDescription = styled.TextInput`
 `;
 
 const SectionTitle = styled.Text`
-    color: #9E9E9E;
+    color: ${theme.COLOR_GRAY};
     font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
     font-family: ${theme.FONT_SEMIBOLD};
     letter-spacing: ${theme.LETTER_SPACING_LARGE};
@@ -126,7 +140,7 @@ const SectionTitle = styled.Text`
 const SearchIcon = styled.Image `
   width: 15;
   height: 15;
-  tint-color: #9E9E9E;
+  tint-color: ${theme.COLOR_GRAY};
 `;
 
 const SectionHeader = styled.View `
@@ -153,6 +167,14 @@ const LabelContainer = styled.View `
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+`;
+
+const Separator = styled.View `
+  height: 1;
+  background-color: ${theme.COLOR_GRAY};
+  width: 100;
+  align-self: center;
+  margin-vertical: 20;
 `;
 
 export default UserProfile;

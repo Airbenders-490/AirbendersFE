@@ -17,12 +17,12 @@ class Feed extends Component {
   render() {
     return (
       <ScreenContainer screenTitle="Feed" >
-      <MainContainer isElevated backgroundColor={theme.COLOR_BLUE}>
-        <Title>Hola</Title>
-        <Subtitle>Amiga</Subtitle>
-      <TextBody>Classes!</TextBody>
-      </MainContainer>
-    </ScreenContainer>
+        <MainContainer isElevated backgroundColor={theme.COLOR_BLUE}>
+          <Title>Hola</Title>
+          <Subtitle>Amiga</Subtitle>
+        <TextBody>Classes!</TextBody>
+        </MainContainer>
+      </ScreenContainer>
     );
   }
 }
