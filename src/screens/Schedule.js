@@ -62,7 +62,7 @@ class Schedule extends Component {
           component={this.Schedule} />
         <Stack2.Screen
           name="ExternalProfile">
-          { props => <ExternalProfile userID={12345} />}
+          { (props) => <ExternalProfile userID={12345} />}
         </Stack2.Screen>
       </Stack2.Navigator>
     );
