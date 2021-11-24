@@ -12,7 +12,10 @@ class Button extends Component {
 
   render() {
     return (
-    <CustomButton onPress={this.props.redirect} backgroundColor={this.props.buttonColorBackground} >
+    <CustomButton
+      onPress={this.props.redirect}
+        backgroundColor={this.props.buttonColorBackground}  
+        disabled={this.props.disabled} >
       <Title titleColor={theme.COLOR_WHITE}>{this.props.children}</Title>
     </CustomButton>
     );
