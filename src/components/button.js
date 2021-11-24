@@ -28,7 +28,8 @@ const CustomButton = styled.TouchableOpacity `
     width: 350;
     padding-horizontal: 15;
     padding-vertical: 15;
-    background: ${props => props.backgroundColor};
+    background: ${props => props.disabled ? '#cecece'
+      : (props.backgroundColor ? props.backgroundColor : theme.COLOR_ORANGE)};
     font-weight: 500;
     alignItems: center;
     justifyContent: center;
