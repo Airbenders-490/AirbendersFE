@@ -90,9 +90,20 @@ function NavigationBar({ state, descriptors, navigation }) {
 }
 
 export default class App extends React.Component {
-  state = {
-    fontsLoaded: false,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      fontsLoaded: false,
+      isLoggedIn: false
+    };
+
+    this.handleLogin = this.handleLogin.bind(this);
+}
+
+  handleLogin(loginState) {
+    this.setState({ isLoggedIn: loginState });
+  }
 
   async _loadFontsAsync() {
     await Font.loadAsync(customFonts);
@@ -101,31 +112,41 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this._loadFontsAsync();
+
+    // TODO: Read login state from AsyncStorage and update accordingly
   }
 
   render() {
     if (this.state.fontsLoaded) {
-      return (
-        <NavigationContainer>
-          <Tab.Navigator
-            initialRouteName='Login'
-            screenOptions={() => ({
-              tabBarActiveTintColor: '#5089E9',
-              tabBarInactiveTintColor: '#CAD8F0',
-              headerShown: false,
-              showIcon: true,
-              tabBarShowLabel: false,
-            })}
-            tabBar={(props) => <NavigationBar {...props} />}>
-            <Tab.Screen name='Routes' component={Routes} />
-            <Tab.Screen name='Classes' component={ClassesScreen} />
-            <Tab.Screen name='Messages' component={MessagesScreen} />
-            <Tab.Screen name='Feed' component={FeedScreen} />
-            <Tab.Screen name='Schedule' component={ScheduleScreen} />
-            <Tab.Screen name='Profile' component={ProfileScreen} />
-          </Tab.Navigator>
-        </NavigationContainer>
-      );
+      if (this.state.isLoggedIn) {
+        return (
+          <NavigationContainer>
+            <Tab.Navigator
+              initialRouteName='Feed'
+              screenOptions={() => ({
+                tabBarActiveTintColor: '#5089E9',
+                tabBarInactiveTintColor: '#CAD8F0',
+                headerShown: false,
+                showIcon: true,
+                tabBarShowLabel: false,
+              })}
+              tabBar={(props) => <NavigationBar {...props} />}>
+              {/* <Tab.Screen name='Routes' component={Routes} /> */}
+              <Tab.Screen name='Classes' component={ClassesScreen} />
+              <Tab.Screen name='Messages' component={MessagesScreen} />
+              <Tab.Screen name='Feed' component={FeedScreen} />
+              <Tab.Screen name='Schedule' component={ScheduleScreen} />
+              <Tab.Screen name='Profile' component={ProfileScreen} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        );
+      } else {
+        return (
+          <NavigationContainer>
+            <LoginScreen handleLogin={this.handleLogin} />
+          </NavigationContainer>
+        )
+      }
     } else {
       return <AppLoading />;
     }
