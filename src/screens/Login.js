@@ -1,88 +1,58 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
-import theme from '../styles/theme.style.js';
-import MainContainer from '../containers/MainContainer.js';
-import ScreenContainer from '../containers/ScreenContainer.js';
-import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
-import { TextInputContainer } from '../containers/TextInputContainer';
-import CustomButton from '../components/button.js';
-import { Actions } from 'react-native-router-flux';
+import React, { Component, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import ForgotPasswordScreen from './ForgotPassword.js';
+import RegisterScreen from './Register.js';
+import LoginScreen from '../components/LoginContent.js';
+
+const Stack = createStackNavigator();
 
 class Login extends Component {
   constructor(props) {
     super(props);
   }
 
-  // Write functions here
-  register() {
-    Actions.register();
-  }
-
-  feed() {
-    Actions.feed();
-  }
-
-  forgotPassword() {
-    Actions.password();
-  }
-
   render() {
     return (
-      <ScreenContainer>
-        <View style={styles.container}>
-          <Title> Welcome </Title>
-          <View style={styles.inputView}>
-            <TextInput style={styles.TextInput} placeholder='Email' placeholderTextColor='#F77E54' />
-          </View>
-          <View style={styles.inputView}>
-            <TextInput style={styles.TextInput} placeholder='Password' placeholderTextColor='#F77E54' secureTextEntry />
-          </View>
-          <TouchableOpacity style={styles.forgotPasswordLink} onPress={this.forgotPassword}>
-            <TextBody>Forgot password?</TextBody>
-          </TouchableOpacity>
-          <CustomButton redirect={this.feed} buttonColorBackground="#FF7A67">Login</CustomButton>
-          <TouchableOpacity style={styles.registerLink} onPress={this.register}>
-            <TextBody>Don't have an account? Register</TextBody>
-          </TouchableOpacity>
-        </View>
-      </ScreenContainer>
+      <Stack.Navigator
+        screenOptions = {{
+          headerStyle: {
+            height: 90,
+            backgroundColor: 'transparent',
+            elevation: 0,
+            shadowOpacity: 0,
+            borderBottomWidth: 0,
+          },
+          headerTitleStyle: {
+            marginLeft: 0,
+            paddingRight: 0,
+            fontWeight: 'bold',
+            fontSize: 25,
+          },
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen
+          name="Schedule">
+            { (props) => <LoginScreen handleLogin={this.props.handleLogin} navigation={this.props.navigation} /> }
+        </Stack.Screen>
+        <Stack.Screen
+          name='RegisterScreen'>
+            { (props) => <RegisterScreen handleLogin={this.props.handleLogin} /> }
+        </Stack.Screen>
+        <Stack.Screen
+        name='ForgotPasswordScreen' >
+          { (props) => <ForgotPasswordScreen /> }
+        </Stack.Screen>
+      </Stack.Navigator>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    top: 180,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputView: {
-    backgroundColor: '#FFFF',
-    borderColor: '#FDEFE1',
-    borderWidth: 1,
-    borderRadius: 12,
-    width: 350,
-    height: 55,
-    marginBottom: 10,
-    marginTop: 10,
+// export default Login;
 
-    alignItems: 'center',
-  },
-  TextInput: {
-    height: 50,
-    flex: 1,
-    width: '80%',
-    padding: 10,
-    justifyContent: 'center',
-  },
-  forgotPasswordLink: {
-    paddingBottom: 15,
-  },
-  registerLink: {
-    paddingTop: 10,
-  }
-});
-
-export default Login;
+export default function(props) {
+  const navigation = useNavigation();
+  return <Login {...props} navigation={navigation} />;
+}
