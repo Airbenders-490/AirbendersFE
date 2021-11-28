@@ -14,7 +14,6 @@ class FeatureButtons extends Component {
 
       this.onButtonPress = this.onButtonPress.bind(this);
 
-
     }
 
     onButtonPress() {
@@ -52,10 +51,9 @@ class FeatureButtons extends Component {
   }
   
   // STYLED-COMPONENTS
-  // TODO: fix margins
 const FeatureButtonsContainer = styled.View`
     flexDirection: row;
-    margin-left: 230;
+    left: 230;
 `;
 
 const ButtonContainer = styled.View`
@@ -64,11 +62,6 @@ const ButtonContainer = styled.View`
     width: 30;
     borderRadius: 15;
     margin-right: 10;
-`;
-
-const PinButton = styled.TouchableOpacity `
-    alignItems: center;
-    top: 4;
 `;
 
 const CustomPinButton = styled.Image `
@@ -89,6 +82,17 @@ const CustomCalendarButton = styled.Image `
     height: 20;
 `;
 
+const CustomSearchButton = styled.Image `
+    tintColor: ${theme.COLOR_PURPLE};
+    width: 20; 
+    height: 20;
+  `;
+
+const PinButton = styled.TouchableOpacity `
+    alignItems: center;
+    top: 4;
+`;
+
 const ProfileButton = styled.TouchableOpacity `
     alignItems: center;
     top: 4;
@@ -103,11 +107,5 @@ const SearchButton = styled.TouchableOpacity `
     alignItems: center;
     top: 4;
 `;
-
-const CustomSearchButton = styled.Image `
-  tintColor: ${theme.COLOR_PURPLE};
-  width: 20; 
-  height: 20;
-  `;
 
 export default FeatureButtons;
