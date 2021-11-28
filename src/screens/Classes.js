@@ -20,7 +20,6 @@ class Classes extends Component {
     return (
       <ScreenContainer screenTitle='Classes'>
         <TextBody bodyColor={theme.COLOR_BLACK}>Classes!</TextBody>
-        <FeatureButtons></FeatureButtons>
       </ScreenContainer>
     );
   }
