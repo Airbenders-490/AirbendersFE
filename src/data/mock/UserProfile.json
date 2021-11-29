@@ -9,10 +9,15 @@
         {"rel": "loremipsum", "href": "loremipsum.com"}
     ],
     "qualities": [
-        {"quality": "Leader", "times": 3},
+        {"quality": "Leader", "times": 2},
         {"quality": "Sweet", "times": 3},
-        {"quality": "Diligent", "times": 3},
-        {"quality": "Timely", "times": 3}
+        {"quality": "Diligent", "times": 5},
+        {"quality": "Punctual", "times": 2},
+        {"quality": "Hardworking", "times": 1},
+        {"quality": "Helpful", "times": 7},
+        {"quality": "Organized", "times": 5},
+        {"quality": "Team Player", "times": 5},
+        {"quality": "Creative", "times": 5}
     ],
     "classes": [
         {"hidden": false, "classID": "ABC 123"},

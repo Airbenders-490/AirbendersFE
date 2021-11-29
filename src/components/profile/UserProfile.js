@@ -14,7 +14,7 @@ import SaveButton from '../SaveButton.js';
 import Collapse from '../Collapse.js';
 import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
-
+import Emoji from '../Emoji.js';
 class UserProfile extends Component {
     constructor(props) {
         super(props);
@@ -25,6 +25,14 @@ class UserProfile extends Component {
 
         this.toggleExpansion = this.toggleExpansion.bind(this);
     }
+
+    // count the occurence of each quality for later 
+   Count(quality) 
+   {let qualities=UserData[this.props.userID].qualities;
+    let count=0;
+    qualities.map((data)=>{ if (data.quality==quality) count=+1 ;})
+    console.Log(count);}// update quality.time in json
+
 
     // Write functions
     toggleExpansion() {
@@ -52,7 +60,7 @@ class UserProfile extends Component {
         let ratedQualities = UserData[this.props.userID].qualities.map((data) => {
             return (
                 <Label labelColor={theme.COLOR_PURPLE} isReadOnly>
-                    {data.quality}
+                    {data.quality} <Emoji quality={data.quality}/>
                 </Label>
             )
         });
