@@ -23,6 +23,7 @@ export default {
     COLOR_WHITE: '#F9F9F9',
     COLOR_BLACK: '#232323',
     COLOR_GRAY: '#9E9E9E',
+    COLOR_LIGHT_GRAY: '#E5E5E5',
 
     // SPACING
     SPACING_SMALL: 10,

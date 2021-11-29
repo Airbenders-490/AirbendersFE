@@ -7,7 +7,6 @@ import theme from '../styles/theme.style.js';
 import ScreenContainer from '../containers/ScreenContainer';
 import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
-import FeatureButtons from '../components/FeatureButtons.js';
 
 class Classes extends Component {
   constructor(props) {
