@@ -24,7 +24,6 @@ class MessageInput extends Component {
     return (
         <MessageInputContainer>
             <MessageTextInput multiline={true} placeholder='Message'></MessageTextInput>
-            <MessageText></MessageText>
             <SendButton onPress={this.onButtonPress}>
                 <CustomSendButton source= {SendIcon}></CustomSendButton>
             </SendButton>
