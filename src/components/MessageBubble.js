@@ -14,12 +14,9 @@ class MessageBubble extends Component {
       };
     }
   
-    selectBubble = () => {
-      this.setState({isSelectable : !this.state.isSelectable})
-    }
     render() {
       return (
-          <TextInputContainer isAuthor={this.state.isAuthor} backgroundColor={this.props.labelColor} isSelectable={this.selectBubble}>
+          <TextInputContainer isAuthor={this.state.isAuthor} backgroundColor={this.props.labelColor} isSelectable={this.props.isSelectable}>
               <MessageInput> 
                 {this.props.children}
               </MessageInput>
