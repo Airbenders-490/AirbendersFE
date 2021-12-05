@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Image, Switch } from 'react-native';
 import PropTypes from 'prop-types';
 import MessageInput from './MessageInput';
-import TextInputContainer from '../containers/TextInputContainer';
+import styled from 'styled-components';
+import theme from '../styles/theme.style.js';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 
 class MessageBubble extends Component {
@@ -10,22 +11,22 @@ class MessageBubble extends Component {
       super(props);
       this.state = {
         isAuthor: true,
-        isSelectable: false,
+        isSelectable: true,
       };
     }
   
     render() {
       return (
-          <TextInputContainer isAuthor={this.state.isAuthor} backgroundColor={this.props.labelColor} isSelectable={this.props.isSelectable}>
+          <MessageBubbleContainer isAuthor={this.state.isAuthor} backgroundColor={this.props.labelColor} isSelectable={this.props.isSelectable}>
               <MessageInput> 
                 {this.props.children}
               </MessageInput>
-        </TextInputContainer>
+        </MessageBubbleContainer>
       ); 
     }
   }
 
   
-const TextInputContainer = styled.View `
+const MessageBubbleContainer = styled.View`
 background-color: ${props => props.isAuthor ? theme.COLOR_ORANGE : (props.backgroundColor ? props.backgroundColor :  theme. COLOR_LIGHT_GRAY)};
 `;
