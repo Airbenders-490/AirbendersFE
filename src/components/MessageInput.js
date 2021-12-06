@@ -53,6 +53,11 @@ const MessageTextInput = styled.TextInput`
     bottom: 3;
 `;
 
+const MessageText = styled.TextInput`
+width: 300;
+bottom: 3;
+`;
+
 const CustomSendButton = styled.Image `
     tintColor: ${theme.COLOR_WHITE};
     width: 25;
