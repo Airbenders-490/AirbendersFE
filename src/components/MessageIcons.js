@@ -25,27 +25,24 @@ class MessageIcons extends Component {
   render() {
     return (
       <MessageIconsContainer>
-              <ClickEdit onPress={this.onButtonPress}>
-                  <EditButton source= {EditIcon}/>
-              </ClickEdit>
+        <ClickEdit onPress={this.onButtonPress}>
+          <EditButton source= {EditIcon}/>
+        </ClickEdit>
 
-              <ClickTrash onPress={createTwoButtonAlert}>
-                  <TrashButton source= {TrashIcon}/>
-              </ClickTrash>
+        <ClickTrash onPress={createTwoButtonAlert}>
+          <TrashButton source= {TrashIcon}/>
+        </ClickTrash>
 
-              <ClickPin onPress={this.onButtonPress}>
-                  <PinButton source= {PinIcon}/>
-              </ClickPin>
-      </MessageIconsContainer>
-      
+        <ClickPin onPress={this.onButtonPress}>
+          <PinButton source= {PinIcon}/>
+        </ClickPin>
+      </MessageIconsContainer>  
     ); 
   }
+}
 
-  }
-
-  
-  // STYLED-COMPONENTS
-  const MessageIconsContainer = styled.View`
+// STYLED-COMPONENTS
+const MessageIconsContainer = styled.View`
     flexDirection: row;
     left: 230;
 `;
