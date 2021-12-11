@@ -7,6 +7,15 @@ import PropTypes from 'prop-types';
 class TextInputContainer extends Component {
   constructor(props) {
     super(props);
+    this.consoleLogPrint =this.consoleLogPrint.bind(this);
+  }
+
+  payload = {
+    email: this.email,
+  } 
+
+  consoleLogPrint(s) {
+    console.log(s)
   }
 
   render() {
@@ -14,11 +23,12 @@ class TextInputContainer extends Component {
       <Container>
         <Label>{this.props.labelName}</Label>
         <View>
-          <StyledTextInput editable={!this.props.isConfirmed} placeholder={this.props.placeholder}></StyledTextInput>
+          <TextInput onChange={this.props.onChange} editable={!this.props.isConfirmed} placeholder={this.props.placeholder}></TextInput>
         </View>
       </Container>
     );
   }
+
 }
 
 // PROP-TYPES

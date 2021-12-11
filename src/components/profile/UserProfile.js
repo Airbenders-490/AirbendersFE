@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
@@ -8,7 +9,7 @@ import { Title, Subtitle, TextBody, Caption } from '../../containers/TextContain
 import UserData from '../../data/mock/UserProfile.json';
 import MagnifyingIcon from '../../assets/images/icons/magnifying.png';
 import ToggleButton from '../ToggleButton.js';
-import { TextInput } from 'react-native-gesture-handler';
+import { PanGestureHandler, TextInput } from 'react-native-gesture-handler';
 import TextInputContainer from '../../containers/TextInputContainer.js';
 import SaveButton from '../SaveButton.js';
 import Collapse from '../Collapse.js';
@@ -21,16 +22,46 @@ class UserProfile extends Component {
 
         this.state = {
             expanded: false,
+            domain: "",
         }
-
+        this.changeSchool=this.changeSchool.bind(this);    //BINDING
+        this.handleSaveButton=this.handleSaveButton.bind(this);    
         this.toggleExpansion = this.toggleExpansion.bind(this);
     }
 
-    // Write functions
+    // Write functionss
     toggleExpansion() {
         this.setState({ expanded: !this.state.expanded })
         console.log(this.state.expanded)
     }
+
+    changeSchool(setDomain) {
+        this.setState({domain: setDomain})
+        console.log(setDomain)
+    }
+
+    handleSaveButton() {
+        let config = {
+            headers: {
+              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiZWxsbyIsImxhc3RfbmFtZSI6Im1hdGUiLCJleHAiOjE2MzkzMzg2NzMsImlzcyI6IjkzYTlmOTJjLWI4YmMtNGU4Ni05Njk5LTNjM2RhN2I3ZGI5MSJ9.qX9zdyu8spqy1-aTD81Xcqw7eeSPiiM1ZZYrhCZUGlQ'
+          }
+        }
+
+        axios
+            .get('http://real.encs.concordia.ca/profile/api/school?domain=live.concordia.ca', config)  ///Change the domain to the extracted variable
+            .then(
+                response => {
+                console.log(response.data);   //Print response.data in pop-up
+                }
+            )
+            .catch(
+                error => {
+                    console.log(error)
+                }
+            )         
+    }
+
+
 
     render() {
         let classesTaken = UserData[this.props.userID].classes.map((data) => {
@@ -115,13 +146,15 @@ class UserProfile extends Component {
                         <ToggleButton labelName='DMs'></ToggleButton>
                         <ToggleButton labelName='Schedule'></ToggleButton>
                         {/* TODO: If confirmed, placeholder will be student's university email */}
-                        <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
-                        <SaveButton />
+                        <TextInputContainer onChange={this.changeSchool} isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
+                        <SaveButton onPress={this.handleSaveButton}/>
                     </SettingsContainer>
                 </ToggableContainer>
             </View>
         );
     }
+
+    
 }
 
 // STYLED-COMPONENTS
