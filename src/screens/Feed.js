@@ -6,7 +6,8 @@ import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
 import ScreenContainer from '../containers/ScreenContainer.js';
 import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
-import CustomMessage from '../components/MessageBubble.js';
+import MessageIcons from "../components/MessageIcons.js";
+
 
 class Feed extends Component {
   constructor(props) {
@@ -18,9 +19,7 @@ class Feed extends Component {
   render() {
     return (
       <ScreenContainer screenTitle="Feed" >
-        <CustomMessage isAuthor={true} isSelectable={true}>
-          I LOVE PIE!
-        </CustomMessage>
+        <MessageIcons></MessageIcons>
       </ScreenContainer>
     );
   }
