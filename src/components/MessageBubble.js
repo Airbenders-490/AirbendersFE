@@ -12,40 +12,36 @@ class MessageBubble extends Component {
       super(props);
       this.state = {
         isAuthor: true,
-        isSelectable: true,
+        isEditable: true,
       };
     }
   
     render() {
       return (
-        <MessageBubbleContainer isAuthor={this.state.isAuthor} backgroundColor={this.props.labelColor} isSelectable={this.props.isSelectable}>
-           <WrittenMessage
-           placeholder='Message'
-       placeholderTextColor={"#D8D8D8"}
-       multiline={true}
-     />
-          <TextInputContainer placeholder='' isConfirmed={false}>
-          </TextInputContainer>
+        <MessageBubbleContainer isAuthor={this.props.isAuthor} backgroundColor={this.props.BubbleColor} >
+          <WrittenMessage placeholder='Message' placeholderTextColor={"#D8D8D8"} multiline={true} editable={this.props.isEditable} isAuthor={this.props.isAuthor}/>
         </MessageBubbleContainer>
       ); 
     }
   }
   
+  
 const MessageBubbleContainer = styled.View`
-background-color: ${props => props.isAuthor ? theme.COLOR_ORANGE : (props.backgroundColor ? props.backgroundColor :  theme. COLOR_LIGHT_GRAY)};
+background-color: ${props => props.isAuthor ? theme.COLOR_ORANGE :theme.COLOR_LIGHT_GRAY};
 border-radius: 12;
-padding-vertical: 10;
+padding-vertical: 15;
 padding-horizontal: 15;
+max-width: 345;
 `;
 
 const WrittenMessage = styled.TextInput`
-color:${theme.COLOR_WHITE};
+color: ${props => props.isAuthor ? theme.COLOR_WHITE :theme.COLOR_BLACK};
 font-size: ${theme.FONT_SIZE_MEDIUM};
 font-family: ${theme.FONT_REGULAR};
 text-align: left;
-padding-vertical: ${props => props.isSelectable ? 5 : 0};
-padding-horizontal: ${props => props.isSelectable ? 5 : 0};
-top: 5;
+padding-vertical: ${props => props.isEditable ? 5 : 0};
+padding-horizontal: ${props => props.isEditable ? 5 : 0};
+bottom: 2;
 `;
 
 export default MessageBubble;
