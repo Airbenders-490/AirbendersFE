@@ -31,7 +31,9 @@ background-color: ${props => props.isAuthor ? theme.COLOR_ORANGE :theme.COLOR_LI
 border-radius: 12;
 padding-vertical: 15;
 padding-horizontal: 15;
-max-width: 345;
+max-width: 100%;
+display: flex;
+flex: 2;
 `;
 
 const WrittenMessage = styled.TextInput`
