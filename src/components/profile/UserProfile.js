@@ -16,6 +16,8 @@ import Collapse from '../Collapse.js';
 import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
 
+
+
 class UserProfile extends Component {
     constructor(props) {
         super(props);
@@ -23,11 +25,16 @@ class UserProfile extends Component {
         this.state = {
             expanded: false,
             domain: "",
+            jdata: [],
         }
-        this.changeSchool=this.changeSchool.bind(this);    //BINDING
         this.handleSaveButton=this.handleSaveButton.bind(this);    
         this.toggleExpansion = this.toggleExpansion.bind(this);
     }
+
+    payload = {
+        email: this.email,
+    } 
+
 
     // Write functionss
     toggleExpansion() {
@@ -35,23 +42,33 @@ class UserProfile extends Component {
         console.log(this.state.expanded)
     }
 
-    changeSchool(setDomain) {
-        this.setState({domain: setDomain})
-        console.log(setDomain)
-    }
+    
 
     handleSaveButton() {
-        let config = {
-            headers: {
-              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiZWxsbyIsImxhc3RfbmFtZSI6Im1hdGUiLCJleHAiOjE2MzkzMzg2NzMsImlzcyI6IjkzYTlmOTJjLWI4YmMtNGU4Ni05Njk5LTNjM2RhN2I3ZGI5MSJ9.qX9zdyu8spqy1-aTD81Xcqw7eeSPiiM1ZZYrhCZUGlQ'
-          }
+        let requestConfig = {
+            email: this.payload.email.substr(this.payload.email.indexOf('@') + 1),
+            config: {
+                headers: {
+                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiZWxsbyIsImxhc3RfbmFtZSI6Im1hdGUiLCJleHAiOjE2Mzk2MTEyMzAsImlzcyI6IjkzYTlmOTJjLWI4YmMtNGU4Ni05Njk5LTNjM2RhN2I3ZGI5MSJ9.1h6MbYRu4sbZaJX2Ypyt4bsbUJMN22A70pCRNXmKO4Y'
+                }
+            }
+            
         }
 
+        console.log(requestConfig.email)
+
         axios
-            .get('http://real.encs.concordia.ca/profile/api/school?domain=live.concordia.ca', config)  ///Change the domain to the extracted variable
-            .then(
+            .get(`http://real.encs.concordia.ca/profile/api/school?domain=${requestConfig.email}`, requestConfig.config)  ///Change the domain to the extracted variable
+            .then(          
                 response => {
-                console.log(response.data);   //Print response.data in pop-up
+                    const newResult = response.data.map(d => ({
+                        country: d.country,
+                        name: d.name,
+                    }))
+
+                    var s = JSON.stringify(newResult);
+                    alert(s.substring(2,s.length-2));
+                    //alert(JSON.stringify(newResult).replace(/]|[[]/g, ''));
                 }
             )
             .catch(
@@ -146,7 +163,7 @@ class UserProfile extends Component {
                         <ToggleButton labelName='DMs'></ToggleButton>
                         <ToggleButton labelName='Schedule'></ToggleButton>
                         {/* TODO: If confirmed, placeholder will be student's university email */}
-                        <TextInputContainer onChange={this.changeSchool} isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
+                        <TextInputContainer onChangeText={(text) => this.payload.email = text} isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
                         <SaveButton onPress={this.handleSaveButton}/>
                     </SettingsContainer>
                 </ToggableContainer>
