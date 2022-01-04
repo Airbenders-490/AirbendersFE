@@ -27,5 +27,172 @@
         {"hidden": true, "classID": "MNO 1213"},
         {"hidden": false, "classID": "PQR 1314"}
     ],
-    "skills": [ "management", "punctuality" ]
+    "skills": [ "management", "punctuality" ],
+    
+    
+     "reviews": [
+        {
+            "id": "a6902166-978d-4539-b19b-7cf01d65e2bc",
+            "reviewed": {
+                "id": "asd",
+                "first_name": "",
+                "last_name": "",
+                "email": "",
+                "general_info": "",
+                "school": null,
+                "CreatedAt": "0001-01-01T00:00:00Z",
+                "UpdatedAt": "0001-01-01T00:00:00Z",
+                "reviews": null
+            },
+            "reviewer": {
+                "id": "475a4c75-9006-4ab3-a9b8-2f6e704b0bfd",
+                "first_name": "",
+                "last_name": "",
+                "email": "",
+                "general_info": "",
+                "school": null,
+                "CreatedAt": "0001-01-01T00:00:00Z",
+                "UpdatedAt": "0001-01-01T00:00:00Z",
+                "reviews": null
+            },
+            "CreatedAt": "2021-11-17T15:03:26.752528Z",
+            "tags": [
+                {
+                    "name": "friendly",
+                    "positive": true
+                },
+                {
+                    "name": "leader",
+                    "positive": true
+                }
+            ]
+        },
+        {
+            "id": "a6902166-978d-4539-b19b-7cf01d65e2bd",
+            "reviewed": {
+                "id": "asd",
+                "first_name": "",
+                "last_name": "",
+                "email": "",
+                "general_info": "",
+                "school": null,
+                "CreatedAt": "0001-01-01T00:00:00Z",
+                "UpdatedAt": "0001-01-01T00:00:00Z",
+                "reviews": null
+            },
+            "reviewer": {
+                "id": "asda",
+                "first_name": "",
+                "last_name": "",
+                "email": "",
+                "general_info": "",
+                "school": null,
+                "CreatedAt": "0001-01-01T00:00:00Z",
+                "UpdatedAt": "0001-01-01T00:00:00Z",
+                "reviews": null
+            },
+            "CreatedAt": "2021-11-17T15:03:26.752528Z",
+            "tags": [
+                {
+                    "name": "slacker",
+                    "positive": false
+                },
+                {
+                    "name": "Helpful",
+                    "positive": true
+                },
+                {
+                    "name": "Helpful",
+                    "positive": true
+                },
+                {
+                    "name": "Helpful",
+                    "positive": false
+                },
+                {
+                    "name": "Leader",
+                    "positive": false
+                },
+
+                {
+                    "name": "Leader",
+                    "positive": true
+                },
+                {
+                    "name": "Hardworking",
+                    "positive": true
+                },
+                {
+                    "name": "Sweet",
+                    "positive": true
+                },
+                {
+                    "name": "Sweet",
+                    "positive": true
+                },
+                {
+                    "name": "Diligent",
+                    "positive": true
+                },
+                {
+                    "name": "Diligent",
+                    "positive": true
+                },
+                {
+                    "name": "Punctual",
+                    "positive": true
+                },
+                {
+                    "name": "Punctual",
+                    "positive": true
+                },
+                {
+                    "name": "Punctual",
+                    "positive": true
+                },
+                {
+                    "name": "Punctual",
+                    "positive": true
+                },
+                {
+                    "name": "Punctual",
+                    "positive": true
+                },
+                {
+                    "name": "Organized",
+                    "positive": true
+                },
+                {
+                    "name": "Organized",
+                    "positive": true
+                },
+                {
+                    "name": "Team Player",
+                    "positive": true
+                },
+                {
+                    "name": "Creative",
+                    "positive": true
+                },
+                {
+                    "name": "Creative",
+                    "positive": true
+                },
+                {
+                    "name": "Creative",
+                    "positive": true
+                },
+                {
+                    "name": "Creative",
+                    "positive": true
+                }
+            ]
+        }
+    ]
+    
   }}  
+
+
+
+
+
