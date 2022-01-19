@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 class TextInputContainer extends Component {
   constructor(props) {
     super(props);
+   // this.consoleLogPrint =this.consoleLogPrint.bind(this);
   }
 
   render() {
@@ -14,7 +15,7 @@ class TextInputContainer extends Component {
       <Container>
         <Label>{this.props.labelName}</Label>
         <View>
-          <StyledTextInput editable={!this.props.isConfirmed} placeholder={this.props.placeholder}></StyledTextInput>
+          <StyledTextInput editable={!this.props.isConfirmed} placeholder={this.props.placeholder} onChangeText={(text) => this.props.onChangeText(text)}></StyledTextInput>
         </View>
       </Container>
     );

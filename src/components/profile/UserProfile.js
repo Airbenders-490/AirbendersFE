@@ -17,47 +17,61 @@ import StarIcon from '../../assets/images/icons/star-icon.png';
 import UserIcon from '../../assets/images/icons/user_fill.png';
 import axios from 'axios';
 
-let config = {
-    headers: {
-      'Authorization':  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
-    }
-}
+
+
 class UserProfile extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             expanded: false,
-            currentUserData: {},
-            lastRefresh: Date(Date.now()).toString(),
+            domain: "",
+            jdata: [],
         }
-
+        this.handleSaveButton=this.handleSaveButton.bind(this);    
         this.toggleExpansion = this.toggleExpansion.bind(this);
         this.refreshScreen = this.refreshScreen.bind(this);
         this.onSettingsSave = this.onSettingsSave.bind(this);
     }
 
     payload = {
-        fullName: this.fullName,
-        studentID: this.studentID,
         email: this.email,
-        generalInfo: this.generalInfo,
-    }
+    } 
 
-    // Write functions
+
+    // Write functionss
     toggleExpansion() {
         this.setState({ expanded: !this.state.expanded })
         console.log(this.state.expanded)
     }
 
-    componentDidMount() {        
+    
+
+    handleSaveButton() {
+        let requestConfig = {
+            email: this.payload.email.substr(this.payload.email.indexOf('@') + 1),
+            config: {
+                headers: {
+                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiZWxsbyIsImxhc3RfbmFtZSI6Im1hdGUiLCJleHAiOjE2Mzk2MTEyMzAsImlzcyI6IjkzYTlmOTJjLWI4YmMtNGU4Ni05Njk5LTNjM2RhN2I3ZGI5MSJ9.1h6MbYRu4sbZaJX2Ypyt4bsbUJMN22A70pCRNXmKO4Y'
+                }
+            }
+            
+        }
+
+        console.log(requestConfig.email)
+
         axios
-            .get(`http://34.125.37.12:8080/api/student/${this.props.userID}`, config)
-            .then(
+            .get(`http://real.encs.concordia.ca/profile/api/school?domain=${requestConfig.email}`, requestConfig.config)  ///Change the domain to the extracted variable
+            .then(          
                 response => {
-                    console.log(response.data);
-                    this.setState({ currentUserData: response.data });
-                    console.log(this.state.currentUserData)
+                    const newResult = response.data.map(d => ({
+                        country: d.country,
+                        name: d.name,
+                    }))
+
+                    var s = JSON.stringify(newResult);
+                    alert(s.substring(2,s.length-2));
+                    //alert(JSON.stringify(newResult).replace(/]|[[]/g, ''));
                 }
             )
             .catch(
@@ -224,12 +238,8 @@ class UserProfile extends Component {
                         <ToggleButton labelName='DMs'></ToggleButton>
                         <ToggleButton labelName='Schedule'></ToggleButton>
                         {/* TODO: If confirmed, placeholder will be student's university email */}
-                        <TextInputContainer
-                            isConfirmed={false}
-                            labelName='School email'
-                            placeholder='yourschool@email.edu'
-                            onChangeText={(text) => this.payload.email = text} />
-                        <SaveButton onPress={this.onSettingsSave} />
+                        <TextInputContainer onChangeText={(text) => this.payload.email = text} isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
+                        <SaveButton onPress={this.handleSaveButton}/>
                     </SettingsContainer>
                 </ToggableContainer>
             </View>
