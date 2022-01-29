@@ -7,14 +7,14 @@ import styled from 'styled-components';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import theme from './src/styles/theme.style.js';
+import './src/api/constants.js';
 
 import ClassesScreen from './src/screens/Classes.js';
-import MessagesScreen from './src/screens/Messages.js';
+import MessagesScreen from './src/screens/Messages/Messages.js';
 import FeedScreen from './src/screens/Feed.js';
 import ScheduleScreen from './src/screens/Schedule.js';
 import ProfileScreen from './src/screens/Profile.js';
 import LoginScreen from './src/screens/Login.js';
-import Routes from './src/Routes.js';
 
 import ClassesIconOutline from './src/assets/images/icons/graduation_cap.png';
 import MessagesIconOutline from './src/assets/images/icons/message_bubble.png';
@@ -39,6 +39,13 @@ let customFonts = {
 };
 
 function NavigationBar({ state, descriptors, navigation }) {
+  // Hide tab bar for custom navigation bar
+  const focusedOptions = descriptors[state.routes[state.index].key].options;
+  
+  if (focusedOptions?.tabBarStyle?.display === "none") {
+    return null;
+  }
+
   return (
     <NavigationBarContainer>
       {state.routes.map((route, index) => {
@@ -95,10 +102,12 @@ export default class App extends React.Component {
 
     this.state = {
       fontsLoaded: false,
-      isLoggedIn: false
+      isLoggedIn: true,
+      showTabBar: true,
     };
 
     this.handleLogin = this.handleLogin.bind(this);
+    this.hideTabBar = this.hideTabBar.bind(this);
 }
 
   handleLogin(loginState) {
@@ -116,6 +125,10 @@ export default class App extends React.Component {
     // TODO: Read login state from AsyncStorage and update accordingly
   }
 
+  hideTabBar() {
+    this.setState({ showTabBar: false });
+  }
+
   render() {
     if (this.state.fontsLoaded) {
       if (this.state.isLoggedIn) {
@@ -129,11 +142,13 @@ export default class App extends React.Component {
                 headerShown: false,
                 showIcon: true,
                 tabBarShowLabel: false,
+                tabBarStyle: { display: this.state.showTabBar ? 'flex' : 'none' }
               })}
               tabBar={(props) => <NavigationBar {...props} />}>
-              {/* <Tab.Screen name='Routes' component={Routes} /> */}
               <Tab.Screen name='Classes' component={ClassesScreen} />
-              <Tab.Screen name='Messages' component={MessagesScreen} />
+              <Tab.Screen name='Messages'>
+                {(props) => <MessagesScreen hideTabBar={this.hideTabBar} />}
+              </Tab.Screen>
               <Tab.Screen name='Feed' component={FeedScreen} />
               <Tab.Screen name='Schedule' component={ScheduleScreen} />
               <Tab.Screen name='Profile' component={ProfileScreen} />
