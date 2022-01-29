@@ -14,7 +14,7 @@ import SaveButton from '../SaveButton.js';
 import Collapse from '../Collapse.js';
 import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
-
+import Emoji from '../Emoji.js';
 class UserProfile extends Component {
     constructor(props) {
         super(props);
@@ -25,6 +25,8 @@ class UserProfile extends Component {
 
         this.toggleExpansion = this.toggleExpansion.bind(this);
     }
+
+ 
 
     // Write functions
     toggleExpansion() {
@@ -49,10 +51,26 @@ class UserProfile extends Component {
             )
         });
 
-        let ratedQualities = UserData[this.props.userID].qualities.map((data) => {
+       
+    let allTags = UserData[this.props.userID].reviews
+	.flatMap(obj => obj.tags)
+	.reduce((dict, obj) => {
+		dict[obj.name] = (dict[obj.name] || 0) + 1;
+		return dict
+	}, {})
+    
+   
+
+    let topFiveTags = Object.keys(allTags)
+        .map(key => [key, allTags[key]])
+        .sort((x, y) => y[1]-x[1])
+            .slice(0, 5) 
+
+
+    let ratedQualities = topFiveTags.map((data) => {
             return (
                 <Label labelColor={theme.COLOR_PURPLE} isReadOnly>
-                    {data.quality}
+                    {data[0]} <Emoji quality={data[0]}/>
                 </Label>
             )
         });
