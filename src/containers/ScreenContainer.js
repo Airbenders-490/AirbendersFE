@@ -16,16 +16,16 @@ class ScreenContainer extends Component {
         const { navigation } = this.props;
 
         return (
-            <Container>
-                <Header screenTitle={this.props.screenTitle}>
+            <Container implementPadding={!this.props.ignorePadding}>
+                <Header screenTitle={this.props.screenTitle} implementPadding={!this.props.ignorePadding}>
                     <BackButton isVisible={this.props.isSecondaryScreen} onPress={ () => navigation.goBack() } >
                         <StyledBackIcon source={ BackIcon } />
                     </BackButton>
                     <Title titleColor={theme.COLOR_BLACK}>{this.props.screenTitle}</Title>
                 </Header>
-                <View>
+                <ScrollView contentContainerStyle={ this.props.ignorePadding ? {} : { padding: theme.SPACING_MEDIUM }}>
                     {this.props.children}
-                </View>
+                </ScrollView>
             </Container>
         );
     }
@@ -34,12 +34,11 @@ class ScreenContainer extends Component {
 //STYLED-COMPONENTS
 const Container = styled.ScrollView`
   /* padding separated as the following to allow unitless values */
-  padding-horizontal: ${theme.SPACING_MEDIUM};
   padding-top: ${theme.SPACING_LARGE};
 `;
 
 const Header = styled.View`
-  margin-bottom: ${theme.SPACING_MEDIUM};
+  margin-horizontal: ${theme.SPACING_MEDIUM};
   display: ${props => props.screenTitle ? 'flex' : 'none'};
   flex-direction: row;
   align-items: center;
