@@ -70,7 +70,6 @@ class UserProfile extends Component {
         this.setState({ lastRefresh: Date(Date.now()).toString() });
     }
 
-
     onSettingsSave() {
         console.log(this.payload);
         let updatedUser = {
