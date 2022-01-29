@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import theme from '../../styles/theme.style.js';
 import { TextBody, Title, Subtitle, Caption } from '../../containers/TextContainer.js';
 import BackIcon from '../../assets/images/icons/left-arrow.png';
+import MessageInput from '../../components/MessageInput.js';
 
 class ConversationScreen extends Component {
   constructor(props) {
@@ -19,21 +20,23 @@ class ConversationScreen extends Component {
 
   render() {
     const { navigation } = this.props;
-    
+
     return (
         <Container>
-        <Header>
-            <BackButton isVisible={this.props.isSecondaryScreen} onPress={ () => navigation.goBack() } >
-                <StyledBackIcon source={ BackIcon } />
-            </BackButton>
-            <View>
-                <Subtitle titleColor={theme.COLOR_BLACK}>Lorem Ipsum</Subtitle>
-                <TextBody captionColor={theme.COLOR_BLACK}>SOEN 490</TextBody>
-            </View>
-        </Header>
-        <ConversationContainer contentContainerStyle={ this.props.ignorePadding ? {} : { padding: theme.SPACING_MEDIUM }}>
-        </ConversationContainer>
-    </Container>
+            <Header>
+                <BackButton isVisible={this.props.isSecondaryScreen} onPress={ () => navigation.goBack() } >
+                    <StyledBackIcon source={ BackIcon } />
+                </BackButton>
+                <View>
+                    <Subtitle titleColor={theme.COLOR_BLACK}>Lorem Ipsum</Subtitle>
+                    <TextBody captionColor={theme.COLOR_BLACK}>SOEN 490</TextBody>
+                </View>
+            </Header>
+            <ConversationContainer>
+                <BubblesContainer />
+                <MessageInput />
+            </ConversationContainer>
+        </Container>
     );
   }
 }
@@ -63,9 +66,12 @@ const StyledBackIcon = styled.Image `
     width: 30;
 `;
 
-const ConversationContainer = styled.ScrollView `
+const ConversationContainer = styled.View `
     background: ${theme.COLOR_WHITE};
     flex: 1;
+    padding-vertical: ${theme.SPACING_SLIGHT_MEDIUM};
+    padding-horizontal: ${theme.SPACING_SLIGHT_MEDIUM};
+    justify-content: space-between;
     border-top-left-radius: ${theme.SPACING_MEDIUM};
     border-top-right-radius: ${theme.SPACING_MEDIUM};
     margin-top: ${theme.SPACING_MEDIUM};
@@ -75,6 +81,11 @@ const ConversationContainer = styled.ScrollView `
     shadowColor: #555;
     shadowOpacity: 0.05;
     shadowRadius: 10;
+`;
+
+const BubblesContainer = styled.ScrollView `
+    display: flex;
+    flex: 1;
 `;
 
 export default function(props) {
