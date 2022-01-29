@@ -7,6 +7,8 @@ import MainContainer from '../containers/MainContainer.js';
 import ScreenContainer from '../containers/ScreenContainer.js';
 import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
 import ParticipantListItem from "../components/ParticipantListItem.js";
+import MessageIcons from "../components/MessageIcons.js";
+
 
 class Feed extends Component {
   constructor(props) {
@@ -23,6 +25,7 @@ class Feed extends Component {
           <Subtitle>Amiga</Subtitle>
           <TextBody>Classes!</TextBody>
         </MainContainer>
+        <MessageIcons></MessageIcons>
       </ScreenContainer>
     );
   }
