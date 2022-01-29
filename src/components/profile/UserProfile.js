@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StyleSheet, Text, Touchable, TouchableOpacity, View, Image, ToastAndroid } from 'react-native';
@@ -8,7 +9,7 @@ import { Title, Subtitle, TextBody, Caption } from '../../containers/TextContain
 import UserData from '../../data/mock/UserProfile.json';
 import MagnifyingIcon from '../../assets/images/icons/magnifying.png';
 import ToggleButton from '../ToggleButton.js';
-import { TextInput } from 'react-native-gesture-handler';
+import { PanGestureHandler, TextInput } from 'react-native-gesture-handler';
 import TextInputContainer from '../../containers/TextInputContainer.js';
 import SaveButton from '../SaveButton.js';
 import Collapse from '../Collapse.js';
@@ -16,6 +17,8 @@ import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
 import UserIcon from '../../assets/images/icons/user_fill.png';
 import axios from 'axios';
+
+
 
 
 
@@ -75,6 +78,7 @@ class UserProfile extends Component {
                 }
             )
             .catch(
+<<<<<<< HEAD
                 // TODO: On 404, block all access to app until register is complete
                 error => console.log(error.response.data.code)
             )
@@ -131,6 +135,15 @@ class UserProfile extends Component {
             this.props.additionalFuncOnSave();
         }
     }
+=======
+                error => {
+                    console.log(error)
+                }
+            )         
+    }
+
+
+>>>>>>> c54d8975517cb6d2c205f225dfe0fc11c71f9ac9
 
     render() {
         let classesTaken = UserData[12345].classes.map((data) => {
@@ -245,6 +258,8 @@ class UserProfile extends Component {
             </View>
         );
     }
+
+    
 }
 
 // STYLED-COMPONENTS
