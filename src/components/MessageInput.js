@@ -9,21 +9,29 @@ import SendIcon from '../assets/images/icons/right-arrow.png';
 class MessageInput extends Component {
   constructor(props) {
         super(props);
-
+        this.state = {
+          message: ""
+        };
         this.onButtonPress = this.onButtonPress.bind(this);
+        this.onTextChange = this.onTextChange.bind(this);
 
-    }
+  } 
 
-    onButtonPress() {
-      if (this.props.onPress) {
-        this.props.onPress();
-      }
+  onButtonPress() {
+    if (this.props.onPress) {
+      this.props.onPress(this.state.message)
     }
+  }
+
+  onTextChange(text) {
+    this.setState({message: text})
+  }
 
   render() {
     return (
         <MessageInputContainer>
-            <MessageTextInput multiline={true} placeholder='Message'></MessageTextInput>
+            <MessageTextInput onChangeText={(message) => this.setState({message})}
+              value={this.state.message} multiline={true} placeholder='Message'></MessageTextInput>
             <SendButton onPress={this.onButtonPress}>
                 <CustomSendButton source= {SendIcon}></CustomSendButton>
             </SendButton>
