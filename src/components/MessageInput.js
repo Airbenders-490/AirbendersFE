@@ -11,7 +11,6 @@ class MessageInput extends Component {
         super(props);
 
         this.onButtonPress = this.onButtonPress.bind(this);
-
     }
 
     onButtonPress() {
