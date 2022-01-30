@@ -27,7 +27,7 @@ class FeatureButtons extends Component {
             <FeatureButton onPress={() => this.props.toggleSection('PIN')}>
                 <CustomPinButton source= {PinIcon}/>
             </FeatureButton>
-            <FeatureButton onPress={() => this.props.toggleSection('PARTICPANTS')}>
+            <FeatureButton onPress={() => this.props.toggleSection('PARTICIPANTS')}>
                 <CustomProfileButton source= {ProfileIcon}/>
             </FeatureButton>
             <FeatureButton onPress={() => this.props.toggleSection('COMMON_SCHEDULE')}>

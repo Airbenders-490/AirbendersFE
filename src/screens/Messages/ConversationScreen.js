@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { Pressable, Text, View, Image, TouchableOpacity, ScrollView, LayoutAnimation, UIManager } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -9,6 +9,13 @@ import BackIcon from '../../assets/images/icons/left-arrow.png';
 import MessageInput from '../../components/MessageInput.js';
 import FeatureButtons from '../../components/FeatureButtons.js';
 import ParticipantListItem from '../../components/ParticipantListItem.js';
+
+if (
+  Platform.OS === "android" &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 
 class ConversationScreen extends Component {
   constructor(props) {
@@ -37,30 +44,32 @@ class ConversationScreen extends Component {
 
   toggleFeaturedSection(section) {
     // TODO: Create enums for featured sections
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+
     switch(section) {
       case 'PIN': this.setState({
-        isPinnedDisplayed: true, 
+        isPinnedDisplayed: !this.state.isPinnedDisplayed, 
         isParticipantListDisplayed: false, 
         isCommonScheduleDisplayed: false, 
         isSearchResultDisplayed: false});
         break;
       case 'PARTICIPANTS': this.setState({
         isPinnedDisplayed: false, 
-        isParticipantListDisplayed: true, 
+        isParticipantListDisplayed: !this.state.isParticipantListDisplayed, 
         isCommonScheduleDisplayed: false, 
         isSearchResultDisplayed: false});
         break;
       case 'COMMON_SCHEDULE': this.setState({
         isPinnedDisplayed: false, 
         isParticipantListDisplayed: false, 
-        isCommonScheduleDisplayed: true, 
+        isCommonScheduleDisplayed: this.state.isCommonScheduleDisplayed, 
         isSearchResultDisplayed: false});
         break;
       case 'SEARCH_RESULT': this.setState({
         isPinnedDisplayed: false, 
         isParticipantListDisplayed: false, 
         isCommonScheduleDisplayed: false, 
-        isSearchResultDisplayed: true});
+        isSearchResultDisplayed: this.state.isSearchResultDisplayed});
         break;
       default: this.setState({
         isPinnedDisplayed: false, 
@@ -95,7 +104,7 @@ class ConversationScreen extends Component {
                 userTeamStatus={'pending'} />
             </ExpandableSection>
 
-            <ConversationContainer>
+            <ConversationContainer onPress={() => this.toggleFeaturedSection('default')} >
                 <BubblesContainer />
                 <MessageInput />
             </ConversationContainer>
@@ -144,11 +153,12 @@ const ExpandableSection = styled.View `
   padding-horizontal: ${theme.SPACING_MEDIUM};
   margin-top: ${theme.SPACING_MEDIUM};
   margin-horizontal: ${theme.SPACING_MEDIUM};
+  flex: 1;
 `;
 
-const ConversationContainer = styled.View `
+const ConversationContainer = styled.Pressable `
     background: ${theme.COLOR_WHITE};
-    flex: 1;
+    flex: 2;
     padding-vertical: ${theme.SPACING_SLIGHT_MEDIUM};
     padding-horizontal: ${theme.SPACING_SLIGHT_MEDIUM};
     justify-content: space-between;
