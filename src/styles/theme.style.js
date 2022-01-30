@@ -7,11 +7,11 @@ export default {
     FONT_SIZE_LARGE: 20,
     FONT_SIZE_X_LARGE: 25,
 
-    FONT_LIGHT:  'ProximaNova-Light',
-    FONT_REGULAR: 'ProximaNova-Regular',
-    FONT_SEMIBOLD: 'ProximaNova-Semibold',
-    FONT_BOLD: 'ProximaNova-Bold',
-    FONT_BLACK: 'ProximaNova-Black',
+    FONT_LIGHT:  'ProximaNovaLight',
+    FONT_REGULAR: 'ProximaNovaRegular',
+    FONT_SEMIBOLD: 'ProximaNovaSemibold',
+    FONT_BOLD: 'ProximaNovaBold',
+    FONT_BLACK: 'ProximaNovaBlack',
 
     // COLORS
     COLOR_PURPLE: '#7A54F7',

@@ -31,11 +31,11 @@ import ProfileIconFill from './src/assets/images/icons/user_fill.png';
 const Tab = createBottomTabNavigator();
 
 let customFonts = {
-  'ProximaNova-Light': require('./src/assets/fonts/ProximaNova-Light.otf'),
-  'ProximaNova-Regular': require('./src/assets/fonts/ProximaNova-Regular.otf'),
-  'ProximaNova-Semibold': require('./src/assets/fonts/ProximaNova-Semibold.otf'),
-  'ProximaNova-Bold': require('./src/assets/fonts/ProximaNova-Bold.otf'),
-  'ProximaNova-Black': require('./src/assets/fonts/ProximaNova-Black.otf'),
+  'ProximaNovaLight': require('./src/assets/fonts/ProximaNovaLight.otf'),
+  'ProximaNovaRegular': require('./src/assets/fonts/ProximaNovaRegular.otf'),
+  'ProximaNovaSemibold': require('./src/assets/fonts/ProximaNovaSemibold.otf'),
+  'ProximaNovaBold': require('./src/assets/fonts/ProximaNovaBold.otf'),
+  'ProximaNovaBlack': require('./src/assets/fonts/ProximaNovaBlack.otf'),
 };
 
 function NavigationBar({ state, descriptors, navigation }) {
@@ -125,8 +125,8 @@ export default class App extends React.Component {
     // TODO: Read login state from AsyncStorage and update accordingly
   }
 
-  hideTabBar() {
-    this.setState({ showTabBar: false });
+  hideTabBar(tabBarDisplayState) {
+    this.setState({ showTabBar: tabBarDisplayState });
   }
 
   render() {
