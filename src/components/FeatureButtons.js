@@ -12,11 +12,10 @@ class FeatureButtons extends Component {
     constructor(props) {
       super(props);
 
-      this.onButtonPress = this.onButtonPress.bind(this);
-
+      this.onFeatureButtonPress = this.onFeatureButtonPress.bind(this);
     }
 
-    onButtonPress() {
+    onFeatureButtonPress() {
       if (this.props.onPress) {
         this.props.onPress();
       }
@@ -25,26 +24,18 @@ class FeatureButtons extends Component {
     render() {
       return (
         <FeatureButtonsContainer>
-            <ButtonContainer>
-                <PinButton onPress={this.onButtonPress}>
-                    <CustomPinButton source= {PinIcon}/>
-                </PinButton>
-            </ButtonContainer>
-            <ButtonContainer>
-                <ProfileButton onPress={this.onButtonPress}>
-                    <CustomProfileButton source= {ProfileIcon}/>
-                </ProfileButton>
-            </ButtonContainer>
-            <ButtonContainer>
-                <CalendarButton onPress={this.onButtonPress}>
-                    <CustomCalendarButton source= {CalendarIcon}/>
-                </CalendarButton>
-            </ButtonContainer>
-            <ButtonContainer>
-                <SearchButton onPress={this.onButtonPress}>
-                    <CustomSearchButton source= {SearchIcon}/>
-                </SearchButton>
-            </ButtonContainer>
+            <FeatureButton onPress={() => this.props.toggleSection('PIN')}>
+                <CustomPinButton source= {PinIcon}/>
+            </FeatureButton>
+            <FeatureButton onPress={() => this.props.toggleSection('PARTICPANTS')}>
+                <CustomProfileButton source= {ProfileIcon}/>
+            </FeatureButton>
+            <FeatureButton onPress={() => this.props.toggleSection('COMMON_SCHEDULE')}>
+                <CustomCalendarButton source= {CalendarIcon}/>
+            </FeatureButton>
+            <FeatureButton onPress={() => this.props.toggleSection('SEARCH_RESULT')}>
+                <CustomSearchButton source= {SearchIcon}/>
+            </FeatureButton>
         </FeatureButtonsContainer>
       );
     }
@@ -53,21 +44,23 @@ class FeatureButtons extends Component {
   // STYLED-COMPONENTS
 const FeatureButtonsContainer = styled.View`
     flexDirection: row;
-    left: 230;
 `;
 
-const ButtonContainer = styled.View`
+const FeatureButton = styled.TouchableOpacity`
     backgroundColor: white;
-    height: 30;
-    width: 30;
+    height: 32;
+    width: 32;
     borderRadius: 15;
     margin-right: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const CustomPinButton = styled.Image `
     tintColor: ${theme.COLOR_PURPLE};
-    width: 20;
-    height: 20;
+    width: 15;
+    height: 15;
 `;
 
 const CustomProfileButton = styled.Image `
@@ -78,8 +71,8 @@ const CustomProfileButton = styled.Image `
 
 const CustomCalendarButton = styled.Image `
     tintColor: ${theme.COLOR_PURPLE};
-    width: 20; 
-    height: 20;
+    width: 18; 
+    height: 18;
 `;
 
 const CustomSearchButton = styled.Image `
@@ -87,25 +80,5 @@ const CustomSearchButton = styled.Image `
     width: 20; 
     height: 20;
   `;
-
-const PinButton = styled.TouchableOpacity `
-    alignItems: center;
-    top: 4;
-`;
-
-const ProfileButton = styled.TouchableOpacity `
-    alignItems: center;
-    top: 4;
-`;
-
-const CalendarButton = styled.TouchableOpacity `
-    alignItems: center;
-    top: 4;
-`;
-
-const SearchButton = styled.TouchableOpacity `
-    alignItems: center;
-    top: 4;
-`;
 
 export default FeatureButtons;

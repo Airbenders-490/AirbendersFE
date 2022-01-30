@@ -67,7 +67,7 @@ const SendButton = styled.TouchableOpacity `
     width: 35;
     height: 35;
 
-    elevation: ${theme.CARD_ELEVATION};
+    elevation: 3;
     shadowColor: ${theme.COLOR_ORANGE};
     shadowOpacity: ${props => props.backgroundColor ? '0.4' : '0.7'};
     shadowRadius: 10;
