@@ -11,7 +11,6 @@ class MessageInput extends Component {
         super(props);
 
         this.onButtonPress = this.onButtonPress.bind(this);
-
     }
 
     onButtonPress() {
@@ -46,11 +45,12 @@ const MessageInputContainer = styled.View`
 
 const MessageTextInput = styled.TextInput`
     font-size: ${theme.FONT_SIZE_MEDIUM};
-    font-family: ${theme.FONT_REGULAR};
+    font-family: ${theme.FONT_REGULAR};git 
     color: ${(props) => (props.textColor ? props.textColor : theme.COLOR_BLACK)};
     width: 300;
     bottom: 3;
 `;
+
 
 const CustomSendButton = styled.Image `
     tintColor: ${theme.COLOR_WHITE};
