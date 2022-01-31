@@ -16,11 +16,6 @@ import Collapse from '../Collapse.js';
 import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
 import UserIcon from '../../assets/images/icons/user_fill.png';
-import axios from 'axios';
-
-
-
-
 
 class UserProfile extends Component {
     constructor(props) {
@@ -78,7 +73,6 @@ class UserProfile extends Component {
                 }
             )
             .catch(
-<<<<<<< HEAD
                 // TODO: On 404, block all access to app until register is complete
                 error => console.log(error.response.data.code)
             )
@@ -135,15 +129,6 @@ class UserProfile extends Component {
             this.props.additionalFuncOnSave();
         }
     }
-=======
-                error => {
-                    console.log(error)
-                }
-            )         
-    }
-
-
->>>>>>> c54d8975517cb6d2c205f225dfe0fc11c71f9ac9
 
     render() {
         let classesTaken = UserData[12345].classes.map((data) => {
