@@ -8,7 +8,7 @@ import ScreenContainer from '../containers/ScreenContainer.js';
 import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
 import ParticipantListItem from "../components/ParticipantListItem.js";
 import MessageIcons from "../components/MessageIcons.js";
-
+import MessageBubble from '../components/MessageBubble.js';
 
 class Feed extends Component {
   constructor(props) {
@@ -26,6 +26,8 @@ class Feed extends Component {
           <TextBody>Classes!</TextBody>
         </MainContainer>
         <MessageIcons></MessageIcons>
+        {/* <MessageBubble isAuthor>Hello</MessageBubble>
+        <MessageBubble>Hey there!</MessageBubble> */}
       </ScreenContainer>
     );
   }

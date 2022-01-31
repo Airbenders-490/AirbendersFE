@@ -16,6 +16,7 @@ import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
 import UserIcon from '../../assets/images/icons/user_fill.png';
 import axios from 'axios';
+import Emoji from '../Emoji.js';
 
 let config = {
     headers: {
@@ -43,6 +44,8 @@ class UserProfile extends Component {
         email: this.email,
         generalInfo: this.generalInfo,
     }
+
+ 
 
     // Write functions
     toggleExpansion() {
@@ -134,10 +137,26 @@ class UserProfile extends Component {
             )
         });
 
-        let ratedQualities = UserData[12345].qualities.map((data) => {
+       
+    let allTags = UserData[this.props.userID].reviews
+	.flatMap(obj => obj.tags)
+	.reduce((dict, obj) => {
+		dict[obj.name] = (dict[obj.name] || 0) + 1;
+		return dict
+	}, {})
+    
+   
+
+    let topFiveTags = Object.keys(allTags)
+        .map(key => [key, allTags[key]])
+        .sort((x, y) => y[1]-x[1])
+            .slice(0, 5) 
+
+
+    let ratedQualities = topFiveTags.map((data) => {
             return (
                 <Label labelColor={theme.COLOR_PURPLE} isReadOnly>
-                    {data.quality}
+                    {data[0]} <Emoji quality={data[0]}/>
                 </Label>
             )
         });
