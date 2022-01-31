@@ -1,26 +1,26 @@
 {
-    "1": {
+    "messages": [{
         "isAuthor": true,
         "description": "Hey"
     },
-    "2": {
+    {
         "isAuthor": false,
         "description": "Hi there!"
     },
-    "3": {
+    {
         "isAuthor": true,
         "description": "We are just testing for now"
     },
-    "4": {
+    {
         "isAuthor": true,
         "description": "Looks like it's working!"
     },
-    "5": {
+    {
         "isAuthor": false,
         "description": "Indeed it does"
     },
-    "6": {
+    {
         "isAuthor": true,
         "description": "Eureka!"
-    }
+    }]
 }

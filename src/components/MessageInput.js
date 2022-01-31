@@ -14,9 +14,7 @@ class MessageInput extends Component {
     }
 
     onButtonPress() {
-      if (this.props.onPress) {
-        this.props.onPress();
-      }
+      this.props.sendMessageAction && this.props.sendMessageAction();
     }
 
   render() {

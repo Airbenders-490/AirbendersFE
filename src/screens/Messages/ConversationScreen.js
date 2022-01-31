@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Pressable, Text, View, Image, TouchableOpacity, ScrollView, LayoutAnimation, UIManager } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from '../../styles/theme.style.js';
@@ -9,6 +9,8 @@ import BackIcon from '../../assets/images/icons/left-arrow.png';
 import MessageInput from '../../components/MessageInput.js';
 import FeatureButtons from '../../components/FeatureButtons.js';
 import ParticipantListItem from '../../components/ParticipantListItem.js';
+import MessageBubble from '../../components/MessageBubble.js';
+import Test from '../../data/mock/FirstConversation.json';
 
 if (
   Platform.OS === "android" &&
@@ -29,6 +31,7 @@ class ConversationScreen extends Component {
     };
 
     this.toggleFeaturedSection = this.toggleFeaturedSection.bind(this);
+    this.sendMessage = this.sendMessage.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +43,10 @@ class ConversationScreen extends Component {
     navigation.goBack();
     // Put back tab bar on conversation exit
     this.props.hideTabBar(true);
+  }
+
+  sendMessage() {
+    // TODO: Send message connection
   }
 
   toggleFeaturedSection(section) {
@@ -80,7 +87,16 @@ class ConversationScreen extends Component {
   }
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, route } = this.props;
+    const { conversation } = route.params;
+
+    let conversationBubbles = conversation.messages.map((data) => {
+      return (
+        <MessageBubble isAuthor={data.isAuthor}>
+          {data.description}
+        </MessageBubble>
+      )
+    })
 
     return (
         <Container>
@@ -105,8 +121,10 @@ class ConversationScreen extends Component {
             </ExpandableSection>
 
             <ConversationContainer onPress={() => this.toggleFeaturedSection('default')} >
-                <BubblesContainer />
-                <MessageInput />
+                <BubblesContainer>
+                  {conversationBubbles}
+                </BubblesContainer>
+                <MessageInput sendMessageAction={this.sendMessage} />
             </ConversationContainer>
         </Container>
     );
@@ -180,6 +198,7 @@ const BubblesContainer = styled.ScrollView `
 
 export default function(props) {
     const navigation = useNavigation();
+    const route = useRoute();
   
-    return <ConversationScreen {...props} navigation={navigation} />;
+    return <ConversationScreen {...props} navigation={navigation} route={route} />;
 }
