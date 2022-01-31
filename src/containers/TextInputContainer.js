@@ -36,7 +36,6 @@ const Label = styled.Text `
   font-family: ${theme.FONT_REGULAR};
   line-height: ${theme.SPACING_SLIGHT_MEDIUM};
   color: ${(props) => (props.textColor ? props.textColor : theme.COLOR_BLACK)};  
-  margin-top: 10;
 `;
 
 const StyledTextInput = styled.TextInput`

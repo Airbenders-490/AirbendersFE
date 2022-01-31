@@ -14,7 +14,6 @@ class MessageInput extends Component {
         };
         this.onButtonPress = this.onButtonPress.bind(this);
         this.onTextChange = this.onTextChange.bind(this);
-
   } 
 
   onButtonPress() {
@@ -59,6 +58,7 @@ const MessageTextInput = styled.TextInput`
     width: 300;
     bottom: 3;
 `;
+
 
 const CustomSendButton = styled.Image `
     tintColor: ${theme.COLOR_WHITE};
