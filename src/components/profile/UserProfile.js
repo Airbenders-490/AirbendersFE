@@ -17,6 +17,7 @@ import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
 import UserIcon from '../../assets/images/icons/user_fill.png';
 
+
 class UserProfile extends Component {
     constructor(props) {
         super(props);
