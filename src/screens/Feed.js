@@ -9,6 +9,7 @@ import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
 import ParticipantListItem from "../components/ParticipantListItem.js";
 import MessageIcons from "../components/MessageIcons.js";
 import MessageBubble from '../components/MessageBubble.js';
+import TeamListItem from '../components/TeamListItem.js';
 
 class Feed extends Component {
   constructor(props) {
@@ -20,14 +21,11 @@ class Feed extends Component {
   render() {
     return (
       <ScreenContainer screenTitle="Feed" >
-        <MainContainer isElevated backgroundColor={theme.COLOR_BLUE}>
-          <Title>Hola</Title>
-          <Subtitle>Amiga</Subtitle>
-          <TextBody>Classes!</TextBody>
-        </MainContainer>
-        <MessageIcons></MessageIcons>
-        {/* <MessageBubble isAuthor>Hello</MessageBubble>
-        <MessageBubble>Hey there!</MessageBubble> */}
+        <TeamListItem
+          title="Airbenders"
+          courseNumber="SOEN 490"
+          numberCurrentParticipants={3}
+          numberTotalParticipants={5} />
       </ScreenContainer>
     );
   }
