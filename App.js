@@ -8,7 +8,7 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import theme from './src/styles/theme.style.js';
 
-import ClassesScreen from './src/screens/Classes.js';
+import TeamsScreen from './src/screens/Teams.js';
 import MessagesScreen from './src/screens/Messages.js';
 import FeedScreen from './src/screens/Feed.js';
 import ScheduleScreen from './src/screens/Schedule.js';
@@ -60,7 +60,7 @@ function NavigationBar({ state, descriptors, navigation }) {
         const renderTabIcons = (routeName, focused) => {
           let icon; 
             switch(routeName) {
-              case 'Classes':
+              case 'Teams':
                 icon = focused ? ClassesIconFill : ClassesIconOutline
                 break;
               case 'Messages':
@@ -118,7 +118,7 @@ export default class App extends React.Component {
             })}
             tabBar={(props) => <NavigationBar {...props} />}>
             {/* <Tab.Screen name='Routes' component={Routes} /> */}
-            <Tab.Screen name='Classes' component={ClassesScreen} />
+            <Tab.Screen name='Teams' component={TeamsScreen} />
             <Tab.Screen name='Messages' component={MessagesScreen} />
             <Tab.Screen name='Feed' component={FeedScreen} />
             <Tab.Screen name='Schedule' component={ScheduleScreen} />
