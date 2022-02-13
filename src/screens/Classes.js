@@ -35,7 +35,7 @@ class Classes extends Component {
     ws.onclose = () => {
       console.log('disconnected');
       this.connectOnLoad();
-  };
+    };
   }
 
   onSendMessage(m) {
