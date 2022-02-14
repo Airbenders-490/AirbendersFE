@@ -75,6 +75,19 @@ class UserProfile extends Component {
             )
         });
 
+    // just to visualize : to be changed with data from connection 
+    let currentlytaken = UserData[this.props.userID].classes.map((data)  => {
+            return (
+                // 
+                <Label labelColor={theme.COLOR_BLUE} isReadOnly>
+                    {data.classID}
+                </Label>
+            )
+        });
+
+
+       
+
         return (
             <View isReadOnly={this.props.isReadOnly} >
                 <UserProfileImage />
@@ -105,6 +118,15 @@ class UserProfile extends Component {
                         </LabelContainer>
                         <SaveButton onPress={this.toggleExpansion} />
                     </ToggableContainer>
+                </MainContainer>
+
+                <MainContainer marginTop={15}>
+                    <SectionHeader>
+                        <SectionTitle>Classes enrolled in </SectionTitle>
+                    </SectionHeader>
+                    <LabelContainer>
+                        {currentlytaken}
+                    </LabelContainer>
                 </MainContainer>
 
                 <MainContainer marginTop={15}>
