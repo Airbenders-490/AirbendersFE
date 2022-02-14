@@ -139,6 +139,7 @@ class LoginContent extends Component {
                 <CredentialsInput
                     placeholder='email'
                     placeholderTextColor={theme.COLOR_ORANGE}
+                    accessibilityLabel="email"
                     onChangeText={(text) => this.payload.email = text} />
             </CredentialsContainer>
 
