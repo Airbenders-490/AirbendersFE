@@ -19,6 +19,7 @@ class MessageInput extends Component {
   onButtonPress() {
     if (this.props.onPress) {
       this.props.onPress(this.state.message)
+      this.textInput.clear()
     }
   }
 
@@ -29,7 +30,7 @@ class MessageInput extends Component {
   render() {
     return (
         <MessageInputContainer>
-            <MessageTextInput onChangeText={(message) => this.setState({message})}
+            <MessageTextInput ref={input => { this.textInput = input }} onChangeText={(message) => this.setState({message})}
               value={this.state.message} multiline={true} placeholder='Message'></MessageTextInput>
             <SendButton onPress={this.onButtonPress}>
                 <CustomSendButton source= {SendIcon}></CustomSendButton>
