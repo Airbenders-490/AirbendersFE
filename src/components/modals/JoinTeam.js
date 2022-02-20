@@ -43,10 +43,10 @@ class JoinTeam extends Component {
             <JoinTeamContainer>
               <JoinTeamText>Are you sure you want to join {this.props.teamName} team?</JoinTeamText>
               <ConfirmButton onPress={() => this.joinTeam()}>
-                <ConfirmButtonText>{this.props.confirmJoinTeam}</ConfirmButtonText>
+                <ConfirmButtonText>Yes</ConfirmButtonText>
               </ConfirmButton>
               <CancelButton onPress={() => this.setModalVisible(!modalVisible)}>
-                <CancelButtonText>{this.props.cancelJoinTeam}</CancelButtonText>
+                <CancelButtonText>No</CancelButtonText>
               </CancelButton>
             </JoinTeamContainer>
           </CenterContainer>

@@ -20,9 +20,7 @@ class Teams extends Component {
       <ScreenContainer screenTitle='Teams'>
         <TeamsContainer>
           <JoinTeam 
-            teamName='X' 
-            cancelJoinTeam='No'
-            confirmJoinTeam='Yes'
+            teamName='X'
             >
           </JoinTeam>
         </TeamsContainer>
