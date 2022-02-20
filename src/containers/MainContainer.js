@@ -13,7 +13,6 @@ class MainContainer extends Component {
         return (
             <Container
                 isElevated={this.props.isElevated}
-                height={this.props.height}
                 backgroundColor={this.props.backgroundColor}
                 marginTop={this.props.marginTop}
                 marginBottom={this.props.marginBottom}>
@@ -33,7 +32,6 @@ const Container = styled.View`
     border-radius: ${theme.SPACING_SMALL};
     background: ${props => props.backgroundColor ? props.backgroundColor : '#fff'};
     elevation: ${props => props.isElevated ? theme.CARD_ELEVATION : 0};
-    height: ${props => props.height ? props.height : 0};
 
     /* iOS Shadows */
     shadowColor: ${props => props.backgroundColor ? props.backgroundColor : '#555'};

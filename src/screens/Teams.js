@@ -18,10 +18,15 @@ class Teams extends Component {
   render() {
     return (
       <ScreenContainer screenTitle='Teams'>
-        <MainContainer backgroundColor='#E5E5E5' height='720'></MainContainer>
+        <TeamsContainer></TeamsContainer>
       </ScreenContainer>
     );
   }
 }
 
 export default Teams;
+const TeamsContainer = styled.View `
+  background-color:  ${theme.COLOR_LIGHT_GRAY};
+  height: 720;
+  border-radius: 12;
+`;
