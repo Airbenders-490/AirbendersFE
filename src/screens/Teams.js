@@ -7,7 +7,7 @@ import theme from '../styles/theme.style.js';
 import ScreenContainer from '../containers/ScreenContainer';
 import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
-
+import JoinTeam from '../components/modals/JoinTeam.js';
 class Teams extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +18,14 @@ class Teams extends Component {
   render() {
     return (
       <ScreenContainer screenTitle='Teams'>
-        <TeamsContainer></TeamsContainer>
+        <TeamsContainer>
+          <JoinTeam 
+            teamName='X' 
+            cancelJoinTeam='No'
+            confirmJoinTeam='Yes'
+            >
+          </JoinTeam>
+        </TeamsContainer>
       </ScreenContainer>
     );
   }
