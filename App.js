@@ -16,13 +16,13 @@ import ProfileScreen from './src/screens/Profile.js';
 import LoginScreen from './src/screens/Login.js';
 // import Routes from './src/Routes.js';
 
-import ClassesIconOutline from './src/assets/images/icons/graduation_cap.png';
+import TeamsIconOutline from './src/assets/images/icons/teams.png';
 import MessagesIconOutline from './src/assets/images/icons/message_bubble.png';
 import FeedIconOutline from './src/assets/images/icons/feed.png';
 import ScheduleIconOutline from './src/assets/images/icons/calendar.png';
 import ProfileIconOutline from './src/assets/images/icons/user.png';
 
-import ClassesIconFill from './src/assets/images/icons/graduation_cap_fill.png';
+import TeamsIconFill from './src/assets/images/icons/teams_fill.png';
 import MessagesIconFill from './src/assets/images/icons/message_bubble_fill.png';
 import FeedIconFill from './src/assets/images/icons/feed_fill.png';
 import ScheduleIconFill from './src/assets/images/icons/calendar_fill.png';
@@ -61,7 +61,7 @@ function NavigationBar({ state, descriptors, navigation }) {
           let icon; 
             switch(routeName) {
               case 'Teams':
-                icon = focused ? ClassesIconFill : ClassesIconOutline
+                icon = focused ? TeamsIconFill : TeamsIconOutline
                 break;
               case 'Messages':
                 icon = focused ? MessagesIconFill : MessagesIconOutline  
