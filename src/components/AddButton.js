@@ -14,7 +14,7 @@ class AddButton extends Component {
       <CustomAddButton >
           <AddCustomIcon source= {AddIcon}/>
         <ButtonText>
-          {this.props.children}
+          {this.props.buttonText}
         </ButtonText>
       </CustomAddButton>
       );

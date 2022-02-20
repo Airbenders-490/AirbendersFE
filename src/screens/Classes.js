@@ -7,7 +7,7 @@ import theme from '../styles/theme.style.js';
 import ScreenContainer from '../containers/ScreenContainer';
 import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
-import TeamButton from '../components/AddButton.js';
+import AddTeamButton from '../components/AddButton.js';
 
 class Classes extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Classes extends Component {
     return (
       <ScreenContainer screenTitle='Classes'>
         <TextBody bodyColor={theme.COLOR_BLACK}>Classes!</TextBody>
-        <TeamButton>Create Team</TeamButton>
+        <AddTeamButton buttonText='Create Team'></AddTeamButton>
       </ScreenContainer>
     );
   }
