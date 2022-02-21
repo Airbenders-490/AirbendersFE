@@ -22,7 +22,7 @@ class Label extends Component {
 
   render() {
     return (
-      <Container disabled={this.props.isReadOnly} onPress={this.selectLabel}>
+      <Container disabled={this.props.isReadOnly} onPress={this.selectLabel} stacked={this.props.stacked}>
         <TextContainer isPressed={this.state.isPressed} backgroundColor={this.props.labelColor} isReadOnly={this.props.isReadOnly}>
             <LabelText> 
               {this.props.children}
@@ -41,6 +41,7 @@ const Container = styled.TouchableOpacity `
   display: flex;
   flex-direction: row;
   margin-right: 10;
+  margin-bottom: ${(props) => props.stacked ? 5 : 0};
 `;
 
 const TextContainer = styled.View `
