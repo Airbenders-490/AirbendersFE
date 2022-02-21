@@ -1,0 +1,26 @@
+{
+    "messages": [{
+        "isAuthor": true,
+        "description": "Hey"
+    },
+    {
+        "isAuthor": false,
+        "description": "Hi there!"
+    },
+    {
+        "isAuthor": true,
+        "description": "We are just testing for now"
+    },
+    {
+        "isAuthor": true,
+        "description": "Looks like it's working!"
+    },
+    {
+        "isAuthor": false,
+        "description": "Indeed it does"
+    },
+    {
+        "isAuthor": true,
+        "description": "Eureka!"
+    }]
+}
