@@ -175,30 +175,30 @@ const ExpandableSection = styled.View `
 `;
 
 const ConversationContainer = styled.Pressable `
-    background: ${theme.COLOR_WHITE};
-    flex: 2;
-    padding-vertical: ${theme.SPACING_SLIGHT_MEDIUM};
-    padding-horizontal: ${theme.SPACING_SLIGHT_MEDIUM};
-    justify-content: space-between;
-    border-top-left-radius: ${theme.SPACING_MEDIUM};
-    border-top-right-radius: ${theme.SPACING_MEDIUM};
-    margin-top: ${theme.SPACING_MEDIUM};
-    elevation: 30;
-  
-    /* iOS Shadows */
-    shadowColor: #555;
-    shadowOpacity: 0.05;
-    shadowRadius: 10;
+  background: ${theme.COLOR_WHITE};
+  flex: 2;
+  padding-vertical: ${theme.SPACING_SLIGHT_MEDIUM};
+  padding-horizontal: ${theme.SPACING_SLIGHT_MEDIUM};
+  justify-content: space-between;
+  border-top-left-radius: ${theme.SPACING_MEDIUM};
+  border-top-right-radius: ${theme.SPACING_MEDIUM};
+  margin-top: ${theme.SPACING_MEDIUM};
+  elevation: 30;
+
+  /* iOS Shadows */
+  shadowColor: #555;
+  shadowOpacity: 0.05;
+  shadowRadius: 10;
 `;
 
 const BubblesContainer = styled.ScrollView `
-    display: flex;
-    flex: 1;
+  display: flex;
+  flex: 1;
 `;
 
 export default function(props) {
-    const navigation = useNavigation();
-    const route = useRoute();
-  
-    return <ConversationScreen {...props} navigation={navigation} route={route} />;
+  const navigation = useNavigation();
+  const route = useRoute();
+
+  return <ConversationScreen {...props} navigation={navigation} route={route} />;
 }

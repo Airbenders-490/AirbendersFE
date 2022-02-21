@@ -36,6 +36,9 @@ function get(endpoint) {
 
 function put(endpoint, body) {
     axios
+        // function put(endpoint, body) {
+        // return axios.put(endpoint, body, global.config)
+        // }
         .put(endpoint, body, global.config)
         .then(
             response => {

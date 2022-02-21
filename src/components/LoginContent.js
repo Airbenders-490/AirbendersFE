@@ -106,7 +106,6 @@ class LoginContent extends Component {
                         console.log(error)
                     }
                 )
-                
         }
     }
 
@@ -183,10 +182,10 @@ class LoginContent extends Component {
 }
 
 const LoginContainer = styled.View `
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 `;
 
 const CredentialsInput = styled.TextInput `
@@ -194,32 +193,32 @@ const CredentialsInput = styled.TextInput `
 `;
 
 const CredentialsContainer = styled.View `
-  display: ${props => props.isHidden ? 'none' : 'flex'};
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  border-color: ${props => props.borderColor ? props.borderColor : theme.COLOR_ORANGE};
-  border-width: 1;
-  border-radius: 12;
-  width: 350;
-  margin-bottom: 10;
-  margin-top: ${props => props.marginTop ? props.marginTop : 5};
-  padding-vertical: 10;
-  padding-horizontal: 15;
+    display: ${props => props.isHidden ? 'none' : 'flex'};
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-color: ${props => props.borderColor ? props.borderColor : theme.COLOR_ORANGE};
+    border-width: 1;
+    border-radius: 12;
+    width: 350;
+    margin-bottom: 10;
+    margin-top: ${props => props.marginTop ? props.marginTop : 5};
+    padding-vertical: 10;
+    padding-horizontal: 15;
 `;
 
 const ScreenLink = styled.Pressable `
-  padding-vertical: 10;
+    padding-vertical: 10;
 `;
 
 const HideIcon = styled.Image `
-  width: 20;
-  height: 20;
-  tint-color: ${theme.COLOR_GRAY};
+    width: 20;
+    height: 20;
+    tint-color: ${theme.COLOR_GRAY};
 `;
 
 export default function(props) {
-  const navigation = useNavigation();
-  return <LoginContent {...props} navigation={navigation} />;
+    const navigation = useNavigation();
+    return <LoginContent {...props} navigation={navigation} />;
 }
