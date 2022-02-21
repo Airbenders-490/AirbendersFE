@@ -138,24 +138,22 @@ class UserProfile extends Component {
         });
 
        
-    let allTags = UserData[this.props.userID].reviews
-	.flatMap(obj => obj.tags)
-	.reduce((dict, obj) => {
-		dict[obj.name] = (dict[obj.name] || 0) + 1;
-		return dict
-	}, {})
-    
-   
+        let allTags = UserData[this.props.userID].reviews
+        .flatMap(obj => obj.tags)
+        .reduce((dict, obj) => {
+            dict[obj.name] = (dict[obj.name] || 0) + 1;
+            return dict
+        }, {})
 
-    let topFiveTags = Object.keys(allTags)
-        .map(key => [key, allTags[key]])
-        .sort((x, y) => y[1]-x[1])
-            .slice(0, 5) 
+        let topFiveTags = Object.keys(allTags)
+            .map(key => [key, allTags[key]])
+            .sort((x, y) => y[1]-x[1])
+                .slice(0, 5) 
 
 
-    let ratedQualities = topFiveTags.map((data) => {
+        let ratedQualities = topFiveTags.map((data) => {
             return (
-                <Label labelColor={theme.COLOR_PURPLE} isReadOnly>
+                <Label labelColor={theme.COLOR_PURPLE} isReadOnly stacked>
                     {data[0]} <Emoji quality={data[0]}/>
                 </Label>
             )
@@ -369,5 +367,9 @@ const SettingsContainer = styled(MainContainer)`
 const ToggableContainer = styled.View`
   display: ${props => props.isDisplayed ? 'flex' : 'none'}
 `;
+
+const QualityLabel = styled(Label)`
+    margin-bottom: 5;
+`
 
 export default UserProfile;

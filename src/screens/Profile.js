@@ -37,7 +37,7 @@ class Profile extends Component {
           isCurrentUser
           // TODO: Update userID to dynamic current user ID
           // when login/register endpoints are done
-          userID={'475a4c75-9006-4ab3-a9b8-2f6e704b0bfd'}
+          userID={'12345'} // TODO: Replace userID with current user ID
           triggerSettings={this.triggerSettings} />
       </ScreenContainer>
     );
