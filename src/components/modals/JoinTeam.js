@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Alert, Modal, Text, Pressable, View } from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styled from 'styled-components';
+import theme from '../../styles/theme.style.js';
 
 class JoinTeam extends Component {
   constructor(props) {
@@ -66,71 +67,71 @@ const CenterContainer = styled.View `
 const JoinTeamContainer = styled.View `
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: #fff;
+  background-color: ${theme.COLOR_WHITE};
   max-width: 60%;
   justify-content: center;
   align-items: center;
   border-radius: 12;
-  padding-vertical: 10;
-  padding-horizontal: 10;
+  padding-vertical: ${theme.SPACING_SMALL};
+  padding-horizontal: ${theme.SPACING_SMALL};
 `
 const TempButton = styled.Pressable `
-  background-color: #7A54F7;
+  background-color: ${theme.COLOR_PURPLE};
   align-items: center;
   border-radius: 12;
-  padding-vertical: 10;
-  padding-horizontal: 10;  
+  padding-vertical: ${theme.SPACING_SMALL};
+  padding-horizontal: ${theme.SPACING_SMALL};  
 `
 const TempButtonText = styled.Text `
-  color: #fff;
+  color: ${theme.COLOR_WHITE};
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 12;
+  font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
 `
 const JoinTeamText = styled.Text `
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 12;
-  letter-spacing: 2;
-  padding-vertical: 15;
-  padding-horizontal: 10;
-  line-height: 20;
+  font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
+  letter-spacing: ${theme.LETTER_SPACING_MEDIUM};
+  padding-vertical: ${theme.SPACING_MEDIUM};
+  padding-horizontal: ${theme.SPACING_SMALL};
+  line-height: ${theme.SPACING_MEDIUM};
   align-items: center;
 `;
 
 const ConfirmButton = styled.TouchableOpacity `
-  background-color: #0CD59E;
+  background-color: ${theme.COLOR_GREEN};
   width: 50;
   border-radius: 12;
   height: 25;
   align-items: center;
-  margin-top: 10;
+  margin-top: ${theme.SPACING_SMALL};
   margin-bottom: 30;
 `
 
 const CancelButton = styled.TouchableOpacity `
-  background-color: #EE3861;
+  background-color: ${theme.COLOR_RED};
   width: 50;
   border-radius: 12;
   height: 25;
   align-items: center;
-  margin-left: 10;
+  margin-left: ${theme.SPACING_SMALL};
 `
 const ConfirmButtonText = styled.Text `
   align-items: center;
-  color: #fff;
+  color: ${theme.COLOR_WHITE};
   font-weight: bold;
-  font-size: 12;
-  letter-spacing: 2;
+  font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
+  letter-spacing: ${theme.LETTER_SPACING_MEDIUM};
   margin-top: 6;
 `;
 
 const CancelButtonText = styled.Text `
   align-items: center;
-  color: #fff;
+  color: ${theme.COLOR_WHITE};
   font-weight: bold;
-  font-size: 12;
-  letter-spacing: 2;
+  font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
+  letter-spacing: ${theme.LETTER_SPACING_MEDIUM};
   margin-top: 6;
 `;
 
