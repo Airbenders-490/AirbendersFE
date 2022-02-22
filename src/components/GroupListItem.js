@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, Switch } from 'react-native';
+import { View, Image, Switch, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
@@ -12,14 +12,14 @@ class ClassListItem extends Component {
         super(props);
 
         this.state = {
-            test: false
+            isToggled: false
         };
 
         this.onToggle = this.onToggle.bind(this)
     }
 
     onToggle() {
-        this.setState({test: !this.state.test});
+        this.setState({isToggled: !this.state.isToggled});
     }
 
     render() {
@@ -30,19 +30,20 @@ class ClassListItem extends Component {
                 backgroundColor={this.props.backgroundColor} >
                 <Header>
                     <Subtitle>{this.props.classNumber}</Subtitle>
-                    <Switch
-                        trackColor={{ false: this.props.backgroundColor, true: theme.COLOR_WHITE }}
-                        thumbColor={this.state.test ? "#f5dd4b" : "#f4f3f4"}
+                    <NotificationSwitch
+                        trackColor={{ false: '#ffffff50', true: '#00000010' }}
+                        thumbColor={this.state.isToggled ? theme.COLOR_GREEN : theme.COLOR_WHITE}
                         ios_backgroundColor={this.props.backgroundColor}
                         onChange={this.onToggle}
-                        value={this.state.test}
+                        value={this.state.isToggled}
                     />
                 </Header>
                 <Title>{this.props.className}</Title>
-                <Caption>Professor {this.props.professor}</Caption>
+                {/* Caption can be the professor (if class item) or team name (if team chat item) */}
+                <TextBody>{this.props.caption}</TextBody>
                 <ParticipantsContainer>
                     <ParticipantIcon source={ UserIcon } />
-                    <Caption>{this.props.numberParticipants} participants</Caption>
+                    <TextBody>{this.props.numberParticipants} participants</TextBody>
                 </ParticipantsContainer>
             </MainContainer>
         );
@@ -54,16 +55,29 @@ const Header = styled.View `
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 `
+
+const NotificationSwitch = styled.Switch `
+    /* In order to remove switch padding from Android only */ 
+    margin-vertical: ${Platform.OS === 'ios' ? 0 : -13};
+    margin-horizontal: ${Platform.OS === 'ios' ? 0 : -10};
+    padding-top: 0;
+    min-width: 0;
+    min-height: 0;
+`;
+
 const ParticipantsContainer = styled.View `
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
+    margin-top: 10;
 `;
 
 const ParticipantIcon = styled.Image `
     height: 20;
     width: 20;
+    margin-right: 5;
 `;
 
 ClassListItem.propTypes = {

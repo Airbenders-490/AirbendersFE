@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, Touchable, TouchableOpacity, View, Image, ToastAndroid } from 'react-native';
 import theme from '../../styles/theme.style.js';
 import MainContainer from '../../containers/MainContainer.js';
 import { Title, Subtitle, TextBody, Caption } from '../../containers/TextContainer';
@@ -14,16 +14,35 @@ import SaveButton from '../SaveButton.js';
 import Collapse from '../Collapse.js';
 import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
+import UserIcon from '../../assets/images/icons/user_fill.png';
+import axios from 'axios';
 import Emoji from '../Emoji.js';
+
+let config = {
+    headers: {
+      'Authorization':  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
+    }
+}
 class UserProfile extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             expanded: false,
+            currentUserData: {},
+            lastRefresh: Date(Date.now()).toString(),
         }
 
         this.toggleExpansion = this.toggleExpansion.bind(this);
+        this.refreshScreen = this.refreshScreen.bind(this);
+        this.onSettingsSave = this.onSettingsSave.bind(this);
+    }
+
+    payload = {
+        fullName: this.fullName,
+        studentID: this.studentID,
+        email: this.email,
+        generalInfo: this.generalInfo,
     }
 
  
@@ -34,8 +53,75 @@ class UserProfile extends Component {
         console.log(this.state.expanded)
     }
 
+    componentDidMount() {        
+        axios
+            .get(`http://34.125.37.12:8080/api/student/${this.props.userID}`, config)
+            .then(
+                response => {
+                    console.log(response.data);
+                    this.setState({ currentUserData: response.data });
+                    console.log(this.state.currentUserData)
+                }
+            )
+            .catch(
+                // TODO: On 404, block all access to app until register is complete
+                error => console.log(error.response.data.code)
+            )
+    }
+
+    refreshScreen() {
+        this.setState({ lastRefresh: Date(Date.now()).toString() });
+    }
+
+    onSettingsSave() {
+        console.log(this.payload);
+        let updatedUser = {
+            "id": this.payload.studentID,
+            "first_name": this.payload.fullName.substr(0,this.payload.fullName.indexOf(' ')),
+            "last_name": this.payload.fullName.substr(this.payload.fullName.indexOf(' ') + 1),
+            "email": this.props.userPersonalEmail,
+            "general_info": this.payload.generalInfo,
+        }
+
+        if (this.props.isFromRegister) {
+            axios
+                .post('http://34.125.37.12:8080/api/student', updatedUser, config)
+                .then(
+                    response => {
+                        console.log(response.data);
+                        if (this.props.additionalRegisterFuncOnSave) {
+                            this.props.additionalRegisterFuncOnSave();
+                        }
+                    }
+                )
+                .catch(
+                    error => {
+                        console.log(error)
+                    }
+                )
+        } else {
+            axios
+                .put(`http://34.125.37.12:8080/api/student/${this.props.userID}`, updatedUser, config)
+                .then(
+                    response => {
+                        console.log(response.data);
+                        this.setState({ currentUserData: response.data });
+                    }
+                )
+                .catch(
+                    error => {
+                        console.log(error)
+                    }
+                )
+        }
+
+        if (this.props.additionalFuncOnSave) {
+            this.props.additionalFuncOnSave();
+        }
+    }
+
     render() {
-        let classesTaken = UserData[this.props.userID].classes.map((data) => {
+        let classesTaken = UserData[12345].classes.map((data) => {
             return (
                 <TouchableOpacity disabled={this.props.isReadOnly}>
                     <ClassLabel>{data.classID}</ClassLabel>
@@ -43,7 +129,7 @@ class UserProfile extends Component {
             )
         });
 
-        let userPersonalSkills = UserData[this.props.userID].skills.map((data) => {
+        let userPersonalSkills = UserData[12345].skills.map((data) => {
             return (
                 <TouchableOpacity disabled={this.props.isReadOnly}>
                     <SkillLabel>{data}</SkillLabel>
@@ -52,24 +138,22 @@ class UserProfile extends Component {
         });
 
        
-    let allTags = UserData[this.props.userID].reviews
-	.flatMap(obj => obj.tags)
-	.reduce((dict, obj) => {
-		dict[obj.name] = (dict[obj.name] || 0) + 1;
-		return dict
-	}, {})
-    
-   
+        let allTags = UserData[this.props.userID].reviews
+        .flatMap(obj => obj.tags)
+        .reduce((dict, obj) => {
+            dict[obj.name] = (dict[obj.name] || 0) + 1;
+            return dict
+        }, {})
 
-    let topFiveTags = Object.keys(allTags)
-        .map(key => [key, allTags[key]])
-        .sort((x, y) => y[1]-x[1])
-            .slice(0, 5) 
+        let topFiveTags = Object.keys(allTags)
+            .map(key => [key, allTags[key]])
+            .sort((x, y) => y[1]-x[1])
+                .slice(0, 5) 
 
 
-    let ratedQualities = topFiveTags.map((data) => {
+        let ratedQualities = topFiveTags.map((data) => {
             return (
-                <Label labelColor={theme.COLOR_PURPLE} isReadOnly>
+                <Label labelColor={theme.COLOR_PURPLE} isReadOnly stacked>
                     {data[0]} <Emoji quality={data[0]}/>
                 </Label>
             )
@@ -78,44 +162,67 @@ class UserProfile extends Component {
         return (
             <View isReadOnly={this.props.isReadOnly} >
                 <UserProfileImage />
-                <UserName editable={!this.props.isReadOnly} placeholder="Your Name" placeholderTextColor={"#D8D8D8"}>{UserData[this.props.userID].name}</UserName>
-                <ProgramName editable={!this.props.isReadOnly} placeholder="Your Program" placeholderTextColor={"#D8D8D8"}>{UserData[this.props.userID].program}</ProgramName>
+                <UserName
+                    editable={!this.props.isReadOnly}
+                    placeholder="Your Name"
+                    placeholderTextColor={"#D8D8D8"}
+                    onChangeText={(text) => this.payload.fullName = text}>
+                    {this.state.currentUserData.first_name} {this.state.currentUserData.last_name}
+                </UserName>
+                <ProgramName
+                    editable={!this.props.isReadOnly}
+                    placeholder="Your Program"
+                    placeholderTextColor={"#D8D8D8"}>
+                    {UserData[12345].program}
+                </ProgramName>
+                <StudentID
+                    isDisplayed={this.props.isCurrentUser}
+                    editable={!this.props.isReadOnly}
+                    placeholder="Your Student ID"
+                    placeholderTextColor={"#D8D8D8"}
+                    onChangeText={(text) => this.payload.studentID = text}>
+                    {this.state.currentUserData.student_id}
+                </StudentID>
                 <UserDescription
                     editable={!this.props.isReadOnly}
                     placeholder="Tell us about yourself"
                     placeholderTextColor={"#D8D8D8"}
-                    multiline={true}>
-                    {UserData[this.props.userID].description}
+                    multiline={true}
+                    onChangeText={(text) => this.payload.generalInfo = text}>
+                    {this.state.currentUserData.general_info}
                 </UserDescription>
 
+                <PersonalProfile isDisplayed={!this.props.isFromRegister}>
                 {/* Rated Qualities */}
-                <MainContainer marginTop={15}>
-                    <SectionHeader>
-                        <SectionTitle>Rated Qualities</SectionTitle>
-                        <Collapse isCurrentlyTeammate={this.props.isReadOnly} onPress={this.toggleExpansion} />
-                    </SectionHeader>
-                    <LabelContainer>
-                        {ratedQualities}
-                    </LabelContainer>
-                    <ToggableContainer isDisplayed={this.state.expanded}>
-                        <Separator isDisplayed={this.props.isReadOnly} />
+                    <MainContainer marginTop={15}>
+                        <SectionHeader>
+                            <SectionTitle>Rated Qualities</SectionTitle>
+                            {/* TODO: Disable endorsements in settings mode */}
+                            <Collapse isCurrentlyTeammate={this.props.isReadOnly} onPress={this.toggleExpansion} />
+                        </SectionHeader>
                         <LabelContainer>
-                            <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Integrity</Label>
-                            <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Communication</Label>
+                            {ratedQualities}
                         </LabelContainer>
-                        <SaveButton onPress={this.toggleExpansion} />
-                    </ToggableContainer>
-                </MainContainer>
+                        <ToggableContainer isDisplayed={this.state.expanded}>
+                            <Separator isDisplayed={this.props.isReadOnly} />
+                            <LabelContainer>
+                                <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Integrity</Label>
+                                <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Communication</Label>
+                            </LabelContainer>
+                            <SaveButton onPress={this.toggleExpansion} />
+                        </ToggableContainer>
+                    </MainContainer>
 
-                <MainContainer marginTop={15}>
-                    <SectionHeader>
-                        <SectionTitle>Classes Taken</SectionTitle>
-                        <SearchIcon source={MagnifyingIcon} />
-                    </SectionHeader>
-                    <LabelContainer>
-                        {classesTaken}
-                    </LabelContainer>
-                </MainContainer>
+                    <MainContainer marginTop={15}>
+                        <SectionHeader>
+                            <SectionTitle>Classes Taken</SectionTitle>
+                            <SearchIcon source={MagnifyingIcon} />
+                        </SectionHeader>
+                        <LabelContainer>
+                            {classesTaken}
+                        </LabelContainer>
+                    </MainContainer>
+                </PersonalProfile>
 
                 <MainContainer marginTop={15}>
                     <SectionTitle>Self-Promoted Skills</SectionTitle>
@@ -133,8 +240,12 @@ class UserProfile extends Component {
                         <ToggleButton labelName='DMs'></ToggleButton>
                         <ToggleButton labelName='Schedule'></ToggleButton>
                         {/* TODO: If confirmed, placeholder will be student's university email */}
-                        <TextInputContainer isConfirmed={false} labelName='School email' placeholder='johndoe@concordia.com'></TextInputContainer>
-                        <SaveButton />
+                        <TextInputContainer
+                            isConfirmed={false}
+                            labelName='School email'
+                            placeholder='yourschool@email.edu'
+                            onChangeText={(text) => this.payload.email = text} />
+                        <SaveButton onPress={this.onSettingsSave} />
                     </SettingsContainer>
                 </ToggableContainer>
             </View>
@@ -143,6 +254,10 @@ class UserProfile extends Component {
 }
 
 // STYLED-COMPONENTS
+const PersonalProfile = styled.View `
+    display: ${props => props.isDisplayed ? 'flex' : 'none'};
+`;
+
 const UserProfileImage = styled.View`
     height: 80;
     width: 80;
@@ -174,6 +289,12 @@ const ProgramName = styled.TextInput`
     padding-horizontal: ${props => props.editable ? 5 : 0};
     margin-top: ${props => props.editable ? 3 : 0};
     align-self: center;
+`;
+
+const StudentID = styled(ProgramName) `
+    margin-top: ${props => props.editable ? 3 : 0};
+    text-align:center;
+    display: ${props => props.isDisplayed ? 'flex' : 'none'};
 `;
 
 const UserDescription = styled.TextInput`
@@ -246,5 +367,9 @@ const SettingsContainer = styled(MainContainer)`
 const ToggableContainer = styled.View`
   display: ${props => props.isDisplayed ? 'flex' : 'none'}
 `;
+
+const QualityLabel = styled(Label)`
+    margin-bottom: 5;
+`
 
 export default UserProfile;
