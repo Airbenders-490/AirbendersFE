@@ -35,6 +35,8 @@ class ToggleButton extends Component {
 
   const ToggleContainer = styled.View`
     flexDirection: row;
+    width: 100%;
+    justify-content: space-between;
   `;
   const Label = styled.Text `
     width: 290;

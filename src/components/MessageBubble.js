@@ -90,6 +90,7 @@ const MessageContainer = styled.View `
   flex-direction: row;
   width: 100%;
   justify-content: ${(props) => props.isAuthor ? 'flex-end' : 'flex-start'};
+  margin-bottom: 3;
 `;
 
 const TextContainer = styled.TouchableOpacity`

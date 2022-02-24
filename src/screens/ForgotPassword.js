@@ -17,7 +17,7 @@ class ForgotPassword extends Component {
 
   render() {
     return (
-      <ScreenContainer screenTitle='Forgot Password'>
+      <ScreenContainer screenTitle='Forgot Password' isSecondaryScreen>
         <TextBody bodyColor={theme.COLOR_BLACK}>Forgot Password!</TextBody>
       </ScreenContainer>
     );

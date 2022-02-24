@@ -14,9 +14,7 @@ class MessageInput extends Component {
     }
 
     onButtonPress() {
-      if (this.props.onPress) {
-        this.props.onPress();
-      }
+      this.props.sendMessageAction && this.props.sendMessageAction();
     }
 
   render() {
@@ -33,43 +31,42 @@ class MessageInput extends Component {
 }
 
 const MessageInputContainer = styled.View`
-    padding-horizontal: ${theme.SPACING_SLIGHT_MEDIUM};
-    padding-vertical: ${theme.SPACING_SLIGHT_MEDIUM};
-    margin-top: ${props => props.marginTop ? props.marginTop : 0}
-    margin-bottom: ${props => props.marginBottom ? props.marginBottom : 0}
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: ${theme.SPACING_MEDIUM};
+    padding-right: ${theme.SPACING_XSMALL};
+    padding-vertical: ${theme.SPACING_XSMALL};
     backgroundColor: ${theme.COLOR_LIGHT_GRAY};
     border-radius: 25;
+    width: 100%;
 `;
 
 const MessageTextInput = styled.TextInput`
     font-size: ${theme.FONT_SIZE_MEDIUM};
-    font-family: ${theme.FONT_REGULAR};git 
+    font-family: ${theme.FONT_REGULAR}; 
     color: ${(props) => (props.textColor ? props.textColor : theme.COLOR_BLACK)};
     width: 300;
-    bottom: 3;
 `;
 
 
 const CustomSendButton = styled.Image `
     tintColor: ${theme.COLOR_WHITE};
-    width: 25;
-    height: 25;
-    top: 5;
+    width: 16;
+    height: 16;
 `;
 
 const SendButton = styled.TouchableOpacity `
-    alignItems: center;
+    align-items: center;
+    justify-content: center;
     backgroundColor: ${theme.COLOR_ORANGE};
     borderRadius: 17.5;
     width: 35;
     height: 35;
-    left: 330;
-    top: 9;
-    position: absolute;
-    elevation: ${props => props.isElevated ? theme.CARD_ELEVATION : 0};
-    shadowColor: ${props => props.backgroundColor ? props.backgroundColor : theme.COLOR_ORANGE};
+
+    elevation: 3;
+    shadowColor: ${theme.COLOR_ORANGE};
     shadowOpacity: ${props => props.backgroundColor ? '0.4' : '0.7'};
     shadowRadius: 10;
 `;
