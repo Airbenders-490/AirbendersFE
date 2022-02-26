@@ -121,10 +121,10 @@ class UserProfile extends Component {
     }
 
     render() {
-        let classesTaken = UserData[12345].classes.map((data) => {
+        let classesTaken = currentUserData.classes_taken.map((completedClass) => {
             return (
                 <TouchableOpacity disabled={this.props.isReadOnly}>
-                    <ClassLabel>{data.classID}</ClassLabel>
+                    <ClassLabel>{completedClass}</ClassLabel>
                 </TouchableOpacity>
             )
         });
@@ -159,12 +159,12 @@ class UserProfile extends Component {
             )
         });
 
-        // just to visualize : to be changed with data from connection
-        let currentlytaken = UserData[this.props.userID].classes.map((data) => {
+
+        let currentlytaken = currentUserData.current_classes.map((enrolledClass) => {
             return (
                 //
                 <Label labelColor={theme.COLOR_BLUE} isReadOnly>
-                    {data.classID}
+                    {enrolledClass}
                 </Label>
             )
         });
