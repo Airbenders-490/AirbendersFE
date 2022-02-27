@@ -17,10 +17,12 @@ import StarIcon from '../../assets/images/icons/star-icon.png';
 import UserIcon from '../../assets/images/icons/user_fill.png';
 import axios from 'axios';
 import Emoji from '../Emoji.js';
+import { useEffect } from 'react';
 
 let config = {
     headers: {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
+
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ1OTQzMDA3LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.HhMP73yk4ff9H-tPZbHfDbkivRMMswf93XOIycjps1A'
     }
 }
 class UserProfile extends Component {
@@ -29,7 +31,13 @@ class UserProfile extends Component {
 
         this.state = {
             expanded: false,
-            currentUserData: {},
+            currentUserData: {
+                first_name: "",
+                last_name: "",
+                id: "",
+                classes_taken: [],
+                current_classes: []
+            },
             lastRefresh: Date(Date.now()).toString(),
         }
 
@@ -121,7 +129,8 @@ class UserProfile extends Component {
     }
 
     render() {
-        let classesTaken = currentUserData.classes_taken.map((completedClass) => {
+
+        let classesTaken = this.state.currentUserData.classes_taken.map((completedClass) => {
             return (
                 <TouchableOpacity disabled={this.props.isReadOnly}>
                     <ClassLabel>{completedClass}</ClassLabel>
@@ -160,7 +169,7 @@ class UserProfile extends Component {
         });
 
 
-        let currentlytaken = currentUserData.current_classes.map((enrolledClass) => {
+        let currentlytaken = this.state.currentUserData.current_classes.map((enrolledClass) => {
             return (
                 //
                 <Label labelColor={theme.COLOR_BLUE} isReadOnly>
@@ -244,6 +253,18 @@ class UserProfile extends Component {
                             {currentlytaken}
                         </LabelContainer>
                     </MainContainer>
+
+
+                    <MainContainer marginTop={15}>
+                        <SectionHeader>
+                            <SectionTitle>Classes Taken</SectionTitle>
+                            <SearchIcon source={MagnifyingIcon} />
+                        </SectionHeader>
+                        <LabelContainer>
+                            {classesTaken}
+                        </LabelContainer>
+                    </MainContainer>
+
                 </PersonalProfile>
 
                 <MainContainer marginTop={15}>
