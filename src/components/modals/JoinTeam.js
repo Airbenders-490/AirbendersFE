@@ -7,13 +7,16 @@ import theme from '../../styles/theme.style.js';
 class JoinTeam extends Component {
   constructor(props) {
     super(props);
-  }  
-  state = {
-    modalVisible: false,
-    joinTeam: false
+    
+    this.state = {
+      modalVisible: false,
+      joinTeam: false
+    }
   };
 
-  setModalVisible = (visible) => { this.setState({ modalVisible: visible }); }
+  setModalVisible = (visible) => { 
+    this.setState({ modalVisible: visible }); 
+  }
 
   /* add connection */ 
   joinTeam = () => { 
