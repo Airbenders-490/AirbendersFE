@@ -19,12 +19,21 @@ import axios from 'axios';
 import Emoji from '../Emoji.js';
 import { useEffect } from 'react';
 
-let config = {
-    headers: {
 
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ1OTQzMDA3LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.HhMP73yk4ff9H-tPZbHfDbkivRMMswf93XOIycjps1A'
+let config = (token) => {
+    return {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
     }
 }
+
+// let config = {
+//     headers: {
+//         'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
+//     }
+// }
+
 class UserProfile extends Component {
     constructor(props) {
         super(props);
@@ -63,7 +72,7 @@ class UserProfile extends Component {
 
     componentDidMount() {
         axios
-            .get(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, config)
+            .get(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, config(this.props.token))
             .then(
                 response => {
                     console.log(response.data);
@@ -93,7 +102,7 @@ class UserProfile extends Component {
 
         if (this.props.isFromRegister) {
             axios
-                .post('http://real.encs.concordia.ca/profile/api/student', updatedUser, config)
+                .post('http://real.encs.concordia.ca/profile/api/student', updatedUser, config(this.props.token))
                 .then(
                     response => {
                         console.log(response.data);
@@ -109,7 +118,7 @@ class UserProfile extends Component {
                 )
         } else {
             axios
-                .put(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, updatedUser, config)
+                .put(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, updatedUser, config(this.props.token))
                 .then(
                     response => {
                         console.log(response.data);
@@ -138,7 +147,7 @@ class UserProfile extends Component {
             )
         });
 
-        let userPersonalSkills = UserData[12345].skills.map((data) => {
+        let userPersonalSkills = UserData[this.props.userID].skills.map((data) => {
             return (
                 <TouchableOpacity disabled={this.props.isReadOnly}>
                     <SkillLabel>{data}</SkillLabel>
@@ -172,7 +181,7 @@ class UserProfile extends Component {
         let currentlytaken = this.state.currentUserData.current_classes.map((enrolledClass) => {
             return (
                 //
-                <Label labelColor={theme.COLOR_BLUE} isReadOnly>
+                <Label labelColor={theme.COLOR_BLUE} isReadOnly stacked>
                     {enrolledClass}
                 </Label>
             )
@@ -195,7 +204,7 @@ class UserProfile extends Component {
                     editable={!this.props.isReadOnly}
                     placeholder="Your Program"
                     placeholderTextColor={"#D8D8D8"}>
-                    {UserData[12345].program}
+                    {UserData[this.props.userID].program}
                 </ProgramName>
                 <StudentID
                     isDisplayed={this.props.isCurrentUser}
