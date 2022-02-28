@@ -66,7 +66,7 @@ class LoginContent extends Component {
             }
             
             axios
-                .post('http://34.125.37.12:8080/api/register', newUserCredentials)
+                .post('http://real.encs.concordia.ca/auth/api/register', newUserCredentials)
                 .then(
                     response => {
                         console.log(response.data);
@@ -91,7 +91,7 @@ class LoginContent extends Component {
             }
 
             axios
-                .post('http://34.125.37.12:8080/api/login', credentials)
+                .post('http://real.encs.concordia.ca/auth/api/login', credentials)
                 .then(
                     response => {
                         console.log(response.data)

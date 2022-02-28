@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, View, TouchableOpacity, Text, Image} from 'react-native';
 import styled from 'styled-components';
 import AddIcon from '../assets/images/icons/add-icon.png';
+
 class AddButton extends Component {
     constructor(props) {
       super(props);
@@ -13,7 +14,7 @@ class AddButton extends Component {
       <CustomAddButton >
           <AddCustomIcon source= {AddIcon}/>
         <ButtonText>
-          {this.props.children}
+          {this.props.buttonText}
         </ButtonText>
       </CustomAddButton>
       );
@@ -49,5 +50,9 @@ bottom: 10;
 width: 40; 
 height: 40;
 `;
+
+AddButton.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 
 export default AddButton;
