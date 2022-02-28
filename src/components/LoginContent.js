@@ -43,16 +43,16 @@ class LoginContent extends Component {
         fullName: this.fullName,
         email: this.email,
         password: this.password,
-    } 
+    }
 
     onRegisterLoginLinkClick() {
-      // In order to animate the next state change
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
-      this.setState({ isInRegister : !this.state.isInRegister });
+        // In order to animate the next state change
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
+        this.setState({ isInRegister: !this.state.isInRegister });
     }
 
     onForgotPasswordClick() {
-      this.props.navigation.navigate('ForgotPasswordScreen');
+        this.props.navigation.navigate('ForgotPasswordScreen');
     }
 
     handleActionButton() {
@@ -64,7 +64,7 @@ class LoginContent extends Component {
                 "email": this.payload.email,
                 "password": this.payload.password
             }
-            
+
             axios
                 .post('http://real.encs.concordia.ca/auth/api/register', newUserCredentials)
                 .then(
@@ -72,7 +72,7 @@ class LoginContent extends Component {
                         console.log(response.data);
                         this.props.navigation.navigate('RegisterScreen', {
                             userPersonalEmail: this.payload.email,
-                          });
+                        });
                         // TODO: Save jwt in AsyncStorage
                     }
                 )
@@ -81,7 +81,7 @@ class LoginContent extends Component {
                         console.log(error)
                     }
                 )
-                
+
         } else {
             // Handle login functions
             // JSON data to send when logging in
@@ -110,11 +110,11 @@ class LoginContent extends Component {
     }
 
     triggerPrimaryPasswordVisilibity() {
-        this.setState({ hidePrimaryPassword : !this.state.hidePrimaryPassword });
+        this.setState({ hidePrimaryPassword: !this.state.hidePrimaryPassword });
     }
 
     triggerConfirmationPasswordVisilibity() {
-        this.setState({ hideConfirmationPassword : !this.state.hideConfirmationPassword });
+        this.setState({ hideConfirmationPassword: !this.state.hideConfirmationPassword });
     }
 
     comparePasswords(passwordToCompare) {
@@ -123,76 +123,76 @@ class LoginContent extends Component {
         });
     }
 
-    render () {
+    render() {
         return (
-          <LoginContainer>
-            <Title>Welcome</Title>
-            <CredentialsContainer isHidden={!this.state.isInRegister} marginTop={20}>
-                <CredentialsInput
-                placeholder='your name'
-                placeholderTextColor={theme.COLOR_ORANGE}
-                onChangeText={(text) => this.payload.fullName = text} />
-            </CredentialsContainer>
+            <LoginContainer>
+                <Title>Welcome</Title>
+                <CredentialsContainer isHidden={!this.state.isInRegister} marginTop={20}>
+                    <CredentialsInput
+                        placeholder='your name'
+                        placeholderTextColor={theme.COLOR_ORANGE}
+                        onChangeText={(text) => this.payload.fullName = text} />
+                </CredentialsContainer>
 
-            <CredentialsContainer marginTop={this.state.isInRegister ? 0 : 20}>
-                <CredentialsInput
-                    placeholder='email'
-                    placeholderTextColor={theme.COLOR_ORANGE}
-                    onChangeText={(text) => this.payload.email = text} />
-            </CredentialsContainer>
+                <CredentialsContainer marginTop={this.state.isInRegister ? 0 : 20}>
+                    <CredentialsInput
+                        placeholder='email'
+                        placeholderTextColor={theme.COLOR_ORANGE}
+                        onChangeText={(text) => this.payload.email = text} />
+                </CredentialsContainer>
 
-            <CredentialsContainer>
-                <CredentialsInput
-                    placeholder='password'
-                    placeholderTextColor={theme.COLOR_ORANGE}
-                    secureTextEntry={this.state.hidePrimaryPassword ? true : false}
-                    onChangeText={(text) => this.payload.password = text} />
-                <Pressable onPress={this.triggerPrimaryPasswordVisilibity}>
-                    <HideIcon source={this.state.hidePrimaryPassword ? EyeIcon : HideEyeIcon} />
-                </Pressable>
-            </CredentialsContainer>
+                <CredentialsContainer>
+                    <CredentialsInput
+                        placeholder='password'
+                        placeholderTextColor={theme.COLOR_ORANGE}
+                        secureTextEntry={this.state.hidePrimaryPassword ? true : false}
+                        onChangeText={(text) => this.payload.password = text} />
+                    <Pressable onPress={this.triggerPrimaryPasswordVisilibity}>
+                        <HideIcon source={this.state.hidePrimaryPassword ? EyeIcon : HideEyeIcon} />
+                    </Pressable>
+                </CredentialsContainer>
 
-            <CredentialsContainer isHidden={!this.state.isInRegister} borderColor={this.state.isPasswordConfirmed ? 'green' : 'red'}>
-                <CredentialsInput
-                    placeholder='confirm password'
-                    placeholderTextColor={theme.COLOR_ORANGE}
-                    secureTextEntry={this.state.hideConfirmationPassword ? true : false}
-                    onChangeText={(text) => this.comparePasswords(text)} />
-                <Pressable onPress={this.triggerConfirmationPasswordVisilibity}>
-                    <HideIcon source={this.state.hideConfirmationPassword ? EyeIcon : HideEyeIcon} />
-                </Pressable>
-            </CredentialsContainer>
+                <CredentialsContainer isHidden={!this.state.isInRegister} borderColor={this.state.isPasswordConfirmed ? 'green' : 'red'}>
+                    <CredentialsInput
+                        placeholder='confirm password'
+                        placeholderTextColor={theme.COLOR_ORANGE}
+                        secureTextEntry={this.state.hideConfirmationPassword ? true : false}
+                        onChangeText={(text) => this.comparePasswords(text)} />
+                    <Pressable onPress={this.triggerConfirmationPasswordVisilibity}>
+                        <HideIcon source={this.state.hideConfirmationPassword ? EyeIcon : HideEyeIcon} />
+                    </Pressable>
+                </CredentialsContainer>
 
-            <ScreenLink onPress={this.onForgotPasswordClick}>
-              <TextBody>Forgot password?</TextBody>
-            </ScreenLink>
-    
-            <CustomButton
-              redirect={this.handleActionButton}
-              buttonColorBackground="#FF7A67">
-              {this.state.isInRegister ? 'Register' : 'Login'}
-            </CustomButton>
-            
-            <ScreenLink onPress={this.onRegisterLoginLinkClick}>
-              <TextBody>{this.state.isInRegister ? "Already have an account? Login" : "Don't have an account? Register"}</TextBody>
-            </ScreenLink>
-          </LoginContainer>
+                <ScreenLink onPress={this.onForgotPasswordClick}>
+                    <TextBody>Forgot password?</TextBody>
+                </ScreenLink>
+
+                <CustomButton
+                    redirect={this.handleActionButton}
+                    buttonColorBackground="#FF7A67">
+                    {this.state.isInRegister ? 'Register' : 'Login'}
+                </CustomButton>
+
+                <ScreenLink onPress={this.onRegisterLoginLinkClick}>
+                    <TextBody>{this.state.isInRegister ? "Already have an account? Login" : "Don't have an account? Register"}</TextBody>
+                </ScreenLink>
+            </LoginContainer>
         );
     }
 }
 
-const LoginContainer = styled.View `
+const LoginContainer = styled.View`
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
 `;
 
-const CredentialsInput = styled.TextInput `
+const CredentialsInput = styled.TextInput`
     flex: 1;
 `;
 
-const CredentialsContainer = styled.View `
+const CredentialsContainer = styled.View`
     display: ${props => props.isHidden ? 'none' : 'flex'};
     flex-direction: row;
     align-items: center;
@@ -208,17 +208,17 @@ const CredentialsContainer = styled.View `
     padding-horizontal: 15;
 `;
 
-const ScreenLink = styled.Pressable `
+const ScreenLink = styled.Pressable`
     padding-vertical: 10;
 `;
 
-const HideIcon = styled.Image `
+const HideIcon = styled.Image`
     width: 20;
     height: 20;
     tint-color: ${theme.COLOR_GRAY};
 `;
 
-export default function(props) {
+export default function (props) {
     const navigation = useNavigation();
     return <LoginContent {...props} navigation={navigation} />;
 }
