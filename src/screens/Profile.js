@@ -37,8 +37,13 @@ class Profile extends Component {
           isCurrentUser
           // TODO: Update userID to dynamic current user ID
           // when login/register endpoints are done
-          userID={'12345'} // TODO: Replace userID with current user ID
-          triggerSettings={this.triggerSettings} />
+
+          userID={this.props.userID} // TODO: Replace userID with current user ID
+          token={this.props.token}
+          triggerSettings={this.triggerSettings} >
+          {console.log("useriddd: " + this.props.userID)}
+          {console.log("token: " + this.props.token)}
+        </UserProfile>
       </ScreenContainer>
     );
   }

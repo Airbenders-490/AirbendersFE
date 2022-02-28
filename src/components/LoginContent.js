@@ -29,6 +29,8 @@ class LoginContent extends Component {
             hideConfirmationPassword: true,
             isPasswordConfirmed: false,
             isRegisterReady: false,
+            userID: null,
+            token: null
         };
 
         this.handleActionButton = this.handleActionButton.bind(this);
@@ -95,8 +97,12 @@ class LoginContent extends Component {
                 .then(
                     response => {
                         console.log(response.data)
-                        this.setState({ isLoggedIn: response.data.token ? true : false }, () => {
-                            this.props.handleLogin(this.state.isLoggedIn)
+                        this.setState({
+                            isLoggedIn: response.data.token ? true : false,
+                            // userID: response.data.userID,
+                            token: response.data.token
+                        }, () => {
+                            this.props.handleLogin(this.state.isLoggedIn, this.state.token)
                         });
                         // TODO: Save jwt in AsyncStorage
                     }

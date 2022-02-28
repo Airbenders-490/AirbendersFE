@@ -41,7 +41,7 @@ let customFonts = {
 function NavigationBar({ state, descriptors, navigation }) {
   // Hide tab bar for custom navigation bar
   const focusedOptions = descriptors[state.routes[state.index].key].options;
-  
+
   if (focusedOptions?.tabBarStyle?.display === "none") {
     return null;
   }
@@ -65,28 +65,28 @@ function NavigationBar({ state, descriptors, navigation }) {
         };
 
         const renderTabIcons = (routeName, focused) => {
-          let icon; 
-            switch(routeName) {
-              case 'Classes':
-                icon = focused ? ClassesIconFill : ClassesIconOutline
-                break;
-              case 'Messages':
-                icon = focused ? MessagesIconFill : MessagesIconOutline  
-                break;
-              case 'Feed':
-                icon = focused ? FeedIconFill : FeedIconOutline  
-                break;
-              case 'Schedule':
-                icon = focused ? ScheduleIconFill : ScheduleIconOutline  
-                break;
-              case 'Profile':
-                icon = focused ? ProfileIconFill : ProfileIconOutline  
-                break;
-            }
+          let icon;
+          switch (routeName) {
+            case 'Classes':
+              icon = focused ? ClassesIconFill : ClassesIconOutline
+              break;
+            case 'Messages':
+              icon = focused ? MessagesIconFill : MessagesIconOutline
+              break;
+            case 'Feed':
+              icon = focused ? FeedIconFill : FeedIconOutline
+              break;
+            case 'Schedule':
+              icon = focused ? ScheduleIconFill : ScheduleIconOutline
+              break;
+            case 'Profile':
+              icon = focused ? ProfileIconFill : ProfileIconOutline
+              break;
+          }
 
           return <TabIcon
-            tabIconTint={ isFocused ? options.tabBarActiveTintColor : options.tabBarInactiveTintColor }
-            source={ icon }
+            tabIconTint={isFocused ? options.tabBarActiveTintColor : options.tabBarInactiveTintColor}
+            source={icon}
           />;
         };
 
@@ -102,16 +102,19 @@ export default class App extends React.Component {
 
     this.state = {
       fontsLoaded: false,
-      isLoggedIn: true,
+      isLoggedIn: false,
       showTabBar: true,
     };
 
     this.handleLogin = this.handleLogin.bind(this);
     this.hideTabBar = this.hideTabBar.bind(this);
-}
+  }
 
-  handleLogin(loginState) {
-    this.setState({ isLoggedIn: loginState });
+  handleLogin(loginState, token) {
+    this.setState({
+      isLoggedIn: loginState,
+      token: token
+    });
   }
 
   async _loadFontsAsync() {
@@ -151,7 +154,9 @@ export default class App extends React.Component {
               </Tab.Screen>
               <Tab.Screen name='Feed' component={FeedScreen} />
               <Tab.Screen name='Schedule' component={ScheduleScreen} />
-              <Tab.Screen name='Profile' component={ProfileScreen} />
+              <Tab.Screen name='Profile'
+                children={() => <ProfileScreen userID='eaf54fae-1ab8-4b5a-8047-51904f6ae884' token={this.state.token} />}
+              />
             </Tab.Navigator>
           </NavigationContainer>
         );
@@ -191,7 +196,7 @@ const NavigationBarContainer = styled.View`
   shadowRadius: 10;
 `;
 
-const TabIcon = styled.Image `
+const TabIcon = styled.Image`
   width: 30;
   height: 30;
   tint-color: ${props => props.tabIconTint};
