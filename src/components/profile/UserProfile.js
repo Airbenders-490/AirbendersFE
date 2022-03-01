@@ -17,7 +17,11 @@ import StarIcon from '../../assets/images/icons/star-icon.png';
 import UserIcon from '../../assets/images/icons/user_fill.png';
 import axios from 'axios';
 import Emoji from '../Emoji.js';
-import { useEffect } from 'react';
+import AddClassesTakenModal from '../AddClassesTakenModal.js';
+import RemoveClassesTakenModal from '../RemoveClassesTakenModal.js';
+import AddCurrentClassModal from '../AddCurrentClassModal.js';
+import RemoveCurrentClassModal from '../RemoveCurrentClassModal.js';
+import CompleteClassModal from '../CompleteClassModal.js';
 
 
 let config = (token) => {
@@ -53,6 +57,8 @@ class UserProfile extends Component {
         this.toggleExpansion = this.toggleExpansion.bind(this);
         this.refreshScreen = this.refreshScreen.bind(this);
         this.onSettingsSave = this.onSettingsSave.bind(this);
+        this.getCurrentUser = this.getCurrentUser.bind(this);
+
     }
 
     payload = {
@@ -63,14 +69,13 @@ class UserProfile extends Component {
     }
 
 
-
     // Write functions
     toggleExpansion() {
         this.setState({ expanded: !this.state.expanded })
         console.log(this.state.expanded)
     }
 
-    componentDidMount() {
+    getCurrentUser() {
         axios
             .get(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, config(this.props.token))
             .then(
@@ -85,6 +90,12 @@ class UserProfile extends Component {
                 error => console.log(error.response.data.code)
             )
     }
+
+    // only called on FIRST render
+    componentDidMount() {
+        this.getCurrentUser();
+    }
+
 
     refreshScreen() {
         this.setState({ lastRefresh: Date(Date.now()).toString() });
@@ -252,6 +263,9 @@ class UserProfile extends Component {
                         <LabelContainer>
                             {classesTaken}
                         </LabelContainer>
+
+                        <AddClassesTakenModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
+                        <RemoveClassesTakenModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
                     </MainContainer>
 
                     <MainContainer marginTop={15}>
@@ -261,17 +275,10 @@ class UserProfile extends Component {
                         <LabelContainer>
                             {currentlytaken}
                         </LabelContainer>
-                    </MainContainer>
 
-
-                    <MainContainer marginTop={15}>
-                        <SectionHeader>
-                            <SectionTitle>Classes Taken</SectionTitle>
-                            <SearchIcon source={MagnifyingIcon} />
-                        </SectionHeader>
-                        <LabelContainer>
-                            {classesTaken}
-                        </LabelContainer>
+                        <AddCurrentClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
+                        <RemoveCurrentClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
+                        <CompleteClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
                     </MainContainer>
 
                 </PersonalProfile>
