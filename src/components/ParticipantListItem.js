@@ -38,7 +38,7 @@ class ParticipantListItem extends Component {
           <ContentContainer>
             <ContentLHS>
               <Label isReadOnly labelColor={theme.COLOR_ORANGE}>{this.props.commonClass}</Label>
-              <ParticipantName>{this.props.participantName} testing</ParticipantName>
+              <ParticipantName>{this.props.participantName}</ParticipantName>
             </ContentLHS>
             <TeamFormationStatus statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} />
           </ContentContainer>
