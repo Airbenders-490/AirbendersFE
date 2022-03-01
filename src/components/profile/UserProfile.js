@@ -163,7 +163,7 @@ class UserProfile extends Component {
     let currentlytaken = UserData[this.props.userID].classes.map((data)  => {
             return (
                 // 
-                <Label labelColor={theme.COLOR_BLUE} isReadOnly>
+                <Label labelColor={theme.COLOR_BLUE} isReadOnly stacked>
                     {data.classID}
                 </Label>
             )
