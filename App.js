@@ -110,10 +110,11 @@ export default class App extends React.Component {
     this.hideTabBar = this.hideTabBar.bind(this);
   }
 
-  handleLogin(loginState, token) {
+  handleLogin(loginState, token, userID) {
     this.setState({
       isLoggedIn: loginState,
-      token: token
+      token: token,
+      userID: userID
     });
   }
 
@@ -155,7 +156,7 @@ export default class App extends React.Component {
               <Tab.Screen name='Feed' component={FeedScreen} />
               <Tab.Screen name='Schedule' component={ScheduleScreen} />
               <Tab.Screen name='Profile'
-                children={() => <ProfileScreen userID='eaf54fae-1ab8-4b5a-8047-51904f6ae884' token={this.state.token} />}
+                children={() => <ProfileScreen userID={this.state.userID} token={this.state.token} />}
               />
             </Tab.Navigator>
           </NavigationContainer>
