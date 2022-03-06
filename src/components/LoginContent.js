@@ -7,6 +7,7 @@ import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
 import CustomButton from './button.js';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
+import jwt_decode from "jwt-decode";
 
 import EyeIcon from '../assets/images/icons/eye.png';
 import HideEyeIcon from '../assets/images/icons/invisible-2.png';
@@ -97,12 +98,13 @@ class LoginContent extends Component {
                 .then(
                     response => {
                         console.log(response.data)
+                        var decoded = jwt_decode(response.data.token)
                         this.setState({
                             isLoggedIn: response.data.token ? true : false,
-                            // userID: response.data.userID,
+                            userID: decoded.iss,
                             token: response.data.token
                         }, () => {
-                            this.props.handleLogin(this.state.isLoggedIn, this.state.token)
+                            this.props.handleLogin(this.state.isLoggedIn, this.state.token, this.state.userID)
                         });
                         // TODO: Save jwt in AsyncStorage
                     }
