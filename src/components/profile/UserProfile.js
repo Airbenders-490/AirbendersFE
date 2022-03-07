@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { LogBox } from "react-native"
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StyleSheet, Text, Touchable, TouchableOpacity, View, Image, ToastAndroid } from 'react-native';
@@ -23,6 +24,8 @@ import AddCurrentClassModal from '../AddCurrentClassModal.js';
 import RemoveCurrentClassModal from '../RemoveCurrentClassModal.js';
 import CompleteClassModal from '../CompleteClassModal.js';
 
+
+LogBox.ignoreAllLogs();
 
 let config = (token) => {
     return {
@@ -171,13 +174,13 @@ class UserProfile extends Component {
             )
         });
 
-        // let userPersonalSkills = UserData[this.props.userID].skills.map((data) => {
-        //     return (
-        //         <TouchableOpacity disabled={this.props.isReadOnly}>
-        //             <SkillLabel>{data}</SkillLabel>
-        //         </TouchableOpacity>
-        //     )
-        // });
+        let userPersonalSkills = UserData[this.props.userID].skills.map((data) => {
+            return (
+                <TouchableOpacity disabled={this.props.isReadOnly}>
+                    <SkillLabel>{data}</SkillLabel>
+                </TouchableOpacity>
+            )
+        });
 
 
         let allTags = this.state.reviews
@@ -296,12 +299,12 @@ class UserProfile extends Component {
 
                 </PersonalProfile>
 
-                {/* <MainContainer marginTop={15}>
+                <MainContainer marginTop={15}>
                     <SectionTitle>Self-Promoted Skills</SectionTitle>
                     <LabelContainer>
                         {userPersonalSkills}
                     </LabelContainer>
-                </MainContainer> */}
+                </MainContainer>
 
                 <Separator isDisplayed={!this.props.isReadOnly} />
 
