@@ -1,4 +1,5 @@
 import React, { Component, useState } from 'react';
+import { LogBox } from "react-native"
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Text, View, TouchableOpacity, TextInput, Pressable, Image, LayoutAnimation, UIManager } from 'react-native';
@@ -11,6 +12,8 @@ import jwt_decode from "jwt-decode";
 
 import EyeIcon from '../assets/images/icons/eye.png';
 import HideEyeIcon from '../assets/images/icons/invisible-2.png';
+
+LogBox.ignoreAllLogs();
 
 if (
     Platform.OS === "android" &&
