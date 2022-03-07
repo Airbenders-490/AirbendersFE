@@ -67,6 +67,12 @@ class UserProfile extends Component {
         generalInfo: this.generalInfo,
     }
 
+    updatePayload() {
+        this.payload.fullName = this.state.currentUserData.first_name + " " + this.state.currentUserData.last_name;
+        this.payload.email = this.state.currentUserData.email;
+        this.payload.generalInfo = this.state.currentUserData.general_info;
+    }
+
 
     // Write functions
     toggleExpansion() {
@@ -81,6 +87,7 @@ class UserProfile extends Component {
                 response => {
                     console.log(response.data);
                     this.setState({ currentUserData: response.data });
+                    this.updatePayload();
                     console.log(this.state.currentUserData)
                 }
             )
@@ -123,7 +130,7 @@ class UserProfile extends Component {
             "id": this.payload.studentID,
             "first_name": this.payload.fullName.substr(0, this.payload.fullName.indexOf(' ')),
             "last_name": this.payload.fullName.substr(this.payload.fullName.indexOf(' ') + 1),
-            "email": this.props.userPersonalEmail,
+            "email": this.payload.email,
             "general_info": this.payload.generalInfo,
         }
 
@@ -249,6 +256,7 @@ class UserProfile extends Component {
                     onChangeText={(text) => this.payload.generalInfo = text}>
                     {this.state.currentUserData.general_info}
                 </UserDescription>
+                {/* <SaveButton isDisplayed={!this.props.isReadOnly} onPress={this.onSettingsSave} /> */}
 
                 <PersonalProfile isDisplayed={!this.props.isFromRegister}>
                     {/* Rated Qualities */}
