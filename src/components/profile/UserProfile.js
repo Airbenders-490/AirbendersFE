@@ -287,9 +287,11 @@ class UserProfile extends Component {
                         <LabelContainer>
                             {classesTaken}
                         </LabelContainer>
+                        <ModalsContainer isDisplayed={!this.props.isReadOnly}>
+                            <AddClassesTakenModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
+                            <RemoveClassesTakenModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
+                        </ModalsContainer>
 
-                        <AddClassesTakenModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
-                        <RemoveClassesTakenModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
                     </MainContainer>
 
                     <MainContainer marginTop={15}>
@@ -300,9 +302,11 @@ class UserProfile extends Component {
                             {currentlytaken}
                         </LabelContainer>
 
-                        <AddCurrentClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
-                        <RemoveCurrentClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
-                        <CompleteClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
+                        <ModalsContainer isDisplayed={!this.props.isReadOnly}>
+                            <AddCurrentClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
+                            <RemoveCurrentClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
+                            <CompleteClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
+                        </ModalsContainer>
                     </MainContainer>
 
                 </PersonalProfile>
@@ -454,5 +458,9 @@ const ToggableContainer = styled.View`
 const QualityLabel = styled(Label)`
     margin-bottom: 5;
 `
+
+const ModalsContainer = styled.View`
+    display: ${props => props.isDisplayed ? 'flex' : 'none'}
+`;
 
 export default UserProfile;
