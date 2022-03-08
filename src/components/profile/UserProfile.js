@@ -50,7 +50,6 @@ class UserProfile extends Component {
             currentUserData: {
                 reviews: []
             },
-            reviews: [],
             lastRefresh: Date(Date.now()).toString(),
         }
 
@@ -140,7 +139,8 @@ class UserProfile extends Component {
                 .then(
                     response => {
                         console.log(response.data);
-                        this.setState({ currentUserData: response.data });
+                        // calling getCurrentUser again bc update doesn't return reviews
+                        this.getCurrentUser();
                     }
                 )
                 .catch(
@@ -175,7 +175,7 @@ class UserProfile extends Component {
 
 
         let allTags = this.state.currentUserData.reviews
-            ?.flatMap(obj => obj.tags)
+            .flatMap(obj => obj.tags)
             .reduce((dict, obj) => {
                 dict[obj.name] = (dict[obj.name] || 0) + 1;
                 return dict
@@ -198,7 +198,6 @@ class UserProfile extends Component {
 
         let currentlytaken = this.state.currentUserData.current_classes?.map((enrolledClass) => {
             return (
-                //
                 <Label labelColor={theme.COLOR_BLUE} isReadOnly stacked>
                     {enrolledClass}
                 </Label>
