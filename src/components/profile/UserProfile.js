@@ -55,7 +55,7 @@ class UserProfile extends Component {
 
     componentDidMount() {
         axios
-            .get(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, config)
+            .get(`http://${global.profileAPI}/api/student/${this.props.userID}`, config)
             .then(
                 response => {
                     console.log(response.data);
