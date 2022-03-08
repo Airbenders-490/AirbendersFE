@@ -33,8 +33,8 @@ class LoginContent extends Component {
             hideConfirmationPassword: true,
             isPasswordConfirmed: false,
             isRegisterReady: false,
-            userID: null,
-            token: null
+            userID: '',
+            token: ''
         };
 
         this.handleActionButton = this.handleActionButton.bind(this);

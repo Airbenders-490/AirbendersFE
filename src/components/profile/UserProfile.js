@@ -47,7 +47,9 @@ class UserProfile extends Component {
 
         this.state = {
             expanded: false,
-            currentUserData: {},
+            currentUserData: {
+                reviews: []
+            },
             reviews: [],
             lastRefresh: Date(Date.now()).toString(),
         }
@@ -56,7 +58,6 @@ class UserProfile extends Component {
         this.refreshScreen = this.refreshScreen.bind(this);
         this.onSettingsSave = this.onSettingsSave.bind(this);
         this.getCurrentUser = this.getCurrentUser.bind(this);
-        this.getCurrentUserReviews = this.getCurrentUserReviews.bind(this);
 
     }
 
@@ -97,26 +98,9 @@ class UserProfile extends Component {
             )
     }
 
-    getCurrentUserReviews() {
-        axios
-            .get(`http://real.encs.concordia.ca/profile/api/reviews-by/${this.props.userID}`, config(this.props.token))
-            .then(
-                response => {
-                    console.log(response.data);
-                    this.setState({ reviews: response.data });
-                    console.log(this.state.reviews)
-                }
-            )
-            .catch(
-                // TODO: On 404, block all access to app until register is complete
-                error => console.log(error.response.data.code)
-            )
-    }
-
     // only called on FIRST render
     componentDidMount() {
         this.getCurrentUser();
-        this.getCurrentUserReviews();
     }
 
 
@@ -190,7 +174,7 @@ class UserProfile extends Component {
         });
 
 
-        let allTags = this.state.reviews
+        let allTags = this.state.currentUserData.reviews
             ?.flatMap(obj => obj.tags)
             .reduce((dict, obj) => {
                 dict[obj.name] = (dict[obj.name] || 0) + 1;
