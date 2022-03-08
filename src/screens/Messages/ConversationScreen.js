@@ -11,6 +11,7 @@ import FeatureButtons from '../../components/FeatureButtons.js';
 import ParticipantListItem from '../../components/ParticipantListItem.js';
 import MessageBubble from '../../components/MessageBubble.js';
 import Test from '../../data/mock/FirstConversation.json';
+import axios from 'axios';
 
 if (
   Platform.OS === "android" &&
@@ -28,15 +29,68 @@ class ConversationScreen extends Component {
       isParticipantListDisplayed: false,
       isCommonScheduleDisplayed: false,
       isSearchResultDisplayed: false,
+      currentConversation: [],
+      wso: null,
     };
 
     this.toggleFeaturedSection = this.toggleFeaturedSection.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
+    this.updateConversation = this.updateConversation.bind(this);
+    this.loadMessages = this.loadMessages.bind(this);
   }
 
   componentDidMount() {
     // Remove tab bar from conversation screen
+    const { route } = this.props;
+    const { chatroomID } = route.params;
+
     this.props.hideTabBar(false);
+    this.loadMessages();
+
+    // Initializing web socket for current chat room
+    var ws = new WebSocket(`ws://${global.chatAPI}/chat/${chatroomID}`);
+    this.setState({wso: ws})
+
+    ws.onmessage = (e) => {
+      // a message was received
+      var response = JSON.parse(e.data);
+      console.log(response);
+      
+      if (response.message_type == 0) {
+        this.setState(prevState => ({
+          currentConversation: [...prevState.currentConversation, response.Message]
+        }))
+      } else if (response.message_type == 1) {
+        
+      }
+    };
+  }
+
+  loadMessages() {
+    const { route } = this.props;
+    const { chatroomID } = route.params;
+
+    axios
+      .post(
+        `http://${global.chatAPI}/api/chat/${chatroomID}?limit=30`, 
+        {
+          "SentTimestamp": "2022-03-06T20:45:40.593518324Z"
+        },
+        global.config)
+      .then(
+          response => {
+              console.log("response: " + response.data);
+              // Reverse in order to display oldest messages first
+              this.setState(prevState => ({
+                currentConversation: [...prevState.currentConversation, ...response.data.reverse()]
+              }), () => {
+                console.log(this.state.currentConversation)
+              });
+          }
+      )
+      .catch(
+          error => console.log("error: " + error)
+      )
   }
 
   handleBackPress(navigation) {
@@ -48,6 +102,20 @@ class ConversationScreen extends Component {
   sendMessage() {
     // TODO: Send message connection
   }
+
+  componentDidUpdate() {
+    // TODO
+  }
+
+  componentWillUnmount() {
+    this.setState({ wso: null });
+  }
+
+  updateConversation(updated) {
+    this.setState({ currentConversation: updated });
+    console.log(this.state.currentConversation)
+  }
+  
 
   toggleFeaturedSection(section) {
     // TODO: Create enums for featured sections
@@ -90,10 +158,11 @@ class ConversationScreen extends Component {
     const { navigation, route } = this.props;
     const { conversation } = route.params;
 
-    let conversationBubbles = conversation.messages.map((data) => {
+    let conversationBubbles = this.state.currentConversation.map((data) => {
       return (
-        <MessageBubble isAuthor={data.isAuthor}>
-          {data.description}
+        // TODO: Replace token with current token
+        <MessageBubble isAuthor={data.FromStudentID == '78d52242-58e0-4448-992e-3a179efb8818'}>
+          {data.MessageBody}
         </MessageBubble>
       )
     })
@@ -121,7 +190,7 @@ class ConversationScreen extends Component {
             </ExpandableSection>
 
             <ConversationContainer onPress={() => this.toggleFeaturedSection('default')} >
-                <BubblesContainer>
+                <BubblesContainer >
                   {conversationBubbles}
                 </BubblesContainer>
                 <MessageInput sendMessageAction={this.sendMessage} />
