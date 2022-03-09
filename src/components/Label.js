@@ -7,7 +7,7 @@ import theme from '../styles/theme.style.js';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 
-class Labels extends Component {
+class Label extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ class Labels extends Component {
 
   render() {
     return (
-      <Container disabled={this.props.isReadOnly} onPress={this.selectLabel}>
+      <Container disabled={this.props.isReadOnly} onPress={this.selectLabel} stacked={this.props.stacked}>
         <TextContainer isPressed={this.state.isPressed} backgroundColor={this.props.labelColor} isReadOnly={this.props.isReadOnly}>
             <LabelText> 
               {this.props.children}
@@ -41,7 +41,7 @@ const Container = styled.TouchableOpacity `
   display: flex;
   flex-direction: row;
   margin-right: 10;
-  margin-top: 5;
+  margin-bottom: ${(props) => props.stacked ? 5 : 0};
 `;
 
 const TextContainer = styled.View `
@@ -56,8 +56,8 @@ const TextContainer = styled.View `
 
 const LabelText = styled.Text`
   color: white;
-  font-weight: bold;
-  letter-spacing: 2;
+  font-family: ${theme.FONT_SEMIBOLD};
+  letter-spacing: ${theme.LETTER_SPACING_SMALL};
 `;
 
 const LabelIcon = styled.Image`
@@ -77,7 +77,7 @@ const IconTag = styled.View `
   background-color: ${props => props.isPressed ? '#CECECE' : (props.backgroundColor ? `${props.backgroundColor}50` : `${theme.COLOR_BLUE}50`)};
 `;
 
-Labels.propTypes = {
+Label.propTypes = {
 };
 
-export default Labels;
+export default Label;

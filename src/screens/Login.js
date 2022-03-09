@@ -34,7 +34,7 @@ class Login extends Component {
         }}
       >
         <Stack.Screen
-          name="Schedule">
+          name="LoginScreen">
             { (props) => <LoginScreen handleLogin={this.props.handleLogin} navigation={this.props.navigation} /> }
         </Stack.Screen>
         <Stack.Screen
@@ -49,8 +49,6 @@ class Login extends Component {
     );
   }
 }
-
-// export default Login;
 
 export default function(props) {
   const navigation = useNavigation();

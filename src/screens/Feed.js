@@ -6,8 +6,10 @@ import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
 import ScreenContainer from '../containers/ScreenContainer.js';
 import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
+import ParticipantListItem from "../components/ParticipantListItem.js";
 import MessageIcons from "../components/MessageIcons.js";
-
+import MessageBubble from '../components/MessageBubble.js';
+import TeamListItem from '../components/TeamListItem.js';
 
 class Feed extends Component {
   constructor(props) {
@@ -19,7 +21,11 @@ class Feed extends Component {
   render() {
     return (
       <ScreenContainer screenTitle="Feed" >
-        <MessageIcons></MessageIcons>
+        <TeamListItem
+          title="Airbenders"
+          courseNumber="SOEN 490"
+          numberCurrentParticipants={3}
+          numberTotalParticipants={5} />
       </ScreenContainer>
     );
   }

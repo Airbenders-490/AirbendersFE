@@ -16,10 +16,11 @@ import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
 import UserIcon from '../../assets/images/icons/user_fill.png';
 import axios from 'axios';
+import Emoji from '../Emoji.js';
 
 let config = {
     headers: {
-      'Authorization':  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
     }
 }
 class UserProfile extends Component {
@@ -44,15 +45,17 @@ class UserProfile extends Component {
         generalInfo: this.generalInfo,
     }
 
+
+
     // Write functions
     toggleExpansion() {
         this.setState({ expanded: !this.state.expanded })
         console.log(this.state.expanded)
     }
 
-    componentDidMount() {        
+    componentDidMount() {
         axios
-            .get(`http://34.125.37.12:8080/api/student/${this.props.userID}`, config)
+            .get(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, config)
             .then(
                 response => {
                     console.log(response.data);
@@ -70,12 +73,11 @@ class UserProfile extends Component {
         this.setState({ lastRefresh: Date(Date.now()).toString() });
     }
 
-
     onSettingsSave() {
         console.log(this.payload);
         let updatedUser = {
             "id": this.payload.studentID,
-            "first_name": this.payload.fullName.substr(0,this.payload.fullName.indexOf(' ')),
+            "first_name": this.payload.fullName.substr(0, this.payload.fullName.indexOf(' ')),
             "last_name": this.payload.fullName.substr(this.payload.fullName.indexOf(' ') + 1),
             "email": this.props.userPersonalEmail,
             "general_info": this.payload.generalInfo,
@@ -83,7 +85,7 @@ class UserProfile extends Component {
 
         if (this.props.isFromRegister) {
             axios
-                .post('http://34.125.37.12:8080/api/student', updatedUser, config)
+                .post('http://real.encs.concordia.ca/profile/api/student', updatedUser, config)
                 .then(
                     response => {
                         console.log(response.data);
@@ -99,7 +101,7 @@ class UserProfile extends Component {
                 )
         } else {
             axios
-                .put(`http://34.125.37.12:8080/api/student/${this.props.userID}`, updatedUser, config)
+                .put(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, updatedUser, config)
                 .then(
                     response => {
                         console.log(response.data);
@@ -135,10 +137,24 @@ class UserProfile extends Component {
             )
         });
 
-        let ratedQualities = UserData[12345].qualities.map((data) => {
+
+        let allTags = UserData[this.props.userID].reviews
+            .flatMap(obj => obj.tags)
+            .reduce((dict, obj) => {
+                dict[obj.name] = (dict[obj.name] || 0) + 1;
+                return dict
+            }, {})
+
+        let topFiveTags = Object.keys(allTags)
+            .map(key => [key, allTags[key]])
+            .sort((x, y) => y[1] - x[1])
+            .slice(0, 5)
+
+
+        let ratedQualities = topFiveTags.map((data) => {
             return (
-                <Label labelColor={theme.COLOR_PURPLE} isReadOnly>
-                    {data.quality}
+                <Label labelColor={theme.COLOR_PURPLE} isReadOnly stacked>
+                    {data[0]} <Emoji quality={data[0]} />
                 </Label>
             )
         });
@@ -177,7 +193,7 @@ class UserProfile extends Component {
                 </UserDescription>
 
                 <PersonalProfile isDisplayed={!this.props.isFromRegister}>
-                {/* Rated Qualities */}
+                    {/* Rated Qualities */}
                     <MainContainer marginTop={15}>
                         <SectionHeader>
                             <SectionTitle>Rated Qualities</SectionTitle>
@@ -238,7 +254,7 @@ class UserProfile extends Component {
 }
 
 // STYLED-COMPONENTS
-const PersonalProfile = styled.View `
+const PersonalProfile = styled.View`
     display: ${props => props.isDisplayed ? 'flex' : 'none'};
 `;
 
@@ -275,7 +291,7 @@ const ProgramName = styled.TextInput`
     align-self: center;
 `;
 
-const StudentID = styled(ProgramName) `
+const StudentID = styled(ProgramName)`
     margin-top: ${props => props.editable ? 3 : 0};
     text-align:center;
     display: ${props => props.isDisplayed ? 'flex' : 'none'};
@@ -351,5 +367,9 @@ const SettingsContainer = styled(MainContainer)`
 const ToggableContainer = styled.View`
   display: ${props => props.isDisplayed ? 'flex' : 'none'}
 `;
+
+const QualityLabel = styled(Label)`
+    margin-bottom: 5;
+`
 
 export default UserProfile;

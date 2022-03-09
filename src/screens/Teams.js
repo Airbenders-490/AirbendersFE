@@ -7,8 +7,8 @@ import theme from '../styles/theme.style.js';
 import ScreenContainer from '../containers/ScreenContainer';
 import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
-
-class Classes extends Component {
+import JoinTeam from '../components/modals/JoinTeam.js';
+class Teams extends Component {
   constructor(props) {
     super(props);
   }
@@ -17,11 +17,21 @@ class Classes extends Component {
 
   render() {
     return (
-      <ScreenContainer screenTitle='Classes'>
-        <TextBody bodyColor={theme.COLOR_BLACK}>Classes!</TextBody>
+      <ScreenContainer screenTitle='Teams'>
+        <TeamsContainer>
+          <JoinTeam 
+            teamName='X'
+            >
+          </JoinTeam>
+        </TeamsContainer>
       </ScreenContainer>
     );
   }
 }
 
-export default Classes;
+export default Teams;
+const TeamsContainer = styled.View `
+  background-color:  ${theme.COLOR_LIGHT_GRAY};
+  height: 720;
+  border-radius: 12;
+`;

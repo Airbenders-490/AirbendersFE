@@ -7,22 +7,22 @@ import styled from 'styled-components';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import theme from './src/styles/theme.style.js';
+import './src/api/constants.js';
 
-import ClassesScreen from './src/screens/Classes.js';
-import MessagesScreen from './src/screens/Messages.js';
+import TeamsScreen from './src/screens/Teams.js';
+import MessagesScreen from './src/screens/Messages/Messages.js';
 import FeedScreen from './src/screens/Feed.js';
 import ScheduleScreen from './src/screens/Schedule.js';
 import ProfileScreen from './src/screens/Profile.js';
 import LoginScreen from './src/screens/Login.js';
-import Routes from './src/Routes.js';
 
-import ClassesIconOutline from './src/assets/images/icons/graduation_cap.png';
+import TeamsIconOutline from './src/assets/images/icons/teams.png';
 import MessagesIconOutline from './src/assets/images/icons/message_bubble.png';
 import FeedIconOutline from './src/assets/images/icons/feed.png';
 import ScheduleIconOutline from './src/assets/images/icons/calendar.png';
 import ProfileIconOutline from './src/assets/images/icons/user.png';
 
-import ClassesIconFill from './src/assets/images/icons/graduation_cap_fill.png';
+import TeamsIconFill from './src/assets/images/icons/teams_fill.png';
 import MessagesIconFill from './src/assets/images/icons/message_bubble_fill.png';
 import FeedIconFill from './src/assets/images/icons/feed_fill.png';
 import ScheduleIconFill from './src/assets/images/icons/calendar_fill.png';
@@ -31,14 +31,21 @@ import ProfileIconFill from './src/assets/images/icons/user_fill.png';
 const Tab = createBottomTabNavigator();
 
 let customFonts = {
-  'ProximaNova-Light': require('./src/assets/fonts/ProximaNova-Light.otf'),
-  'ProximaNova-Regular': require('./src/assets/fonts/ProximaNova-Regular.otf'),
-  'ProximaNova-Semibold': require('./src/assets/fonts/ProximaNova-Semibold.otf'),
-  'ProximaNova-Bold': require('./src/assets/fonts/ProximaNova-Bold.otf'),
-  'ProximaNova-Black': require('./src/assets/fonts/ProximaNova-Black.otf'),
+  'ProximaNovaLight': require('./src/assets/fonts/ProximaNovaLight.otf'),
+  'ProximaNovaRegular': require('./src/assets/fonts/ProximaNovaRegular.otf'),
+  'ProximaNovaSemibold': require('./src/assets/fonts/ProximaNovaSemibold.otf'),
+  'ProximaNovaBold': require('./src/assets/fonts/ProximaNovaBold.otf'),
+  'ProximaNovaBlack': require('./src/assets/fonts/ProximaNovaBlack.otf'),
 };
 
 function NavigationBar({ state, descriptors, navigation }) {
+  // Hide tab bar for custom navigation bar
+  const focusedOptions = descriptors[state.routes[state.index].key].options;
+  
+  if (focusedOptions?.tabBarStyle?.display === "none") {
+    return null;
+  }
+
   return (
     <NavigationBarContainer>
       {state.routes.map((route, index) => {
@@ -60,8 +67,8 @@ function NavigationBar({ state, descriptors, navigation }) {
         const renderTabIcons = (routeName, focused) => {
           let icon; 
             switch(routeName) {
-              case 'Classes':
-                icon = focused ? ClassesIconFill : ClassesIconOutline
+              case 'Teams':
+                icon = focused ? TeamsIconFill : TeamsIconOutline
                 break;
               case 'Messages':
                 icon = focused ? MessagesIconFill : MessagesIconOutline  
@@ -95,10 +102,12 @@ export default class App extends React.Component {
 
     this.state = {
       fontsLoaded: false,
-      isLoggedIn: false
+      isLoggedIn: true,
+      showTabBar: true,
     };
 
     this.handleLogin = this.handleLogin.bind(this);
+    this.hideTabBar = this.hideTabBar.bind(this);
 }
 
   handleLogin(loginState) {
@@ -116,6 +125,10 @@ export default class App extends React.Component {
     // TODO: Read login state from AsyncStorage and update accordingly
   }
 
+  hideTabBar(tabBarDisplayState) {
+    this.setState({ showTabBar: tabBarDisplayState });
+  }
+
   render() {
     if (this.state.fontsLoaded) {
       if (this.state.isLoggedIn) {
@@ -129,11 +142,13 @@ export default class App extends React.Component {
                 headerShown: false,
                 showIcon: true,
                 tabBarShowLabel: false,
+                tabBarStyle: { display: this.state.showTabBar ? 'flex' : 'none' }
               })}
               tabBar={(props) => <NavigationBar {...props} />}>
-              {/* <Tab.Screen name='Routes' component={Routes} /> */}
-              <Tab.Screen name='Classes' component={ClassesScreen} />
-              <Tab.Screen name='Messages' component={MessagesScreen} />
+              <Tab.Screen name='Teams' component={TeamsScreen} />
+              <Tab.Screen name='Messages'>
+                {(props) => <MessagesScreen hideTabBar={this.hideTabBar} />}
+              </Tab.Screen>
               <Tab.Screen name='Feed' component={FeedScreen} />
               <Tab.Screen name='Schedule' component={ScheduleScreen} />
               <Tab.Screen name='Profile' component={ProfileScreen} />

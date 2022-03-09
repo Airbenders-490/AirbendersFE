@@ -1,0 +1,26 @@
+{
+    "messages": [{
+        "isAuthor": false,
+        "description": "Hi there my friend"
+    },
+    {
+        "isAuthor": false,
+        "description": "How are you?"
+    },
+    {
+        "isAuthor": true,
+        "description": "I am doing fine, what about you"
+    },
+    {
+        "isAuthor": false,
+        "description": "Fine for now, though I hope whoever is watching this video is as well"
+    },
+    {
+        "isAuthor": true,
+        "description": "Ha! I do hope so too!"
+    },
+    {
+        "isAuthor": false,
+        "description": "Happy Lunar New Year!"
+    }]
+}
