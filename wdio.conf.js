@@ -1,9 +1,26 @@
 exports.config = {
+    host: '0.0.0.0',
     port: 4723,
     path: '/wd/hub/',
     runner: 'local',
     specs: ['./test/specs/*.js'],
     maxInstances: 1,
+    services: [
+      [
+        'appium',
+        {
+          args: {
+            relaxedSecurity: true,
+            address: '0.0.0.0',
+            port: 4723,
+            commandTimeout: '7200',
+            sessionOverride: true,
+            debugLogSpacing: true
+           },
+          command: 'appium'
+        }
+      ]
+    ],
     capabilities: [
       {
         platformName: 'Android',
@@ -12,17 +29,6 @@ exports.config = {
         app: 'AirbendersFE-18241e7483c640149381f9e177268e5f-signed.apk',
         automationName: 'UiAutomator2'
       }
-    ],
-    services: [
-      [
-        'appium',
-        {
-          args: {
-            relaxedSecurity: true
-           },
-          command: 'appium'
-        }
-      ]
     ],
     logLevel: 'debug',
     bail: 0,

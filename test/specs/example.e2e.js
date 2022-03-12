@@ -22,7 +22,7 @@ afterEach(() => {
  driver.closeApp()
 })
 
-describe('My Login application', () => {
+describe('My Login application', async() => {
     await client.pause(2000);
     const xpath = "//android.widget.EditText[@content-desc=\"email\"]";
     const field = await client.$(xpath);
