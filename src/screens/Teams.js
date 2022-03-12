@@ -66,10 +66,14 @@ class Teams extends Component {
           <Button title = "Press Me" onPress={this.handleClick}></Button>
              <FilterButton onPress={() => this.showName(this.state.className)}>
              <FilterClick source={FilterIcon}/>
-               <CustomText placeholder = "Enter class name"  onChangeText={(text) =>  this.className = text}/>
+               <CustomText placeholder = "Enter class name"  onChangeText={(text) =>  this.setState({ className: text })}/>
             </FilterButton>
                <LabelContainer>
-               <Label labelColor={theme.COLOR_ORANGE} labelIcon={XIcon}>{this.state.className}</Label>
+                 {this.state.className.length !== 0 ?
+                  <Label labelColor={theme.COLOR_ORANGE} labelIcon={XIcon}>{this.state.className}</Label>
+                  :
+                  <View />
+                 }
                  {/* <LabelClassName>{this.getClassName}</LabelClassName>
               </Label> */}
                </LabelContainer>
