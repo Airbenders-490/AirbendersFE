@@ -11,6 +11,9 @@ import MessageIcons from "../components/MessageIcons.js";
 import MessageBubble from '../components/MessageBubble.js';
 import TeamListItem from '../components/TeamListItem.js';
 
+
+
+
 class Feed extends Component {
   constructor(props) {
     super(props);
@@ -21,11 +24,7 @@ class Feed extends Component {
   render() {
     return (
       <ScreenContainer screenTitle="Feed" >
-        <TeamListItem
-          title="Airbenders"
-          courseNumber="SOEN 490"
-          numberCurrentParticipants={3}
-          numberTotalParticipants={5} />
+      
       </ScreenContainer>
     );
   }
