@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -102,7 +103,7 @@ export default class App extends React.Component {
 
     this.state = {
       fontsLoaded: false,
-      isLoggedIn: true,
+      isLoggedIn: false,
       showTabBar: true,
     };
 
@@ -196,3 +197,4 @@ const TabIcon = styled.Image `
   height: 30;
   tint-color: ${props => props.tabIconTint};
 `;
+
