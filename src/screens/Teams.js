@@ -20,7 +20,8 @@ class Teams extends Component {
 
     this.state = {
       classEntered: false,
-      count: 0
+      count: 0,
+      className: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,7 +29,7 @@ class Teams extends Component {
     this.getClassName = this.getClassName.bind(this);
   }
 
-  className = "";
+  // className = "";
 
   handleSubmit = (text) => {
     this.setState({ className: text});
@@ -65,12 +66,12 @@ class Teams extends Component {
           <Button title = "Press Me" onPress={this.handleClick}></Button>
              <FilterButton onPress={() => this.showName(this.state.className)}>
              <FilterClick source={FilterIcon}/>
-               <CustomText placeholder = "Class Name"  onChangeText={(text) =>  this.className = text}/>
+               <CustomText placeholder = "Enter class name"  onChangeText={(text) =>  this.className = text}/>
             </FilterButton>
                <LabelContainer>
-               <Label labelColor={theme.COLOR_ORANGE} labelIcon={XIcon}>
-                 <LabelClassName>{this.getClassName}</LabelClassName>
-              </Label>
+               <Label labelColor={theme.COLOR_ORANGE} labelIcon={XIcon}>{this.state.className}</Label>
+                 {/* <LabelClassName>{this.getClassName}</LabelClassName>
+              </Label> */}
                </LabelContainer>
            </Container>
           <JoinTeam 
