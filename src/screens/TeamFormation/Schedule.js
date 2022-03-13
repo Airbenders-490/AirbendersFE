@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
-import theme from '../styles/theme.style.js';
+import theme from '../../styles/theme.style.js';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Pressable } from 'react-native';
-import ExternalProfile from './ExternalProfile';
-import ScreenContainer from '../containers/ScreenContainer.js';
-import MainContainer from '../containers/MainContainer.js';
-import { Subtitle } from '../containers/TextContainer.js';
+import ExternalProfile from '../ExternalProfile';
+import ScreenContainer from '../../containers/ScreenContainer.js';
+import ListContainer from '../../containers/ListContainer.js';
+import TeamFormationTabs from "./TeamFormationTabs.js";
+import MainContainer from '../../containers/MainContainer.js';
+import { Subtitle } from '../../containers/TextContainer.js';
 
 const Stack2 = createStackNavigator();
 
@@ -27,17 +30,19 @@ class Schedule extends Component {
 
     return (
       <ScreenContainer screenTitle={'Schedule'} >
-        <Pressable
-          onPress={onPressHandler}>
+       <TeamFormationTabs  />
+       <ListContainer>
             <MainContainer>
               <Subtitle>John Smith</Subtitle>
             </MainContainer>
-        </Pressable>
+        </ListContainer>
       </ScreenContainer>
+      
     );
   }
 
   render() {
+   
     return (
       <Stack2.Navigator
         screenOptions = {{
@@ -65,8 +70,14 @@ class Schedule extends Component {
           { (props) => <ExternalProfile userID={12345} />}
         </Stack2.Screen>
       </Stack2.Navigator>
+      
     );
   }
 }
 
-export default Schedule;
+
+export default function(props) {
+  const navigation = useNavigation();
+  const hideTabBar = props.hideTabBar;
+  return <Schedule {...props} navigation={navigation} hideTabBar={hideTabBar} />;
+}

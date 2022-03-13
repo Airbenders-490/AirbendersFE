@@ -13,7 +13,7 @@ import './src/api/constants.js';
 import TeamsScreen from './src/screens/Teams.js';
 import MessagesScreen from './src/screens/Messages/Messages.js';
 import FeedScreen from './src/screens/Feed.js';
-import ScheduleScreen from './src/screens/Schedule.js';
+import ScheduleScreen from './src/screens/TeamFormation/Schedule.js';
 import ProfileScreen from './src/screens/Profile.js';
 import LoginScreen from './src/screens/Login.js';
 
