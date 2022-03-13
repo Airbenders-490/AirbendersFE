@@ -19,58 +19,55 @@ class Teams extends Component {
     super(props);
 
     this.state = {
+      className: '',
       classEntered: false,
-      count: 0
+      isReady: false,
+      deleteLabel: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showName = this.showName.bind(this);
-    this.getClassName = this.getClassName.bind(this);
   }
 
-  className = "";
-
-  handleSubmit = (text) => {
+  deleteLabel = () => {
+    this.setState({deleteLabel : !this.state.deleteLabel});
+  }
+  handleClass = (text) => {
     this.setState({ className: text});
-}
-
-  showName = (className) => {
-    console.log("Class taken entered: " + className);
-    Alert.alert('Entered Class: ' + className);
- } 
-
-  getClassName = () => {
-    return this.className;
   }
 
-  handleOnPress = () => {
-    console.log(this.state.className);
-    this.forceUpdate();
+  handleSubmit = () => {
+      this.setState({isReady : !this.state.isReady});
+      this.setState({classEntered : !this.state.classEntered});
   }
-
-  handleClick = () => {
-    let count = this.state.count + 1
-    this.setState({count}, () => {
-      console.log(this.state.count);
-    })
-  }
-  // Write functions here
+  showName = () => {
+    this.setState({classEntered : !this.state.classEntered})
+  } 
 
   render() {
-    const {count} =this.state
+    let {isReady} = this.state;
+    const renderLabel = () => {
+      if(isReady) {
+        return <Label labelColor="#5089E9" labelIcon={XIcon}><LabelClassName>{this.state.className}</LabelClassName></Label>;
+      }
+      else {
+        console.log("Label is gone");
+      }
+    }
     return (
       <ScreenContainer screenTitle='Teams'>
         <TeamsContainer>
         <Container>
-          <Button title = "Press Me" onPress={this.handleClick}></Button>
-             <FilterButton onPress={() => this.showName(this.state.className)}>
+             <FilterButton onPress={this.showName}>
              <FilterClick source={FilterIcon}/>
-               <CustomText placeholder = "Class Name"  onChangeText={(text) =>  this.className = text}/>
+               <CustomText placeholder = "Class Name" 
+                classEntered = {this.state.classEntered} 
+                value={this.state.className} 
+                onChangeText={this.handleClass}
+                onSubmitEditing= { this.handleSubmit }/>
             </FilterButton>
-               <LabelContainer>
-               <Label labelColor={theme.COLOR_ORANGE} labelIcon={XIcon}>
-                 <LabelClassName>{this.getClassName}</LabelClassName>
-              </Label>
+               <LabelContainer isReady = {this.state.isReady}>
+               {renderLabel()}
                </LabelContainer>
            </Container>
           <JoinTeam 
@@ -85,7 +82,7 @@ class Teams extends Component {
 
 
 const CustomText = styled.TextInput `
-  display: flex;
+  display: ${props => props.classEntered ? 'flex' : 'none'};  
   flex-direction: row;
   padding-left: 10px;
 `;
@@ -95,7 +92,7 @@ const Container = styled.View `
   flex-direction: row;
   width: 100%;
   height: 50;
-  background-color:  ${theme.COLOR_BLUE};
+  background-color:  ${theme.COLOR_LIGHT_GRAY};
   border-radius: 12;
 `;
 
@@ -113,13 +110,17 @@ const FilterClick = styled.Image `
 `;
 
 const LabelContainer = styled.View `
-  padding-left: 20px;
+  display: ${props => props.isReady ? 'flex' : 'none'}; 
+  flex-direction: row;
+  padding-left: 10px;
+  top: 5px;
   align-items: center;
-  margin-top: 10px;
-  background: red;
+  margin-bottom: 10px;
+  justify-content: center;
+  background: ${theme.COLOR_LIGHT_GRAY};
 `;
 
-const LabelClassName = styled.TextInput  `
+const LabelClassName = styled.Text  `
   display: flex;
   flex-direction: row;
 `;
