@@ -38,7 +38,6 @@ class Teams extends Component {
 
   handleSubmit = () => {
       this.setState({isReady : !this.state.isReady});
-      this.setState({classEntered : !this.state.classEntered});
   }
   showName = () => {
     this.setState({classEntered : !this.state.classEntered})
