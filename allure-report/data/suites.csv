@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Sun Mar 13 16:25:32 EDT 2022","Sun Mar 13 16:25:49 EDT 2022","17062","","My Login application","","My Login application","GIVEN a valid email and password THEN user should be able to login","GIVEN a valid email and password THEN user should be able to login",""

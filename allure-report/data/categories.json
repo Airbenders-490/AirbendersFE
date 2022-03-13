@@ -1,0 +1,26 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "element (\"~email\") still not displayed after 10000ms",
+      "children" : [ {
+        "name" : "GIVEN a valid email and password THEN user should be able to login",
+        "uid" : "30dfe8e780340ca4",
+        "parentUid" : "9f4b8dc14d6f492c884e2c2bbeabb032",
+        "status" : "broken",
+        "time" : {
+          "start" : 1647203132437,
+          "stop" : 1647203149499,
+          "duration" : 17062
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "emulator-5554 11-11" ]
+      } ],
+      "uid" : "9f4b8dc14d6f492c884e2c2bbeabb032"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}

@@ -1,7 +1,6 @@
 exports.config = {
-    host: '0.0.0.0',
+    host: 'localhost',
     port: 4723,
-    path: '/wd/hub/',
     runner: 'local',
     specs: ['./test/specs/*.js'],
     maxInstances: 1,
@@ -26,7 +25,7 @@ exports.config = {
         platformName: 'Android',
         platformVersion: '11',
         deviceName: 'emulator-5554',
-        app: 'AirbendersFE-18241e7483c640149381f9e177268e5f-signed.apk',
+        app: '/Users/Vithuu/Documents/Concordia/Semester 12 - Fall 2021/SOEN 490/AirbendersFE-18241e7483c640149381f9e177268e5f-signed.apk',
         automationName: 'UiAutomator2'
       }
     ],

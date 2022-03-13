@@ -1,0 +1,11 @@
+[ {
+  "uid" : "30dfe8e780340ca4",
+  "name" : "GIVEN a valid email and password THEN user should be able to login",
+  "time" : {
+    "start" : 1647203132437,
+    "stop" : 1647203149499,
+    "duration" : 17062
+  },
+  "status" : "broken",
+  "severity" : "normal"
+} ]

@@ -15,19 +15,21 @@
 var expect = require('chai').expect
 
 beforeEach(() => {
- driver.launchApp()
+ driver.launchApp();
 })
 
 afterEach(() => {
- driver.closeApp()
+ driver.closeApp();
 })
 
-describe('My Login application', async() => {
-    await client.pause(2000);
-    const xpath = "//android.widget.EditText[@content-desc=\"email\"]";
-    const field = await client.$(xpath);
-    const visible = await field.isDisplayed();
-    assert(visible);
-    const text = await field.getText();
-    assert.equal(text, "email");
+describe('My Login application', () => {
+    
+    it('GIVEN a valid email and password THEN user should be able to login', async() => {
+        $(`~email`).waitForDisplayed(20000)
+        $(`~email`).setValue('michaelscott@gmail.com')
+        $(`~password`).waitForDisplayed(20000)
+        $(`~password`).setValue('password')
+        $('~login').click()
+        browser.pause(10000)
+    });
 });

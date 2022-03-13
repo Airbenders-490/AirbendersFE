@@ -1,0 +1,82 @@
+{
+  "uid" : "30dfe8e780340ca4",
+  "name" : "GIVEN a valid email and password THEN user should be able to login",
+  "fullName" : "My Login application.GIVEN a valid email and password THEN user should be able to login",
+  "historyId" : "17cd4e9a72f094a7a4ec0d053a9898fb",
+  "time" : {
+    "start" : 1647203132437,
+    "stop" : 1647203149499,
+    "duration" : 17062
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "broken",
+  "statusMessage" : "element (\"~email\") still not displayed after 10000ms",
+  "statusTrace" : "Error: element (\"~email\") still not displayed after 10000ms\n                    at C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\commands\\browser\\waitUntil.js:66:23\n                    at Element.elementErrorHandlerCallbackFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:24:32)\n                    at Element.runCommandWithHooks (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:105:25)\n                    at Element.runCommandWithHooks (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:100:24)\n                    at Element.wrapCommandFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:67:44)\n                    at Element.<anonymous> (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\utils\\build\\shim.js:276:24)\n                    at Element.elementErrorHandlerCallback (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:48:12)\n                    at Element.waitForDisplayed (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\commands\\element\\waitForDisplayed.js:45:17)\n                    at Element.wrapCommandFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:60:23)\n                    at Element.elementErrorHandlerCallbackFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:24:65)\n                    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n                    at Element.waitForDisplayed (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:48:12)\n                    at _callee$ (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\test\\specs\\/example.e2e.js:28:21)\n                    at tryCatch (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\regenerator-runtime\\runtime.js:63:40)\n                    at Generator.invoke [as _invoke] (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\regenerator-runtime\\runtime.js:294:22)\n                    at Generator.next (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\regenerator-runtime\\runtime.js:119:21)\n                    at invoke (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\regenerator-runtime\\runtime.js:155:20)",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "element (\"~email\") still not displayed after 10000ms",
+    "statusTrace" : "Error: element (\"~email\") still not displayed after 10000ms\n                    at C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\commands\\browser\\waitUntil.js:66:23\n                    at Element.elementErrorHandlerCallbackFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:24:32)\n                    at Element.runCommandWithHooks (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:105:25)\n                    at Element.runCommandWithHooks (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:100:24)\n                    at Element.wrapCommandFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:67:44)\n                    at Element.<anonymous> (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\utils\\build\\shim.js:276:24)\n                    at Element.elementErrorHandlerCallback (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:48:12)\n                    at Element.waitForDisplayed (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\commands\\element\\waitForDisplayed.js:45:17)\n                    at Element.wrapCommandFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:60:23)\n                    at Element.elementErrorHandlerCallbackFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:24:65)\n                    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n                    at Element.waitForDisplayed (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:48:12)\n                    at _callee$ (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\test\\specs\\/example.e2e.js:28:21)\n                    at tryCatch (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\regenerator-runtime\\runtime.js:63:40)\n                    at Generator.invoke [as _invoke] (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\regenerator-runtime\\runtime.js:294:22)\n                    at Generator.next (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\regenerator-runtime\\runtime.js:119:21)\n                    at invoke (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\regenerator-runtime\\runtime.js:155:20)",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "3b29ccd8831bbd8d",
+      "name" : "Screenshot",
+      "source" : "3b29ccd8831bbd8d.png",
+      "type" : "image/png",
+      "size" : 90537
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : true,
+    "shouldDisplayMessage" : true,
+    "attachmentsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "My Login application"
+  }, {
+    "name" : "testClass",
+    "value" : "My Login application"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a valid email and password THEN user should be able to login"
+  }, {
+    "name" : "package",
+    "value" : "My Login application"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "30dfe8e780340ca4.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

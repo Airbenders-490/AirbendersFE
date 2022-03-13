@@ -138,13 +138,14 @@ class LoginContent extends Component {
                 <CredentialsInput
                     placeholder='email'
                     placeholderTextColor={theme.COLOR_ORANGE}
-                    accessibilityId="email"
+                    accessibilityLabel="email"
                     onChangeText={(text) => this.payload.email = text} />
             </CredentialsContainer>
 
             <CredentialsContainer>
                 <CredentialsInput
                     placeholder='password'
+                    accessibilityLabel="password"
                     placeholderTextColor={theme.COLOR_ORANGE}
                     secureTextEntry={this.state.hidePrimaryPassword ? true : false}
                     onChangeText={(text) => this.payload.password = text} />
@@ -170,6 +171,7 @@ class LoginContent extends Component {
     
             <CustomButton
               redirect={this.handleActionButton}
+              accessibilityLabel="login"
               buttonColorBackground="#FF7A67">
               {this.state.isInRegister ? 'Register' : 'Login'}
             </CustomButton>
