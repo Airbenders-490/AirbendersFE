@@ -18,7 +18,6 @@ class SearchBar extends Component {
         participantName: '',
     };
     this.triggerSearchBar = this.triggerSearchBar.bind(this);
-    // this.onTextChange = this.onTextChange.bind(this);
   }
   // Write functions here
   triggerSearchBar() {
@@ -32,7 +31,7 @@ class SearchBar extends Component {
             </Pressable>
             { this.state.searchBarVisibility && 
                 /** Show search bar on click */
-                <SearchField placeholder="Search" onChangeText={(text) => this.setState({ participantName: text })} value={this.state.participantName}/>
+                <SearchField placeholder="Search" onChangeText={(text) => this.participantName = text} value={this.state.participantName}/>
             }
         </Search>
     );
