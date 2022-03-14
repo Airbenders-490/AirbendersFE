@@ -66,6 +66,7 @@ class ParticipantListItem extends Component {
               </ButtonsContainer>
             } 
             <TeamFormationStatus statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} />
+            
           </ContentContainer>
         </MainContainer>
       );
@@ -77,6 +78,7 @@ const ContentContainer = styled.View `
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 const ContentLHS = styled.View `
@@ -92,7 +94,9 @@ const ParticipantName = styled.Text `
 `;
 
 const ButtonsContainer = styled.View `
+  display: flex;
   flex-direction: row;
+  margin-top: ${theme.SPACING_SMALL}
 `;
 
 const TeamFormationStatus = styled.View `
