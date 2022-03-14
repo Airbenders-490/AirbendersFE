@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import theme from '../styles/theme.style.js';
-
 import ScreenContainer from '../containers/ScreenContainer';
 import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
 import JoinTeam from '../components/modals/JoinTeam.js';
+import ParticipantListItem from '../components/ParticipantListItem';
+
 class Teams extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +24,12 @@ class Teams extends Component {
             teamName='X'
             >
           </JoinTeam>
+          <ParticipantListItem
+              participantName={"jane smith"}
+              commonClass={'SOEN 490'}
+              userTeamStatus={'pending'}
+              isAdmin={true}
+          />
         </TeamsContainer>
       </ScreenContainer>
     );
