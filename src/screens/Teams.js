@@ -8,10 +8,15 @@ import ScreenContainer from '../containers/ScreenContainer';
 import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
 import JoinTeam from '../components/modals/JoinTeam.js';
+import SearchBar from '../components/SearchBar.js'
+import ParticipantListItem from '../components/ParticipantListItem.js';
+
 class Teams extends Component {
   constructor(props) {
     super(props);
   }
+    
+
 
   // Write functions here
 
@@ -19,9 +24,15 @@ class Teams extends Component {
     return (
       <ScreenContainer screenTitle='Teams'>
         <TeamsContainer>
+          <SearchBar></SearchBar>
+          {/* <ParticipantListItem participantName={"jane smith"}
+              commonClass={'SOEN 490'}
+              userTeamStatus={'pending'}>
+          </ParticipantListItem> */}
+
           <JoinTeam 
-            teamName='X'
-            >
+            teamName={'X'}
+          >
           </JoinTeam>
         </TeamsContainer>
       </ScreenContainer>
