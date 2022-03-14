@@ -8,6 +8,7 @@ import ScreenContainer from '../containers/ScreenContainer';
 import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
 import JoinTeam from '../components/modals/JoinTeam.js';
+import ParticipantListItem from '../components/ParticipantListItem';
 
 import FilterIcon from '../assets/images/icons/filter.png';
 import Label from '../components/Label.js';
@@ -109,7 +110,6 @@ const FilterClick = styled.Image `
 `;
 
 const LabelContainer = styled.View `
-  display: ${props => props.isReady ? 'flex' : 'none'}; 
   flex-direction: row;
   padding-left: 10px;
   top: 5px;

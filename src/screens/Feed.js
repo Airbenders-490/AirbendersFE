@@ -24,7 +24,11 @@ class Feed extends Component {
   render() {
     return (
       <ScreenContainer screenTitle="Feed" >
-      
+        <TeamListItem
+          title="Airbenders"
+          courseNumber="SOEN 490"
+          numberCurrentParticipants={3}
+          numberTotalParticipants={5} />
       </ScreenContainer>
     );
   }
