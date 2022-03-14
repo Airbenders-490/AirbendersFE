@@ -10,23 +10,22 @@ import Label from './Label.js';
 class ParticipantListItem extends Component {
     constructor(props) {
       super(props);
-      this.state = {
-        isAdmin: true,
-    }
+
     this.acceptRequest = this.acceptRequest.bind(this);
     this.denyRequest = this.denyRequest.bind(this);
 
   };
 
-    acceptRequest() {
-      console.log('accept participant')
-      // TODO: Add connection
+    acceptRequest = () => {
+      // TODO: ADD CONNECTION
+      console.log("accept participant");  
     }
 
-    denyRequest() {
-      console.log('deny participant')
-      // TODO: Add connection
+    denyRequest = () => {
+      // TODO: ADD CONNECTION
+      console.log("deny participant");
     }
+    
 
     setTeamFormationColor(status) {
       let color;
@@ -56,16 +55,16 @@ class ParticipantListItem extends Component {
               <Label isReadOnly labelColor={theme.COLOR_ORANGE}>{this.props.commonClass}</Label>
               <ParticipantName>{this.props.participantName}</ParticipantName>
             </ContentLHS>
-            
-              <ButtonsContainer isAdmin={this.props.isAdmin}>
-                <TouchableOpacity onPress={this.acceptRequest} >
+            { this.props.isAdmin && this.props.userTeamStatus == 'pending' &&
+              <ButtonsContainer isAdmin={this.props.isAdmin} isPending={this.props.isPending}>
+                <TouchableOpacity onPress={() => {this.acceptRequest()}}>
                   <Label isReadOnly labelColor={theme.COLOR_GREEN}>ACCEPT</Label>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.denyRequest}>
+                <TouchableOpacity onPress={() => {this.denyRequest()}}>
                   <Label isReadOnly labelColor={theme.COLOR_RED}>DENY</Label>
                 </TouchableOpacity>
               </ButtonsContainer>
-            
+            } 
             <TeamFormationStatus statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} />
           </ContentContainer>
         </MainContainer>
@@ -93,7 +92,6 @@ const ParticipantName = styled.Text `
 `;
 
 const ButtonsContainer = styled.View `
-  display: ${props => props.isAdmin ? 'flex' : 'none'};
   flex-direction: row;
 `;
 
