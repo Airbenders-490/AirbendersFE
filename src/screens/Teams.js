@@ -22,14 +22,8 @@ class Teams extends Component {
         <TeamsContainer>
           <JoinTeam 
             teamName='X'
-            >
+          >
           </JoinTeam>
-          <ParticipantListItem
-              participantName={"jane smith"}
-              commonClass={'SOEN 490'}
-              userTeamStatus={'pending'}
-              isAdmin={true}
-          />
         </TeamsContainer>
       </ScreenContainer>
     );
