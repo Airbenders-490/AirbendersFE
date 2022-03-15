@@ -61,9 +61,9 @@ const LabelText = styled.Text`
 `;
 
 const LabelIcon = styled.Image`
-  tintColor: #FFFFFF;
-  width: 15;
-  height: 15;
+  tintColor: #000000;
+  width: 20;
+  height: 20;
 `;
 
 const IconTag = styled.View `
@@ -76,8 +76,5 @@ const IconTag = styled.View `
   padding-horizontal: 5;
   background-color: ${props => props.isPressed ? '#CECECE' : (props.backgroundColor ? `${props.backgroundColor}50` : `${theme.COLOR_BLUE}50`)};
 `;
-
-Label.propTypes = {
-};
 
 export default Label;
