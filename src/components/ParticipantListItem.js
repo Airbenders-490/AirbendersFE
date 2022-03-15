@@ -57,12 +57,16 @@ class ParticipantListItem extends Component {
             </ContentLHS>
             { this.props.isAdmin && this.props.userTeamStatus == 'pending' &&
               <ButtonsContainer isAdmin={this.props.isAdmin} isPending={this.props.isPending}>
-                <TouchableOpacity onPress={() => {this.acceptRequest()}}>
-                  <Label isReadOnly labelColor={theme.COLOR_GREEN}>ACCEPT</Label>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => {this.denyRequest()}}>
-                  <Label isReadOnly labelColor={theme.COLOR_RED}>DENY</Label>
-                </TouchableOpacity>
+                <ButtonContainer onPress={() => {this.acceptRequest()}}>
+                  <AcceptTextContainer>
+                    <ButtonText>Accept</ButtonText>
+                  </AcceptTextContainer>
+                </ButtonContainer>
+                <ButtonContainer onPress={() => {this.denyRequest()}}>
+                  <DenyTextContainer>
+                    <ButtonText>Deny</ButtonText>
+                  </DenyTextContainer>
+                </ButtonContainer>
               </ButtonsContainer>
             } 
             <TeamFormationStatus statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} />
@@ -104,6 +108,36 @@ const TeamFormationStatus = styled.View `
   height: 10;
   border-radius: 5;
   background: ${props => props.statusColor};
+`;
+
+const ButtonContainer = styled.TouchableOpacity `
+  display: flex;
+  flex-direction: row;
+  margin-right: 5;
+`;
+
+const AcceptTextContainer = styled.View `
+  padding-horizontal: 10;
+  padding-vertical: 5;
+  border-top-left-radius: 100;
+  border-bottom-left-radius: 100;
+  border-top-right-radius: 100;
+  border-bottom-right-radius: 100;
+  background-color: ${theme.COLOR_GREEN};
+  width: 72;
+  align-items: center;
+`;
+
+const DenyTextContainer = styled(AcceptTextContainer) `
+  background-color: ${theme.COLOR_RED};
+`;
+
+const ButtonText = styled.Text`
+  color: white;
+  font-family: ${theme.FONT_SEMIBOLD};
+  letter-spacing: ${theme.LETTER_SPACING_SMALL};
+  text-transform: uppercase
+  font-size: ${theme.FONT_SIZE_MEDIUM};
 `;
 
 export default ParticipantListItem;
