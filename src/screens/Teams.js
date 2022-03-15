@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StyleSheet, Button, TouchableOpacity, Text, View, Image, TextInput, Alert } from 'react-native';
 import theme from '../styles/theme.style.js';
-
 import ScreenContainer from '../containers/ScreenContainer';
 import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
 import JoinTeam from '../components/modals/JoinTeam.js';
 import ParticipantListItem from '../components/ParticipantListItem';
-
 import FilterIcon from '../assets/images/icons/filter.png';
 import Label from '../components/Label.js';
 import XIcon from '../assets/images/icons/x-icon.png';
