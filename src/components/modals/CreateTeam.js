@@ -61,10 +61,10 @@ class CreateTeam extends Component {
                 </StyledFlexBox>
                 <ButtonContainer>
                     <ConfirmButton onPress={() => this.createTeam()}>
-                        <ConfirmButtonText>create</ConfirmButtonText>
+                        <ButtonText>create</ButtonText>
                     </ConfirmButton>
                     <CancelButton onPress={() => this.setModalVisible(!modalVisible)}>
-                        <CancelButtonText>cancel</CancelButtonText>
+                        <ButtonText>cancel</ButtonText>
                     </CancelButton>
                 </ButtonContainer>
             </CreateTeamContainer>
@@ -95,11 +95,8 @@ const TextField = styled.TextInput `
     padding-left: ${theme.SPACING_XSMALL};
 `
 
-const NumberField = styled.TextInput `
-    background-color: ${theme.COLOR_LIGHT_GRAY};
-    border-radius: 12;
+const NumberField = styled(TextField) `
     width: 100;
-    padding-left: ${theme.SPACING_XSMALL};
 `
 
 const StyledFlexBox = styled.View `
@@ -138,33 +135,20 @@ const ConfirmButton = styled.TouchableOpacity `
     padding-horizontal: ${theme.SPACING_SMALL};
 `
 
-const CancelButton = styled.TouchableOpacity `
+const CancelButton = styled(ConfirmButton) `
     background-color: ${theme.COLOR_RED};
-    border-radius: 12;
-    width: 75;
-    height: 25;
-    align-items: center;
     margin-left: ${theme.SPACING_SMALL};
-    margin-top: ${theme.SPACING_SMALL};
-    padding-horizontal: ${theme.SPACING_SMALL};
 `
 
-const ConfirmButtonText = styled.Text `
+const ButtonText = styled.Text `
     align-items: center;
     color: ${theme.COLOR_WHITE};
     font-weight: bold;
     font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
     letter-spacing: ${theme.LETTER_SPACING_MEDIUM};
     margin-top: 6;
+    text-transform: uppercase;
 `;
 
-const CancelButtonText = styled.Text `
-    align-items: center;
-    color: ${theme.COLOR_WHITE};
-    font-weight: bold;
-    font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
-    letter-spacing: ${theme.LETTER_SPACING_MEDIUM};
-    margin-top: 6;
-`;
 
 export default CreateTeam;
