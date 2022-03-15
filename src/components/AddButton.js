@@ -51,8 +51,4 @@ width: 40;
 height: 40;
 `;
 
-AddButton.propTypes = {
-  children: PropTypes.element.isRequired,
-};
-
 export default AddButton;

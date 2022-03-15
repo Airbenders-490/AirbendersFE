@@ -9,6 +9,7 @@ import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
 import JoinTeam from '../components/modals/JoinTeam.js';
 import CreateTeam from '../components/modals/CreateTeam.js';
+import TeamListItem from '../components/TeamListItem.js';
 
 class Teams extends Component {
   constructor(props) {
@@ -23,8 +24,8 @@ class Teams extends Component {
           <TeamsContainer>
             {/* <JoinTeam 
               teamName='X'
-          /> */}
-          <CreateTeam/>
+            /> */}
+            <CreateTeam/>
           </TeamsContainer>
       </ScreenContainer>
     );
