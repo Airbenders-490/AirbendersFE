@@ -1,11 +1,13 @@
 import React,  { Component, } from 'react';
 import PropTypes from 'prop-types';
-import { Button, View, TouchableOpacity, Text, Image, ScrollView, Pressable, TouchableHighlightBase} from 'react-native';
+import { Button, View, TouchableOpacity, Text, Image, ScrollView, Pressable, TouchableHighlightBase, Dimensions} from 'react-native';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
 import { Subtitle } from '../containers/TextContainer.js';
 import Label from './Label.js';
+
+const totalWidth = Dimensions.get('window').width;
 
 class ParticipantListItem extends Component {
     constructor(props) {
@@ -124,7 +126,7 @@ const AcceptTextContainer = styled.View `
   border-top-right-radius: 100;
   border-bottom-right-radius: 100;
   background-color: ${theme.COLOR_GREEN};
-  width: 72;
+  width: ${totalWidth / 5.5};
   align-items: center;
 `;
 
