@@ -90,7 +90,10 @@ const CenterContainer = styled.View `
 
 const TextField = styled.TextInput `
     background-color: ${theme.COLOR_LIGHT_GRAY};
-    border-radius: 10;
+    border-top-left-radius: 100;
+    border-bottom-left-radius: 100;
+    border-top-right-radius: 100;
+    border-bottom-right-radius: 100;
     width: 60%;
     padding-left: ${theme.SPACING_XSMALL};
 `
@@ -127,7 +130,10 @@ const CreateTeamContainer = styled.View `
 
 const ConfirmButton = styled.TouchableOpacity `
     background-color: ${theme.COLOR_GREEN};
-    border-radius: 12;
+    border-top-left-radius: 100;
+    border-bottom-left-radius: 100;
+    border-top-right-radius: 100;
+    border-bottom-right-radius: 100;
     width: 30%;
     align-items: center;
     margin-top: ${theme.SPACING_SMALL};
