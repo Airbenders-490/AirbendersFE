@@ -90,7 +90,7 @@ const CenterContainer = styled.View `
 
 const TextField = styled.TextInput `
     background-color: ${theme.COLOR_LIGHT_GRAY};
-    border-radius: 12;
+    border-radius: 10;
     width: 60%;
     padding-left: ${theme.SPACING_XSMALL};
 `
