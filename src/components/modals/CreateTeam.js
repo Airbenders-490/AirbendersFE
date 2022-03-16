@@ -91,12 +91,12 @@ const CenterContainer = styled.View `
 const TextField = styled.TextInput `
     background-color: ${theme.COLOR_LIGHT_GRAY};
     border-radius: 12;
-    width: 200;
+    width: 60%;
     padding-left: ${theme.SPACING_XSMALL};
 `
 
 const NumberField = styled(TextField) `
-    width: 100;
+    width: 30%;
 `
 
 const StyledFlexBox = styled.View `
@@ -128,11 +128,11 @@ const CreateTeamContainer = styled.View `
 const ConfirmButton = styled.TouchableOpacity `
     background-color: ${theme.COLOR_GREEN};
     border-radius: 12;
-    width: 75;
-    height: 25;
+    width: 30%;
     align-items: center;
     margin-top: ${theme.SPACING_SMALL};
-    padding-horizontal: ${theme.SPACING_SMALL};
+    padding-horizontal: 10;
+    padding-vertical: 5;
 `
 
 const CancelButton = styled(ConfirmButton) `
@@ -141,14 +141,11 @@ const CancelButton = styled(ConfirmButton) `
 `
 
 const ButtonText = styled.Text `
-    align-items: center;
     color: ${theme.COLOR_WHITE};
-    font-weight: bold;
+    font-family: ${theme.FONT_SEMIBOLD};
     font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
     letter-spacing: ${theme.LETTER_SPACING_MEDIUM};
-    margin-top: 6;
     text-transform: uppercase;
 `;
-
 
 export default CreateTeam;
