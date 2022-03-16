@@ -104,12 +104,12 @@ const JoinTeamText = styled.Text `
 
 const ConfirmButton = styled.TouchableOpacity `
   background-color: ${theme.COLOR_GREEN};
-  width: 50;
+  width: 30%;
   border-radius: 12;
-  height: 25;
   align-items: center;
   margin-top: ${theme.SPACING_SMALL};
-  margin-bottom: 30;
+  padding-horizontal: 10;
+  padding-vertical: 5;
 `
 
 const CancelButton = styled(ConfirmButton) `
@@ -123,7 +123,6 @@ const ButtonText = styled.Text `
   font-weight: bold;
   font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
   letter-spacing: ${theme.LETTER_SPACING_MEDIUM};
-  margin-top: 6;
 `;
 
 export default JoinTeam;
