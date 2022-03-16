@@ -74,7 +74,7 @@ class AddCurrentClassModal extends Component {
 
               <View style={styles.modalButtons}>
                 <Pressable
-                  style={[styles.button, styles.buttonClose]}
+                  style={[styles.button, styles.buttonClose, styles.submitButton]}
                   onPress={() => {
                     this.setModalVisible(!modalVisible)
                     this.handleSubmit()
@@ -85,7 +85,7 @@ class AddCurrentClassModal extends Component {
                 </Pressable>
                 <View style={styles.buttonSpace} />
                 <Pressable
-                  style={[styles.button, styles.buttonClose]}
+                  style={[styles.button, styles.buttonClose, styles.closeButton]}
                   onPress={() => this.setModalVisible(!modalVisible)}
                 >
                   <Text style={styles.textStyle}>Cancel</Text>
@@ -166,6 +166,12 @@ const styles = StyleSheet.create({
   },
   buttonSpace: {
     width: 10
+  },
+  submitButton: {
+    backgroundColor: "#0CD59E"
+  },
+  closeButton: {
+    backgroundColor: "#EE3861"
   }
 });
 
