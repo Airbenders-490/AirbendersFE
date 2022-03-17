@@ -6,6 +6,9 @@ import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
 import { Subtitle } from '../containers/TextContainer.js';
 import Label from './Label.js';
+import AcceptIcon from '../assets/images/icons/accept-icon.png'
+import DenyIcon from '../assets/images/icons/deny-icon.png'
+
 
 const totalWidth = Dimensions.get('window').width;
 
@@ -57,22 +60,19 @@ class ParticipantListItem extends Component {
               <Label isReadOnly labelColor={theme.COLOR_ORANGE}>{this.props.commonClass}</Label>
               <ParticipantName>{this.props.participantName}</ParticipantName>
             </ContentLHS>
-            { this.props.isAdmin && this.props.userTeamStatus == 'pending' &&
-              <ButtonsContainer isAdmin={this.props.isAdmin} isPending={this.props.isPending}>
-                <ButtonContainer onPress={() => {this.acceptRequest()}}>
-                  <AcceptTextContainer>
-                    <ButtonText>Accept</ButtonText>
-                  </AcceptTextContainer>
-                </ButtonContainer>
-                <ButtonContainer onPress={() => {this.denyRequest()}}>
-                  <DenyTextContainer>
-                    <ButtonText>Deny</ButtonText>
-                  </DenyTextContainer>
-                </ButtonContainer>
-              </ButtonsContainer>
-            } 
-            <TeamFormationStatus statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} />
-            
+            <ContentRHS>
+              { this.props.isAdmin && this.props.userTeamStatus == 'pending' &&
+                <ButtonsContainer isAdmin={this.props.isAdmin} isPending={this.props.isPending}>
+                  <ButtonContainer onPress={() => {this.acceptRequest()}}>
+                    <AcceptButton source={ AcceptIcon }/>
+                  </ButtonContainer>
+                  <ButtonContainer onPress={() => {this.denyRequest()}}>
+                    <DenyButton source={ DenyIcon }/>
+                  </ButtonContainer>
+                </ButtonsContainer>
+              } 
+              <TeamFormationStatus statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} />
+            </ContentRHS>
           </ContentContainer>
         </MainContainer>
       );
@@ -91,18 +91,20 @@ const ContentLHS = styled.View `
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+
+`;
+
+const ContentRHS = styled.View `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 const ParticipantName = styled.Text `
   font-family: ${theme.FONT_SEMIBOLD};
   font-size: ${theme.FONT_SIZE_SLIGHT_LARGE};
   text-transform: capitalize;
-`;
-
-const ButtonsContainer = styled.View `
-  display: flex;
-  flex-direction: row;
-  margin-top: ${theme.SPACING_SMALL}
 `;
 
 const TeamFormationStatus = styled.View `
@@ -112,34 +114,25 @@ const TeamFormationStatus = styled.View `
   background: ${props => props.statusColor};
 `;
 
+const ButtonsContainer = styled.View `
+  display: flex;
+  flex-direction: row;
+  margin-right: ${theme.SPACING_SMALL}};
+`;
+
 const ButtonContainer = styled.TouchableOpacity `
   display: flex;
   flex-direction: row;
-  margin-right: 5;
+  margin-right: ${theme.SPACING_XSMALL}};
 `;
 
-const AcceptTextContainer = styled.View `
-  padding-horizontal: 10;
-  padding-vertical: 5;
-  border-top-left-radius: 100;
-  border-bottom-left-radius: 100;
-  border-top-right-radius: 100;
-  border-bottom-right-radius: 100;
-  background-color: ${theme.COLOR_GREEN};
-  width: ${totalWidth / 5.5};
-  align-items: center;
-`;
+const AcceptButton = styled.Image `
+  height: 20;
+  width: 20;
+  tintColor: ${theme.COLOR_GREEN};
+`
 
-const DenyTextContainer = styled(AcceptTextContainer) `
-  background-color: ${theme.COLOR_RED};
-`;
-
-const ButtonText = styled.Text`
-  color: white;
-  font-family: ${theme.FONT_SEMIBOLD};
-  letter-spacing: ${theme.LETTER_SPACING_SMALL};
-  text-transform: uppercase
-  font-size: ${theme.FONT_SIZE_MEDIUM};
-`;
-
+const DenyButton = styled(AcceptButton) `
+  tintColor: ${theme.COLOR_RED};
+`
 export default ParticipantListItem;
