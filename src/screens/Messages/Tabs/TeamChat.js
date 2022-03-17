@@ -18,24 +18,37 @@ class TeamChat extends Component {
       this.navigateToChat = this.navigateToChat.bind(this);
     }
 
-    navigateToChat(mockConversation) {
+    navigateToChat(mockConversation, chatroomID) {
         this.props.navigation.navigate('ConversationScreen', {
             conversation: mockConversation,
+            chatroomID: chatroomID
         })
     }
+
+    componentDidUpdate() {
+        console.log("TeamChat has updated");
+    }
   
-    render() {
+    render() {    
         return (
-            <ScrollView contentContainerStyle={{ padding: theme.SPACING_MEDIUM }}>
-                <ConversationItem onPress={() => this.navigateToChat(FirstConvo)}>
+            <View contentContainerStyle={{ padding: theme.SPACING_MEDIUM }}>
+                <ConversationItem onPress={() => this.navigateToChat(FirstConvo, 1)}>
                     <MessageListItem
                         backgroundColor={theme.COLOR_BLUE}
-                        classNumber='SOEN 490'
+                        classNumber='first convo'
                         className='capstone'
                         caption='Smarties'
                         numberParticipants={10} />
                 </ConversationItem>
-            </ScrollView>
+                <ConversationItem onPress={() => this.navigateToChat(SecondConvo, 2)}>
+                    <MessageListItem
+                        backgroundColor={theme.COLOR_PURPLE}
+                        classNumber='second convo'
+                        className='test'
+                        caption='test'
+                        numberParticipants={5} />
+                </ConversationItem>
+            </View>
         );
     }
 }

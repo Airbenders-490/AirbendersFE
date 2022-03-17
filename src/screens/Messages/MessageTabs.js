@@ -3,7 +3,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { StyleSheet, View, Text, Pressable, Dimensions } from "react-native";
 import theme from '../../styles/theme.style.js';
 import PeerChat from './Tabs/PeerChat.js';
-import TeamChat from './Tabs/TeamChat';
+import TeamChat from './Tabs/TeamChat.js';
 
 const Tab = createMaterialTopTabNavigator();
 const totalWidth = Dimensions.get('window').width;
@@ -14,33 +14,36 @@ class MessageTabs extends Component {
   }
 
   render() {
-      return (
-        <Tab.Navigator
-          screenOptions={{
-            tabBarLabelStyle: {
-              fontSize: theme.FONT_SIZE_SLIGHT_MEDIUM,
-              fontFamily: theme.FONT_SEMIBOLD,
-              letterSpacing: theme.LETTER_SPACING_SMALL,
-            },
-            tabBarStyle: {
-              backgroundColor: "transparent",
-              marginBottom: theme.SPACING_SMALL,
-            },
-            tabBarIndicatorStyle: {
-              backgroundColor: theme.COLOR_BLACK,
-              height: 1.5,
-              width: totalWidth / 10,
-              left: totalWidth / 5,
-            },
-          }}
-        >
-          <Tab.Screen name="Peer Chats" component={PeerChat} />
-          <Tab.Screen name="Team Chats">
-            {(props) => <TeamChat navigation={this.props.navigation} />}
-          </Tab.Screen>
-        </Tab.Navigator>
-      );
+    return (
+      <Tab.Navigator
+        screenOptions={{
+          tabBarLabelStyle: {
+            fontSize: theme.FONT_SIZE_SLIGHT_MEDIUM,
+            fontFamily: theme.FONT_SEMIBOLD,
+            letterSpacing: theme.LETTER_SPACING_SMALL,
+          },
+          tabBarStyle: {
+            backgroundColor: "transparent",
+            marginBottom: theme.SPACING_SMALL,
+          },
+          tabBarIndicatorStyle: {
+            backgroundColor: theme.COLOR_BLACK,
+            height: 1.5,
+            width: totalWidth / 10,
+            left: totalWidth / 5,
+          },
+        }}
+      >
+        <Tab.Screen name="Peer Chats">
+          {(props) => <PeerChat />}
+        </Tab.Screen>
+        <Tab.Screen name="Team Chats">
+          {(props) => <TeamChat navigation={this.props.navigation} newEvent={'new event'} />}
+        </Tab.Screen>
+      </Tab.Navigator>
+    );
   }
 }
 
 export default MessageTabs;
+
