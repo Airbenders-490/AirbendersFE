@@ -9,7 +9,7 @@ import MainContainer from '../containers/MainContainer.js';
 import JoinTeam from '../components/modals/JoinTeam.js';
 import ParticipantListItem from '../components/ParticipantListItem';
 import FilterIcon from '../assets/images/icons/filter.png';
-import Label from '../components/Label.js';
+import ClassLabel from '../components/Label.js';
 import XIcon from '../assets/images/icons/x-icon.png';
 
 
@@ -21,22 +21,18 @@ class Teams extends Component {
       className: '',
       classEntered: false,
       isReady: false,
-      deleteLabel: false
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showName = this.showName.bind(this);
   }
 
-  deleteLabel = () => {
-    this.setState({deleteLabel : !this.state.deleteLabel});
-  }
   handleClass = (text) => {
     this.setState({ className: text});
   }
 
   handleSubmit = () => {
       this.setState({isReady : !this.state.isReady});
+      this.className.clear();
   }
   showName = () => {
     this.setState({classEntered : !this.state.classEntered})
@@ -44,12 +40,10 @@ class Teams extends Component {
 
   render() {
     let {isReady} = this.state;
+
     const renderLabel = () => {
       if(isReady) {
-        return <Label labelColor="#5089E9" labelIcon={XIcon}><LabelClassName>{this.state.className}</LabelClassName></Label>;
-      }
-      else {
-        console.log("Label is gone");
+        return <ClassLabel labelColor="#5089E9" labelIcon={XIcon}><LabelClassName>{this.state.className}</LabelClassName></ClassLabel>;
       }
     }
     return (
@@ -60,13 +54,14 @@ class Teams extends Component {
              <FilterClick source={FilterIcon}/>
                <CustomText placeholder = "Class Name" 
                 classEntered = {this.state.classEntered} 
+                ref= {input => {this.className = input}}
                 value={this.state.className} 
                 onChangeText={this.handleClass}
                 onSubmitEditing= { this.handleSubmit }/>
             </FilterButton>
-               <LabelContainer isReady = {this.state.isReady}>
+            <LabelContainer>
                {renderLabel()}
-               </LabelContainer>
+              </LabelContainer>
            </Container>
           <JoinTeam 
             teamName='X'
@@ -108,7 +103,7 @@ const FilterClick = styled.Image `
 `;
 
 const LabelContainer = styled.View `
-  flex-direction: row;
+  display: flex;
   padding-left: 10px;
   top: 5px;
   align-items: center;
