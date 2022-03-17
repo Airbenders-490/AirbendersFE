@@ -16,9 +16,9 @@ class MessagesScreen extends Component {
 
   render() {
     return (
-      <ScreenContainer screenTitle="Messages" ignorePadding>
+      // <ScreenContainer screenTitle="Messages" ignorePadding>
         <MessageTabs navigation={this.props.navigation} hideTabBar={this.props.hideTabBar} />
-      </ScreenContainer>
+      // </ScreenContainer>
     );
   }
 }
