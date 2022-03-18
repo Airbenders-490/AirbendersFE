@@ -127,8 +127,8 @@ const ButtonContainer = styled.TouchableOpacity `
 `;
 
 const AcceptButton = styled.Image `
-  height: 20;
-  width: 20;
+  height: 25;
+  width: 25;
   tintColor: ${theme.COLOR_GREEN};
 `
 
