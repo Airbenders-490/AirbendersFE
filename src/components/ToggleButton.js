@@ -39,7 +39,6 @@ class ToggleButton extends Component {
     justify-content: space-between;
   `;
   const Label = styled.Text `
-    width: 290;
     margin-top: 10;
     font-size: ${theme.FONT_SIZE_MEDIUM};
     font-family: ${theme.FONT_REGULAR};
