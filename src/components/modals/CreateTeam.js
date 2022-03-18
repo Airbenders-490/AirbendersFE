@@ -134,7 +134,7 @@ const ConfirmButton = styled.TouchableOpacity `
     border-bottom-left-radius: 100;
     border-top-right-radius: 100;
     border-bottom-right-radius: 100;
-    width: 30%;
+    width: 35%;
     align-items: center;
     margin-top: ${theme.SPACING_SMALL};
     padding-horizontal: 10;
