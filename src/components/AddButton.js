@@ -11,8 +11,8 @@ class AddButton extends Component {
   
     render() {
       return (
-      <CustomAddButton >
-          <AddCustomIcon source= {AddIcon}/>
+      <CustomAddButton onPress={this.props.addFunction}>
+        <AddCustomIcon source= {AddIcon}/>
         <ButtonText>
           {this.props.buttonText}
         </ButtonText>
@@ -50,9 +50,5 @@ bottom: 10;
 width: 40; 
 height: 40;
 `;
-
-AddButton.propTypes = {
-  children: PropTypes.element.isRequired,
-};
 
 export default AddButton;
