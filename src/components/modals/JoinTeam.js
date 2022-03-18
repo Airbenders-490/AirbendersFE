@@ -47,10 +47,10 @@ class JoinTeam extends Component {
             <JoinTeamContainer>
               <JoinTeamText>Are you sure you want to join {this.props.teamName} team?</JoinTeamText>
               <ConfirmButton onPress={() => this.joinTeam()}>
-                <ConfirmButtonText>Yes</ConfirmButtonText>
+                <ButtonText>Yes</ButtonText>
               </ConfirmButton>
               <CancelButton onPress={() => this.setModalVisible(!modalVisible)}>
-                <CancelButtonText>No</CancelButtonText>
+                <ButtonText>No</ButtonText>
               </CancelButton>
             </JoinTeamContainer>
           </CenterContainer>
@@ -104,38 +104,29 @@ const JoinTeamText = styled.Text `
 
 const ConfirmButton = styled.TouchableOpacity `
   background-color: ${theme.COLOR_GREEN};
-  width: 50;
-  border-radius: 12;
-  height: 25;
+  width: 30%;
+  border-top-left-radius: 100;
+  border-bottom-left-radius: 100;
+  border-top-right-radius: 100;
+  border-bottom-right-radius: 100;
   align-items: center;
   margin-top: ${theme.SPACING_SMALL};
-  margin-bottom: 30;
+  padding-horizontal: 10;
+  padding-vertical: 5;
 `
 
-const CancelButton = styled.TouchableOpacity `
+const CancelButton = styled(ConfirmButton) `
   background-color: ${theme.COLOR_RED};
-  width: 50;
-  border-radius: 12;
-  height: 25;
-  align-items: center;
   margin-left: ${theme.SPACING_SMALL};
 `
-const ConfirmButtonText = styled.Text `
-  align-items: center;
-  color: ${theme.COLOR_WHITE};
-  font-weight: bold;
-  font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
-  letter-spacing: ${theme.LETTER_SPACING_MEDIUM};
-  margin-top: 6;
-`;
 
-const CancelButtonText = styled.Text `
+const ButtonText = styled.Text `
   align-items: center;
   color: ${theme.COLOR_WHITE};
   font-weight: bold;
   font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
   letter-spacing: ${theme.LETTER_SPACING_MEDIUM};
-  margin-top: 6;
+  text-transform: uppercase;
 `;
 
 export default JoinTeam;
