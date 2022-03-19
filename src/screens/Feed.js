@@ -26,6 +26,12 @@ class Feed extends Component {
           courseNumber="SOEN 490"
           numberCurrentParticipants={3}
           numberTotalParticipants={5} />
+        <ParticipantListItem
+            participantName={"jane smith"}
+            commonClass={'SOEN 490'}
+            userTeamStatus={'pending'}
+            isAdmin={true}
+        />
       </ScreenContainer>
     );
   }

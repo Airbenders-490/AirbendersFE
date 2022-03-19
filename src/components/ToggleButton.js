@@ -39,7 +39,6 @@ const ToggleContainer = styled.View`
     justify-content: space-between;
   `;
 const Label = styled.Text`
-    width: 100;
     margin-top: 10;
     font-size: ${theme.FONT_SIZE_MEDIUM};
     font-family: ${theme.FONT_REGULAR};
