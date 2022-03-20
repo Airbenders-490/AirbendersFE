@@ -1,6 +1,7 @@
 import React, { useState, Component } from "react";
 import { Button, Text, View, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Alert, Modal, Pressable } from "react-native";
 import axios from 'axios';
+import theme from '../styles/theme.style.js';
 
 
 class RemoveClassesTakenModal extends Component {
@@ -146,6 +147,7 @@ const styles = StyleSheet.create({
   },
   buttonOpen: {
     backgroundColor: "#F194FF",
+    width: '35%'
   },
   buttonClose: {
     backgroundColor: "#2196F3",
@@ -169,10 +171,10 @@ const styles = StyleSheet.create({
     width: 10
   },
   submitButton: {
-    backgroundColor: "#0CD59E"
+    backgroundColor: theme.COLOR_GREEN
   },
   closeButton: {
-    backgroundColor: "#EE3861"
+    backgroundColor: theme.COLOR_RED
   }
 });
 
