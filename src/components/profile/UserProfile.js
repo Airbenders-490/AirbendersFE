@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { LogBox } from "react-native"
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, Text, Touchable, TouchableOpacity, View, Image, ToastAndroid } from 'react-native';
 import theme from '../../styles/theme.style.js';
 import MainContainer from '../../containers/MainContainer.js';
@@ -17,25 +19,41 @@ import StarIcon from '../../assets/images/icons/star-icon.png';
 import UserIcon from '../../assets/images/icons/user_fill.png';
 import axios from 'axios';
 import Emoji from '../Emoji.js';
+import AddClassesTakenModal from '../AddClassesTakenModal.js';
+import RemoveClassesTakenModal from '../RemoveClassesTakenModal.js';
+import AddCurrentClassModal from '../AddCurrentClassModal.js';
+import RemoveCurrentClassModal from '../RemoveCurrentClassModal.js';
+import CompleteClassModal from '../CompleteClassModal.js';
 
+LogBox.ignoreAllLogs();
+
+// for testing w/out login
 let config = {
     headers: {
         'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
     }
 }
+
 class UserProfile extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             expanded: false,
-            currentUserData: {},
+            currentUserData: {
+                reviews: []
+            },
             lastRefresh: Date(Date.now()).toString(),
+            userID: '',
+            token: ''
         }
 
         this.toggleExpansion = this.toggleExpansion.bind(this);
         this.refreshScreen = this.refreshScreen.bind(this);
         this.onSettingsSave = this.onSettingsSave.bind(this);
+        this.getCurrentUser = this.getCurrentUser.bind(this);
+        this.getConfig = this.getConfig.bind(this)
+        this.getData = this.getData.bind(this)
     }
 
     payload = {
@@ -45,6 +63,28 @@ class UserProfile extends Component {
         generalInfo: this.generalInfo,
     }
 
+    getConfig = (token) => {
+        return {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }
+    }
+
+    getData = async (key) => {
+        try {
+            return await AsyncStorage.getItem(key)
+        } catch (e) {
+            // error reading value
+            return e;
+        }
+    }
+
+    updatePayload() {
+        this.payload.fullName = this.state.currentUserData.first_name + " " + this.state.currentUserData.last_name;
+        this.payload.email = this.state.currentUserData.email;
+        this.payload.generalInfo = this.state.currentUserData.general_info;
+    }
 
 
     // Write functions
@@ -53,13 +93,19 @@ class UserProfile extends Component {
         console.log(this.state.expanded)
     }
 
-    componentDidMount() {
+    async getCurrentUser() {
+        this.setState({
+            userID: await this.getData("userID"),
+            token: await this.getData("token")
+        })
         axios
-            .get(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, config)
+            .get(`http://real.encs.concordia.ca/profile/api/student/${this.state.userID}`, this.getConfig(this.state.token))
+            // .get(`http://real.encs.concordia.ca/profile/api/student/${userID}`, config) // for testing w/out login
             .then(
                 response => {
                     console.log(response.data);
                     this.setState({ currentUserData: response.data });
+                    this.updatePayload();
                     console.log(this.state.currentUserData)
                 }
             )
@@ -68,6 +114,12 @@ class UserProfile extends Component {
                 error => console.log(error.response.data.code)
             )
     }
+
+    // only called on FIRST render
+    componentDidMount() {
+        this.getCurrentUser();
+    }
+
 
     refreshScreen() {
         this.setState({ lastRefresh: Date(Date.now()).toString() });
@@ -79,13 +131,13 @@ class UserProfile extends Component {
             "id": this.payload.studentID,
             "first_name": this.payload.fullName.substr(0, this.payload.fullName.indexOf(' ')),
             "last_name": this.payload.fullName.substr(this.payload.fullName.indexOf(' ') + 1),
-            "email": this.props.userPersonalEmail,
+            "email": this.payload.email,
             "general_info": this.payload.generalInfo,
         }
 
         if (this.props.isFromRegister) {
             axios
-                .post('http://real.encs.concordia.ca/profile/api/student', updatedUser, config)
+                .post('http://real.encs.concordia.ca/profile/api/student', updatedUser, this.getConfig(this.state.token))
                 .then(
                     response => {
                         console.log(response.data);
@@ -101,11 +153,12 @@ class UserProfile extends Component {
                 )
         } else {
             axios
-                .put(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, updatedUser, config)
+                .put(`http://real.encs.concordia.ca/profile/api/student/${this.state.userID}`, updatedUser, this.getConfig(this.state.token))
                 .then(
                     response => {
                         console.log(response.data);
-                        this.setState({ currentUserData: response.data });
+                        // calling getCurrentUser again bc update doesn't return reviews
+                        this.getCurrentUser();
                     }
                 )
                 .catch(
@@ -121,15 +174,16 @@ class UserProfile extends Component {
     }
 
     render() {
-        let classesTaken = UserData[12345].classes.map((data) => {
+
+        let classesTaken = this.state.currentUserData.classes_taken?.map((completedClass) => {
             return (
                 <TouchableOpacity disabled={this.props.isReadOnly}>
-                    <ClassLabel>{data.classID}</ClassLabel>
+                    <ClassLabel>{completedClass}</ClassLabel>
                 </TouchableOpacity>
             )
         });
 
-        let userPersonalSkills = UserData[12345].skills.map((data) => {
+        let userPersonalSkills = UserData[this.state.userID].skills.map((data) => {
             return (
                 <TouchableOpacity disabled={this.props.isReadOnly}>
                     <SkillLabel>{data}</SkillLabel>
@@ -138,7 +192,7 @@ class UserProfile extends Component {
         });
 
 
-        let allTags = UserData[this.props.userID].reviews
+        let allTags = this.state.currentUserData.reviews
             .flatMap(obj => obj.tags)
             .reduce((dict, obj) => {
                 dict[obj.name] = (dict[obj.name] || 0) + 1;
@@ -159,6 +213,18 @@ class UserProfile extends Component {
             )
         });
 
+
+        let currentlytaken = this.state.currentUserData.current_classes?.map((enrolledClass) => {
+            return (
+                <Label labelColor={theme.COLOR_BLUE} isReadOnly stacked>
+                    {enrolledClass}
+                </Label>
+            )
+        });
+
+
+
+
         return (
             <View isReadOnly={this.props.isReadOnly} >
                 <UserProfileImage />
@@ -173,7 +239,7 @@ class UserProfile extends Component {
                     editable={!this.props.isReadOnly}
                     placeholder="Your Program"
                     placeholderTextColor={"#D8D8D8"}>
-                    {UserData[12345].program}
+                    {UserData[this.state.userID].program}
                 </ProgramName>
                 <StudentID
                     isDisplayed={this.props.isCurrentUser}
@@ -191,6 +257,7 @@ class UserProfile extends Component {
                     onChangeText={(text) => this.payload.generalInfo = text}>
                     {this.state.currentUserData.general_info}
                 </UserDescription>
+                {/* <SaveButton isDisplayed={!this.props.isReadOnly} onPress={this.onSettingsSave} /> */}
 
                 <PersonalProfile isDisplayed={!this.props.isFromRegister}>
                     {/* Rated Qualities */}
@@ -221,7 +288,28 @@ class UserProfile extends Component {
                         <LabelContainer>
                             {classesTaken}
                         </LabelContainer>
+                        <ModalsContainer isDisplayed={!this.props.isReadOnly}>
+                            <AddClassesTakenModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
+                            <RemoveClassesTakenModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
+                        </ModalsContainer>
+
                     </MainContainer>
+
+                    <MainContainer marginTop={15}>
+                        <SectionHeader>
+                            <SectionTitle>Classes enrolled in </SectionTitle>
+                        </SectionHeader>
+                        <LabelContainer>
+                            {currentlytaken}
+                        </LabelContainer>
+
+                        <ModalsContainer isDisplayed={!this.props.isReadOnly}>
+                            <AddCurrentClassModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
+                            <RemoveCurrentClassModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
+                            <CompleteClassModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
+                        </ModalsContainer>
+                    </MainContainer>
+
                 </PersonalProfile>
 
                 <MainContainer marginTop={15}>
@@ -371,5 +459,9 @@ const ToggableContainer = styled.View`
 const QualityLabel = styled(Label)`
     margin-bottom: 5;
 `
+
+const ModalsContainer = styled.View`
+    display: ${props => props.isDisplayed ? 'flex' : 'none'}
+`;
 
 export default UserProfile;
