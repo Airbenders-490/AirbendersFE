@@ -1,16 +1,30 @@
 import React, { Component } from "react";
-import { Alert, Modal, Text, Pressable, View } from "react-native";
-import { TextInput, TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { TextBody, Title, Subtitle } from '../../containers/TextContainer.js';
+import { Modal, View } from "react-native";
+import { TextBody, Subtitle } from '../../containers/TextContainer.js';
+import axios from 'axios';
 
 import styled from 'styled-components';
 import theme from '../../styles/theme.style.js';
 import AddButton from '../../components/AddButton.js'
 
+// config = (token) => {
+//   return {
+//     headers: {
+//       'Authorization': `Bearer ${token}`
+//     }
+//   }
+// }
+
+let config = {
+  headers: {
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ3ODMzMDIwLCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.R8Greivz6C_aUzClFl7lHObv-iFXsHxT_2-qxXvsTG8'
+  }
+}
+
 class CreateTeam extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       modalVisible: false,
       teamName: '',
@@ -19,21 +33,39 @@ class CreateTeam extends Component {
     }
   };
 
-  setModalVisible = (visible) => { 
-    this.setState({ modalVisible: visible }); 
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible });
   }
 
-  createTeam = () => { 
-    /* add connection */ 
+  createTeam = () => {
+    /* add connection */
     console.log('create team')
+    let room = {
+      "room_id": this.state.teamName,
+      "name": this.state.teamName,
+      "class": this.state.courseNumber.toLowerCase()
+    }
+    axios
+      // .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config(this.props.token))
+      .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config)
+      .then(
+        response => {
+          console.log(response.data);
+        }
+      )
+      .catch(
+        // TODO: On 404, block all access to app until register is complete
+        error => console.log(error.response.data.code)
+      )
+
   }
-  
+
   render() {
     const { modalVisible } = this.state;
     return (
-    <View> 
+      <View>
         <AddButtonContainer>
-            <AddButton buttonText={'Create Team'} addFunction={() => this.setModalVisible(true)}></AddButton>
+          <AddButton buttonText={'Create Team'} addFunction={() => this.setModalVisible(true)}></AddButton>
         </AddButtonContainer>
         <Modal
           animationType="fade"
@@ -42,31 +74,34 @@ class CreateTeam extends Component {
           onRequestClose={() => {
             this.setModalVisible(!this.modalVisible);
           }}
-         >
+        >
           <CenterContainer>
             <CreateTeamContainer>
-                    <Subtitle>Create team</Subtitle>
+              <Subtitle>Create team</Subtitle>
 
-                <StyledFlexBox>
-                    <TextBody>Team Name: </TextBody>
-                    <TextField onChangeText={teamName => this.setState({ teamName: teamName })}></TextField>
-                </StyledFlexBox>
-                <StyledFlexBox>
-                    <TextBody>Course number: </TextBody>
-                    <TextField onChangeText={courseNumber => this.setState({ courseNumber: courseNumber })}></TextField>
-                </StyledFlexBox>
-                <StyledFlexBox>
-                    <TextBody>Maximum number of participants: </TextBody>
-                    <NumberField onChangeText={maxNum => this.setState({ maxNum: maxNum })}></NumberField>
-                </StyledFlexBox>
-                <ButtonContainer>
-                    <ConfirmButton onPress={() => this.createTeam()}>
-                        <ButtonText>create</ButtonText>
-                    </ConfirmButton>
-                    <CancelButton onPress={() => this.setModalVisible(!modalVisible)}>
-                        <ButtonText>cancel</ButtonText>
-                    </CancelButton>
-                </ButtonContainer>
+              <StyledFlexBox>
+                <TextBody>Team Name: </TextBody>
+                <TextField onChangeText={teamName => this.setState({ teamName: teamName })}></TextField>
+              </StyledFlexBox>
+              <StyledFlexBox>
+                <TextBody>Course number: </TextBody>
+                <TextField onChangeText={courseNumber => this.setState({ courseNumber: courseNumber })}></TextField>
+              </StyledFlexBox>
+              <StyledFlexBox>
+                <TextBody>Maximum number of participants: </TextBody>
+                <NumberField onChangeText={maxNum => this.setState({ maxNum: maxNum })}></NumberField>
+              </StyledFlexBox>
+              <ButtonContainer>
+                <ConfirmButton onPress={() => {
+                  this.setModalVisible(!modalVisible)
+                  this.createTeam()
+                }}>
+                  <ButtonText>create</ButtonText>
+                </ConfirmButton>
+                <CancelButton onPress={() => this.setModalVisible(!modalVisible)}>
+                  <ButtonText>cancel</ButtonText>
+                </CancelButton>
+              </ButtonContainer>
             </CreateTeamContainer>
           </CenterContainer>
         </Modal>
@@ -77,18 +112,18 @@ class CreateTeam extends Component {
 
 //STYLED-COMPONENTS
 
-const AddButtonContainer = styled.View `
+const AddButtonContainer = styled.View`
     justify-content: center;
     align-items: center;
 `
 
-const CenterContainer = styled.View `
+const CenterContainer = styled.View`
     flex: 1;
     justify-content: center;
     align-items: center;
 `
 
-const TextField = styled.TextInput `
+const TextField = styled.TextInput`
     background-color: ${theme.COLOR_LIGHT_GRAY};
     border-top-left-radius: 100;
     border-bottom-left-radius: 100;
@@ -98,11 +133,11 @@ const TextField = styled.TextInput `
     padding-left: ${theme.SPACING_XSMALL};
 `
 
-const NumberField = styled(TextField) `
+const NumberField = styled(TextField)`
     width: 30%;
 `
 
-const StyledFlexBox = styled.View `
+const StyledFlexBox = styled.View`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -111,14 +146,14 @@ const StyledFlexBox = styled.View `
     padding-vertical: ${theme.SPACING_XSMALL};
 `
 
-const ButtonContainer = styled.View `
+const ButtonContainer = styled.View`
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
 `
 
-const CreateTeamContainer = styled.View `
+const CreateTeamContainer = styled.View`
     flex-direction: row;
     flex-wrap: wrap;
     background-color: ${theme.COLOR_WHITE};
@@ -128,7 +163,7 @@ const CreateTeamContainer = styled.View `
     padding-horizontal: ${theme.SPACING_MEDIUM};
 `
 
-const ConfirmButton = styled.TouchableOpacity `
+const ConfirmButton = styled.TouchableOpacity`
     background-color: ${theme.COLOR_GREEN};
     border-top-left-radius: 100;
     border-bottom-left-radius: 100;
@@ -141,12 +176,12 @@ const ConfirmButton = styled.TouchableOpacity `
     padding-vertical: 5;
 `
 
-const CancelButton = styled(ConfirmButton) `
+const CancelButton = styled(ConfirmButton)`
     background-color: ${theme.COLOR_RED};
     margin-left: ${theme.SPACING_SMALL};
 `
 
-const ButtonText = styled.Text `
+const ButtonText = styled.Text`
     color: ${theme.COLOR_WHITE};
     font-family: ${theme.FONT_SEMIBOLD};
     font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};

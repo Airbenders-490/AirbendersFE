@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { LogBox } from "react-native"
 
 import styled from 'styled-components';
 import AppLoading from 'expo-app-loading';
@@ -28,6 +29,8 @@ import FeedIconFill from './src/assets/images/icons/feed_fill.png';
 import ScheduleIconFill from './src/assets/images/icons/calendar_fill.png';
 import ProfileIconFill from './src/assets/images/icons/user_fill.png';
 
+LogBox.ignoreAllLogs();
+
 const Tab = createBottomTabNavigator();
 
 let customFonts = {
@@ -41,7 +44,7 @@ let customFonts = {
 function NavigationBar({ state, descriptors, navigation }) {
   // Hide tab bar for custom navigation bar
   const focusedOptions = descriptors[state.routes[state.index].key].options;
-  
+
   if (focusedOptions?.tabBarStyle?.display === "none") {
     return null;
   }
@@ -65,28 +68,28 @@ function NavigationBar({ state, descriptors, navigation }) {
         };
 
         const renderTabIcons = (routeName, focused) => {
-          let icon; 
-            switch(routeName) {
-              case 'Teams':
-                icon = focused ? TeamsIconFill : TeamsIconOutline
-                break;
-              case 'Messages':
-                icon = focused ? MessagesIconFill : MessagesIconOutline  
-                break;
-              case 'Feed':
-                icon = focused ? FeedIconFill : FeedIconOutline  
-                break;
-              case 'Schedule':
-                icon = focused ? ScheduleIconFill : ScheduleIconOutline  
-                break;
-              case 'Profile':
-                icon = focused ? ProfileIconFill : ProfileIconOutline  
-                break;
-            }
+          let icon;
+          switch (routeName) {
+            case 'Teams':
+              icon = focused ? TeamsIconFill : TeamsIconOutline
+              break;
+            case 'Messages':
+              icon = focused ? MessagesIconFill : MessagesIconOutline
+              break;
+            case 'Feed':
+              icon = focused ? FeedIconFill : FeedIconOutline
+              break;
+            case 'Schedule':
+              icon = focused ? ScheduleIconFill : ScheduleIconOutline
+              break;
+            case 'Profile':
+              icon = focused ? ProfileIconFill : ProfileIconOutline
+              break;
+          }
 
           return <TabIcon
-            tabIconTint={ isFocused ? options.tabBarActiveTintColor : options.tabBarInactiveTintColor }
-            source={ icon }
+            tabIconTint={isFocused ? options.tabBarActiveTintColor : options.tabBarInactiveTintColor}
+            source={icon}
           />;
         };
 
@@ -108,10 +111,14 @@ export default class App extends React.Component {
 
     this.handleLogin = this.handleLogin.bind(this);
     this.hideTabBar = this.hideTabBar.bind(this);
-}
+  }
 
-  handleLogin(loginState) {
-    this.setState({ isLoggedIn: loginState });
+  handleLogin(loginState, token, userID) {
+    this.setState({
+      isLoggedIn: loginState,
+      token: token,
+      userID: userID
+    });
   }
 
   async _loadFontsAsync() {
@@ -145,7 +152,8 @@ export default class App extends React.Component {
                 tabBarStyle: { display: this.state.showTabBar ? 'flex' : 'none' }
               })}
               tabBar={(props) => <NavigationBar {...props} />}>
-              <Tab.Screen name='Teams' component={TeamsScreen} />
+              <Tab.Screen name='Teams'
+                children={() => <TeamsScreen userID={this.state.userID} token={this.state.token} />} />
               <Tab.Screen name='Messages'>
                 {(props) => <MessagesScreen hideTabBar={this.hideTabBar} />}
               </Tab.Screen>
@@ -191,7 +199,7 @@ const NavigationBarContainer = styled.View`
   shadowRadius: 10;
 `;
 
-const TabIcon = styled.Image `
+const TabIcon = styled.Image`
   width: 30;
   height: 30;
   tint-color: ${props => props.tabIconTint};
