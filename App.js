@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { LogBox } from "react-native"
 
 import styled from 'styled-components';
 import AppLoading from 'expo-app-loading';
@@ -27,6 +28,8 @@ import MessagesIconFill from './src/assets/images/icons/message_bubble_fill.png'
 import FeedIconFill from './src/assets/images/icons/feed_fill.png';
 import ScheduleIconFill from './src/assets/images/icons/calendar_fill.png';
 import ProfileIconFill from './src/assets/images/icons/user_fill.png';
+
+LogBox.ignoreAllLogs();
 
 const Tab = createBottomTabNavigator();
 
@@ -149,7 +152,8 @@ export default class App extends React.Component {
                 tabBarStyle: { display: this.state.showTabBar ? 'flex' : 'none' }
               })}
               tabBar={(props) => <NavigationBar {...props} />}>
-              <Tab.Screen name='Teams' component={TeamsScreen} />
+              <Tab.Screen name='Teams'
+                children={() => <TeamsScreen userID={this.state.userID} token={this.state.token} />} />
               <Tab.Screen name='Messages'>
                 {(props) => <MessagesScreen hideTabBar={this.hideTabBar} />}
               </Tab.Screen>

@@ -11,6 +11,14 @@ import JoinTeam from '../components/modals/JoinTeam.js';
 import CreateTeam from '../components/modals/CreateTeam.js';
 import TeamListItem from '../components/TeamListItem.js';
 
+config = (token) => {
+  return {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  }
+}
+
 class Teams extends Component {
   constructor(props) {
     super(props);
@@ -21,19 +29,19 @@ class Teams extends Component {
   render() {
     return (
       <ScreenContainer screenTitle='Teams'>
-          <TeamsContainer>
-            {/* <JoinTeam 
+        <TeamsContainer>
+          {/* <JoinTeam
               teamName='X'
             /> */}
-            <CreateTeam/>
-          </TeamsContainer>
+          <CreateTeam token={this.props.token} />
+        </TeamsContainer>
       </ScreenContainer>
     );
   }
 }
 
 export default Teams;
-const TeamsContainer = styled.View `
+const TeamsContainer = styled.View`
   background-color:  ${theme.COLOR_LIGHT_GRAY};
   height: 720;
   border-radius: 12;
