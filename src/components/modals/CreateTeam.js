@@ -2,19 +2,13 @@ import React, { Component } from "react";
 import { Modal, View } from "react-native";
 import { TextBody, Subtitle } from '../../containers/TextContainer.js';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styled from 'styled-components';
 import theme from '../../styles/theme.style.js';
 import AddButton from '../../components/AddButton.js'
 
-// config = (token) => {
-//   return {
-//     headers: {
-//       'Authorization': `Bearer ${token}`
-//     }
-//   }
-// }
-
+// for testing
 let config = {
   headers: {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ3ODMzMDIwLCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.R8Greivz6C_aUzClFl7lHObv-iFXsHxT_2-qxXvsTG8'
@@ -31,14 +25,34 @@ class CreateTeam extends Component {
       courseNumber: '',
       maxNum: ''
     }
+
+    this.createTeam = this.createTeam.bind(this)
+    this.getConfig = this.getConfig.bind(this)
+    this.getData = this.getData.bind(this)
   };
 
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   }
 
-  createTeam = () => {
-    /* add connection */
+  getConfig = (token) => {
+    return {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    }
+  }
+
+  getData = async (key) => {
+    try {
+      return await AsyncStorage.getItem(key)
+    } catch (e) {
+      // error reading value
+      return e;
+    }
+  }
+
+  createTeam = async () => {
     console.log('create team')
     let room = {
       "room_id": this.state.teamName,
@@ -46,8 +60,8 @@ class CreateTeam extends Component {
       "class": this.state.courseNumber.toLowerCase()
     }
     axios
-      // .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config(this.props.token))
-      .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config)
+      // .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, this.getConfig(await this.getData("token")))
+      .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config) // for testing
       .then(
         response => {
           console.log(response.data);
