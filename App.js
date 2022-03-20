@@ -113,12 +113,8 @@ export default class App extends React.Component {
     this.hideTabBar = this.hideTabBar.bind(this);
   }
 
-  handleLogin(loginState, token, userID) {
-    this.setState({
-      isLoggedIn: loginState,
-      token: token,
-      userID: userID
-    });
+  handleLogin(loginState) {
+    this.setState({ isLoggedIn: loginState });
   }
 
   async _loadFontsAsync() {
@@ -152,8 +148,7 @@ export default class App extends React.Component {
                 tabBarStyle: { display: this.state.showTabBar ? 'flex' : 'none' }
               })}
               tabBar={(props) => <NavigationBar {...props} />}>
-              <Tab.Screen name='Teams'
-                children={() => <TeamsScreen userID={this.state.userID} token={this.state.token} />} />
+              <Tab.Screen name='Teams' component={TeamsScreen} />
               <Tab.Screen name='Messages'>
                 {(props) => <MessagesScreen hideTabBar={this.hideTabBar} />}
               </Tab.Screen>

@@ -9,6 +9,7 @@ import CustomButton from './button.js';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import EyeIcon from '../assets/images/icons/eye.png';
 import HideEyeIcon from '../assets/images/icons/invisible-2.png';
@@ -32,9 +33,7 @@ class LoginContent extends Component {
             hidePrimaryPassword: true,
             hideConfirmationPassword: true,
             isPasswordConfirmed: false,
-            isRegisterReady: false,
-            userID: '',
-            token: ''
+            isRegisterReady: false
         };
 
         this.handleActionButton = this.handleActionButton.bind(this);
@@ -43,12 +42,23 @@ class LoginContent extends Component {
         this.triggerConfirmationPasswordVisilibity = this.triggerConfirmationPasswordVisilibity.bind(this);
         this.onForgotPasswordClick = this.onForgotPasswordClick.bind(this);
         this.comparePasswords = this.comparePasswords.bind(this);
+        this.storeData = this.storeData.bind(this)
     }
 
     payload = {
         fullName: this.fullName,
         email: this.email,
         password: this.password,
+    }
+
+    storeData = async (key, value) => {
+        try {
+            console.log("saving " + key + " : " + value)
+            await AsyncStorage.setItem(key, value)
+        } catch (e) {
+            // saving error
+            console.log("error saving in async storage: " + e)
+        }
     }
 
     onRegisterLoginLinkClick() {
@@ -103,13 +113,13 @@ class LoginContent extends Component {
                         console.log(response.data)
                         var decoded = jwt_decode(response.data.token)
                         this.setState({
-                            isLoggedIn: response.data.token ? true : false,
-                            userID: decoded.iss,
-                            token: response.data.token
+                            isLoggedIn: response.data.token ? true : false
                         }, () => {
-                            this.props.handleLogin(this.state.isLoggedIn, this.state.token, this.state.userID)
+                            this.props.handleLogin(this.state.isLoggedIn)
                         });
-                        // TODO: Save jwt in AsyncStorage
+                        // Save jwt in AsyncStorage
+                        this.storeData("token", response.data.token)
+                        this.storeData("userID", decoded.iss)
                     }
                 )
                 .catch(
