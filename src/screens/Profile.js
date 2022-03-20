@@ -35,11 +35,6 @@ class Profile extends Component {
         <UserProfile
           isReadOnly={!this.state.settingState}
           isCurrentUser
-          // TODO: Update userID to dynamic current user ID
-          // when login/register endpoints are done
-
-          userID={this.props.userID} // TODO: Replace userID with current user ID
-          token={this.props.token}
           triggerSettings={this.triggerSettings} >
         </UserProfile>
       </ScreenContainer>

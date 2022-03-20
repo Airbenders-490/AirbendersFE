@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { LogBox } from "react-native"
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, Text, Touchable, TouchableOpacity, View, Image, ToastAndroid } from 'react-native';
 import theme from '../../styles/theme.style.js';
 import MainContainer from '../../containers/MainContainer.js';
@@ -24,22 +25,14 @@ import AddCurrentClassModal from '../AddCurrentClassModal.js';
 import RemoveCurrentClassModal from '../RemoveCurrentClassModal.js';
 import CompleteClassModal from '../CompleteClassModal.js';
 
-
 LogBox.ignoreAllLogs();
 
-let config = (token) => {
-    return {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
+// for testing w/out login
+let config = {
+    headers: {
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
     }
 }
-
-// let config = {
-//     headers: {
-//         'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
-//     }
-// }
 
 class UserProfile extends Component {
     constructor(props) {
@@ -51,13 +44,16 @@ class UserProfile extends Component {
                 reviews: []
             },
             lastRefresh: Date(Date.now()).toString(),
+            userID: '',
+            token: ''
         }
 
         this.toggleExpansion = this.toggleExpansion.bind(this);
         this.refreshScreen = this.refreshScreen.bind(this);
         this.onSettingsSave = this.onSettingsSave.bind(this);
         this.getCurrentUser = this.getCurrentUser.bind(this);
-
+        this.getConfig = this.getConfig.bind(this)
+        this.getData = this.getData.bind(this)
     }
 
     payload = {
@@ -65,6 +61,23 @@ class UserProfile extends Component {
         studentID: this.studentID,
         email: this.email,
         generalInfo: this.generalInfo,
+    }
+
+    getConfig = (token) => {
+        return {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }
+    }
+
+    getData = async (key) => {
+        try {
+            return await AsyncStorage.getItem(key)
+        } catch (e) {
+            // error reading value
+            return e;
+        }
     }
 
     updatePayload() {
@@ -80,9 +93,14 @@ class UserProfile extends Component {
         console.log(this.state.expanded)
     }
 
-    getCurrentUser() {
+    async getCurrentUser() {
+        this.setState({
+            userID: await this.getData("userID"),
+            token: await this.getData("token")
+        })
         axios
-            .get(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, config(this.props.token))
+            .get(`http://real.encs.concordia.ca/profile/api/student/${this.state.userID}`, this.getConfig(this.state.token))
+            // .get(`http://real.encs.concordia.ca/profile/api/student/${userID}`, config) // for testing w/out login
             .then(
                 response => {
                     console.log(response.data);
@@ -119,7 +137,7 @@ class UserProfile extends Component {
 
         if (this.props.isFromRegister) {
             axios
-                .post('http://real.encs.concordia.ca/profile/api/student', updatedUser, config(this.props.token))
+                .post('http://real.encs.concordia.ca/profile/api/student', updatedUser, this.getConfig(this.state.token))
                 .then(
                     response => {
                         console.log(response.data);
@@ -135,7 +153,7 @@ class UserProfile extends Component {
                 )
         } else {
             axios
-                .put(`http://real.encs.concordia.ca/profile/api/student/${this.props.userID}`, updatedUser, config(this.props.token))
+                .put(`http://real.encs.concordia.ca/profile/api/student/${this.state.userID}`, updatedUser, this.getConfig(this.state.token))
                 .then(
                     response => {
                         console.log(response.data);
@@ -165,7 +183,7 @@ class UserProfile extends Component {
             )
         });
 
-        let userPersonalSkills = UserData[this.props.userID].skills.map((data) => {
+        let userPersonalSkills = UserData[this.state.userID].skills.map((data) => {
             return (
                 <TouchableOpacity disabled={this.props.isReadOnly}>
                     <SkillLabel>{data}</SkillLabel>
@@ -221,7 +239,7 @@ class UserProfile extends Component {
                     editable={!this.props.isReadOnly}
                     placeholder="Your Program"
                     placeholderTextColor={"#D8D8D8"}>
-                    {UserData[this.props.userID].program}
+                    {UserData[this.state.userID].program}
                 </ProgramName>
                 <StudentID
                     isDisplayed={this.props.isCurrentUser}
@@ -271,8 +289,8 @@ class UserProfile extends Component {
                             {classesTaken}
                         </LabelContainer>
                         <ModalsContainer isDisplayed={!this.props.isReadOnly}>
-                            <AddClassesTakenModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
-                            <RemoveClassesTakenModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
+                            <AddClassesTakenModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
+                            <RemoveClassesTakenModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
                         </ModalsContainer>
 
                     </MainContainer>
@@ -286,9 +304,9 @@ class UserProfile extends Component {
                         </LabelContainer>
 
                         <ModalsContainer isDisplayed={!this.props.isReadOnly}>
-                            <AddCurrentClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
-                            <RemoveCurrentClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
-                            <CompleteClassModal userID={this.props.userID} token={this.props.token} getCurrentUser={this.getCurrentUser} />
+                            <AddCurrentClassModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
+                            <RemoveCurrentClassModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
+                            <CompleteClassModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
                         </ModalsContainer>
                     </MainContainer>
 

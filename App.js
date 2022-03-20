@@ -154,9 +154,7 @@ export default class App extends React.Component {
               </Tab.Screen>
               <Tab.Screen name='Feed' component={FeedScreen} />
               <Tab.Screen name='Schedule' component={ScheduleScreen} />
-              <Tab.Screen name='Profile'
-                children={() => <ProfileScreen userID={this.state.userID} token={this.state.token} />}
-              />
+              <Tab.Screen name='Profile' component={ProfileScreen} />
             </Tab.Navigator>
           </NavigationContainer>
         );
