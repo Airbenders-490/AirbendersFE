@@ -9,8 +9,8 @@ import MainContainer from '../containers/MainContainer.js';
 import JoinTeam from '../components/modals/JoinTeam.js';
 import ParticipantListItem from '../components/ParticipantListItem';
 import FilterIcon from '../assets/images/icons/filter.png';
-import ClassLabel from '../components/Label.js';
 import XIcon from '../assets/images/icons/x-icon.png';
+import { set } from 'react-native-reanimated';
 
 
 class Teams extends Component {
@@ -20,30 +20,42 @@ class Teams extends Component {
     this.state = {
       className: '',
       classEntered: false,
-      isReady: false,
+      deleteLabel: true,
+      isReadOnly: false,
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showName = this.showName.bind(this);
+    this.deleteLabel = this.deleteLabel.bind(this);
   }
 
   handleClass = (text) => {
     this.setState({ className: text});
   }
 
+  
+  deleteLabel = () => {
+    this.setState({deleteLabel : !this.state.deleteLabel});
+    console.log("Nouj");
+  }
+
   handleSubmit = () => {
-      this.setState({isReady : !this.state.isReady});
+      this.setState({deleteLabel : !this.state.deleteLabel});
       this.className.clear();
   }
   showName = () => {
-    this.setState({classEntered : !this.state.classEntered})
+    this.setState({classEntered : !this.state.classEntered});
   } 
 
   render() {
-    let {isReady} = this.state;
+    //let {isReady} = this.state;
+    let {deleteLabel} = this.state;
 
     const renderLabel = () => {
-      if(isReady) {
-        return <ClassLabel labelColor="#5089E9" labelIcon={XIcon}><LabelClassName>{this.state.className}</LabelClassName></ClassLabel>;
+      if(deleteLabel) {
+        return <TouchableOpacity onPress={() => this.deleteLabel()} ><ClassLabel isReadOnly = {this.showName} >{deleteLabel ? <LabelClassName>{this.state.className}</LabelClassName> : <View>{null}</View> }<IconTag>
+        <LabelIcon source={XIcon} />
+      </IconTag></ClassLabel></TouchableOpacity>;
       }
     }
     return (
@@ -103,7 +115,7 @@ const FilterClick = styled.Image `
 `;
 
 const LabelContainer = styled.View `
-  display: flex;
+  display: flex; 
   padding-left: 10px;
   top: 5px;
   align-items: center;
@@ -112,15 +124,48 @@ const LabelContainer = styled.View `
   background: ${theme.COLOR_LIGHT_GRAY};
 `;
 
-const LabelClassName = styled.Text  `
-  display: flex;
+const ClassLabel = styled.View `
+  display: ${props => props.isReadOnly ? 'flex' : 'none'};  
   flex-direction: row;
+  padding-horizontal: 10;
+  padding-vertical: 5;
+  border-top-left-radius: 100;
+  border-bottom-left-radius: 100;
+  border-top-right-radius: 100;
+  border-bottom-right-radius: 100;
+  background-color: #5089E9;
+`;
+
+const LabelClassName = styled.Text  `
+  color: white;
+  top: 2;
+  align-items: center;
+  font-family: ${theme.FONT_SEMIBOLD};
+  letter-spacing: ${theme.LETTER_SPACING_SMALL};
 `;
 
 const TeamsContainer = styled.View `
   background-color:  ${theme.COLOR_LIGHT_GRAY};
   height: 720;
   border-radius: 12;
+`;
+
+const LabelIcon = styled.Image`
+  tintColor: #000000;
+  width: 20;
+  height: 20;
+`;
+
+const IconTag = styled.View `
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 100;
+  border-bottom-right-radius: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-horizontal: 5;
+  background-color: #5089E9;
 `;
 
 export default Teams;
