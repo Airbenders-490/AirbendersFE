@@ -20,7 +20,7 @@ class Teams extends Component {
     this.state = {
       className: '',
       classEntered: false,
-      deleteLabel: true,
+      showLabel: false,
       isReadOnly: false,
     };
 
@@ -29,55 +29,48 @@ class Teams extends Component {
     this.deleteLabel = this.deleteLabel.bind(this);
   }
 
-  handleClass = (text) => {
-    this.setState({ className: text});
-  }
-
-  
   deleteLabel = () => {
-    this.setState({deleteLabel : !this.state.deleteLabel});
-    console.log("Nouj");
+    this.setState({ showLabel: false });
+    console.log("Deleted");
   }
 
-  handleSubmit = () => {
-      this.setState({deleteLabel : !this.state.deleteLabel});
-      this.className.clear();
+  handleSubmit = (event) => {
+    this.setState({ showLabel: true });
+    this.setState({ className: event.nativeEvent.text })
+    this.className.clear();
   }
   showName = () => {
-    this.setState({classEntered : !this.state.classEntered});
-  } 
+    this.setState({ classEntered: !this.state.classEntered });
+  }
 
   render() {
-    //let {isReady} = this.state;
-    let {deleteLabel} = this.state;
+    let { showLabel } = this.state;
 
     const renderLabel = () => {
-      if(deleteLabel) {
-        return <TouchableOpacity onPress={() => this.deleteLabel()} ><ClassLabel isReadOnly = {this.showName} >{deleteLabel ? <LabelClassName>{this.state.className}</LabelClassName> : <View>{null}</View> }<IconTag>
-        <LabelIcon source={XIcon} />
-      </IconTag></ClassLabel></TouchableOpacity>;
+      if (showLabel) {
+        return <TouchableOpacity onPress={() => this.deleteLabel()} ><ClassLabel isReadOnly={this.showName} >{showLabel ? <LabelClassName>{this.state.className}</LabelClassName> : <View>{null}</View>}<IconTag>
+          <LabelIcon source={XIcon} />
+        </IconTag></ClassLabel></TouchableOpacity>;
       }
     }
     return (
       <ScreenContainer screenTitle='Teams'>
         <TeamsContainer>
-        <Container>
-             <FilterButton onPress={this.showName}>
-             <FilterClick source={FilterIcon}/>
-               <CustomText placeholder = "Class Name" 
-                classEntered = {this.state.classEntered} 
-                ref= {input => {this.className = input}}
-                value={this.state.className} 
-                onChangeText={this.handleClass}
-                onSubmitEditing= { this.handleSubmit }/>
+          <Container>
+            <FilterButton onPress={this.showName}>
+              <FilterClick source={FilterIcon} />
+              <CustomText placeholder="Class Name"
+                classEntered={this.state.classEntered}
+                ref={input => { this.className = input }}
+                onSubmitEditing={this.handleSubmit} />
             </FilterButton>
             <LabelContainer>
-               {renderLabel()}
-              </LabelContainer>
-           </Container>
-          <JoinTeam 
+              {renderLabel()}
+            </LabelContainer>
+          </Container>
+          <JoinTeam
             teamName='X'
-            >
+          >
           </JoinTeam>
         </TeamsContainer>
       </ScreenContainer>
@@ -86,13 +79,13 @@ class Teams extends Component {
 }
 
 
-const CustomText = styled.TextInput `
+const CustomText = styled.TextInput`
   display: ${props => props.classEntered ? 'flex' : 'none'};  
   flex-direction: row;
   padding-left: 10px;
 `;
 
-const Container = styled.View `
+const Container = styled.View`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -101,20 +94,20 @@ const Container = styled.View `
   border-radius: 12;
 `;
 
-const FilterButton = styled.TouchableOpacity `
+const FilterButton = styled.TouchableOpacity`
   display: flex;
   flex-direction: row;
   align-items: center;
   padding-left: 10px;
 `;
 
-const FilterClick = styled.Image `
+const FilterClick = styled.Image`
   tintColor: #000000;
   width: 30; 
   height: 30; 
 `;
 
-const LabelContainer = styled.View `
+const LabelContainer = styled.View`
   display: flex; 
   padding-left: 10px;
   top: 5px;
@@ -124,7 +117,7 @@ const LabelContainer = styled.View `
   background: ${theme.COLOR_LIGHT_GRAY};
 `;
 
-const ClassLabel = styled.View `
+const ClassLabel = styled.View`
   display: ${props => props.isReadOnly ? 'flex' : 'none'};  
   flex-direction: row;
   padding-horizontal: 10;
@@ -136,7 +129,7 @@ const ClassLabel = styled.View `
   background-color: #5089E9;
 `;
 
-const LabelClassName = styled.Text  `
+const LabelClassName = styled.Text`
   color: white;
   top: 2;
   align-items: center;
@@ -144,7 +137,7 @@ const LabelClassName = styled.Text  `
   letter-spacing: ${theme.LETTER_SPACING_SMALL};
 `;
 
-const TeamsContainer = styled.View `
+const TeamsContainer = styled.View`
   background-color:  ${theme.COLOR_LIGHT_GRAY};
   height: 720;
   border-radius: 12;
@@ -156,7 +149,7 @@ const LabelIcon = styled.Image`
   height: 20;
 `;
 
-const IconTag = styled.View `
+const IconTag = styled.View`
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-top-right-radius: 100;
