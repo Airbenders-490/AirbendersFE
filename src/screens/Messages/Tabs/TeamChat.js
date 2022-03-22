@@ -25,7 +25,8 @@ class TeamChat extends Component {
         super(props);
 
         this.state = {
-            rooms: []
+            rooms: [],
+            userID: ''
         }
 
         this.navigateToChat = this.navigateToChat.bind(this);
@@ -43,16 +44,14 @@ class TeamChat extends Component {
 
     async getChatRooms() {
         let token = await AsyncStorage.getItem("token")
+        let user = await AsyncStorage.getItem("userID")
 
         axios
             .get(`http://real.encs.concordia.ca/chat/api/rooms`, this.getConfig(token)) // w/ login
             // .get(`http://real.encs.concordia.ca/chat/api/rooms`, config) // for testing w/out login
             .then(
                 response => {
-                    console.log("get chat rooms for:: " + response.data.Student.id);
-                    console.log("# rooms : " + response.data.Rooms.length);
-
-                    this.setState({ rooms: response.data.Rooms })
+                    this.setState({ rooms: response.data.Rooms, userID: user })
                 }
             )
             .catch(
@@ -65,9 +64,11 @@ class TeamChat extends Component {
         this.getChatRooms();
     }
 
-    navigateToChat(mockConversation) {
+    navigateToChat(mockConversation, room) {
         this.props.navigation.navigate('ConversationScreen', {
             conversation: mockConversation,
+            room: room,
+            userID: this.state.userID
         })
     }
 
@@ -75,7 +76,7 @@ class TeamChat extends Component {
 
         let listChatRooms = this.state.rooms.map(room => {
             return (
-                <ConversationItem onPress={() => this.navigateToChat(FirstConvo)}>
+                <ConversationItem onPress={() => this.navigateToChat(FirstConvo, room)}>
                     <MessageListItem
                         backgroundColor={theme.COLOR_BLUE}
                         classNumber={room.class}
