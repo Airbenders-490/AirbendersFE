@@ -2,16 +2,16 @@ import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StyleSheet, Button, TouchableOpacity, Text, View, Image, TextInput, Alert } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import theme from '../styles/theme.style.js';
 import ScreenContainer from '../containers/ScreenContainer';
 import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
 import JoinTeam from '../components/modals/JoinTeam.js';
-import ParticipantListItem from '../components/ParticipantListItem';
+import CreateTeam from '../components/modals/CreateTeam.js';
+import TeamListItem from '../components/TeamListItem.js';
 import FilterIcon from '../assets/images/icons/filter.png';
 import XIcon from '../assets/images/icons/x-icon.png';
-import { set } from 'react-native-reanimated';
-
 
 class Teams extends Component {
   constructor(props) {
@@ -77,7 +77,6 @@ class Teams extends Component {
     );
   }
 }
-
 
 const CustomText = styled.TextInput`
   display: ${props => props.classEntered ? 'flex' : 'none'};  
