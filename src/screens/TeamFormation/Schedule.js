@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Pressable } from 'react-native';
 import ExternalProfile from '../ExternalProfile';
 import ScreenContainer from '../../containers/ScreenContainer.js';
-import ListContainer from '../../containers/ListContainer.js';
+//import ListContainer from '../../containers/ListContainer.js';
 import TeamFormationTabs from "./TeamFormationTabs.js";
 import MainContainer from '../../containers/MainContainer.js';
 import { Subtitle } from '../../containers/TextContainer.js';
@@ -29,15 +29,11 @@ class Schedule extends Component {
     };
 
     return (
-      <ScreenContainer screenTitle={'Schedule'} >
-       <TeamFormationTabs  />
-       <ListContainer>
-            <MainContainer>
-              <Subtitle>John Smith</Subtitle>
-            </MainContainer>
-        </ListContainer>
-      </ScreenContainer>
-      
+     // <ScreenContainer screenTitle={'Schedule'} >
+      <TeamFormationTabs navigation={navigation} />
+     
+      //</ScreenContainer>
+        
     );
   }
 
@@ -63,7 +59,7 @@ class Schedule extends Component {
         }}
       >
         <Stack2.Screen
-          name="Schedule"
+          name="Schedule2"
           component={this.Schedule} />
         <Stack2.Screen
           name="ExternalProfile">
@@ -76,8 +72,12 @@ class Schedule extends Component {
 }
 
 
-export default function(props) {
+
+export default function (props) {
   const navigation = useNavigation();
   const hideTabBar = props.hideTabBar;
   return <Schedule {...props} navigation={navigation} hideTabBar={hideTabBar} />;
 }
+
+
+

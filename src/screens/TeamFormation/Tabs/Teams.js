@@ -12,6 +12,7 @@ import MainContainer from '../../../containers/MainContainer.js';
 import { Subtitle } from '../../../containers/TextContainer.js';
 import FirstConvo from '../../../data/mock/FirstConversation.json';
 import SecondConvo from '../../../data/mock/SecondConversation.json';
+import ParticipantListItem from '../../../components/ParticipantListItem';
 
 class Teams extends Component {
     constructor(props) {
@@ -25,10 +26,23 @@ class Teams extends Component {
     render() {
         return (
             <ListContainer>
-            <MainContainer>
-              <Subtitle>John Smith</Subtitle>
-            </MainContainer>
-        </ListContainer>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+  
+          </ListContainer>
+                
+           
         );
     }
 }
