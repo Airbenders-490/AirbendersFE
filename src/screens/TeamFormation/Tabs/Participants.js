@@ -4,26 +4,36 @@ import { Button, View, TouchableOpacity, Text, Image, ScrollView} from 'react-na
 import styled from 'styled-components';
 import theme from '../../../styles/theme.style.js';
 import ParticipantListItem from '../../../components/ParticipantListItem';
-import { Pressable } from 'react-native';
 import ListContainer from '../../../containers/ListContainer.js';
-import MainContainer from '../../../containers/MainContainer.js';
 import { Subtitle } from '../../../containers/TextContainer.js';
+import MainContainer from '../../../containers/MainContainer.js';
+
 class Participants extends Component {
     constructor(props) {
       super(props);
     }
   
- 
     render() {
       return (
         <ListContainer>
-            <MainContainer>
-              <Subtitle>John Smith</Subtitle>
-            </MainContainer>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+
         </ListContainer>
+              
       );
     }
   }
 
-
-  export default Participants;
+export default Participants;

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { StyleSheet, View, Text, Pressable, Dimensions } from "react-native";
 import theme from '../../styles/theme.style.js';
-import Teams from './Tabs/Teams.js';
-import Participants from './Tabs/Participants';
+import Participants from './Tabs/Participants.js';
+import Teams from './Tabs/Teams';
 
 const Tab = createMaterialTopTabNavigator();
 const totalWidth = Dimensions.get('window').width;
@@ -39,7 +39,6 @@ class TeamFormationTabs extends Component {
             {(props) => <Teams navigation={this.props.navigation} />}
           </Tab.Screen>
         </Tab.Navigator>
-        
       );
   }
 }

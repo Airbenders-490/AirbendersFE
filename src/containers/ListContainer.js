@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, Switch, Platform } from 'react-native';
+import { View, Image, Switch,Text, Platform , ScrollView} from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
@@ -26,43 +26,60 @@ class ListContainer extends Component {
         this.setState({isToggled: !this.state.isToggled});
     }
 
+    Header(props) {
+        return (
+            <HeaderIcon>
+            <Header>
+            <Icon source={MagnifyingIcon} />
+            <IconFilter source={Sort} />
+            </Header>
+            <Header>
+            <Icon source={Selection} />
+            </Header>
+            </HeaderIcon>
+        );
+      }
+    
+  
+
     render() {
-        let participants = [];
-        for (let i = 0; i < this.props.numberTotalParticipants; i++) {
-            participants.push(
-                <ParticipantSpot
-                    available={ i < (this.props.numberTotalParticipants - this.props.numberCurrentParticipants) ? true : false }
-                    overlap={ i === 0 ? false : true} />
-            );
-        }
+    
 
         return (
-            <MainContainer
+        
+            <Container
+                isElevated={this.props.isElevated}
                 backgroundColor='#E3E3E3' 
-                >
-               <HeaderIcon>
-                <Header>
-                <Icon source={MagnifyingIcon} />
-                <IconFilter source={Sort} />
-                </Header>
-                <Header>
-                <Icon source={Selection} />
-                </Header>
-                </HeaderIcon>
-              
-        <Pressable>
-            <MainContainer>
-              <Subtitle>John Smith</Subtitle>
-            </MainContainer>
-        </Pressable>
-      
-            </MainContainer>
+                marginTop={this.props.marginTop}
+                marginBottom={this.props.marginBottom}>
+               
+        
+                {this.Header()} 
+                {this.props.children}
+                
+                
+                
+            </Container>
         );
     }
 }
 
 //STYLED-COMPONENTS
-
+const Container = styled.ScrollView`
+    /* padding separated as the following to allow unitless values */
+    padding-horizontal: ${theme.SPACING_SLIGHT_MEDIUM};
+    padding-vertical: ${theme.SPACING_SLIGHT_MEDIUM};
+    margin-top: ${props => props.marginTop ? props.marginTop : 0}
+    margin-bottom: ${props => props.marginBottom ? props.marginBottom : 0}
+    border-radius: ${theme.SPACING_SMALL};
+    background: ${props => props.backgroundColor ? props.backgroundColor : '#fff'};
+    elevation: ${props => props.isElevated ? theme.CARD_ELEVATION : 0};
+  
+  /* iOS Shadows */
+  shadowColor: ${props => props.backgroundColor ? props.backgroundColor : '#555'};
+  shadowOpacity: ${props => props.backgroundColor ? '0.4' : '0.1'};
+  shadowRadius: 10;
+`;
 
 const Icon = styled.Image`
   width: 15;
