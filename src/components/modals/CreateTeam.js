@@ -60,8 +60,8 @@ class CreateTeam extends Component {
       "class": this.state.courseNumber.toLowerCase()
     }
     axios
-      // .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, this.getConfig(await this.getData("token")))
-      .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config) // for testing
+      .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, this.getConfig(await this.getData("token")))
+      // .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config) // for testing
       .then(
         response => {
           console.log(response.data);

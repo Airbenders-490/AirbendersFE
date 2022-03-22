@@ -11,14 +11,6 @@ import JoinTeam from '../components/modals/JoinTeam.js';
 import CreateTeam from '../components/modals/CreateTeam.js';
 import TeamListItem from '../components/TeamListItem.js';
 
-config = (token) => {
-  return {
-    headers: {
-      'Authorization': `Bearer ${token}`
-    }
-  }
-}
-
 class Teams extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +25,7 @@ class Teams extends Component {
           {/* <JoinTeam
               teamName='X'
             /> */}
-          <CreateTeam token={this.props.token} />
+          <CreateTeam />
         </TeamsContainer>
       </ScreenContainer>
     );

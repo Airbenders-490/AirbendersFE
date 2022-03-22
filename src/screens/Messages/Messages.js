@@ -16,9 +16,9 @@ class MessagesScreen extends Component {
 
   render() {
     return (
-      <ScreenContainer screenTitle="Messages" ignorePadding>
-        <MessageTabs navigation={this.props.navigation} hideTabBar={this.props.hideTabBar} />
-      </ScreenContainer>
+      // <ScreenContainer screenTitle="Messages" ignorePadding>
+      <MessageTabs navigation={this.props.navigation} hideTabBar={this.props.hideTabBar} />
+      // </ScreenContainer>
     );
   }
 }
@@ -40,14 +40,14 @@ class Messages extends Component {
           {(props) => <MessagesScreen navigation={this.props.navigation} />}
         </Stack.Screen>
         <Stack.Screen name="ConversationScreen">
-          {(props) => <ConversationScreen hideTabBar={this.props.hideTabBar}/>}
+          {(props) => <ConversationScreen hideTabBar={this.props.hideTabBar} />}
         </Stack.Screen>
       </Stack.Navigator>
     );
   }
 }
 
-export default function(props) {
+export default function (props) {
   const navigation = useNavigation();
   const hideTabBar = props.hideTabBar;
   return <Messages {...props} navigation={navigation} hideTabBar={hideTabBar} />;
