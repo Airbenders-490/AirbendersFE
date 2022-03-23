@@ -11,6 +11,9 @@ import MessageIcons from "../components/MessageIcons.js";
 import MessageBubble from '../components/MessageBubble.js';
 import TeamListItem from '../components/TeamListItem.js';
 
+
+
+
 class Feed extends Component {
   constructor(props) {
     super(props);
