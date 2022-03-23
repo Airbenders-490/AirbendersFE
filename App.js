@@ -10,10 +10,10 @@ import * as Font from 'expo-font';
 import theme from './src/styles/theme.style.js';
 import './src/api/constants.js';
 
-import TeamsScreen from './src/screens/Teams.js';
+import TeamsScreen from './src/screens/TeamFormation/Teams.js';
 import MessagesScreen from './src/screens/Messages/Messages.js';
 import FeedScreen from './src/screens/Feed.js';
-import ScheduleScreen from './src/screens/TeamFormation/Schedule.js';
+import ScheduleScreen from './src/screens/Schedule.js';
 import ProfileScreen from './src/screens/Profile.js';
 import LoginScreen from './src/screens/Login.js';
 
@@ -133,8 +133,8 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (this.state.fontsLoaded) {
-      if (this.state.isLoggedIn) {
+    if (true) {
+      if (true) {
         return (
           <NavigationContainer>
             <Tab.Navigator

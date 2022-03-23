@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
-import theme from '../../styles/theme.style.js';
+import theme from '../styles/theme.style.js';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Pressable } from 'react-native';
-import ExternalProfile from '../ExternalProfile';
-import ScreenContainer from '../../containers/ScreenContainer.js';
+import ExternalProfile from './ExternalProfile';
+import ScreenContainer from '../containers/ScreenContainer.js';
 //import ListContainer from '../../containers/ListContainer.js';
-import TeamFormationTabs from "./TeamFormationTabs.js";
-import MainContainer from '../../containers/MainContainer.js';
-import { Subtitle } from '../../containers/TextContainer.js';
+
+import MainContainer from '../containers/MainContainer.js';
+import { Subtitle } from '../containers/TextContainer.js';
 
 const Stack2 = createStackNavigator();
 
@@ -29,10 +29,10 @@ class Schedule extends Component {
     };
 
     return (
-     // <ScreenContainer screenTitle={'Schedule'} >
-      <TeamFormationTabs navigation={navigation} />
+      <ScreenContainer screenTitle={'Schedule'} >
+    
      
-      //</ScreenContainer>
+      </ScreenContainer>
         
     );
   }
@@ -59,7 +59,7 @@ class Schedule extends Component {
         }}
       >
         <Stack2.Screen
-          name="Schedule2"
+          name="Schedule"
           component={this.Schedule} />
         <Stack2.Screen
           name="ExternalProfile">
@@ -73,11 +73,7 @@ class Schedule extends Component {
 
 
 
-export default function (props) {
-  const navigation = useNavigation();
-  const hideTabBar = props.hideTabBar;
-  return <Schedule {...props} navigation={navigation} hideTabBar={hideTabBar} />;
-}
+export default Schedule;
 
 
 
