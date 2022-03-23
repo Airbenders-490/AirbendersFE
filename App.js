@@ -133,8 +133,8 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (true) {
-      if (true) {
+    if (this.state.fontsLoaded) {
+       if (this.state.isLoggedIn) {
         return (
           <NavigationContainer>
             <Tab.Navigator
