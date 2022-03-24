@@ -15,7 +15,7 @@ class Participants extends Component {
   
     render() {
       return (
-        <ListContainer>
+        <ListContainer marginBottom={50}>
           <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
           <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
           <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
@@ -34,6 +34,6 @@ class Participants extends Component {
               
       );
     }
-  }
+}
 
 export default Participants;
