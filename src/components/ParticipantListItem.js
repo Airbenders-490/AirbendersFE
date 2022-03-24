@@ -137,7 +137,7 @@ class ParticipantListItem extends Component {
 
   render() {
     return (
-      <MainContainer isElevated>
+      <MainContainer marginBottom={5} isElevated>
         <ContentContainer>
           <ContentLHS>
             <Label isReadOnly labelColor={theme.COLOR_ORANGE}>{this.props.commonClass}</Label>

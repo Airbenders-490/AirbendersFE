@@ -33,7 +33,7 @@ class JoinTeam extends Component {
           /* temporary button to visualize modal */ 
           onPress={() => this.setModalVisible(true)}
         >
-          <TempButtonText>Join Team</TempButtonText>
+          <TempButtonText>request to join</TempButtonText>
         </TempButton>
         <Modal
           animationType="fade"
@@ -79,15 +79,14 @@ const JoinTeamContainer = styled.View `
   padding-horizontal: ${theme.SPACING_SMALL};
 `
 const TempButton = styled.Pressable `
-  background-color: ${theme.COLOR_PURPLE};
+  background-color: ${theme.COLOR_GREEN};
   align-items: center;
-  border-radius: 12;
+  border-radius: 100;
   padding-vertical: ${theme.SPACING_SMALL};
   padding-horizontal: ${theme.SPACING_SMALL};  
 `
 const TempButtonText = styled.Text `
   color: ${theme.COLOR_WHITE};
-  text-transform: uppercase;
   font-weight: bold;
   font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
 `
