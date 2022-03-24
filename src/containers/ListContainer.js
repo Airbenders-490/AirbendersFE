@@ -36,7 +36,6 @@ class ListContainer extends Component {
 
     deleteLabel = () => {
         this.setState({ showLabel: false });
-        console.log("Deleted");
       }
     
       handleSubmit = (event) => {
