@@ -11,10 +11,13 @@ import ListContainer from '../../../containers/ListContainer.js';
 import MainContainer from '../../../containers/MainContainer.js';
 import { Subtitle } from '../../../containers/TextContainer.js';
 import FirstConvo from '../../../data/mock/FirstConversation.json';
-import SecondConvo from '../../../data/mock/SecondConversation.json';import 
-TeamFormationTabs from "../TeamFormationTabs.js";
+import SecondConvo from '../../../data/mock/SecondConversation.json';
+import TeamFormationTabs from "../TeamFormationTabs.js";
 import ParticipantListItem from '../../../components/ParticipantListItem';
+import TeamListItem from '../../../components/TeamListItem';
 import JoinTeam from '../../../components/modals/JoinTeam.js';
+import CreateTeam from '../../../components/modals/CreateTeam.js';
+
 class Teams extends Component {
     constructor(props) {
       super(props);
@@ -26,39 +29,41 @@ class Teams extends Component {
   
     render() {
         return (
+          <TeamsTabContainer>
             <ListContainer>
-            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-            <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
+  
+            <TeamListItem
+          title="Airbenders"
+          courseNumber="SOEN 490"
+          numberCurrentParticipants={3}
+          numberTotalParticipants={5} />
+          <TeamListItem
+          title="Momas"
+          courseNumber="ENGR 490"
+          numberCurrentParticipants={5}
+          numberTotalParticipants={10} />
+          <TeamListItem
+          title="Fire"
+          courseNumber="SOEN 385"
+          numberCurrentParticipants={2}
+          numberTotalParticipants={4} />
 
 
            
-      <TeamsContainer>
-        <JoinTeam 
-          teamName='X'
-          >
-        </JoinTeam>
-      </TeamsContainer>
-     
-          <Text>{'\n'}</Text>
-          <Text>{'\n'}</Text>
-          <Text>{'\n'}</Text>
-          <Text>{'\n'}</Text>
-
-          </ListContainer>
-                
+            {/* <JoinTeam 
+              teamName='X'
+              >
+            </JoinTeam> */}
+              <CreateTeam/>
+              </ListContainer>
+        </TeamsTabContainer>
            
         );
     }
 }
-const TeamsContainer = styled.View `
-  background-color:  ${theme.COLOR_LIGHT_GRAY};
-  border-radius: 12;
-`;
-const ConversationItem = styled.Pressable `
-    margin-bottom: ${theme.SPACING_SMALL};
+
+const TeamsTabContainer = styled.View`
+  height: 100%
 `;
 
 export default function(props) {

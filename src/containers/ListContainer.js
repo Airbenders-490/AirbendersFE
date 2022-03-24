@@ -11,6 +11,7 @@ import MagnifyingIcon from '../assets/images/icons/magnifying.png';
 import Selection from '../assets/images/icons/selection.png';
 import Sort from '../assets/images/icons/sort.png';
 import XIcon from '../assets/images/icons/x-icon.png';
+import SearchBar from '../components/SearchBar.js';
 
 class ListContainer extends Component {
     constructor(props) {
@@ -22,12 +23,15 @@ class ListContainer extends Component {
             classEntered: false,
             showLabel: false,
             isReadOnly: false,
+            nameEntered: false,
+            selectedButton: 0,
+            participantName: ''
         };
 
-        this.onToggle = this.onToggle.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
         this.showName = this.showName.bind(this);
         this.deleteLabel = this.deleteLabel.bind(this);
+        this.searchBarVisibility = this.searchBarVisibility.bind(this);
     }
 
     deleteLabel = () => {
@@ -40,18 +44,22 @@ class ListContainer extends Component {
         this.setState({ className: event.nativeEvent.text })
         this.className.clear();
       }
+
+      handleSearchSubmit = () => {
+        // TODO
+        this.participantName.clear();
+
+      }
       showName = () => {
         this.setState({ classEntered: !this.state.classEntered });
       }
     
-
-    onToggle() {
-        this.setState({isToggled: !this.state.isToggled});
-    }
+      searchBarVisibility = () => {
+        this.setState({ nameEntered: !this.state.nameEntered });
+      }
 
     Header(props) {
         let { showLabel } = this.state;
-
         const renderLabel = () => {
         if (showLabel) {
         return <TouchableOpacity onPress={() => this.deleteLabel()} ><ClassLabel isReadOnly={this.showName} >{showLabel ? <LabelClassName>{this.state.className}</LabelClassName> : <View>{null}</View>}<IconTag>
@@ -62,17 +70,25 @@ class ListContainer extends Component {
         return (
             <HeaderIcon>
                 <Header>
+                  <SearchButton onPress={() => { this.setState({selectedButton: 1})}}>
                     <SearchIcon source={MagnifyingIcon} />
-                    <FilterButton onPress={this.showName}>
-                        <IconFilter source={Sort} />
-                        <CustomText placeholder="Class Name"
-                        classEntered={this.state.classEntered}
-                        ref={input => { this.className = input }}
-                        onSubmitEditing={this.handleSubmit} />
-                    </FilterButton>
-                    <LabelContainer>
-                {renderLabel()}
-                </LabelContainer>
+                  </SearchButton>
+                  <FilterButton onPress={() => { this.setState({selectedButton: 0})}}>
+                      <IconFilter source={Sort} />
+                  </FilterButton>
+                  { this.state.selectedButton === 0 ?
+                  <CustomText placeholder="Enter class name"
+                      classEntered={this.state.classEntered}
+                      ref={input => { this.className = input }}
+                      onSubmitEditing={this.handleSubmit} /> :
+                  <SearchField placeholder="Search participant"
+                      nameEntered={this.state.nameEntered}
+                      onSubmitEditing={this.handleSearchSubmit}
+                      ref={input => { this.participantName = input }}
+                  /> }
+                  <LabelContainer>
+                    {renderLabel()}
+                  </LabelContainer>
                 </Header>
             </HeaderIcon>
         );
@@ -86,12 +102,8 @@ class ListContainer extends Component {
                 backgroundColor='#E3E3E3' 
                 marginTop={this.props.marginTop}
                 marginBottom={this.props.marginBottom}>
-               
                 {this.Header()} 
                 {this.props.children}
-                
-                
-                
             </Container>
         );
     }
@@ -99,15 +111,15 @@ class ListContainer extends Component {
 
 //STYLED-COMPONENTS
 const Container = styled.ScrollView`
-    /* padding separated as the following to allow unitless values */
-    padding-horizontal: ${theme.SPACING_SLIGHT_MEDIUM};
-    padding-vertical: ${theme.SPACING_SLIGHT_MEDIUM};
-    margin-top: ${props => props.marginTop ? props.marginTop : 0}
-    margin-bottom: ${props => props.marginBottom ? props.marginBottom : 0}
-    border-radius: ${theme.SPACING_SMALL};
-    background: ${props => props.backgroundColor ? props.backgroundColor : '#fff'};
-    elevation: ${props => props.isElevated ? theme.CARD_ELEVATION : 0};
-  
+  /* padding separated as the following to allow unitless values */
+  padding-horizontal: ${theme.SPACING_SLIGHT_MEDIUM};
+  padding-vertical: ${theme.SPACING_SLIGHT_MEDIUM};
+  margin-top: ${props => props.marginTop ? props.marginTop : 0}
+  margin-bottom: ${props => props.marginBottom ? props.marginBottom : 0}
+  border-radius: ${theme.SPACING_SMALL};
+  background: ${props => props.backgroundColor ? props.backgroundColor : '`#fff`'};
+  elevation: ${props => props.isElevated ? theme.CARD_ELEVATION : 0};
+
   /* iOS Shadows */
   shadowColor: ${props => props.backgroundColor ? props.backgroundColor : '#555'};
   shadowOpacity: ${props => props.backgroundColor ? '0.4' : '0.1'};
@@ -115,24 +127,28 @@ const Container = styled.ScrollView`
 `;
 
 const CustomText = styled.TextInput`
-  display: ${props => props.classEntered ? 'flex' : 'none'};  
+  display: flex
   flex-direction: row;
   padding-left: 10px;
 `;
 
+const SearchField = styled(CustomText)`
+`
 const FilterButton = styled.TouchableOpacity`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 10px;
 `;
+
+const SearchButton = styled(FilterButton)`
+`
 
 const LabelContainer = styled.View`
   display: flex; 
-  padding-left: 10px;
+  padding-left: ${theme.SPACING_SMALL};
   top: 5px;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: ${theme.SPACING_SMALL};
   justify-content: center;
   background: ${theme.COLOR_LIGHT_GRAY};
 `;
@@ -151,17 +167,16 @@ const IconFilter = styled.Image`
 `;
 
 const HeaderIcon = styled.View`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom:15;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:15;
 `;
 
 const Header = styled.View`
-    display: flex;
-    flex-direction: row;
-   
+  display: flex;
+  flex-direction: row;
 `;
 
 const ClassLabel = styled.View`
@@ -178,16 +193,15 @@ const ClassLabel = styled.View`
 
 const LabelClassName = styled.Text`
   color: white;
-  top: 2;
   align-items: center;
   font-family: ${theme.FONT_SEMIBOLD};
   letter-spacing: ${theme.LETTER_SPACING_SMALL};
 `;
 
 const LabelIcon = styled.Image`
-  tintColor: #000000;
-  width: 20;
-  height: 20;
+  tintColor: #ffff;
+  width: 10;
+  height: 10;
 `;
 
 const IconTag = styled.View`

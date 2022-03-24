@@ -36,7 +36,9 @@ class TeamListItem extends Component {
             <MainContainer
                 isTouchable
                 isElevated
-                backgroundColor={this.props.backgroundColor} >
+                backgroundColor={this.props.backgroundColor}
+                marginTop={15}
+                marginBottom={5} >
                 <Header>
                     <Subtitle>{this.props.title}</Subtitle>
                     <TeamStatus full={this.props.numberTotalParticipants === this.props.numberCurrentParticipants} />
@@ -73,7 +75,7 @@ const ParticipantsContainer = styled.View `
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 10;
+    margin-top: 2;
 `;
 
 const ParticipantSpot = styled.View `
