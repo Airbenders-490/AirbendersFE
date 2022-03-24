@@ -37,7 +37,6 @@ class TeamListItem extends Component {
                 isTouchable
                 isElevated
                 backgroundColor={this.props.backgroundColor}
-                marginTop={15}
                 marginBottom={5} >
                 <Header>
                     <Subtitle>{this.props.title}</Subtitle>
