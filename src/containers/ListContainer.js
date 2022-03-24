@@ -21,15 +21,15 @@ class ListContainer extends Component {
             isToggled: false,
             className: '',
             classEntered: false,
+            nameEntered: false,
             showLabel: false,
             isReadOnly: false,
-            nameEntered: false,
             selectedButton: 0,
             participantName: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.showName = this.showName.bind(this);
+        this.filterBarVisibility = this.filterBarVisibility.bind(this);
         this.deleteLabel = this.deleteLabel.bind(this);
         this.searchBarVisibility = this.searchBarVisibility.bind(this);
     }
@@ -50,11 +50,13 @@ class ListContainer extends Component {
         this.participantName.clear();
 
       }
-      showName = () => {
+      filterBarVisibility = () => {
+        this.setState({ selectedButton: this.state.selectedButton = 1})
         this.setState({ classEntered: !this.state.classEntered });
       }
     
       searchBarVisibility = () => {
+        this.setState({ selectedButton: this.state.selectedButton = 0})
         this.setState({ nameEntered: !this.state.nameEntered });
       }
 
@@ -62,7 +64,7 @@ class ListContainer extends Component {
         let { showLabel } = this.state;
         const renderLabel = () => {
         if (showLabel) {
-        return <TouchableOpacity onPress={() => this.deleteLabel()} ><ClassLabel isReadOnly={this.showName} >{showLabel ? <LabelClassName>{this.state.className}</LabelClassName> : <View>{null}</View>}<IconTag>
+        return <TouchableOpacity onPress={() => this.deleteLabel()} ><ClassLabel isReadOnly={this.filterBarVisibility} >{showLabel ? <LabelClassName>{this.state.className}</LabelClassName> : <View>{null}</View>}<IconTag>
           <LabelIcon source={XIcon} />
         </IconTag></ClassLabel></TouchableOpacity>;
       }
@@ -70,13 +72,13 @@ class ListContainer extends Component {
         return (
             <HeaderIcon>
                 <Header>
-                  <SearchButton onPress={() => { this.setState({selectedButton: 1})}}>
+                  <SearchButton onPress={this.searchBarVisibility}>
                     <SearchIcon source={MagnifyingIcon} />
                   </SearchButton>
-                  <FilterButton onPress={() => { this.setState({selectedButton: 0})}}>
+                  <FilterButton onPress={this.filterBarVisibility}>
                       <IconFilter source={Sort} />
                   </FilterButton>
-                  { this.state.selectedButton === 0 ?
+                  { this.state.selectedButton === 1 ?
                   <CustomText placeholder="Enter class name"
                       classEntered={this.state.classEntered}
                       ref={input => { this.className = input }}
@@ -130,9 +132,12 @@ const CustomText = styled.TextInput`
   display: flex
   flex-direction: row;
   padding-left: 10px;
+  display: ${props => props.classEntered ? 'flex' : 'none'};  
 `;
 
 const SearchField = styled(CustomText)`
+display: ${props => props.nameEntered ? 'flex' : 'none'};  
+
 `
 const FilterButton = styled.TouchableOpacity`
   display: flex;
