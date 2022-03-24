@@ -4,24 +4,39 @@ import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
 import PropTypes from 'prop-types';
 import SendIcon from '../assets/images/icons/right-arrow.png';
+import { Keyboard } from 'react-native';
 
 
 class MessageInput extends Component {
   constructor(props) {
         super(props);
+        this.state = {
+          message: ""
+        };
 
-        this.onButtonPress = this.onButtonPress.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.onTextChange = this.onTextChange.bind(this);
     }
 
-    onButtonPress() {
-      this.props.sendMessageAction && this.props.sendMessageAction();
+    onSubmit() {
+      if (this.props.sendMessageAction) {
+        this.props.sendMessageAction(this.state.message)
+      }
+      this.textInput.clear()
+      Keyboard.dismiss()
     }
+
+    onTextChange(text) {
+      this.setState({message: text})
+    }
+
 
   render() {
     return (
         <MessageInputContainer>
-            <MessageTextInput multiline={true} placeholder='Message'></MessageTextInput>
-            <SendButton onPress={this.onButtonPress}>
+            <MessageTextInput ref={input => { this.textInput = input }} onChangeText={this.onTextChange}
+              value={this.state.message} multiline={true} placeholder='Message' onSubmitEditing={this.onSubmit}></MessageTextInput >
+            <SendButton onPress={this.onSubmit}>
                 <CustomSendButton source= {SendIcon}></CustomSendButton>
             </SendButton>
         </MessageInputContainer>

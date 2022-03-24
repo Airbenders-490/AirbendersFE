@@ -7,6 +7,6 @@ global.chatAPI = 'real.encs.concordia.ca/chat';
 //Authentifications Bearer Token
 global.config = {
     headers: {
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4MTQ3MDMyLCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.CKWCjR1se3T9X6j4_uWWkcVed1ySg1iDF5w2aJH2ezw'
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4NDIxNjY0LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.mYn60gOei94Fw_tQG0c3JKMKlitbcPZbnhj8sKnQjPE'
     }
 }
