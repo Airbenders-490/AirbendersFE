@@ -25,11 +25,13 @@ class ParticipantListItem extends Component {
     super(props);
 
     this.state = {
-      decisionMade: false
+      decisionMade: false,
+      updateToggle: false
     }
 
     this.acceptRequest = this.acceptRequest.bind(this);
     this.denyRequest = this.denyRequest.bind(this);
+    this.removeParticipantFromRoom = this.removeParticipantFromRoom.bind(this)
   };
 
   getConfig = (token) => {
@@ -52,7 +54,7 @@ class ParticipantListItem extends Component {
 
     axios
         .put(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, this.getConfig(token))
-        // .post(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, config) // for testing w/out login
+        // .put(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, config) // for testing w/out login
         .then(
             response => {
                 console.log(response.data);
@@ -134,6 +136,46 @@ class ParticipantListItem extends Component {
     }
   }
 
+  removeParticipantFromRoom = async () => {
+    let token
+    let user
+    try{
+      token = await AsyncStorage.getItem("token")
+      user = await AsyncStorage.getItem("userID")
+    } catch(err) {
+      console.log(err)
+    }
+
+    if (this.props.participantID !== user && this.props.isAdmin) {
+      alert('Deleting Participant');
+      console.log("Deleting Participant");
+
+      axios
+      .put(`http://real.encs.concordia.ca/chat/api/rooms/remove/${this.props.roomID}/${this.props.participantID}`,{}, this.getConfig(token))
+      // .put(`http://real.encs.concordia.ca/chat/api/rooms/remove/${this.props.roomID}/${this.props.participantID}`,{}, config) // for testing w/out login
+      .then(
+          response => {
+              console.log(response.data);
+              this.props.getChatRooms()
+              this.setState({updateToggle: !this.state.updateToggle})
+          }
+      )
+      .catch(
+          error => {
+            console.log(error)
+            console.log(error.message)
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+            console.log(error.config)
+          }
+      )
+    } else {
+      alert('Cannot delete yourself from the room');
+      console.log("Cannot delete yourself from the room")
+    }
+  };
+
 
   render() {
     return (
@@ -145,7 +187,8 @@ class ParticipantListItem extends Component {
           </ContentLHS>
           <ContentRHS>
           {this.showJoinRequestButtons()}
-            <TeamFormationStatus statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} />
+            <TeamFormationStatus onLongPress={() => this.removeParticipantFromRoom()}
+            statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} />
           </ContentRHS>
         </ContentContainer>
       </MainContainer>
@@ -181,7 +224,7 @@ const ParticipantName = styled.Text`
   text-transform: capitalize;
 `;
 
-const TeamFormationStatus = styled.View`
+const TeamFormationStatus = styled.TouchableOpacity`
   width: 10;
   height: 10;
   border-radius: 5;
