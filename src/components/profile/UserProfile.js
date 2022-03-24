@@ -235,20 +235,20 @@ class UserProfile extends Component {
                     onChangeText={(text) => this.payload.fullName = text}>
                     {this.state.currentUserData.first_name} {this.state.currentUserData.last_name}
                 </UserName>
-                <ProgramName
+                {/* <ProgramName
                     editable={!this.props.isReadOnly}
                     placeholder="Your Program"
                     placeholderTextColor={"#D8D8D8"}>
                     {UserData[this.state.userID].program}
-                </ProgramName>
-                <StudentID
+                </ProgramName> */}
+                {/* <StudentID
                     isDisplayed={this.props.isCurrentUser}
                     editable={!this.props.isReadOnly}
                     placeholder="Your Student ID"
                     placeholderTextColor={"#D8D8D8"}
                     onChangeText={(text) => this.payload.studentID = text}>
                     {this.state.currentUserData.student_id}
-                </StudentID>
+                </StudentID> */}
                 <UserDescription
                     editable={!this.props.isReadOnly}
                     placeholder="Tell us about yourself"
