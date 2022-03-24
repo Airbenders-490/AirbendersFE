@@ -24,14 +24,14 @@ class ListContainer extends Component {
             nameEntered: false,
             showLabel: false,
             isReadOnly: false,
-            selectedButton: 0,
+            isFilterButtonSelected: false,
             participantName: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.filterBarVisibility = this.filterBarVisibility.bind(this);
         this.deleteLabel = this.deleteLabel.bind(this);
         this.searchBarVisibility = this.searchBarVisibility.bind(this);
+        this.filterBarVisibility = this.filterBarVisibility.bind(this);
     }
 
     deleteLabel = () => {
@@ -51,12 +51,12 @@ class ListContainer extends Component {
 
       }
       filterBarVisibility = () => {
-        this.setState({ selectedButton: this.state.selectedButton = 1})
+        this.setState({ isFilterButtonSelected: true})
         this.setState({ classEntered: !this.state.classEntered });
       }
     
       searchBarVisibility = () => {
-        this.setState({ selectedButton: this.state.selectedButton = 0})
+        this.setState({ isFilterButtonSelected: false})
         this.setState({ nameEntered: !this.state.nameEntered });
       }
 
@@ -78,12 +78,12 @@ class ListContainer extends Component {
                   <FilterButton onPress={this.filterBarVisibility}>
                       <IconFilter source={Sort} />
                   </FilterButton>
-                  { this.state.selectedButton === 1 ?
+                  { this.state.isFilterButtonSelected ?
                   <CustomText placeholder="Enter class name"
                       classEntered={this.state.classEntered}
                       ref={input => { this.className = input }}
                       onSubmitEditing={this.handleSubmit} /> :
-                  <SearchField placeholder="Search participant"
+                  <SearchField placeholder="Search participant name"
                       nameEntered={this.state.nameEntered}
                       onSubmitEditing={this.handleSearchSubmit}
                       ref={input => { this.participantName = input }}
@@ -136,8 +136,7 @@ const CustomText = styled.TextInput`
 `;
 
 const SearchField = styled(CustomText)`
-display: ${props => props.nameEntered ? 'flex' : 'none'};  
-
+  display: ${props => props.nameEntered ? 'flex' : 'none'};  
 `
 const FilterButton = styled.TouchableOpacity`
   display: flex;
