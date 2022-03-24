@@ -30,8 +30,8 @@ class ListContainer extends Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.deleteLabel = this.deleteLabel.bind(this);
-        this.searchBarVisibility = this.searchBarVisibility.bind(this);
-        this.filterBarVisibility = this.filterBarVisibility.bind(this);
+        this.triggerSearchBar = this.triggerSearchBar.bind(this);
+        this.triggerFilterBar = this.triggerFilterBar.bind(this);
     }
 
     deleteLabel = () => {
@@ -50,12 +50,12 @@ class ListContainer extends Component {
         this.participantName.clear();
 
       }
-      filterBarVisibility = () => {
+      triggerFilterBar = () => {
         this.setState({ isFilterButtonSelected: true})
         this.setState({ classEntered: !this.state.classEntered });
       }
     
-      searchBarVisibility = () => {
+      triggerSearchBar = () => {
         this.setState({ isFilterButtonSelected: false})
         this.setState({ nameEntered: !this.state.nameEntered });
       }
@@ -64,7 +64,7 @@ class ListContainer extends Component {
         let { showLabel } = this.state;
         const renderLabel = () => {
         if (showLabel) {
-        return <TouchableOpacity onPress={() => this.deleteLabel()} ><ClassLabel isReadOnly={this.filterBarVisibility} >{showLabel ? <LabelClassName>{this.state.className}</LabelClassName> : <View>{null}</View>}<IconTag>
+        return <TouchableOpacity onPress={() => this.deleteLabel()} ><ClassLabel isReadOnly={this.triggerFilterBar} >{showLabel ? <LabelClassName>{this.state.className}</LabelClassName> : <View>{null}</View>}<IconTag>
           <LabelIcon source={XIcon} />
         </IconTag></ClassLabel></TouchableOpacity>;
       }
@@ -72,10 +72,10 @@ class ListContainer extends Component {
         return (
             <HeaderIcon>
                 <Header>
-                  <SearchButton onPress={this.searchBarVisibility}>
+                  <SearchButton onPress={this.triggerSearchBar}>
                     <SearchIcon source={MagnifyingIcon} />
                   </SearchButton>
-                  <FilterButton onPress={this.filterBarVisibility}>
+                  <FilterButton onPress={this.triggerFilterBar}>
                       <IconFilter source={Sort} />
                   </FilterButton>
                   { this.state.isFilterButtonSelected ?
@@ -150,9 +150,7 @@ const SearchButton = styled(FilterButton)`
 const LabelContainer = styled.View`
   display: flex; 
   padding-left: ${theme.SPACING_SMALL};
-  top: 5px;
   align-items: center;
-  margin-bottom: ${theme.SPACING_SMALL};
   justify-content: center;
   background: ${theme.COLOR_LIGHT_GRAY};
 `;
