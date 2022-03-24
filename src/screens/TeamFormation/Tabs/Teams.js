@@ -32,11 +32,8 @@ class Teams extends Component {
               courseNumber="SOEN 385"
               numberCurrentParticipants={2}
               numberTotalParticipants={4} />
-
-            {/* <JoinTeam 
-              teamName='X'
-              >
-            </JoinTeam> */}
+              
+              {/* <JoinTeam teamName='X'/> */}
               <CreateTeam/>
             </ListContainer>
           </TeamsTabContainer>
