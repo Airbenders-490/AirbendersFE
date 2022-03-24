@@ -32,6 +32,7 @@ class TeamChat extends Component {
         this.navigateToChat = this.navigateToChat.bind(this);
         this.getChatRooms = this.getChatRooms.bind(this);
         this.getConfig = this.getConfig.bind(this)
+        this.removeTeam = this.removeTeam.bind(this)
     }
 
     getConfig = (token) => {
@@ -74,15 +75,45 @@ class TeamChat extends Component {
         })
     }
 
+    removeTeam = async (room) => {
+
+        let token = await AsyncStorage.getItem("token")
+        let user = await AsyncStorage.getItem("userID")
+
+        if (room.admin.id === user) {
+            alert("Deleting delete room")
+            console.log("Deleting delete room")
+
+            axios
+            .delete(`http://real.encs.concordia.ca/chat/api/rooms/${room.room_id}`, this.getConfig(token)) // w/ login
+            // .delete(`http://real.encs.concordia.ca/chat/api/rooms/${room.room_id}`, config) // for testing w/out login
+            .then(
+                response => {
+                    console.log(response.data)
+                    this.getChatRooms()
+                }
+            )
+            .catch(
+                error => console.log(error)
+            )
+        } else {
+            alert("Cannot delete room you are not admin")
+            console.log("Cannot delete room you are not admin")
+        }
+
+    }
+
     render() {
 
         let listChatRooms = this.state.rooms.map(room => {
             return (
-                <ConversationItem onPress={() => this.navigateToChat(FirstConvo, room)}>
+                <ConversationItem
+                onLongPress={() => this.removeTeam(room)}
+                onPress={() => this.navigateToChat(FirstConvo, room)}>
                     <MessageListItem
                         backgroundColor={theme.COLOR_BLUE}
                         classNumber={room.class}
-                        className={room.name}
+                        roomName={room.name}
                         numberParticipants={room.students.length} />
                 </ConversationItem>
             )
