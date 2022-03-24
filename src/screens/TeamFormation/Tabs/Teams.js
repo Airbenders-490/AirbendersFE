@@ -55,7 +55,6 @@ class Teams extends Component {
 }
 const TeamsContainer = styled.View `
   background-color:  ${theme.COLOR_LIGHT_GRAY};
-  height: 200; 
   border-radius: 12;
 `;
 const ConversationItem = styled.Pressable `

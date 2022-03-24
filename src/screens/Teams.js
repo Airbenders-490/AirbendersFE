@@ -12,6 +12,8 @@ import CreateTeam from '../components/modals/CreateTeam.js';
 import TeamListItem from '../components/TeamListItem.js';
 import FilterIcon from '../assets/images/icons/filter.png';
 import XIcon from '../assets/images/icons/x-icon.png';
+import SearchBar from '../components/SearchBar.js'
+import ParticipantListItem from '../components/ParticipantListItem.js';
 
 class Teams extends Component {
   constructor(props) {
@@ -28,6 +30,8 @@ class Teams extends Component {
     this.showName = this.showName.bind(this);
     this.deleteLabel = this.deleteLabel.bind(this);
   }
+    
+
 
   deleteLabel = () => {
     this.setState({ showLabel: false });

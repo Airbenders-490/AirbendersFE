@@ -25,6 +25,8 @@ class TeamFormationTabs extends Component {
             tabBarStyle: {
               backgroundColor: "transparent",
               marginBottom: theme.SPACING_SMALL,
+              marginTop: theme.SPACING_MEDIUM,
+
             },
             tabBarIndicatorStyle: {
               backgroundColor: theme.COLOR_BLACK,

@@ -16,20 +16,7 @@ class Participants extends Component {
     render() {
       return (
         <ListContainer marginBottom={50}>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-          <MainContainer><Subtitle>John</Subtitle></MainContainer><Text>{'\n'}</Text>
-
+          
         </ListContainer>
               
       );
