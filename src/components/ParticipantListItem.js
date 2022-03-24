@@ -1,5 +1,7 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 import { Button, View, TouchableOpacity, Text, Image, ScrollView, Pressable, TouchableHighlightBase, Dimensions } from 'react-native';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
@@ -9,6 +11,12 @@ import Label from './Label.js';
 import AcceptIcon from '../assets/images/icons/accept-icon.png'
 import DenyIcon from '../assets/images/icons/deny-icon.png'
 
+// for testing w/out login
+let config = {
+  headers: {
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4MDAyOTI2LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.981hDNWptwfNA609yiNotVRBSU5uB1fFp_4qjdJsE_o'
+  }
+}
 
 const totalWidth = Dimensions.get('window').width;
 
@@ -16,20 +24,78 @@ class ParticipantListItem extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      decisionMade: false
+    }
+
     this.acceptRequest = this.acceptRequest.bind(this);
     this.denyRequest = this.denyRequest.bind(this);
-
   };
 
-  acceptRequest = () => {
-    // TODO: ADD CONNECTION
-
-    console.log("accept participant");
+  getConfig = (token) => {
+    return {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    }
   }
 
-  denyRequest = () => {
-    // TODO: ADD CONNECTION
+  acceptRequest = async () => {
+    console.log("accept participant");
+
+    let token
+    try{
+      token = await AsyncStorage.getItem("token")
+    } catch(err) {
+      console.log(err)
+    }
+
+    axios
+        .put(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, this.getConfig(token))
+        // .post(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, config) // for testing w/out login
+        .then(
+            response => {
+                console.log(response.data);
+                this.props.getChatRooms()
+                this.setState({decisionMade: true})
+            }
+        )
+        .catch(
+            error => console.log(error)
+        )
+  }
+
+  denyRequest = async () => {
     console.log("deny participant");
+
+    let token
+    try{
+      token = await AsyncStorage.getItem("token")
+    } catch(err) {
+      console.log(err)
+    }
+
+    axios
+        .post(`http://real.encs.concordia.ca/chat/api/chat/rejectRequest/${this.props.roomID}/${this.props.participantID}`,{}, this.getConfig(token))
+        // .post(`http://real.encs.concordia.ca/chat/api/chat/rejectRequest/${this.props.roomID}/${this.props.participantID}`,{}, config) // for testing w/out login
+        .then(
+            response => {
+                console.log(response.data);
+                // trying to force re-render to remove accept/decline buttons
+                this.props.getChatRooms()
+                this.setState({decisionMade: true})
+            }
+        )
+        .catch(
+            error => {
+              console.log(error)
+              console.log(error.message)
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+              console.log(error.config)
+            }
+        )
   }
 
 
@@ -53,6 +119,22 @@ class ParticipantListItem extends Component {
     return color;
   }
 
+  showJoinRequestButtons = () => {
+    if (this.props.isAdmin && this.props.userTeamStatus === 'pending' && !this.state.decisionMade) {
+      return (
+        <ButtonsContainer>
+          <ButtonContainer onPress={() => {this.acceptRequest() }}>
+            <AcceptButton source={AcceptIcon} />
+          </ButtonContainer>
+          <ButtonContainer onPress={() => { this.denyRequest() }}>
+            <DenyButton source={DenyIcon} />
+          </ButtonContainer>
+        </ButtonsContainer>
+      )
+    }
+  }
+
+
   render() {
     return (
       <MainContainer isElevated>
@@ -62,16 +144,7 @@ class ParticipantListItem extends Component {
             <ParticipantName>{this.props.participantName}</ParticipantName>
           </ContentLHS>
           <ContentRHS>
-            {this.props.isAdmin && this.props.userTeamStatus == 'pending' &&
-              <ButtonsContainer isAdmin={this.props.isAdmin} isPending={this.props.isPending}>
-                <ButtonContainer onPress={() => { this.acceptRequest() }}>
-                  <AcceptButton source={AcceptIcon} />
-                </ButtonContainer>
-                <ButtonContainer onPress={() => { this.denyRequest() }}>
-                  <DenyButton source={DenyIcon} />
-                </ButtonContainer>
-              </ButtonsContainer>
-            }
+          {this.showJoinRequestButtons()}
             <TeamFormationStatus statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} />
           </ContentRHS>
         </ContentContainer>

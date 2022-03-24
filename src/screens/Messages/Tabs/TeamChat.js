@@ -43,6 +43,7 @@ class TeamChat extends Component {
     }
 
     async getChatRooms() {
+        console.log("getting chat rooms")
         let token = await AsyncStorage.getItem("token")
         let user = await AsyncStorage.getItem("userID")
 
@@ -68,7 +69,8 @@ class TeamChat extends Component {
         this.props.navigation.navigate('ConversationScreen', {
             conversation: mockConversation,
             room: room,
-            userID: this.state.userID
+            userID: this.state.userID,
+            getChatRooms: this.getChatRooms
         })
     }
 
