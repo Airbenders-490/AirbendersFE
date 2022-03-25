@@ -1,10 +1,14 @@
 import React,  { Component, } from 'react';
 import ParticipantListItem from '../../../components/ParticipantListItem';
 import ListContainer from '../../../containers/ListContainer.js';
+import MainContainer from '../../../containers/MainContainer';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import {  Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import styled from 'styled-components';
+import theme from '../../../styles/theme.style.js';
+
 
 class Participants extends Component {
     constructor(props) {
@@ -41,7 +45,6 @@ class Participants extends Component {
     render() {
       return (
         <ListContainer marginBottom={50} onSearch={this.onParticipantSearch}>
-           {/* placing these for visualization */}
            {this.state.participants ? this.state.participants.map(participant => (
              <ParticipantListItem id={participant.id}
              participantName={`${participant.first_name} ${participant.last_name}`}
@@ -52,8 +55,7 @@ class Participants extends Component {
              marginTop={2}
          />
            )) :
-           // todo: STELLA CAN YOU PLEASE FIX THIS AND SHOW WHAT YOU LIKE OR LEAVE IT EMPTY.. IDC
-            <NotFoundError><Text>No user found 😕</Text></NotFoundError>}
+            <NotFoundError><ErrorMsg>No user found 😕</ErrorMsg></NotFoundError>}
           {/* <ParticipantListItem
             participantName={"jane smith"}
             commonClass={'SOEN 490'}
@@ -83,6 +85,12 @@ const NotFoundError = styled.View `
   background-color: white;
   border-radius: 10;
   padding: 10px;
+`
+
+const ErrorMsg = styled.Text `
+font-family: ${theme.FONT_SEMIBOLD};
+font-size: ${theme.FONT_SIZE_SLIGHT_LARGE};
+text-transform: capitalize;
 `
 
 export default Participants;
