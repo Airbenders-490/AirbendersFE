@@ -28,9 +28,9 @@ class CompleteClassModal extends Component {
 
   handleSubmit = () => {
 
-    console.log("Completed Class entered: " + this.state.text.toLowerCase());
+    console.log("Completed Class entered: " + this.state.text.toLowerCase().trim());
     let student = {
-      "current_classes": [this.state.text.toLowerCase()]
+      "current_classes": [this.state.text.toLowerCase().trim()]
     }
 
 

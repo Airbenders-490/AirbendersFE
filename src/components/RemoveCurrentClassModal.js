@@ -28,10 +28,8 @@ class RemoveCurrentClassModal extends Component {
   }
 
   handleSubmit = () => {
-
-    console.log("Current Class entered: " + this.state.text.toLowerCase());
     let student = {
-      "current_classes": [this.state.text.toLowerCase()]
+      "current_classes": [this.state.text.toLowerCase().trim()]
     }
 
 

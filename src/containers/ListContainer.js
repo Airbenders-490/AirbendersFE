@@ -30,32 +30,42 @@ class ListContainer extends Component {
             participantName: ''
         };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFilterSubmit = this.handleFilterSubmit.bind(this);
         this.deleteLabel = this.deleteLabel.bind(this);
         this.triggerSearchBar = this.triggerSearchBar.bind(this);
         this.triggerFilterBar = this.triggerFilterBar.bind(this);
+        this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     }
 
     deleteLabel = () => {
-        this.setState({ showLabel: false });
+        this.setState({ showLabel: false, className: ''});
       }
 
-      handleSubmit = (event) => {
-        const className = event.nativeEvent.text
+      handleFilterSubmit = (event) => {
+        const className = event.nativeEvent.text.toLowerCase().trim()
         this.setState({ showLabel: true });
         this.setState({ className: className })
+        console.log("part", this.state.participantName, this.state.className)
         this.className.clear();
-        if (this.props.onFilter) {
-          this.props.onFilter(className)
+        if (this.props.onFilter && className != '') {
+          if (this.state.participantName != '') {
+            this.props.onFilteredParticpant(this.state.participantName, className)
+          } else {
+            this.props.onFilter(className)
+          }
         }
       }
 
-      handleSearchSubmit = async (event) => {
-        if (this.props.onSearch) {
-          const name = event.nativeEvent.text
-          this.props.onSearch(name)
+      handleSearchSubmit = (event) => {
+        const participantName = event.nativeEvent.text.toLowerCase().trim()
+        this.setState({ participantName: participantName })
+        if (this.props.onSearch && participantName != '') {
+          if (this.state.className != '') {
+            this.props.onFilteredParticpant(participantName, this.state.className)
+          } else {
+            this.props.onSearch(participantName)
+          }
         }
-        // this.participantName.clear()
       }
 
       triggerFilterBar = () => {
@@ -89,7 +99,7 @@ class ListContainer extends Component {
                     <CustomText placeholder="Search by class name"
                         classEntered={this.state.classEntered}
                         ref={input => { this.className = input }}
-                        onSubmitEditing={this.handleSubmit} />
+                        onSubmitEditing={this.handleFilterSubmit} />
                     <LabelContainer>
                       {renderLabel()}
                     </LabelContainer>
@@ -105,7 +115,7 @@ class ListContainer extends Component {
                       nameEntered={this.state.nameEntered}
                       onSubmitEditing={this.handleSearchSubmit}
                       // ref={input => { this.participantName = input }}
-                      onTextChange={(text) => this.setState({participantName: text})}
+                      // onTextChange={(text) => this.setState({participantName: text})}
                     />
                   </SearchContainer>
                 </SearchFieldContainer>

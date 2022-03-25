@@ -57,10 +57,30 @@ class Participants extends Component {
         .then(res => this.setState({participants: res.data}))
         .catch(err => console.log(err))
     }
+
+    onFilteredParticpantSearch = async (participantName, className) => {
+      console.log(className, participantName)
+      let token
+      try{
+        token = await AsyncStorage.getItem("token")
+      } catch(err) {
+        console.log(err)
+        // TODO: redirect to login
+        return
+      }
+
+      axios.get(`http://real.encs.concordia.ca/profile/api/search/?firstName=${participantName}&classes=${className}`, this.getConfig(token))
+        .then(res => this.setState({participants: res.data}))
+        .catch(err => console.log(err))
+    }
   
     render() {
       return (
-        <ListContainer marginBottom={50} onSearch={this.onParticipantSearch} onFilter={this.onParticipantsFilter}>
+        <ListContainer 
+          marginBottom={50} 
+          onSearch={this.onParticipantSearch} 
+          onFilter={this.onParticipantsFilter} 
+          onFilteredParticpant={this.onFilteredParticpantSearch}>
            {this.state.participants ? this.state.participants.map(participant => (
              <ParticipantListItem id={participant.id}
              participantName={`${participant.first_name} ${participant.last_name}`}

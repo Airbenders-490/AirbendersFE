@@ -30,7 +30,7 @@ class AddClassesTakenModal extends Component {
 
     console.log("Class taken entered: " + this.state.text.toLowerCase());
     let student = {
-      "classes_taken": [this.state.text.toLowerCase()]
+      "classes_taken": [this.state.text.toLowerCase().trim()]
     }
 
 
