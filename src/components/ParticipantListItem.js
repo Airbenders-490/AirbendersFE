@@ -11,13 +11,6 @@ import Label from './Label.js';
 import AcceptIcon from '../assets/images/icons/accept-icon.png'
 import DenyIcon from '../assets/images/icons/deny-icon.png'
 
-// for testing w/out login
-let config = {
-  headers: {
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4MDAyOTI2LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.981hDNWptwfNA609yiNotVRBSU5uB1fFp_4qjdJsE_o'
-  }
-}
-
 const totalWidth = Dimensions.get('window').width;
 
 class ParticipantListItem extends Component {
