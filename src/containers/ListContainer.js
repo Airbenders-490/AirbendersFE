@@ -13,6 +13,8 @@ import Sort from '../assets/images/icons/sort.png';
 import XIcon from '../assets/images/icons/x-icon.png';
 import SearchBar from '../components/SearchBar.js';
 
+
+
 class ListContainer extends Component {
     constructor(props) {
         super(props);
@@ -44,11 +46,22 @@ class ListContainer extends Component {
         this.className.clear();
       }
 
-      handleSearchSubmit = () => {
-        // TODO
-        this.participantName.clear();
-
+      getConfig = (token) => {
+        return {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }
       }
+
+      handleSearchSubmit = async (event) => {
+        if (this.props.onSearch) {
+          const name = event.nativeEvent.text
+          this.props.onSearch(name)
+        }
+        // this.participantName.clear()        
+      }
+
       triggerFilterBar = () => {
         this.setState({ isFilterButtonSelected: true})
         this.setState({ classEntered: !this.state.classEntered });
@@ -85,7 +98,8 @@ class ListContainer extends Component {
                   <SearchField placeholder="Search participant name"
                       nameEntered={this.state.nameEntered}
                       onSubmitEditing={this.handleSearchSubmit}
-                      ref={input => { this.participantName = input }}
+                      // ref={input => { this.participantName = input }}
+                      onTextChange={(text) => this.setState({participantName: text})}
                   /> }
                   <LabelContainer>
                     {renderLabel()}
@@ -219,6 +233,7 @@ const IconTag = styled.View`
 
 ListContainer.propTypes = {
     children: PropTypes.element.isRequired,
+    onSearch: PropTypes.func
 };
 
 export default ListContainer;
