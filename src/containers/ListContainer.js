@@ -39,7 +39,7 @@ class ListContainer extends Component {
     deleteLabel = () => {
         this.setState({ showLabel: false });
       }
-    
+
       handleSubmit = (event) => {
         this.setState({ showLabel: true });
         this.setState({ className: event.nativeEvent.text })
@@ -51,14 +51,14 @@ class ListContainer extends Component {
           const name = event.nativeEvent.text
           this.props.onSearch(name)
         }
-        // this.participantName.clear()        
+        // this.participantName.clear()
       }
 
       triggerFilterBar = () => {
         this.setState({ isFilterButtonSelected: true})
         this.setState({ classEntered: !this.state.classEntered });
       }
-    
+
       triggerSearchBar = () => {
         this.setState({ isFilterButtonSelected: false})
         this.setState({ nameEntered: !this.state.nameEntered });
@@ -75,41 +75,51 @@ class ListContainer extends Component {
     }
         return (
             <HeaderIcon>
-                <Header>
-                  <SearchButton onPress={this.triggerSearchBar}>
-                    <SearchIcon source={MagnifyingIcon} />
-                  </SearchButton>
-                  <FilterButton onPress={this.triggerFilterBar}>
-                      <IconFilter source={Sort} />
-                  </FilterButton>
-                  { this.state.isFilterButtonSelected ?
-                  <CustomText placeholder="Enter class name"
-                      classEntered={this.state.classEntered}
-                      ref={input => { this.className = input }}
-                      onSubmitEditing={this.handleSubmit} /> :
-                  <SearchField placeholder="Search participant name"
+              <Header>
+
+                <SearchFieldContainer>
+                  <SearchContainer>
+                    <FilterButton onPress={this.triggerFilterBar}>
+                        <IconFilter source={Sort} />
+                    </FilterButton>
+                    <CustomText placeholder="Search by class name"
+                        classEntered={this.state.classEntered}
+                        ref={input => { this.className = input }}
+                        onSubmitEditing={this.handleSubmit} />
+                    <LabelContainer>
+                      {renderLabel()}
+                    </LabelContainer>
+                  </SearchContainer>
+
+                  <ExtraSpacing></ExtraSpacing>
+
+                  <SearchContainer>
+                    <SearchButton onPress={this.triggerSearchBar}>
+                        <SearchIcon source={MagnifyingIcon} />
+                    </SearchButton>
+                    <SearchField placeholder="Search by participant name"
                       nameEntered={this.state.nameEntered}
                       onSubmitEditing={this.handleSearchSubmit}
                       // ref={input => { this.participantName = input }}
                       onTextChange={(text) => this.setState({participantName: text})}
-                  /> }
-                  <LabelContainer>
-                    {renderLabel()}
-                  </LabelContainer>
-                </Header>
+                    />
+                  </SearchContainer>
+                </SearchFieldContainer>
+
+              </Header>
             </HeaderIcon>
         );
       }
-    
+
     render() {
-        
+
         return (
             <Container
                 isElevated={this.props.isElevated}
-                backgroundColor='#E3E3E3' 
+                backgroundColor='#E3E3E3'
                 marginTop={this.props.marginTop}
                 marginBottom={this.props.marginBottom}>
-                {this.Header()} 
+                {this.Header()}
                 {this.props.children}
             </Container>
         );
@@ -133,19 +143,28 @@ const Container = styled.ScrollView`
   shadowRadius: 10;
 `;
 
+const ExtraSpacing = styled.View`
+height: 10px;
+`
+
+const SearchFieldContainer = styled.View`
+display:flex;
+flex-direction:column
+`
+
+const SearchContainer = styled.View`
+display:flex;
+flex-direction:row
+`
+
 const CustomText = styled.TextInput`
-  display: flex
-  flex-direction: row;
   padding-left: 10px;
-  display: ${props => props.classEntered ? 'flex' : 'none'};  
 `;
 
 const SearchField = styled(CustomText)`
-  display: ${props => props.nameEntered ? 'flex' : 'none'};  
+
 `
 const FilterButton = styled.TouchableOpacity`
-  display: flex;
-  flex-direction: row;
   align-items: center;
 `;
 
@@ -153,7 +172,7 @@ const SearchButton = styled(FilterButton)`
 `
 
 const LabelContainer = styled.View`
-  display: flex; 
+  display: flex;
   padding-left: ${theme.SPACING_SMALL};
   align-items: center;
   justify-content: center;
@@ -161,6 +180,8 @@ const LabelContainer = styled.View`
 `;
 
 const SearchIcon = styled.Image`
+  margin-left:20;
+  margin-top: 7;
   width: 15;
   height: 15;
   tint-color: ${theme.COLOR_GRAY};
@@ -168,6 +189,7 @@ const SearchIcon = styled.Image`
 
 const IconFilter = styled.Image`
   margin-left: 20;
+  margin-top: 7;
   width: 15;
   height: 15;
   tint-color: ${theme.COLOR_GRAY};
@@ -187,7 +209,7 @@ const Header = styled.View`
 `;
 
 const ClassLabel = styled.View`
-  display: ${props => props.isReadOnly ? 'flex' : 'none'};  
+  display: ${props => props.isReadOnly ? 'flex' : 'none'};
   flex-direction: row;
   padding-horizontal: 10;
   padding-vertical: 5;
