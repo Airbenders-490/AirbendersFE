@@ -41,9 +41,13 @@ class ListContainer extends Component {
       }
 
       handleSubmit = (event) => {
+        const className = event.nativeEvent.text
         this.setState({ showLabel: true });
-        this.setState({ className: event.nativeEvent.text })
+        this.setState({ className: className })
         this.className.clear();
+        if (this.props.onFilter) {
+          this.props.onFilter(className)
+        }
       }
 
       handleSearchSubmit = async (event) => {
