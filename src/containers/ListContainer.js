@@ -46,14 +46,6 @@ class ListContainer extends Component {
         this.className.clear();
       }
 
-      getConfig = (token) => {
-        return {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        }
-      }
-
       handleSearchSubmit = async (event) => {
         if (this.props.onSearch) {
           const name = event.nativeEvent.text
