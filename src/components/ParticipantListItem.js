@@ -182,7 +182,7 @@ class ParticipantListItem extends Component {
       <MainContainer marginBottom={5} isElevated>
         <ContentContainer>
           <ContentLHS>
-            <Label isReadOnly labelColor={theme.COLOR_ORANGE}>{this.props.commonClass}</Label>
+            {this.props.commonClass && <Label isReadOnly labelColor={theme.COLOR_ORANGE}>{this.props.commonClass}</Label>}
             <ParticipantName>{this.props.participantName}</ParticipantName>
           </ContentLHS>
           <ContentRHS>
