@@ -17,6 +17,7 @@ class Participants extends Component {
         participants: []
       }
       this.onParticipantSearch = this.onParticipantSearch.bind(this)
+      this.onParticipantsFilter = this.onParticipantsFilter.bind(this)
     }
 
     getConfig = (token) => {
@@ -41,10 +42,25 @@ class Participants extends Component {
         .then(res => this.setState({participants: res.data}))
         .catch(err => console.log(err))
     }
+
+    onParticipantsFilter = async (className) => {
+      let token
+      try{
+        token = await AsyncStorage.getItem("token")
+      } catch(err) {
+        console.log(err)
+        // TODO: redirect to login
+        return
+      }
+
+      axios.get(`http://real.encs.concordia.ca/profile/api/search/?classes=${className}`, this.getConfig(token))
+        .then(res => this.setState({participants: res.data}))
+        .catch(err => console.log(err))
+    }
   
     render() {
       return (
-        <ListContainer marginBottom={50} onSearch={this.onParticipantSearch}>
+        <ListContainer marginBottom={50} onSearch={this.onParticipantSearch} onFilter={this.onParticipantsFilter}>
            {this.state.participants ? this.state.participants.map(participant => (
              <ParticipantListItem id={participant.id}
              participantName={`${participant.first_name} ${participant.last_name}`}
@@ -56,24 +72,6 @@ class Participants extends Component {
          />
            )) :
             <NotFoundError><ErrorMsg>No user found 😕</ErrorMsg></NotFoundError>}
-          {/* <ParticipantListItem
-            participantName={"jane smith"}
-            commonClass={'SOEN 490'}
-            userTeamStatus={'available'}
-            isAdmin={false}
-            marginTop={2}
-        />
-        <ParticipantListItem
-            participantName={"john doe"}
-            commonClass={'SOEN 385'}
-            isAdmin={false}
-        />
-        <ParticipantListItem
-            participantName={"alex moe"}
-            commonClass={'SOEN 342'}
-            userTeamStatus={'pending'}
-            isAdmin={false}
-        /> */}
         </ListContainer>
               
       );
