@@ -24,11 +24,12 @@ class Feed extends Component {
   render() {
     return (
       <ScreenContainer screenTitle="Feed" >
-        <TeamListItem
+        {/* <TeamListItem
           title="Airbenders"
           courseNumber="SOEN 490"
+          participants={{}}
           numberCurrentParticipants={3}
-          numberTotalParticipants={5} />
+          numberTotalParticipants={5} /> */}
         <ParticipantListItem
             participantName={"jane smith"}
             commonClass={'SOEN 490'}

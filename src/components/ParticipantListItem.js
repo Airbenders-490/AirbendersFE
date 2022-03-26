@@ -25,6 +25,7 @@ class ParticipantListItem extends Component {
     this.acceptRequest = this.acceptRequest.bind(this);
     this.denyRequest = this.denyRequest.bind(this);
     this.removeParticipantFromRoom = this.removeParticipantFromRoom.bind(this)
+    this.handleAddUserToTeamConfirm = this.handleAddUserToTeamConfirm.bind(this)
   };
 
   getConfig = (token) => {
@@ -33,6 +34,34 @@ class ParticipantListItem extends Component {
             'Authorization': `Bearer ${token}`
         }
     }
+  }
+
+  handleAddUserToTeamConfirm = async () => {
+    let token
+    try{
+      token = await AsyncStorage.getItem("token")
+    } catch(err) {
+      console.log(err)
+    }
+
+    axios
+        .put(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, this.getConfig(token))
+        // .put(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, config) // for testing w/out login
+        .then(
+            response => {
+                console.log(response.data);
+            }
+        )
+        .catch(
+            error => {
+              console.log(error)
+              console.log(error.message)
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+              console.log(error.config)
+            }
+        )
   }
 
   acceptRequest = async () => {
@@ -179,7 +208,7 @@ class ParticipantListItem extends Component {
             <ParticipantName>{this.props.participantName}</ParticipantName>
           </ContentLHS>
           <ContentRHS>
-          {this.showJoinRequestButtons()}
+            {this.showJoinRequestButtons()}
             <TeamFormationStatus onLongPress={() => this.removeParticipantFromRoom()}
             statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} />
           </ContentRHS>
@@ -245,4 +274,5 @@ const AcceptButton = styled.Image`
 const DenyButton = styled(AcceptButton)`
   tintColor: ${theme.COLOR_RED};
 `
+
 export default ParticipantListItem;

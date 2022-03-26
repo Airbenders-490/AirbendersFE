@@ -1,25 +1,88 @@
 import React, { Component } from 'react';
-import { View, Image, Switch, Platform } from 'react-native';
+import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
 import { Caption, TextBody, Title, Subtitle } from '../containers/TextContainer.js';
 import UserIcon from '../assets/images/icons/user_fill.png'
+import YesNoModal from './modals/YesNoModal.js'
+import { useCode } from 'react-native-reanimated';
+import JoinTeam from './modals/JoinTeam.js';
 
 class TeamListItem extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            isToggled: false
+            isToggled: false,
+            showModalButton: true,
+            userID: ""
         };
 
         this.onToggle = this.onToggle.bind(this)
+        this.handleModalConfirm = this.handleModalConfirm.bind(this)
+        this.openModalButton = this.openModalButton.bind(this)
+    }
+
+    componentDidMount(){
+        AsyncStorage.getItem("userID")
+        .then(value => {
+          this.setState({ userID: value });
+        })
+        .done();
+    }
+
+    getConfig = (token) => {
+        return {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }
     }
 
     onToggle() {
         this.setState({isToggled: !this.state.isToggled});
+    }
+
+    openModalButton = () => {
+        return (
+            <ModalOpenButton>
+                <ModalOpenButtonText>Join</ModalOpenButtonText>
+             </ModalOpenButton>
+        )
+    }
+
+    handleModalConfirm = async () => {
+        let token
+        try{
+          token = await AsyncStorage.getItem("token")
+        } catch(err) {
+          console.log(err)
+          // TODO: redirect to login
+          return
+        }
+
+        axios.post(`http://real.encs.concordia.ca/chat/api/chat/joinRequest/${this.props.teamID}`,{}, this.getConfig(token))
+        .then(res => {
+            console.log(res.data)
+            this.setState({showModalButton: false})
+        })
+        .catch(err => {
+            console.log(err);
+            alert(`Unable to join team due to: ${err.response.data.message}`)
+        })
+    }
+
+    userAlreadyInRoom = () => {
+        for(let i = 0 ; i < this.props.participants.length ; i++) {
+            if (this.props.participants[i].id === this.state.userID) {
+                return true
+            }
+        }
+        return false
     }
 
     render() {
@@ -50,6 +113,14 @@ class TeamListItem extends Component {
                     <Subtitle>{this.props.numberCurrentParticipants}/{this.props.numberTotalParticipants}</Subtitle>
                     <TextBody> participants</TextBody>
                 </ParticipantsContainer>
+
+                {!this.userAlreadyInRoom() && this.state.showModalButton &&
+                    <YesNoModal
+                        modalMessage={`Are you sure you want to join ${this.props.title} team?`}
+                        handleConfirm={this.handleModalConfirm}
+                        openModalButton={this.openModalButton}
+                    />
+                }
             </MainContainer>
         );
     }
@@ -94,6 +165,24 @@ const Spots = styled.View `
     flex-direction: row;
     margin-right: ${theme.SPACING_SMALL};
 `;
+
+const ModalOpenButton = styled.View `
+    border-radius: 100;
+    padding-vertical: 10;
+    padding-horizontal: 10;
+    elevation: 2;
+    width: 70;
+    font-weight: bold;
+    font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
+    background-color: ${theme.COLOR_GREEN};
+`
+
+const ModalOpenButtonText = styled.Text `
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    flex-direction: row;
+`
 
 TeamListItem.propTypes = {
     children: PropTypes.element.isRequired,

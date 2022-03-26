@@ -53,15 +53,16 @@ class CreateTeam extends Component {
   }
 
   createTeam = async () => {
+    const regex = /^\d+$/g;
+    let isnum = regex.test(this.state.maxNum.trim());
 
-    if (this.state.teamName !== "" && this.state.courseNumber !== "") {
-
+    if (this.state.teamName !== "" && this.state.courseNumber !== "" && isnum) {
       console.log('create team')
       let room = {
         "room_id": this.state.teamName.trim(),
         "name": this.state.teamName.trim(),
         "class": this.state.courseNumber.toLowerCase().trim(),
-        "max_participants": parseInt(this.state.maxNum.trim()) // might want to check it's an int beforehand
+        "max_participants": parseInt(this.state.maxNum.trim())
       }
       axios
         .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, this.getConfig(await this.getData("token")))
@@ -76,7 +77,7 @@ class CreateTeam extends Component {
           error => console.log(error.response.data.code)
         )
     } else {
-      alert("Team name and course values are mandatory to create a team")
+      alert("All fields are mandatory to create a team, max participants is a number")
     }
 
 

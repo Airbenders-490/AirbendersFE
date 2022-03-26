@@ -58,6 +58,8 @@ class Teams extends Component {
         return (
           <TeamListItem
           title={team.name}
+          teamID={team.room_id}
+          participants={team.students}
           courseNumber={team.class}
           numberCurrentParticipants={team.students.length}
           numberTotalParticipants={team.max_participants} />
@@ -71,19 +73,6 @@ class Teams extends Component {
               onSearchTeamByClass={this.onSearchTeamByClass}
             >
             {displayTeams}
-             {/* placing these for visualization */}
-            {/* <TeamListItem
-              title="Airbenders"
-              courseNumber="SOEN 490"
-              numberCurrentParticipants={3}
-              numberTotalParticipants={5} />
-            <TeamListItem
-              title="Momas"
-              courseNumber="ENGR 490"
-              numberCurrentParticipants={5}
-              numberTotalParticipants={10} /> */}
-
-              {/* <JoinTeam teamName='X'/> */}
               <CreateTeam/>
             </ListContainer>
           </TeamsTabContainer>
