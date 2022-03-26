@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Pressable, Text, View, Image, TouchableOpacity, ScrollView, LayoutAnimation, UIManager } from 'react-native';
+import { Pressable, Text, View, Image, TouchableOpacity, ScrollView, LayoutAnimation, KeyboardAvoidingView, UIManager } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -11,6 +11,7 @@ import FeatureButtons from '../../components/FeatureButtons.js';
 import ParticipantListItem from '../../components/ParticipantListItem.js';
 import MessageBubble from '../../components/MessageBubble.js';
 import Test from '../../data/mock/FirstConversation.json';
+
 
 if (
   Platform.OS === "android" &&
@@ -93,7 +94,7 @@ class ConversationScreen extends Component {
 
   render() {
     const { navigation, route } = this.props;
-    const { conversation, room, userID, getChatRooms } = route.params;
+    const { conversation, room, userID } = route.params;
 
     let conversationBubbles = conversation.messages.map((data) => {
       return (
@@ -106,43 +107,43 @@ class ConversationScreen extends Component {
     let showParticipantListItems = room.students.map(student => {
       return (
         <ParticipantListItem
-          roomID={room.room_id}
-          participantID={student.id}
           participantName={student.first_name}
           commonClass={room.class}
           userTeamStatus={student.isPending ? 'pending' : ''}
           isAdmin={userID === room.admin.id ? true : false}
-          getChatRooms= {getChatRooms}
         />
       )
     })
 
     return (
-      <Container>
-        <Header>
-          <LHSContainer>
-            <BackButton isVisible={this.props.isSecondaryScreen} onPress={() => this.handleBackPress(navigation)} >
-              <StyledBackIcon source={BackIcon} />
-            </BackButton>
-            <View>
-              <Subtitle titleColor={theme.COLOR_BLACK}>Lorem Ipsum</Subtitle>
-              <TextBody captionColor={theme.COLOR_BLACK}>SOEN 490</TextBody>
-            </View>
-          </LHSContainer>
-          <FeatureButtons toggleSection={this.toggleFeaturedSection} />
-        </Header>
+      <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : null}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 5 : 0}>
+        <Container>
+          <Header>
+            <LHSContainer>
+              <BackButton isVisible={this.props.isSecondaryScreen} onPress={() => this.handleBackPress(navigation)} >
+                <StyledBackIcon source={BackIcon} />
+              </BackButton>
+              <View>
+                <Subtitle titleColor={theme.COLOR_BLACK}>Lorem Ipsum</Subtitle>
+                <TextBody captionColor={theme.COLOR_BLACK}>SOEN 490</TextBody>
+              </View>
+            </LHSContainer>
+            <FeatureButtons toggleSection={this.toggleFeaturedSection} />
+          </Header>
 
-        <ExpandableSection isDisplayed={this.state.isParticipantListDisplayed}>
-          {showParticipantListItems}
-        </ExpandableSection>
+          <ExpandableSection isDisplayed={this.state.isParticipantListDisplayed}>
+            {showParticipantListItems}
+          </ExpandableSection>
 
-        <ConversationContainer onPress={() => this.toggleFeaturedSection('default')} >
-          <BubblesContainer>
-            {conversationBubbles}
-          </BubblesContainer>
-          <MessageInput sendMessageAction={this.sendMessage} />
-        </ConversationContainer>
-      </Container>
+          <ConversationContainer onPress={() => this.toggleFeaturedSection('default')} >
+            <BubblesContainer>
+              {conversationBubbles}
+            </BubblesContainer>
+            <MessageInput sendMessageAction={this.sendMessage} />
+          </ConversationContainer>
+        </Container>
+      </KeyboardAvoidingView>
     );
   }
 }
