@@ -32,7 +32,6 @@ class Teams extends Component {
   }
     
 
-
   deleteLabel = () => {
     this.setState({ showLabel: false });
     console.log("Deleted");
