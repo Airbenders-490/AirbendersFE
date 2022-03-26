@@ -56,6 +56,20 @@ class ListContainer extends Component {
         }
       }
 
+      handleTeamFilterSubmit = (event) => {
+        const className = event.nativeEvent.text.toLowerCase().trim()
+
+        if (this.props.onSearchTeamByClass && className !== '') {
+          this.setState({ showLabel: true });
+          this.setState({ className: className })
+          console.log("participant & class", this.state.participantName, this.state.className)
+          this.className.clear();
+          this.props.onSearchTeamByClass(className)
+        }  else {
+          alert("Please enter class name to use filter")
+        }
+      }
+
       handleSearchSubmit = (event) => {
         const participantName = event.nativeEvent.text.toLowerCase().trim()
         this.setState({ participantName: participantName })
@@ -96,10 +110,12 @@ class ListContainer extends Component {
                     <FilterButton onPress={this.triggerFilterBar}>
                         <IconFilter source={Sort} />
                     </FilterButton>
-                    <CustomText placeholder="Search by class name"
+                    <CustomText placeholder="Filter by class name"
                         classEntered={this.state.classEntered}
                         ref={input => { this.className = input }}
-                        onSubmitEditing={this.handleFilterSubmit} />
+                        onSubmitEditing={this.props.tabName === "participant" ?
+                        this.handleFilterSubmit :
+                        this.handleTeamFilterSubmit } />
                     <LabelContainer>
                       {renderLabel()}
                     </LabelContainer>
@@ -107,19 +123,20 @@ class ListContainer extends Component {
 
                   <ExtraSpacing></ExtraSpacing>
 
-                  <SearchContainer>
-                    <SearchButton onPress={this.triggerSearchBar}>
-                        <SearchIcon source={MagnifyingIcon} />
-                    </SearchButton>
-                    <SearchField placeholder="Search by participant name"
-                      nameEntered={this.state.nameEntered}
-                      onSubmitEditing={this.handleSearchSubmit}
-                      // ref={input => { this.participantName = input }}
-                      // onTextChange={(text) => this.setState({participantName: text})}
-                    />
-                  </SearchContainer>
-                </SearchFieldContainer>
+                  { this.props.tabName === "participant" &&
+                    <SearchContainer>
+                      <SearchButton onPress={this.triggerSearchBar}>
+                          <SearchIcon source={MagnifyingIcon} />
+                      </SearchButton>
+                      <SearchField placeholder={`Search by ${this.props.tabName} name`}
+                        nameEntered={this.state.nameEntered}
+                        onSubmitEditing={this.handleSearchSubmit}
+                        // ref={input => { this.participantName = input }}
+                        // onTextChange={(text) => this.setState({participantName: text})}
+                      />
+                    </SearchContainer> }
 
+                </SearchFieldContainer>
               </Header>
             </HeaderIcon>
         );

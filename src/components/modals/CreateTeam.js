@@ -53,24 +53,32 @@ class CreateTeam extends Component {
   }
 
   createTeam = async () => {
-    console.log('create team')
-    let room = {
-      "room_id": this.state.teamName,
-      "name": this.state.teamName,
-      "class": this.state.courseNumber.toLowerCase()
+
+    if (this.state.teamName !== "" && this.state.courseNumber !== "") {
+
+      console.log('create team')
+      let room = {
+        "room_id": this.state.teamName.trim(),
+        "name": this.state.teamName.trim(),
+        "class": this.state.courseNumber.toLowerCase().trim(),
+        "max_participants": parseInt(this.state.maxNum.trim()) // might want to check it's an int beforehand
+      }
+      axios
+        .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, this.getConfig(await this.getData("token")))
+        // .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config) // for testing
+        .then(
+          response => {
+            console.log(response.data);
+          }
+        )
+        .catch(
+          // TODO: On 404, block all access to app until register is complete
+          error => console.log(error.response.data.code)
+        )
+    } else {
+      alert("Team name and course values are mandatory to create a team")
     }
-    axios
-      .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, this.getConfig(await this.getData("token")))
-      // .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config) // for testing
-      .then(
-        response => {
-          console.log(response.data);
-        }
-      )
-      .catch(
-        // TODO: On 404, block all access to app until register is complete
-        error => console.log(error.response.data.code)
-      )
+
 
   }
 

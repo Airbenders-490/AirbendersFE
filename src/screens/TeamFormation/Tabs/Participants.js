@@ -14,7 +14,8 @@ class Participants extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        participants: []
+        participants: [],
+        tabName: "participant"
       }
       this.onParticipantSearch = this.onParticipantSearch.bind(this)
       this.onParticipantsFilter = this.onParticipantsFilter.bind(this)
@@ -73,19 +74,20 @@ class Participants extends Component {
         .then(res => this.setState({participants: res.data}))
         .catch(err => console.log(err))
     }
-  
+
     render() {
       return (
-        <ListContainer 
-          marginBottom={50} 
-          onSearch={this.onParticipantSearch} 
-          onFilter={this.onParticipantsFilter} 
+        <ListContainer
+          tabName={this.state.tabName}
+          marginBottom={50}
+          onSearch={this.onParticipantSearch}
+          onFilter={this.onParticipantsFilter}
           onFilteredParticpant={this.onFilteredParticpantSearch}>
            {this.state.participants ? this.state.participants.map(participant => (
              <ParticipantListItem id={participant.id}
              participantName={`${participant.first_name} ${participant.last_name}`}
              // commonClasses can be shown only if we keep state of current user's classes
-            //  commonClass={'SOEN 490'} 
+            //  commonClass={'SOEN 490'}
             //  userTeamStatus={'available'}
             //  isAdmin={false}
              marginTop={2}
@@ -93,7 +95,7 @@ class Participants extends Component {
            )) :
             <NotFoundError><ErrorMsg>No user found 😕</ErrorMsg></NotFoundError>}
         </ListContainer>
-              
+
       );
     }
 }
