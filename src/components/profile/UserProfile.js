@@ -18,6 +18,7 @@ import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
 import UserIcon from '../../assets/images/icons/user_fill.png';
 import axios from 'axios';
+// import ToggleSwitch from 'toggle-switch-react-native'
 import Emoji from '../Emoji.js';
 import AddClassesTakenModal from '../AddClassesTakenModal.js';
 import RemoveClassesTakenModal from '../RemoveClassesTakenModal.js';
@@ -348,10 +349,12 @@ class UserProfile extends Component {
 
                 <Separator isDisplayed={!this.props.isReadOnly} />
 
-                <ToggableContainer isDisplayed={!this.props.isReadOnly} >
+                {!this.props.isReadOnly &&
+
                     <SettingsContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
                         <Subtitle>Settings</Subtitle>
                         <ToggleButton labelName='Team chats'></ToggleButton>
+
                         <ToggleButton labelName='DMs'></ToggleButton>
                         <ToggleButton labelName='Schedule'></ToggleButton>
                         {/* TODO: If confirmed, placeholder will be student's university email */}
@@ -362,7 +365,7 @@ class UserProfile extends Component {
                             onChangeText={(text) => this.payload.email = text} />
                         <SaveButton onPress={this.onSettingsSave} />
                     </SettingsContainer>
-                </ToggableContainer>
+                }
             </View>
         );
     }
