@@ -15,14 +15,14 @@ class Profile extends Component {
     this.state = {
       settingState: false,
     };
-    
+
     this.triggerSettings = this.triggerSettings.bind(this);
   }
 
   triggerSettings() {
     this.setState({ settingState: !this.state.settingState });
   }
-  
+
   // Write functions here
 
   render() {
@@ -35,21 +35,19 @@ class Profile extends Component {
         <UserProfile
           isReadOnly={!this.state.settingState}
           isCurrentUser
-          // TODO: Update userID to dynamic current user ID
-          // when login/register endpoints are done
-          userID={'12345'} // TODO: Replace userID with current user ID
-          triggerSettings={this.triggerSettings} />
+          triggerSettings={this.triggerSettings} >
+        </UserProfile>
       </ScreenContainer>
     );
   }
 }
 
-const SettingsButton = styled.TouchableOpacity `
+const SettingsButton = styled.TouchableOpacity`
   align-self: flex-end;
   margin-top: 2;
 `;
 
-const SettingsIcon = styled.Image `
+const SettingsIcon = styled.Image`
   height: 20;
   width: 20;
 `;

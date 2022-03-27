@@ -38,7 +38,7 @@ class ClassListItem extends Component {
                         value={this.state.isToggled}
                     />
                 </Header>
-                <Title>{this.props.className}</Title>
+                <Title>{this.props.roomName}</Title>
                 {/* Caption can be the professor (if class item) or team name (if team chat item) */}
                 <TextBody>{this.props.caption}</TextBody>
                 <ParticipantsContainer>
@@ -59,7 +59,7 @@ const Header = styled.View `
 `
 
 const NotificationSwitch = styled.Switch `
-    /* In order to remove switch padding from Android only */ 
+    /* In order to remove switch padding from Android only */
     margin-vertical: ${Platform.OS === 'ios' ? 0 : -13};
     margin-horizontal: ${Platform.OS === 'ios' ? 0 : -10};
     padding-top: 0;

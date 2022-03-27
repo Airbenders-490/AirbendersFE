@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Pressable, Text, View, Image, TouchableOpacity, ScrollView, LayoutAnimation, UIManager } from 'react-native';
+import { Pressable, Text, View, Image, TouchableOpacity, ScrollView, LayoutAnimation, KeyboardAvoidingView, UIManager } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -11,6 +11,7 @@ import FeatureButtons from '../../components/FeatureButtons.js';
 import ParticipantListItem from '../../components/ParticipantListItem.js';
 import MessageBubble from '../../components/MessageBubble.js';
 import Test from '../../data/mock/FirstConversation.json';
+
 
 if (
   Platform.OS === "android" &&
@@ -53,42 +54,47 @@ class ConversationScreen extends Component {
     // TODO: Create enums for featured sections
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
 
-    switch(section) {
+    switch (section) {
       case 'PIN': this.setState({
-        isPinnedDisplayed: !this.state.isPinnedDisplayed, 
-        isParticipantListDisplayed: false, 
-        isCommonScheduleDisplayed: false, 
-        isSearchResultDisplayed: false});
+        isPinnedDisplayed: !this.state.isPinnedDisplayed,
+        isParticipantListDisplayed: false,
+        isCommonScheduleDisplayed: false,
+        isSearchResultDisplayed: false
+      });
         break;
       case 'PARTICIPANTS': this.setState({
-        isPinnedDisplayed: false, 
-        isParticipantListDisplayed: !this.state.isParticipantListDisplayed, 
-        isCommonScheduleDisplayed: false, 
-        isSearchResultDisplayed: false});
+        isPinnedDisplayed: false,
+        isParticipantListDisplayed: !this.state.isParticipantListDisplayed,
+        isCommonScheduleDisplayed: false,
+        isSearchResultDisplayed: false
+      });
         break;
       case 'COMMON_SCHEDULE': this.setState({
-        isPinnedDisplayed: false, 
-        isParticipantListDisplayed: false, 
-        isCommonScheduleDisplayed: this.state.isCommonScheduleDisplayed, 
-        isSearchResultDisplayed: false});
+        isPinnedDisplayed: false,
+        isParticipantListDisplayed: false,
+        isCommonScheduleDisplayed: this.state.isCommonScheduleDisplayed,
+        isSearchResultDisplayed: false
+      });
         break;
       case 'SEARCH_RESULT': this.setState({
-        isPinnedDisplayed: false, 
-        isParticipantListDisplayed: false, 
-        isCommonScheduleDisplayed: false, 
-        isSearchResultDisplayed: this.state.isSearchResultDisplayed});
+        isPinnedDisplayed: false,
+        isParticipantListDisplayed: false,
+        isCommonScheduleDisplayed: false,
+        isSearchResultDisplayed: this.state.isSearchResultDisplayed
+      });
         break;
       default: this.setState({
-        isPinnedDisplayed: false, 
-        isParticipantListDisplayed: false, 
-        isCommonScheduleDisplayed: false, 
-        isSearchResultDisplayed: false});
+        isPinnedDisplayed: false,
+        isParticipantListDisplayed: false,
+        isCommonScheduleDisplayed: false,
+        isSearchResultDisplayed: false
+      });
     }
   }
 
   render() {
     const { navigation, route } = this.props;
-    const { conversation } = route.params;
+    const { conversation, room, userID } = route.params;
 
     let conversationBubbles = conversation.messages.map((data) => {
       return (
@@ -98,48 +104,59 @@ class ConversationScreen extends Component {
       )
     })
 
+    let showParticipantListItems = room.students.map(student => {
+      return (
+        <ParticipantListItem
+          participantName={student.first_name}
+          commonClass={room.class}
+          userTeamStatus={student.isPending ? 'pending' : ''}
+          isAdmin={userID === room.admin.id ? true : false}
+        />
+      )
+    })
+
     return (
+      <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : null}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 5 : 0}>
         <Container>
-            <Header>
-              <LHSContainer>
-                <BackButton isVisible={this.props.isSecondaryScreen} onPress={ () => this.handleBackPress(navigation) } >
-                    <StyledBackIcon source={ BackIcon } />
-                </BackButton>
-                <View>
-                    <Subtitle titleColor={theme.COLOR_BLACK}>Lorem Ipsum</Subtitle>
-                    <TextBody captionColor={theme.COLOR_BLACK}>SOEN 490</TextBody>
-                </View>
-              </LHSContainer>
-              <FeatureButtons toggleSection={this.toggleFeaturedSection} />
-            </Header>
+          <Header>
+            <LHSContainer>
+              <BackButton isVisible={this.props.isSecondaryScreen} onPress={() => this.handleBackPress(navigation)} >
+                <StyledBackIcon source={BackIcon} />
+              </BackButton>
+              <View>
+                <Subtitle titleColor={theme.COLOR_BLACK}>Lorem Ipsum</Subtitle>
+                <TextBody captionColor={theme.COLOR_BLACK}>SOEN 490</TextBody>
+              </View>
+            </LHSContainer>
+            <FeatureButtons toggleSection={this.toggleFeaturedSection} />
+          </Header>
 
-            <ExpandableSection isDisplayed={this.state.isParticipantListDisplayed}>
-              <ParticipantListItem
-                participantName={"stella nguyen"}
-                commonClass={'SOEN 490'}
-                userTeamStatus={'pending'} />
-            </ExpandableSection>
+          <ExpandableSection isDisplayed={this.state.isParticipantListDisplayed}>
+            {showParticipantListItems}
+          </ExpandableSection>
 
-            <ConversationContainer onPress={() => this.toggleFeaturedSection('default')} >
-                <BubblesContainer>
-                  {conversationBubbles}
-                </BubblesContainer>
-                <MessageInput sendMessageAction={this.sendMessage} />
-            </ConversationContainer>
+          <ConversationContainer onPress={() => this.toggleFeaturedSection('default')} >
+            <BubblesContainer>
+              {conversationBubbles}
+            </BubblesContainer>
+            <MessageInput sendMessageAction={this.sendMessage} />
+          </ConversationContainer>
         </Container>
+      </KeyboardAvoidingView>
     );
   }
 }
 
 //STYLED-COMPONENTS
-const Container = styled.View `
+const Container = styled.View`
   /* padding separated as the following to allow unitless values */
   padding-top: ${theme.SPACING_LARGE};
   height: 100%;
   display: flex;
 `;
 
-const Header = styled.View `
+const Header = styled.View`
   margin-horizontal: ${theme.SPACING_MEDIUM};
   display: flex;
   flex-direction: row;
@@ -147,23 +164,23 @@ const Header = styled.View `
   justify-content: space-between;
 `;
 
-const LHSContainer = styled.View `
+const LHSContainer = styled.View`
   display: flex;
   flex-direction: row;
 `;
 
-const BackButton = styled.TouchableOpacity `
+const BackButton = styled.TouchableOpacity`
   margin-right: 15;
   display: flex;
 `;
 
-const StyledBackIcon = styled.Image `
+const StyledBackIcon = styled.Image`
   tint-color: ${theme.COLOR_BLACK};
   height: 30;
   width: 30;
 `;
 
-const ExpandableSection = styled.View `
+const ExpandableSection = styled.View`
   display: ${(props) => props.isDisplayed ? 'flex' : 'none'};
   background: ${theme.COLOR_WHITE};
   border-radius: ${theme.SPACING_MEDIUM};
@@ -174,7 +191,7 @@ const ExpandableSection = styled.View `
   flex: 1;
 `;
 
-const ConversationContainer = styled.Pressable `
+const ConversationContainer = styled.Pressable`
   background: ${theme.COLOR_WHITE};
   flex: 2;
   padding-vertical: ${theme.SPACING_SLIGHT_MEDIUM};
@@ -191,12 +208,12 @@ const ConversationContainer = styled.Pressable `
   shadowRadius: 10;
 `;
 
-const BubblesContainer = styled.ScrollView `
+const BubblesContainer = styled.ScrollView`
   display: flex;
   flex: 1;
 `;
 
-export default function(props) {
+export default function (props) {
   const navigation = useNavigation();
   const route = useRoute();
 
