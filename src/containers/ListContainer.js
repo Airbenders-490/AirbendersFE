@@ -185,7 +185,7 @@ flex-direction:column
 
 const SearchContainer = styled.View`
 display:flex;
-flex-direction:row
+flex-direction:row;
 `
 
 const CustomText = styled.TextInput`
@@ -197,6 +197,7 @@ const SearchField = styled(CustomText)`
 `
 const FilterButton = styled.TouchableOpacity`
   align-items: center;
+  margin-bottom: 5;
 `;
 
 const SearchButton = styled(FilterButton)`
@@ -253,15 +254,15 @@ const ClassLabel = styled.View`
 
 const LabelClassName = styled.Text`
   color: white;
-  align-items: center;
   font-family: ${theme.FONT_SEMIBOLD};
   letter-spacing: ${theme.LETTER_SPACING_SMALL};
 `;
 
 const LabelIcon = styled.Image`
   tintColor: #ffff;
-  width: 10;
-  height: 10;
+  width: 13;
+  height: 14;
+  margin-left: 3px;
 `;
 
 const IconTag = styled.View`

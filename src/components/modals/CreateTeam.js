@@ -152,12 +152,12 @@ const TextField = styled.TextInput`
     border-bottom-left-radius: 100;
     border-top-right-radius: 100;
     border-bottom-right-radius: 100;
-    width: 60%;
-    padding-left: ${theme.SPACING_XSMALL};
+    width: 55%;
+    padding-left: ${theme.SPACING_SMALL};
 `
 
 const NumberField = styled(TextField)`
-    width: 30%;
+    width: 15%;
 `
 
 const StyledFlexBox = styled.View`
