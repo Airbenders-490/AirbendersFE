@@ -26,7 +26,7 @@ class YesNoModal extends Component {
   render() {
     const { modalVisible } = this.state;
     return (
-      <View style={styles.centeredView}>
+      <View>
         <Modal
           animationType="fade"
           transparent={true}
@@ -52,8 +52,9 @@ class YesNoModal extends Component {
                   style={[styles.button, styles.buttonClose, styles.submitButton]}
                   onPress={() => {
                     this.setModalVisible(!modalVisible)
-                    this.props.handleConfirm()
-                    this.setState({modalButtonDisabled: true})
+                    if (this.props.handleConfirm) {
+                      this.props.handleConfirm()
+                    }
                   }}
                 >
                   <Text style={styles.textStyle}>Yes</Text>
@@ -61,7 +62,12 @@ class YesNoModal extends Component {
                 <View style={styles.buttonSpace} />
                 <Pressable
                   style={[styles.button, styles.buttonClose, styles.closeButton]}
-                  onPress={() => this.setModalVisible(!modalVisible)}
+                  onPress={() => {
+                    if (this.props.handleCancel) {
+                      this.props.handleCancel()
+                    }
+                    this.setModalVisible(!modalVisible)
+                  }}
                 >
                   <Text style={styles.textStyle}>No</Text>
                 </Pressable>
@@ -72,10 +78,10 @@ class YesNoModal extends Component {
         </Modal>
 
         <Pressable
-          onPress={() => this.setModalVisible(true)}
+          onPress={() => this.setModalVisible(true) }
+          style={this.props.modalButtonStyle ? this.props.modalButtonStyle : {}}
         >
           {this.props.openModalButton()}
-          {/* <Text style={styles.textStyle}>{this.props.modalButtonMessage}</Text> */}
         </Pressable>
       </View>
     );

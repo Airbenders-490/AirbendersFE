@@ -86,6 +86,13 @@ class TeamListItem extends Component {
     }
 
     render() {
+        let centeredViewStyle = {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 22
+        }
+
         let participants = [];
         for (let i = 0; i < this.props.numberTotalParticipants; i++) {
             participants.push(
@@ -119,6 +126,7 @@ class TeamListItem extends Component {
                         modalMessage={`Are you sure you want to join ${this.props.title} team?`}
                         handleConfirm={this.handleModalConfirm}
                         openModalButton={this.openModalButton}
+                        modalButtonStyle={centeredViewStyle}
                     />
                 }
             </MainContainer>
