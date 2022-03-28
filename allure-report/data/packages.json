@@ -1,0 +1,230 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "My Login application",
+    "children" : [ {
+      "name" : "GIVEN a loaded app page THEN the welcome title should be displayed",
+      "uid" : "6f5a16c548af4d7f",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431785731,
+        "stop" : 1648431798564,
+        "duration" : 12833
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a loaded app page THEN user should see the email field",
+      "uid" : "f331dc2858f9b32",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431798791,
+        "stop" : 1648431809295,
+        "duration" : 10504
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a loaded app page THEN user should see the password field",
+      "uid" : "58a8f18f8945c472",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431809504,
+        "stop" : 1648431820038,
+        "duration" : 10534
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a loaded app page THEN user should see the login button",
+      "uid" : "f3a9ffefc4872671",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431820319,
+        "stop" : 1648431830601,
+        "duration" : 10282
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a loaded app page THEN user should see the login button with LOGIN text",
+      "uid" : "6b2077c23bdc46e7",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431830807,
+        "stop" : 1648431840878,
+        "duration" : 10071
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a loaded app page THEN user should see the Forgot Password button with appropriate text",
+      "uid" : "dfaabf80983b06ab",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431841164,
+        "stop" : 1648431851330,
+        "duration" : 10166
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a loaded app page THEN user should see the Register button with appropriate text",
+      "uid" : "6297ede027484ca0",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431851802,
+        "stop" : 1648431862522,
+        "duration" : 10720
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a loaded app page AND user clicks the Forgot Password link THEN user should be redirected to the Forgot Password page",
+      "uid" : "4ad9366abe3010fc",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431862782,
+        "stop" : 1648431874971,
+        "duration" : 12189
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN the Forgot Password page AND user clicks the back button THEN user should be redirected to the login page",
+      "uid" : "8f4d9296fa6807c",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431875163,
+        "stop" : 1648431889531,
+        "duration" : 14368
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a loaded app page AND user clicks the Register link THEN user should be redireted to the Register page",
+      "uid" : "69edc5a5539c5978",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431889885,
+        "stop" : 1648431901625,
+        "duration" : 11740
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN the Register page THEN the register form is displayed",
+      "uid" : "9f50b279285cc67f",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431901981,
+        "stop" : 1648431914179,
+        "duration" : 12198
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN the Register page THEN the Forgot Password link is displayed",
+      "uid" : "3ca4b14e79237903",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431914548,
+        "stop" : 1648431924527,
+        "duration" : 9979
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN the Register page AND user clicks Forgot Password THEN the Forgot Password link is displayed",
+      "uid" : "e186c4044004f58",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431924841,
+        "stop" : 1648431938247,
+        "duration" : 13406
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN the Forgot Password in the Register page AND user clicks the back button THEN the user is redirected to the Register page",
+      "uid" : "9bdad6f4e294ee0b",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431938559,
+        "stop" : 1648431953634,
+        "duration" : 15075
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN the Register page THEN the Register button with Register text is displayed",
+      "uid" : "3f51e87278884868",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431953875,
+        "stop" : 1648431965388,
+        "duration" : 11513
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN the Register page AND user clicks the Login button THEN they are redirected to the login page",
+      "uid" : "d319a391f362c323",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431965833,
+        "stop" : 1648431978808,
+        "duration" : 12975
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a valid email and password THEN user should be able to login",
+      "uid" : "3f940f579eb0890f",
+      "parentUid" : "f43874cc36d1c5833cbb332fc53460ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648431979130,
+        "stop" : 1648431992289,
+        "duration" : 13159
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    } ],
+    "uid" : "f43874cc36d1c5833cbb332fc53460ce"
+  } ]
+}
