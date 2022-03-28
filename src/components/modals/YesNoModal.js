@@ -8,8 +8,7 @@ class YesNoModal extends Component {
     super(props);
 
     this.state = {
-      modalVisible: false,
-      joinTeam: false
+      modalVisible: false
     }
   };
 
