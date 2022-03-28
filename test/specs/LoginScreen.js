@@ -1,17 +1,3 @@
-/*describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        await browser.url(`https://the-internet.herokuapp.com/login`);
-
-        await $('#username').setValue('tomsmith');
-        await $('#password').setValue('SuperSecretPassword!');
-        await $('button[type="submit"]').click();
-
-        await expect($('#flash')).toBeExisting();
-        await expect($('#flash')).toHaveTextContaining(
-            'You logged into a secure area!');
-    });
-});*/
-
 var expect = require('chai').expect
 
 beforeEach(() => {
@@ -129,9 +115,6 @@ describe('My Login application', () => {
         $('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.EditText').setValue('password')   
        
         $('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.TextView').click()
-       // browser.pause(10000)
-
-    //    $('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.TextView').waitForDisplayed(40000)
     })
 
     
