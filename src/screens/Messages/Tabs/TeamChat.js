@@ -114,6 +114,7 @@ class TeamChat extends Component {
                         backgroundColor={theme.COLOR_BLUE}
                         classNumber={room.class}
                         roomName={room.name}
+                        getChatRooms={this.getChatRooms}
                         numberParticipants={room.students.length} />
                 </ConversationItem>
             )
