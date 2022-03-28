@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { createStackNavigator } from '@react-navigation/stack';
 import ListContainer from '../../../containers/ListContainer.js';
 import TeamListItem from '../../../components/TeamListItem';
-import JoinTeam from '../../../components/modals/JoinTeam.js';
 import CreateTeam from '../../../components/modals/CreateTeam.js';
 
 class Teams extends Component {

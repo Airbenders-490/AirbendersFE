@@ -7,12 +7,11 @@ import MagnifyingIcon from '../assets/images/icons/magnifying.png';
 import ParticipantListItem from '../components/ParticipantListItem.js';
 import { Title, Subtitle, TextBody } from '../containers/TextContainer.js';
 import MainContainer from '../containers/MainContainer.js';
-import JoinTeam from '../components/modals/JoinTeam.js';
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-  
+
     this.state = {
         searchBarVisibility: false,
         participantName: '',
@@ -29,7 +28,7 @@ class SearchBar extends Component {
             <Pressable onPress={this.triggerSearchBar}>
                 <SearchIcon source={MagnifyingIcon}></SearchIcon>
             </Pressable>
-            { this.state.searchBarVisibility && 
+            { this.state.searchBarVisibility &&
                 /** Show search bar on click */
                 <SearchField placeholder="Search" onChangeText={(text) => this.participantName = text} value={this.state.participantName}/>
             }

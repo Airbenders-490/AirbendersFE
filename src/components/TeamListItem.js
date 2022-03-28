@@ -10,7 +10,6 @@ import { Caption, TextBody, Title, Subtitle } from '../containers/TextContainer.
 import UserIcon from '../assets/images/icons/user_fill.png'
 import YesNoModal from './modals/YesNoModal.js'
 import { useCode } from 'react-native-reanimated';
-import JoinTeam from './modals/JoinTeam.js';
 
 class TeamListItem extends Component {
     constructor(props) {
