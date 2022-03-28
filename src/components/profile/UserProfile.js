@@ -18,6 +18,7 @@ import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
 import UserIcon from '../../assets/images/icons/user_fill.png';
 import axios from 'axios';
+// import ToggleSwitch from 'toggle-switch-react-native'
 import Emoji from '../Emoji.js';
 import AddClassesTakenModal from '../AddClassesTakenModal.js';
 import RemoveClassesTakenModal from '../RemoveClassesTakenModal.js';
@@ -127,6 +128,7 @@ class UserProfile extends Component {
 
     onSettingsSave() {
         console.log(this.payload);
+
         let updatedUser = {
             "id": this.payload.studentID,
             "first_name": this.payload.fullName.substr(0, this.payload.fullName.indexOf(' ')),
@@ -171,6 +173,7 @@ class UserProfile extends Component {
         if (this.props.additionalFuncOnSave) {
             this.props.additionalFuncOnSave();
         }
+        this.props.setIsEdited(false)
     }
 
     render() {
@@ -232,7 +235,21 @@ class UserProfile extends Component {
                     editable={!this.props.isReadOnly}
                     placeholder="Your Name"
                     placeholderTextColor={"#D8D8D8"}
-                    onChangeText={(text) => this.payload.fullName = text}>
+                    onChangeText={(text) => {
+
+                        this.payload.fullName = text
+                        let payloadFirstName = this.payload.fullName.substr(0, this.payload.fullName.indexOf(' '))
+                        let payloadLastName = this.payload.fullName.substr(this.payload.fullName.indexOf(' ') + 1)
+                        let nameIsEdited = this.state.currentUserData.first_name !== payloadFirstName ||
+                            this.state.currentUserData.last_name !== payloadLastName
+
+                        if (nameIsEdited) {
+                            this.props.setIsEdited(true)
+                        } else {
+                            this.props.setIsEdited(false)
+                        }
+
+                    }}>
                     {this.state.currentUserData.first_name} {this.state.currentUserData.last_name}
                 </UserName>
                 {/* <ProgramName
@@ -254,7 +271,18 @@ class UserProfile extends Component {
                     placeholder="Tell us about yourself"
                     placeholderTextColor={"#D8D8D8"}
                     multiline={true}
-                    onChangeText={(text) => this.payload.generalInfo = text}>
+                    onChangeText={(text) => {
+
+                        this.payload.generalInfo = text
+                        let generalInfoIsEdited =  this.state.currentUserData.general_info !== this.payload.generalInfo
+
+                        if (generalInfoIsEdited) {
+                            this.props.setIsEdited(true)
+                        } else {
+                            this.props.setIsEdited(false)
+                        }
+
+                    }}>
                     {this.state.currentUserData.general_info}
                 </UserDescription>
                 {/* <SaveButton isDisplayed={!this.props.isReadOnly} onPress={this.onSettingsSave} /> */}
@@ -321,10 +349,12 @@ class UserProfile extends Component {
 
                 <Separator isDisplayed={!this.props.isReadOnly} />
 
-                <ToggableContainer isDisplayed={!this.props.isReadOnly} >
+                {!this.props.isReadOnly &&
+
                     <SettingsContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
                         <Subtitle>Settings</Subtitle>
                         <ToggleButton labelName='Team chats'></ToggleButton>
+
                         <ToggleButton labelName='DMs'></ToggleButton>
                         <ToggleButton labelName='Schedule'></ToggleButton>
                         {/* TODO: If confirmed, placeholder will be student's university email */}
@@ -335,7 +365,7 @@ class UserProfile extends Component {
                             onChangeText={(text) => this.payload.email = text} />
                         <SaveButton onPress={this.onSettingsSave} />
                     </SettingsContainer>
-                </ToggableContainer>
+                }
             </View>
         );
     }
