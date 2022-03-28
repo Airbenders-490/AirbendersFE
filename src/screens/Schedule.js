@@ -8,6 +8,7 @@ import { Pressable } from 'react-native';
 import ExternalProfile from './ExternalProfile';
 import ScreenContainer from '../containers/ScreenContainer.js';
 import MainContainer from '../containers/MainContainer.js';
+import ParticipantListItem from '../components/ParticipantListItem.js';
 import { Subtitle } from '../containers/TextContainer.js';
 
 const Stack2 = createStackNavigator();
@@ -29,9 +30,10 @@ class Schedule extends Component {
       <ScreenContainer screenTitle={'Schedule'} >
         <Pressable
           onPress={onPressHandler}>
-            <MainContainer>
-              <Subtitle>John Smith</Subtitle>
-            </MainContainer>
+            <ParticipantListItem
+              participantName={"John Smith"}
+              commonClass={'SOEN 490'}
+              userTeamStatus={'pending'} />
         </Pressable>
       </ScreenContainer>
     );

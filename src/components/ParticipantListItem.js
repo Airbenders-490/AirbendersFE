@@ -34,10 +34,10 @@ class ParticipantListItem extends Component {
   
     render() {
       return (
-        <MainContainer isElevated>
+        <MainContainer isElevated padding={theme.SPACING_SMALL}>
           <ContentContainer>
             <ContentLHS>
-              <Label isReadOnly labelColor={theme.COLOR_ORANGE}>{this.props.commonClass}</Label>
+              <Label isCaption isReadOnly labelColor={theme.COLOR_ORANGE}>{this.props.commonClass}</Label>
               <ParticipantName>{this.props.participantName}</ParticipantName>
             </ContentLHS>
             <TeamFormationStatus statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} />

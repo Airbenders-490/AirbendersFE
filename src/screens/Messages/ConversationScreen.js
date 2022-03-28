@@ -74,7 +74,7 @@ class ConversationScreen extends Component {
       .post(
         `http://${global.chatAPI}/api/chat/${chatroomID}?limit=30`, 
         {
-          "SentTimestamp": "2022-03-06T20:45:40.593518324Z"
+          "SentTimestamp": "2022-03-18T00:15:50.730000+0000"
         },
         global.config)
       .then(
@@ -99,8 +99,9 @@ class ConversationScreen extends Component {
     this.props.hideTabBar(true);
   }
 
-  sendMessage() {
+  sendMessage(m) {
     // TODO: Send message connection
+    this.state.wso.send(m)
   }
 
   componentDidUpdate() {
@@ -188,7 +189,7 @@ class ConversationScreen extends Component {
                 commonClass={'SOEN 490'}
                 userTeamStatus={'pending'} />
             </ExpandableSection>
-
+      
             <ConversationContainer onPress={() => this.toggleFeaturedSection('default')} >
                 <BubblesContainer >
                   {conversationBubbles}
