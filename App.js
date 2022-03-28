@@ -115,7 +115,7 @@ export default class App extends React.Component {
   }
 
   handleLogin(loginState) {
-    this.setState({ isLoggedIn: false });
+    this.setState({ isLoggedIn: loginState });
   }
 
   async _loadFontsAsync() {
