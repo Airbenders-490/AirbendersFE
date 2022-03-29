@@ -1,0 +1,171 @@
+[ {
+  "uid" : "d319a391f362c323",
+  "name" : "GIVEN the Register page AND user clicks the Login button THEN they are redirected to the login page",
+  "time" : {
+    "start" : 1648431965833,
+    "stop" : 1648431978808,
+    "duration" : 12975
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dfaabf80983b06ab",
+  "name" : "GIVEN a loaded app page THEN user should see the Forgot Password button with appropriate text",
+  "time" : {
+    "start" : 1648431841164,
+    "stop" : 1648431851330,
+    "duration" : 10166
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3ca4b14e79237903",
+  "name" : "GIVEN the Register page THEN the Forgot Password link is displayed",
+  "time" : {
+    "start" : 1648431914548,
+    "stop" : 1648431924527,
+    "duration" : 9979
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6297ede027484ca0",
+  "name" : "GIVEN a loaded app page THEN user should see the Register button with appropriate text",
+  "time" : {
+    "start" : 1648431851802,
+    "stop" : 1648431862522,
+    "duration" : 10720
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e186c4044004f58",
+  "name" : "GIVEN the Register page AND user clicks Forgot Password THEN the Forgot Password link is displayed",
+  "time" : {
+    "start" : 1648431924841,
+    "stop" : 1648431938247,
+    "duration" : 13406
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "58a8f18f8945c472",
+  "name" : "GIVEN a loaded app page THEN user should see the password field",
+  "time" : {
+    "start" : 1648431809504,
+    "stop" : 1648431820038,
+    "duration" : 10534
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8f4d9296fa6807c",
+  "name" : "GIVEN the Forgot Password page AND user clicks the back button THEN user should be redirected to the login page",
+  "time" : {
+    "start" : 1648431875163,
+    "stop" : 1648431889531,
+    "duration" : 14368
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f331dc2858f9b32",
+  "name" : "GIVEN a loaded app page THEN user should see the email field",
+  "time" : {
+    "start" : 1648431798791,
+    "stop" : 1648431809295,
+    "duration" : 10504
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9f50b279285cc67f",
+  "name" : "GIVEN the Register page THEN the register form is displayed",
+  "time" : {
+    "start" : 1648431901981,
+    "stop" : 1648431914179,
+    "duration" : 12198
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4ad9366abe3010fc",
+  "name" : "GIVEN a loaded app page AND user clicks the Forgot Password link THEN user should be redirected to the Forgot Password page",
+  "time" : {
+    "start" : 1648431862782,
+    "stop" : 1648431874971,
+    "duration" : 12189
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "69edc5a5539c5978",
+  "name" : "GIVEN a loaded app page AND user clicks the Register link THEN user should be redireted to the Register page",
+  "time" : {
+    "start" : 1648431889885,
+    "stop" : 1648431901625,
+    "duration" : 11740
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6f5a16c548af4d7f",
+  "name" : "GIVEN a loaded app page THEN the welcome title should be displayed",
+  "time" : {
+    "start" : 1648431785731,
+    "stop" : 1648431798564,
+    "duration" : 12833
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9bdad6f4e294ee0b",
+  "name" : "GIVEN the Forgot Password in the Register page AND user clicks the back button THEN the user is redirected to the Register page",
+  "time" : {
+    "start" : 1648431938559,
+    "stop" : 1648431953634,
+    "duration" : 15075
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3f940f579eb0890f",
+  "name" : "GIVEN a valid email and password THEN user should be able to login",
+  "time" : {
+    "start" : 1648431979130,
+    "stop" : 1648431992289,
+    "duration" : 13159
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6b2077c23bdc46e7",
+  "name" : "GIVEN a loaded app page THEN user should see the login button with LOGIN text",
+  "time" : {
+    "start" : 1648431830807,
+    "stop" : 1648431840878,
+    "duration" : 10071
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3f51e87278884868",
+  "name" : "GIVEN the Register page THEN the Register button with Register text is displayed",
+  "time" : {
+    "start" : 1648431953875,
+    "stop" : 1648431965388,
+    "duration" : 11513
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f3a9ffefc4872671",
+  "name" : "GIVEN a loaded app page THEN user should see the login button",
+  "time" : {
+    "start" : 1648431820319,
+    "stop" : 1648431830601,
+    "duration" : 10282
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
