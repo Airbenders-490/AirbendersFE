@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TextInput, Alert, Modal, Pressable } from "react-native";
+import { Modal, View, Pressable } from "react-native";
+import styled from 'styled-components';
 import theme from '../../styles/theme.style.js';
 
 class YesNoModal extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      modalVisible: false,
-      text: ''
-    };
-  }
+      modalVisible: false
+    }
+  };
 
   getConfig = (token) => {
     return {
@@ -23,143 +24,122 @@ class YesNoModal extends Component {
     this.setState({ modalVisible: visible });
   }
 
+  handleConfirm = (confirmHandler) => {
+    this.setModalVisible(!this.state.modalVisible)
+    if (confirmHandler) {
+      confirmHandler()
+    }
+  }
+
+  handleCancel = (cancelHandler) => {
+    this.setModalVisible(!this.state.modalVisible)
+    if (cancelHandler) {
+      cancelHandler()
+    }
+  }
+
   render() {
     const { modalVisible } = this.state;
+    const { modalMessage, modalButtonStyle, handleConfirm, handleCancel, openModalButton } = this.props
     return (
       <View>
         <Modal
           animationType="fade"
           transparent={true}
           visible={modalVisible}
-          onRequestClose={() => {
-            this.setModalVisible(!modalVisible);
-          }}
+          onRequestClose={() => this.setModalVisible(!modalVisible)}
         >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>{this.props.modalMessage}</Text>
-
-              {this.props.needInput &&
-                <TextInput
-                  placeholder={this.props.placeHolder ? this.props.placeHolder: ""}
-                  style={styles.input}
-                  onChangeText={text => this.setState({ text })}
-                />
-              }
-
-              <View style={styles.modalButtons}>
-                <Pressable
-                  style={[styles.button, styles.buttonClose, styles.submitButton]}
-                  onPress={() => {
-                    this.setModalVisible(!modalVisible)
-                    if (this.props.handleConfirm) {
-                      this.props.handleConfirm()
-                    }
-                  }}
-                >
-                  <Text style={styles.textStyle}>Yes</Text>
-                </Pressable>
-                <View style={styles.buttonSpace} />
-                <Pressable
-                  style={[styles.button, styles.buttonClose, styles.closeButton]}
-                  onPress={() => {
-                    if (this.props.handleCancel) {
-                      this.props.handleCancel()
-                    }
-                    this.setModalVisible(!modalVisible)
-                  }}
-                >
-                  <Text style={styles.textStyle}>No</Text>
-                </Pressable>
-
-              </View>
-            </View>
-          </View>
+          <CenterContainer>
+            <ModalContainer>
+              <ModalMessage>{modalMessage}</ModalMessage>
+              <ModalButtonsContainer>
+                <ConfirmButton onPress={() => this.handleConfirm(handleConfirm)}>
+                  <ButtonText>Yes</ButtonText>
+                </ConfirmButton>
+                <SpaceBwButtons />
+                <CancelButton onPress={() => this.handleCancel(handleCancel)}>
+                  <ButtonText>No</ButtonText>
+                </CancelButton>
+              </ModalButtonsContainer>
+            </ModalContainer>
+          </CenterContainer>
         </Modal>
-
         <Pressable
           onPress={() => this.setModalVisible(true) }
-          style={this.props.modalButtonStyle ? this.props.modalButtonStyle : {}}
+          style={modalButtonStyle ? modalButtonStyle : {}}
         >
-          {this.props.openModalButton()}
+          {openModalButton()}
         </Pressable>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-    width: 200
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5
-  },
-  button: {
-    borderRadius: 100,
-    padding: 10,
-    elevation: 2,
-    width: 70,
-    fontWeight: "bold",
-    fontSize: theme.FONT_SIZE_SLIGHT_MEDIUM
-  },
-  buttonOpen: {
-    backgroundColor: theme.COLOR_GREEN,
-    width: '35%'
-  },
-  buttonClose: {
-    backgroundColor: "#2196F3",
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
-    flexDirection: 'row'
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center",
-    textTransform: "uppercase",
-    fontWeight: "bold",
-    fontSize: theme.FONT_SIZE_SLIGHT_MEDIUM,
-    letterSpacing: theme.LETTER_SPACING_MEDIUM
-  },
-  modalButtons: {
-    width: '40%',
-    flexDirection: 'row',
-    padding: 10
-  },
-  buttonSpace: {
-    width: 10
-  },
-  submitButton: {
-    backgroundColor: theme.COLOR_GREEN
-  },
-  closeButton: {
-    backgroundColor: theme.COLOR_RED
-  }
-});
+//STYLED-COMPONENTS
+const CenterContainer = styled.View `
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  `
+
+const ModalContainer = styled.View `
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: ${theme.COLOR_WHITE};
+  max-width: 80%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12;
+  padding-vertical: ${theme.SPACING_SMALL};
+  padding-horizontal: ${theme.SPACING_SMALL};
+`
+
+const ModalButtonsContainer = styled.View `
+  flex-direction: row;
+  padding-bottom: 10px;
+`
+
+const ModalMessage = styled.Text `
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
+  letter-spacing: ${theme.LETTER_SPACING_MEDIUM};
+  padding-vertical: ${theme.SPACING_MEDIUM};
+  padding-horizontal: ${theme.SPACING_SMALL};
+  line-height: ${theme.SPACING_MEDIUM};
+  align-items: center;
+`;
+
+const ModalButton = styled.Pressable `
+  border-radius: 100;
+  padding-vertical: 10;
+  padding-horizontal: 10;
+  elevation: 2;
+  width: 70;
+  font-weight: bold;
+  font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
+`
+
+const ConfirmButton = styled(ModalButton) `
+  background-color: ${theme.COLOR_GREEN};
+`
+
+const CancelButton = styled(ModalButton) `
+  background-color: ${theme.COLOR_RED};
+`
+
+const SpaceBwButtons = styled.View `
+  width:10;
+`
+
+const ButtonText = styled.Text `
+  text-align: center;
+  color: ${theme.COLOR_WHITE};
+  font-weight: bold;
+  font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
+  letter-spacing: ${theme.LETTER_SPACING_MEDIUM};
+  text-transform: uppercase;
+  flex-direction: row;
+`;
 
 export default YesNoModal;

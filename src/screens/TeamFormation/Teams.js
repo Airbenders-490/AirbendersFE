@@ -7,7 +7,6 @@ import TeamFormationTabs from "./TeamFormationTabs.js";
 import ScreenContainer from '../../containers/ScreenContainer';
 import { Title, Subtitle, TextBody } from '../../containers/TextContainer.js';
 import MainContainer from '../../containers/MainContainer.js';
-import JoinTeam from '../../components/modals/JoinTeam.js';
 
 class Teams extends Component {
   constructor(props) {
@@ -19,10 +18,10 @@ class Teams extends Component {
   render() {
     return (
       //<ScreenContainer screenTitle='Teams'>
-      
+
       <TeamFormationTabs/>
-    
-      
+
+
     //</ScreenContainer>
     );
   }
