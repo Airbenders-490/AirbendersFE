@@ -94,7 +94,7 @@ class ConversationScreen extends Component {
 
   render() {
     const { navigation, route } = this.props;
-    const { conversation, room, userID } = route.params;
+    const { conversation, room, userID, getChatRooms } = route.params;
 
     let conversationBubbles = conversation.messages.map((data) => {
       return (
@@ -107,6 +107,9 @@ class ConversationScreen extends Component {
     let showParticipantListItems = room.students.map(student => {
       return (
         <ParticipantListItem
+          roomID={room.room_id}
+          participantID={student.id}
+          getChatRooms={getChatRooms}
           participantName={student.first_name}
           commonClass={room.class}
           userTeamStatus={student.isPending ? 'pending' : ''}
