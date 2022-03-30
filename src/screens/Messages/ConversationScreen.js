@@ -30,7 +30,7 @@ class ConversationScreen extends Component {
       isCommonScheduleDisplayed: false,
       isSearchResultDisplayed: false,
       currentConversation: [],
-      wso: null,
+      wso: null
     };
 
     this.toggleFeaturedSection = this.toggleFeaturedSection.bind(this);
@@ -48,20 +48,31 @@ class ConversationScreen extends Component {
     this.loadMessages();
 
     // Initializing web socket for current chat room
-    var ws = new WebSocket(`ws://${global.chatAPI}/chat/${chatroomID}`);
+    let temp = 'real.encs.concordia.ca/chat/chat/office?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4NDIzMzQ2LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.r3vpxHbBxqxM8QNPOOLZ8ghzv4RXxIsWTKEt-lx6Rf0'
+    let replace = `${global.chatAPI}/chat/${chatroomID}`
+    var ws = new WebSocket(`ws://${temp}`);
     this.setState({wso: ws})
 
     ws.onmessage = (e) => {
       // a message was received
       var response = JSON.parse(e.data);
-      console.log(response);
       
       if (response.message_type == 0) {
         this.setState(prevState => ({
           currentConversation: [...prevState.currentConversation, response.Message]
         }))
       } else if (response.message_type == 1) {
-        
+
+        let conversationCopy = [...this.state.currentConversation]
+        let editMessage = conversationCopy.find(el => el.SentTimestamp == response.Message.SentTimestamp)
+        if (editMessage) {
+          editMessage.MessageBody = response.Message.MessageBody
+          this.setState({currentConversation: conversationCopy})
+        }
+      } else if (response.message_type == 2) {
+        let conversationCopy = [...this.state.currentConversation]
+        conversationCopy = conversationCopy.filter(el => el.SentTimestamp != response.Message.SentTimestamp)
+        this.setState({currentConversation: conversationCopy})
       }
     };
   }
@@ -69,20 +80,21 @@ class ConversationScreen extends Component {
   loadMessages() {
     const { route } = this.props;
     const { chatroomID } = route.params;
-
+    let replace = `${global.chatAPI}/api/chat/${chatroomID}`
+    let temp = `real.encs.concordia.ca/chat/api/chat/office?limit=30`
     axios
       .post(
-        `http://${global.chatAPI}/api/chat/${chatroomID}?limit=30`, 
+      
+        `http://${temp}?limit=30`, 
         {
-          "SentTimestamp": "2022-03-18T00:15:50.730000+0000"
+          "SentTimestamp": "2099-03-19T21:12:54.685296709Z"
         },
         global.config)
       .then(
           response => {
-              console.log("response: " + response.data);
               // Reverse in order to display oldest messages first
               this.setState(prevState => ({
-                currentConversation: [...prevState.currentConversation, ...response.data.reverse()]
+                currentConversation: [...prevState.currentConversation, ...response.data?.reverse()]
               }), () => {
                 console.log(this.state.currentConversation)
               });
@@ -99,13 +111,24 @@ class ConversationScreen extends Component {
     this.props.hideTabBar(true);
   }
 
-  sendMessage(m) {
-    // TODO: Send message connection
-    this.state.wso.send(m)
+  sendMessage(messageBody) {
+    let userID = "eaf54fae-1ab8-4b5a-8047-51904f6ae884"
+    const { route } = this.props;
+    const { chatroomID } = route.params;
+    this.state.wso?.send(messageBody)
+    const message = {
+      FromStudentID: userID,
+      MessageBody: messageBody,
+      RoomID: chatroomID,
+      SentTimestamp: " " // todo: format and replace
+    }
+    this.setState(prevState => ({
+      currentConversation: [...prevState.currentConversation, message]
+    }))
   }
 
   componentDidUpdate() {
-    // TODO
+    // TODOx
   }
 
   componentWillUnmount() {
@@ -114,7 +137,6 @@ class ConversationScreen extends Component {
 
   updateConversation(updated) {
     this.setState({ currentConversation: updated });
-    console.log(this.state.currentConversation)
   }
   
 
@@ -162,7 +184,7 @@ class ConversationScreen extends Component {
     let conversationBubbles = this.state.currentConversation.map((data) => {
       return (
         // TODO: Replace token with current token
-        <MessageBubble isAuthor={data.FromStudentID == '78d52242-58e0-4448-992e-3a179efb8818'}>
+        <MessageBubble isAuthor={data.FromStudentID === "eaf54fae-1ab8-4b5a-8047-51904f6ae884"}>
           {data.MessageBody}
         </MessageBubble>
       )
