@@ -12,9 +12,9 @@ class TextInputContainer extends Component {
   render() {
     return (
       <Container>
-        <Label>{this.props.labelName}</Label>
+        <Label textColor={this.props.labelColor ?? theme.COLOR_BLACK}>{this.props.labelName}</Label>
         <View>
-          <StyledTextInput editable={!this.props.isConfirmed} placeholder={this.props.placeholder}></StyledTextInput>
+          <StyledTextInput onFocus={this.props.onFocus} onEndEditing={this.props.onEndEditing} editable={!this.props.isConfirmed} placeholder={this.props.placeholder}></StyledTextInput>
         </View>
       </Container>
     );
@@ -47,7 +47,8 @@ const StyledTextInput = styled.TextInput`
 TextInputContainer.propTypes = {
   labelName: PropTypes.string.isRequired,
   isConfirmed: PropTypes.bool.isRequired,
-  placeholder: PropTypes.string.isRequired
+  placeholder: PropTypes.string.isRequired,
+  labelColor: PropTypes.string.isRequired
 };
 
 export default TextInputContainer;
