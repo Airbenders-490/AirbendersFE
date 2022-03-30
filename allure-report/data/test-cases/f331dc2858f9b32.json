@@ -1,0 +1,58 @@
+{
+  "uid" : "f331dc2858f9b32",
+  "name" : "GIVEN a loaded app page THEN user should see the email field",
+  "fullName" : "My Login application.GIVEN a loaded app page THEN user should see the email field",
+  "historyId" : "7bc249e15509b4bfb930d33d532930f9",
+  "time" : {
+    "start" : 1648431798791,
+    "stop" : 1648431809295,
+    "duration" : 10504
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "My Login application"
+  }, {
+    "name" : "testClass",
+    "value" : "My Login application"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a loaded app page THEN user should see the email field"
+  }, {
+    "name" : "package",
+    "value" : "My Login application"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "f331dc2858f9b32.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

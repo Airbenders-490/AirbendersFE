@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import theme from '../styles/theme.style.js';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Pressable } from 'react-native';
 import ExternalProfile from './ExternalProfile';
 import ScreenContainer from '../containers/ScreenContainer.js';
+//import ListContainer from '../../containers/ListContainer.js';
+
 import MainContainer from '../containers/MainContainer.js';
-import ParticipantListItem from '../components/ParticipantListItem.js';
 import { Subtitle } from '../containers/TextContainer.js';
 
 const Stack2 = createStackNavigator();
@@ -30,16 +32,17 @@ class Schedule extends Component {
       <ScreenContainer screenTitle={'Schedule'} >
         <Pressable
           onPress={onPressHandler}>
-            <ParticipantListItem
-              participantName={"John Smith"}
-              commonClass={'SOEN 490'}
-              userTeamStatus={'pending'} />
+            <MainContainer>
+              <Subtitle>John Smith</Subtitle>
+            </MainContainer>
         </Pressable>
       </ScreenContainer>
+        
     );
   }
 
   render() {
+   
     return (
       <Stack2.Navigator
         screenOptions = {{
@@ -67,8 +70,14 @@ class Schedule extends Component {
           { (props) => <ExternalProfile userID={12345} />}
         </Stack2.Screen>
       </Stack2.Navigator>
+      
     );
   }
 }
 
+
+
 export default Schedule;
+
+
+

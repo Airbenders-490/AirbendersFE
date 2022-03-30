@@ -1,0 +1,58 @@
+{
+  "uid" : "9bdad6f4e294ee0b",
+  "name" : "GIVEN the Forgot Password in the Register page AND user clicks the back button THEN the user is redirected to the Register page",
+  "fullName" : "My Login application.GIVEN the Forgot Password in the Register page AND user clicks the back button THEN the user is redirected to the Register page",
+  "historyId" : "1f558093813a5c6ba2e1130a558dd434",
+  "time" : {
+    "start" : 1648431938559,
+    "stop" : 1648431953634,
+    "duration" : 15075
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "My Login application"
+  }, {
+    "name" : "testClass",
+    "value" : "My Login application"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN the Forgot Password in the Register page AND user clicks the back button THEN the user is redirected to the Register page"
+  }, {
+    "name" : "package",
+    "value" : "My Login application"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "9bdad6f4e294ee0b.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

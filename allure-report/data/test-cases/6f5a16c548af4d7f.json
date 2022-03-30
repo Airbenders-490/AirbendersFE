@@ -1,0 +1,58 @@
+{
+  "uid" : "6f5a16c548af4d7f",
+  "name" : "GIVEN a loaded app page THEN the welcome title should be displayed",
+  "fullName" : "My Login application.GIVEN a loaded app page THEN the welcome title should be displayed",
+  "historyId" : "facdab9950d1bee306a2a02b4c43860",
+  "time" : {
+    "start" : 1648431785731,
+    "stop" : 1648431798564,
+    "duration" : 12833
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "My Login application"
+  }, {
+    "name" : "testClass",
+    "value" : "My Login application"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a loaded app page THEN the welcome title should be displayed"
+  }, {
+    "name" : "package",
+    "value" : "My Login application"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "6f5a16c548af4d7f.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}
