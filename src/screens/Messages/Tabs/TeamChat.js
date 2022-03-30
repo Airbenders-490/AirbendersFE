@@ -121,7 +121,8 @@ class TeamChat extends Component {
         })
 
         return (
-            <ScrollView contentContainerStyle={{ padding: theme.SPACING_MEDIUM }}>
+            <ScrollView 
+            contentContainerStyle={{ padding: theme.SPACING_MEDIUM, paddingBottom: 60 }}>
                 {listChatRooms}
             </ScrollView>
         );
