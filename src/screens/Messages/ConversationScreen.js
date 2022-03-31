@@ -136,7 +136,9 @@ class ConversationScreen extends Component {
           </Header>
 
           <ExpandableSection isDisplayed={this.state.isParticipantListDisplayed}>
-            {showParticipantListItems}
+            <ScrollView nestedScrollEnabled={true}>
+              {showParticipantListItems}
+            </ScrollView>
           </ExpandableSection>
 
           <ConversationContainer onPress={() => this.toggleFeaturedSection('default')} >
@@ -186,9 +188,6 @@ const StyledBackIcon = styled.Image`
 const ExpandableSection = styled.View`
   display: ${(props) => props.isDisplayed ? 'flex' : 'none'};
   background: ${theme.COLOR_WHITE};
-  border-radius: ${theme.SPACING_MEDIUM};
-  padding-vertical: ${theme.SPACING_MEDIUM};
-  padding-horizontal: ${theme.SPACING_MEDIUM};
   margin-top: ${theme.SPACING_MEDIUM};
   margin-horizontal: ${theme.SPACING_MEDIUM};
   flex: 1;
