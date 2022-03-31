@@ -16,7 +16,7 @@ import SaveButton from '../SaveButton.js';
 import Collapse from '../Collapse.js';
 import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
-import UserIcon from '../../assets/images/icons/user_fill.png';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import axios from 'axios';
 // import ToggleSwitch from 'toggle-switch-react-native'
 import Emoji from '../Emoji.js';
@@ -46,15 +46,19 @@ class UserProfile extends Component {
             },
             lastRefresh: Date(Date.now()).toString(),
             userID: '',
-            token: ''
+            token: '',
+            emailIsValid: true,
+            emailErrorMessage: '',
         }
 
         this.toggleExpansion = this.toggleExpansion.bind(this);
         this.refreshScreen = this.refreshScreen.bind(this);
         this.onSettingsSave = this.onSettingsSave.bind(this);
         this.getCurrentUser = this.getCurrentUser.bind(this);
-        this.getConfig = this.getConfig.bind(this)
-        this.getData = this.getData.bind(this)
+        this.getConfig = this.getConfig.bind(this);
+        this.getData = this.getData.bind(this);
+        this.validateEmailAndSendToken = this.validateEmailAndSendToken.bind(this);
+        this.ShowEmailSentMessage = this.ShowEmailSentMessage.bind(this);
     }
 
     payload = {
@@ -177,6 +181,44 @@ class UserProfile extends Component {
         this.props.setIsEdited(false)
     }
 
+    async ShowEmailSentMessage() {
+        this.setState({ emailErrorMessage: "An email is sent to the address you provided. Please confirm." })
+        setTimeout(function(){
+            this.setState({ emailErrorMessage: "" });
+       }.bind(this),5000);
+      }
+    
+    validateEmailAndSendToken(e) {
+    let email = e.nativeEvent.text.trim().toLowerCase();
+    // What is considered a valid email? Test here: http://jsfiddle.net/ghvj4gy9/
+    let emailIsValid = String(email)
+        .toLowerCase()
+        .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+
+    if (emailIsValid) {
+        this.setState({ emailIsValid: true });
+        axios
+        .get(
+            `${global.profileAPI}/api/school/confirm?email=${email}`,
+            this.getConfig(this.state.token)
+        )
+        .then(() => this.ShowEmailSentMessage())
+        .catch(
+            (err) => {
+                if (err.response.data.code == 404) {
+                this.setState({ emailIsValid: false, emailErrorMessage: err.response.data.message.toUpperCase() })
+                } else {
+                this.setState({ emailErrorMessage: "The email couldn't be confirmed at this point. Please try again later!" })
+                }
+            }
+        );
+    } else {
+        this.setState({ emailIsValid: false, emailErrorMessage: "Please enter a valid email" });
+    }
+    }
+
     render() {
 
         let classesTaken = this.state.currentUserData.classes_taken?.map((completedClass) => {
@@ -187,7 +229,7 @@ class UserProfile extends Component {
             )
         });
 
-        let userPersonalSkills = UserData[this.state.userID].skills.map((data) => {
+        let userPersonalSkills = UserData[""].skills.map((data) => {
             return (
                 <TouchableOpacity disabled={this.props.isReadOnly}>
                     <SkillLabel>{data}</SkillLabel>
@@ -230,7 +272,8 @@ class UserProfile extends Component {
 
 
         return (
-            <View isReadOnly={this.props.isReadOnly} >
+            <KeyboardAwareScrollView behaviour="padding">
+              <View isReadOnly={this.props.isReadOnly} >
                 <UserProfileImage />
                 <UserName
                     editable={!this.props.isReadOnly}
@@ -351,39 +394,49 @@ class UserProfile extends Component {
                 <Separator isDisplayed={!this.props.isReadOnly} />
 
                 {!this.props.isReadOnly &&
+                <SettingsContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
+                    <Subtitle>Settings</Subtitle>
+                    <ToggleButton labelName="Team chats"></ToggleButton>
 
-                    <SettingsContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
-                        <Subtitle>Settings</Subtitle>
-                        <ToggleButton labelName='Team chats'></ToggleButton>
-
-                        <ToggleButton labelName='DMs'></ToggleButton>
-                        <ToggleButton labelName='Schedule'></ToggleButton>
-                        {/* TODO: If confirmed, placeholder will be student's university email */}
-                        <TextInputContainer
-                            isConfirmed={false}
-                            labelName='School email'
-                            placeholder='yourschool@email.edu'
-                            onChangeText={(text) => this.payload.email = text} />
-                        <SaveButton onPress={this.onSettingsSave} />
-                    </SettingsContainer>
+                    <ToggleButton labelName="DMs"></ToggleButton>
+                    <ToggleButton labelName="Schedule"></ToggleButton>
+                    {this.state.emailErrorMessage !== "" && (
+                        <ErrorText>{this.state.emailErrorMessage}</ErrorText>
+                    )}
+                    <TextInputContainer
+                        labelColor={
+                        this.state.emailIsValid ? theme.COLOR_BLACK : theme.COLOR_RED
+                        }
+                        onFocus={() => {
+                        this.setState({ emailErrorMessage: "" });
+                        }}
+                        isConfirmed={this.state.currentUserData.school}
+                        labelName="School email"
+                        placeholder={this.state.currentUserData.school ?? "yourschool@email.edu"}
+                        onEndEditing={this.validateEmailAndSendToken}
+                        onChangeText={(text) => this.setState({ email: text })}
+                    />
+                    <SaveButton onPress={this.onSettingsSave} />
+                </SettingsContainer>
                 }
-            </View>
+              </View>
+            </KeyboardAwareScrollView>
         );
     }
 }
 
 // STYLED-COMPONENTS
 const PersonalProfile = styled.View`
-    display: ${props => props.isDisplayed ? 'flex' : 'none'};
+  display: ${(props) => (props.isDisplayed ? "flex" : "none")};
 `;
 
 const UserProfileImage = styled.View`
-    height: 80;
-    width: 80;
-    border-radius: 40;
-    align-self: center;
-    background: ${theme.COLOR_GREEN};
-    margin-bottom: 10;
+  height: 80;
+  width: 80;
+  border-radius: 40;
+  align-self: center;
+  background: ${theme.COLOR_GREEN};
+  margin-bottom: 10;
 `;
 
 const UserName = styled.TextInput`
@@ -392,28 +445,28 @@ const UserName = styled.TextInput`
     color: ${theme.COLOR_BLACK}};
     font-family: ${theme.FONT_BOLD};
     border-radius: 5;
-    background: ${props => props.editable ? '#e8e8e8' : 'transparent'};
-    padding-vertical: ${props => props.editable ? 2 : 0};
-    padding-horizontal: ${props => props.editable ? 10 : 0};
+    background: ${(props) => (props.editable ? "#e8e8e8" : "transparent")};
+    padding-vertical: ${(props) => (props.editable ? 2 : 0)};
+    padding-horizontal: ${(props) => (props.editable ? 10 : 0)};
     align-self: center;
 `;
 
 const ProgramName = styled.TextInput`
-    color: ${theme.COLOR_GRAY};
-    font-size: ${theme.FONT_SIZE_SLIGHT_LARGE};
-    font-family: ${theme.FONT_REGULAR};
-    border-radius: 5;
-    background: ${props => props.editable ? '#e8e8e8' : 'transparent'};
-    padding-vertical: ${props => props.editable ? 1 : 0};
-    padding-horizontal: ${props => props.editable ? 5 : 0};
-    margin-top: ${props => props.editable ? 3 : 0};
-    align-self: center;
+  color: ${theme.COLOR_GRAY};
+  font-size: ${theme.FONT_SIZE_SLIGHT_LARGE};
+  font-family: ${theme.FONT_REGULAR};
+  border-radius: 5;
+  background: ${(props) => (props.editable ? "#e8e8e8" : "transparent")};
+  padding-vertical: ${(props) => (props.editable ? 1 : 0)};
+  padding-horizontal: ${(props) => (props.editable ? 5 : 0)};
+  margin-top: ${(props) => (props.editable ? 3 : 0)};
+  align-self: center;
 `;
 
 const StudentID = styled(ProgramName)`
-    margin-top: ${props => props.editable ? 3 : 0};
-    text-align:center;
-    display: ${props => props.isDisplayed ? 'flex' : 'none'};
+  margin-top: ${(props) => (props.editable ? 3 : 0)};
+  text-align: center;
+  display: ${(props) => (props.isDisplayed ? "flex" : "none")};
 `;
 
 const UserDescription = styled.TextInput`
@@ -421,20 +474,20 @@ const UserDescription = styled.TextInput`
     font-size: ${theme.FONT_SIZE_MEDIUM};
     font-family: ${theme.FONT_REGULAR};
     border-radius: 5;
-    background: ${props => props.editable ? '#e8e8e8' : 'transparent'};
-    padding-vertical: ${props => props.editable ? 5 : 0};
-    padding-horizontal: ${props => props.editable ? 5 : 0};
-    margin-top: ${props => props.editable ? 3 : 0};
+    background: ${(props) => (props.editable ? "#e8e8e8" : "transparent")};
+    padding-vertical: ${(props) => (props.editable ? 5 : 0)};
+    padding-horizontal: ${(props) => (props.editable ? 5 : 0)};
+    margin-top: ${(props) => (props.editable ? 3 : 0)};
     text-align:center;
 `;
 
 const SectionTitle = styled.Text`
-    color: ${theme.COLOR_GRAY};
-    font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
-    font-family: ${theme.FONT_SEMIBOLD};
-    letter-spacing: ${theme.LETTER_SPACING_LARGE};
-    text-transform: uppercase;
-    margin-bottom: 5;
+  color: ${theme.COLOR_GRAY};
+  font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
+  font-family: ${theme.FONT_SEMIBOLD};
+  letter-spacing: ${theme.LETTER_SPACING_LARGE};
+  text-transform: uppercase;
+  margin-bottom: 5;
 `;
 
 const SearchIcon = styled.Image`
@@ -444,30 +497,30 @@ const SearchIcon = styled.Image`
 `;
 
 const SectionHeader = styled.View`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const ClassLabel = styled.Text`
-    font-size: ${theme.FONT_SIZE_MEDIUM};
-    font-family: ${theme.FONT_REGULAR};
-    margin-right: 15;
-    text-transform: uppercase;
+  font-size: ${theme.FONT_SIZE_MEDIUM};
+  font-family: ${theme.FONT_REGULAR};
+  margin-right: 15;
+  text-transform: uppercase;
 `;
 
 const SkillLabel = styled.Text`
-    font-size: ${theme.FONT_SIZE_MEDIUM};
-    font-family: ${theme.FONT_REGULAR};
-    margin-right: 15;
-    text-transform: capitalize;
+  font-size: ${theme.FONT_SIZE_MEDIUM};
+  font-family: ${theme.FONT_REGULAR};
+  margin-right: 15;
+  text-transform: capitalize;
 `;
 
 const LabelContainer = styled.View`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 const Separator = styled.View`
@@ -476,23 +529,29 @@ const Separator = styled.View`
   width: 100;
   align-self: center;
   margin-vertical: 20;
-  display: ${props => props.isDisplayed ? 'flex' : 'none'}
+  display: ${(props) => (props.isDisplayed ? "flex" : "none")};
 `;
 
 const SettingsContainer = styled(MainContainer)`
-  display: ${props => props.isDisplayed ? 'flex' : 'none'}
-  `;
+  display: ${(props) => (props.isDisplayed ? "flex" : "none")};
+`;
 
 const ToggableContainer = styled.View`
-  display: ${props => props.isDisplayed ? 'flex' : 'none'}
+  display: ${(props) => (props.isDisplayed ? "flex" : "none")};
 `;
 
 const QualityLabel = styled(Label)`
-    margin-bottom: 5;
-`
+  margin-bottom: 5;
+`;
 
 const ModalsContainer = styled.View`
-    display: ${props => props.isDisplayed ? 'flex' : 'none'}
+  display: ${(props) => (props.isDisplayed ? "flex" : "none")};
 `;
+
+const ErrorText = styled.Text`
+  color: red;
+  font-family: ${theme.FONT_SEMIBOLD};
+  margin-top: 5;
+`
 
 export default UserProfile;
