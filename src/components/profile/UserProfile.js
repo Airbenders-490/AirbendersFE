@@ -186,7 +186,7 @@ class UserProfile extends Component {
             this.setState({ emailErrorMessage: "" });
        }.bind(this),5000);
       }
-    
+
     validateEmailAndSendToken(e) {
     let email = e.nativeEvent.text.trim().toLowerCase();
     // What is considered a valid email? Test here: http://jsfiddle.net/ghvj4gy9/
@@ -238,16 +238,18 @@ class UserProfile extends Component {
 
 
         let allTags = this.state.currentUserData.reviews
-            .flatMap(obj => obj.tags)
+            ?.flatMap(obj => obj.tags)
             .reduce((dict, obj) => {
                 dict[obj.name] = (dict[obj.name] || 0) + 1;
                 return dict
             }, {})
 
-        let topFiveTags = Object.keys(allTags)
+        let topFiveTags = allTags ? Object.keys(allTags)
             .map(key => [key, allTags[key]])
             .sort((x, y) => y[1] - x[1])
             .slice(0, 5)
+            :
+            []
 
 
         let ratedQualities = topFiveTags.map((data) => {
@@ -271,7 +273,7 @@ class UserProfile extends Component {
 
 
         return (
-            <KeyboardAwareScrollView behaviour="padding">
+            <KeyboardAwareScrollView behaviour="padding" style={{marginBottom:100}} >
               <View isReadOnly={this.props.isReadOnly} >
                 <UserProfileImage />
                 <UserName
