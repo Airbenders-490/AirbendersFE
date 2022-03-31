@@ -23,7 +23,7 @@ class ScreenContainer extends Component {
                     </BackButton>
                     <Title titleColor={theme.COLOR_BLACK}>{this.props.screenTitle}</Title>
                 </Header>
-                <ScrollView contentContainerStyle={ this.props.ignorePadding ? {} : { padding: theme.SPACING_MEDIUM }}>
+                <ScrollView nestedScrollEnabled={true} contentContainerStyle={ this.props.ignorePadding ? {} : { padding: theme.SPACING_MEDIUM }}>
                     {this.props.children}
                 </ScrollView>
             </Container>
@@ -63,6 +63,6 @@ ScreenContainer.propTypes = {
 // Wrap and export
 export default function(props) {
     const navigation = useNavigation();
-  
+
     return <ScreenContainer {...props} navigation={navigation} />;
 }
