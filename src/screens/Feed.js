@@ -83,7 +83,7 @@ class Feed extends Component {
   }
 
   getColor(name) {
-    name = name + ""
+    name = name
     String.prototype.hashCode = function() {
         var hash = 0;
         for (var i = 0; i < this.length; i++) {
