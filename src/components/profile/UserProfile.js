@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import theme from "../../styles/theme.style.js";
 import MainContainer from "../../containers/MainContainer.js";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import {
   Title,
   Subtitle,
@@ -227,10 +228,10 @@ class UserProfile extends Component {
 
   render() {
     let centeredViewStyle = {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 22
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      marginTop: 22
     }
 
     let classesTaken = this.state.currentUserData.classes_taken?.map(
@@ -282,42 +283,43 @@ class UserProfile extends Component {
     );
 
     return (
-      <View isReadOnly={this.props.isReadOnly}>
-        <UserProfileImage />
-        <UserName
-          editable={!this.props.isReadOnly}
-          placeholder="Your Name"
-          placeholderTextColor={"#D8D8D8"}
-          onChangeText={(text) => {
-            this.payload.fullName = text;
-            let payloadFirstName = this.payload.fullName.substr(
-              0,
-              this.payload.fullName.indexOf(" ")
-            );
-            let payloadLastName = this.payload.fullName.substr(
-              this.payload.fullName.indexOf(" ") + 1
-            );
-            let nameIsEdited =
-              this.state.currentUserData.first_name !== payloadFirstName ||
-              this.state.currentUserData.last_name !== payloadLastName;
+      <KeyboardAwareScrollView behaviour="padding">
+        <View isReadOnly={this.props.isReadOnly}>
+          <UserProfileImage />
+          <UserName
+            editable={!this.props.isReadOnly}
+            placeholder="Your Name"
+            placeholderTextColor={"#D8D8D8"}
+            onChangeText={(text) => {
+              this.payload.fullName = text;
+              let payloadFirstName = this.payload.fullName.substr(
+                0,
+                this.payload.fullName.indexOf(" ")
+              );
+              let payloadLastName = this.payload.fullName.substr(
+                this.payload.fullName.indexOf(" ") + 1
+              );
+              let nameIsEdited =
+                this.state.currentUserData.first_name !== payloadFirstName ||
+                this.state.currentUserData.last_name !== payloadLastName;
 
-            if (nameIsEdited) {
-              this.props.setIsEdited(true);
-            } else {
-              this.props.setIsEdited(false);
-            }
-          }}
-        >
-          {this.state.currentUserData.first_name}{" "}
-          {this.state.currentUserData.last_name}
-        </UserName>
-        {/* <ProgramName
+              if (nameIsEdited) {
+                this.props.setIsEdited(true);
+              } else {
+                this.props.setIsEdited(false);
+              }
+            }}
+          >
+            {this.state.currentUserData.first_name}{" "}
+            {this.state.currentUserData.last_name}
+          </UserName>
+          {/* <ProgramName
                     editable={!this.props.isReadOnly}
                     placeholder="Your Program"
                     placeholderTextColor={"#D8D8D8"}>
                     {UserData[this.state.userID].program}
                 </ProgramName> */}
-        {/* <StudentID
+          {/* <StudentID
                     isDisplayed={this.props.isCurrentUser}
                     editable={!this.props.isReadOnly}
                     placeholder="Your Student ID"
@@ -325,134 +327,135 @@ class UserProfile extends Component {
                     onChangeText={(text) => this.payload.studentID = text}>
                     {this.state.currentUserData.student_id}
                 </StudentID> */}
-        <UserDescription
-          editable={!this.props.isReadOnly}
-          placeholder="Tell us about yourself"
-          placeholderTextColor={"#D8D8D8"}
-          multiline={true}
-          onChangeText={(text) => {
-            this.payload.generalInfo = text;
-            let generalInfoIsEdited =
-              this.state.currentUserData.general_info !==
-              this.payload.generalInfo;
+          <UserDescription
+            editable={!this.props.isReadOnly}
+            placeholder="Tell us about yourself"
+            placeholderTextColor={"#D8D8D8"}
+            multiline={true}
+            onChangeText={(text) => {
+              this.payload.generalInfo = text;
+              let generalInfoIsEdited =
+                this.state.currentUserData.general_info !==
+                this.payload.generalInfo;
 
-            if (generalInfoIsEdited) {
-              this.props.setIsEdited(true);
-            } else {
-              this.props.setIsEdited(false);
-            }
-          }}
-        >
-          {this.state.currentUserData.general_info}
-        </UserDescription>
-        {/* <SaveButton isDisplayed={!this.props.isReadOnly} onPress={this.onSettingsSave} /> */}
-
-        <PersonalProfile isDisplayed={!this.props.isFromRegister}>
-          {/* Rated Qualities */}
-          <MainContainer marginTop={15}>
-            <SectionHeader>
-              <SectionTitle>Rated Qualities</SectionTitle>
-              {/* TODO: Disable endorsements in settings mode */}
-              <Collapse
-                isCurrentlyTeammate={this.props.isReadOnly}
-                onPress={this.toggleExpansion}
-              />
-            </SectionHeader>
-            <LabelContainer>{ratedQualities}</LabelContainer>
-            <ToggableContainer isDisplayed={this.state.expanded}>
-              <Separator isDisplayed={this.props.isReadOnly} />
-              <LabelContainer>
-                <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>
-                  Integrity
-                </Label>
-                <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>
-                  Communication
-                </Label>
-              </LabelContainer>
-              <SaveButton onPress={this.toggleExpansion} />
-            </ToggableContainer>
-          </MainContainer>
-
-          <MainContainer marginTop={15}>
-            <SectionHeader>
-              <SectionTitle>Classes Taken</SectionTitle>
-              <SearchIcon source={MagnifyingIcon} />
-            </SectionHeader>
-            <LabelContainer>{classesTaken}</LabelContainer>
-            <ModalsContainer isDisplayed={!this.props.isReadOnly}>
-              <AddClassesTakenModal
-                userID={this.state.userID}
-                token={this.state.token}
-                getCurrentUser={this.getCurrentUser}
-              />
-              <RemoveClassesTakenModal
-                userID={this.state.userID}
-                token={this.state.token}
-                getCurrentUser={this.getCurrentUser}
-              />
-            </ModalsContainer>
-          </MainContainer>
-
-          <MainContainer marginTop={15}>
-            <SectionHeader>
-              <SectionTitle>Classes enrolled in </SectionTitle>
-            </SectionHeader>
-            <LabelContainer>{currentlytaken}</LabelContainer>
-
-            <ModalsContainer isDisplayed={!this.props.isReadOnly}>
-              <AddCurrentClassModal
-                userID={this.state.userID}
-                token={this.state.token}
-                getCurrentUser={this.getCurrentUser}
-              />
-              <RemoveCurrentClassModal
-                userID={this.state.userID}
-                token={this.state.token}
-                getCurrentUser={this.getCurrentUser}
-              />
-              <CompleteClassModal
-                userID={this.state.userID}
-                token={this.state.token}
-                getCurrentUser={this.getCurrentUser}
-              />
-            </ModalsContainer>
-          </MainContainer>
-        </PersonalProfile>
-
-        <MainContainer marginTop={15}>
-          <SectionTitle>Self-Promoted Skills</SectionTitle>
-          <LabelContainer>{userPersonalSkills}</LabelContainer>
-        </MainContainer>
-
-        <Separator isDisplayed={!this.props.isReadOnly} />
-
-        {!this.props.isReadOnly && (
-          <SettingsContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
-            <Subtitle>Settings</Subtitle>
-            <ToggleButton labelName="Team chats"></ToggleButton>
-
-            <ToggleButton labelName="DMs"></ToggleButton>
-            <ToggleButton labelName="Schedule"></ToggleButton>
-            {this.state.emailErrorMessage !== "" && (
-              <ErrorText>{this.state.emailErrorMessage}</ErrorText>
-            )}
-            <TextInputContainer
-              labelColor={
-                this.state.emailIsValid ? theme.COLOR_BLACK : theme.COLOR_RED
+              if (generalInfoIsEdited) {
+                this.props.setIsEdited(true);
+              } else {
+                this.props.setIsEdited(false);
               }
-              onFocus={() => {
-                this.setState({ emailErrorMessage: "" });
-              }}
-              isConfirmed={this.state.currentUserData.school}
-              labelName="School email"
-              placeholder={this.state.currentUserData.school ?? "yourschool@email.edu"}
-              onEndEditing={this.validateEmailAndSendToken}
-              onChangeText={(text) => this.setState({ email: text })}
-            />
-            <SaveButton onPress={this.onSettingsSave} />
-          </SettingsContainer>
-        )}
-      </View>
+            }}
+          >
+            {this.state.currentUserData.general_info}
+          </UserDescription>
+          {/* <SaveButton isDisplayed={!this.props.isReadOnly} onPress={this.onSettingsSave} /> */}
+
+          <PersonalProfile isDisplayed={!this.props.isFromRegister}>
+            {/* Rated Qualities */}
+            <MainContainer marginTop={15}>
+              <SectionHeader>
+                <SectionTitle>Rated Qualities</SectionTitle>
+                {/* TODO: Disable endorsements in settings mode */}
+                <Collapse
+                  isCurrentlyTeammate={this.props.isReadOnly}
+                  onPress={this.toggleExpansion}
+                />
+              </SectionHeader>
+              <LabelContainer>{ratedQualities}</LabelContainer>
+              <ToggableContainer isDisplayed={this.state.expanded}>
+                <Separator isDisplayed={this.props.isReadOnly} />
+                <LabelContainer>
+                  <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>
+                    Integrity
+                  </Label>
+                  <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>
+                    Communication
+                  </Label>
+                </LabelContainer>
+                <SaveButton onPress={this.toggleExpansion} />
+              </ToggableContainer>
+            </MainContainer>
+
+            <MainContainer marginTop={15}>
+              <SectionHeader>
+                <SectionTitle>Classes Taken</SectionTitle>
+                <SearchIcon source={MagnifyingIcon} />
+              </SectionHeader>
+              <LabelContainer>{classesTaken}</LabelContainer>
+              <ModalsContainer isDisplayed={!this.props.isReadOnly}>
+                <AddClassesTakenModal
+                  userID={this.state.userID}
+                  token={this.state.token}
+                  getCurrentUser={this.getCurrentUser}
+                />
+                <RemoveClassesTakenModal
+                  userID={this.state.userID}
+                  token={this.state.token}
+                  getCurrentUser={this.getCurrentUser}
+                />
+              </ModalsContainer>
+            </MainContainer>
+
+            <MainContainer marginTop={15}>
+              <SectionHeader>
+                <SectionTitle>Classes enrolled in </SectionTitle>
+              </SectionHeader>
+              <LabelContainer>{currentlytaken}</LabelContainer>
+
+              <ModalsContainer isDisplayed={!this.props.isReadOnly}>
+                <AddCurrentClassModal
+                  userID={this.state.userID}
+                  token={this.state.token}
+                  getCurrentUser={this.getCurrentUser}
+                />
+                <RemoveCurrentClassModal
+                  userID={this.state.userID}
+                  token={this.state.token}
+                  getCurrentUser={this.getCurrentUser}
+                />
+                <CompleteClassModal
+                  userID={this.state.userID}
+                  token={this.state.token}
+                  getCurrentUser={this.getCurrentUser}
+                />
+              </ModalsContainer>
+            </MainContainer>
+          </PersonalProfile>
+
+          <MainContainer marginTop={15}>
+            <SectionTitle>Self-Promoted Skills</SectionTitle>
+            <LabelContainer>{userPersonalSkills}</LabelContainer>
+          </MainContainer>
+
+          <Separator isDisplayed={!this.props.isReadOnly} />
+
+          {!this.props.isReadOnly && (
+            <SettingsContainer marginBottom={theme.BOTTOM_SCROLLVIEW_SPACING}>
+              <Subtitle>Settings</Subtitle>
+              <ToggleButton labelName="Team chats"></ToggleButton>
+
+              <ToggleButton labelName="DMs"></ToggleButton>
+              <ToggleButton labelName="Schedule"></ToggleButton>
+              {this.state.emailErrorMessage !== "" && (
+                <ErrorText>{this.state.emailErrorMessage}</ErrorText>
+              )}
+              <TextInputContainer
+                labelColor={
+                  this.state.emailIsValid ? theme.COLOR_BLACK : theme.COLOR_RED
+                }
+                onFocus={() => {
+                  this.setState({ emailErrorMessage: "" });
+                }}
+                isConfirmed={this.state.currentUserData.school}
+                labelName="School email"
+                placeholder={this.state.currentUserData.school ?? "yourschool@email.edu"}
+                onEndEditing={this.validateEmailAndSendToken}
+                onChangeText={(text) => this.setState({ email: text })}
+              />
+              <SaveButton onPress={this.onSettingsSave} />
+            </SettingsContainer>
+          )}
+        </View>
+      </KeyboardAwareScrollView>
     );
   }
 }
