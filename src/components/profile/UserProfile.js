@@ -186,7 +186,7 @@ class UserProfile extends Component {
             )
         });
 
-        let userPersonalSkills = UserData[this.state.userID].skills.map((data) => {
+        let userPersonalSkills = UserData[""].skills.map((data) => {
             return (
                 <TouchableOpacity disabled={this.props.isReadOnly}>
                     <SkillLabel>{data}</SkillLabel>
