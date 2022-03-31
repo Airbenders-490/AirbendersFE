@@ -73,6 +73,7 @@ class UserProfile extends Component {
     this.getConfig = this.getConfig.bind(this);
     this.getData = this.getData.bind(this);
     this.validateEmailAndSendToken = this.validateEmailAndSendToken.bind(this);
+    this.ShowEmailSentMessage = this.ShowEmailSentMessage.bind(this);
   }
 
   payload = {
@@ -200,6 +201,13 @@ class UserProfile extends Component {
     this.props.setIsEdited(false);
   }
 
+  async ShowEmailSentMessage() {
+    this.setState({ emailErrorMessage: "An email is sent to the address you provided. Please confirm." })
+    setTimeout(function(){
+        this.setState({ emailErrorMessage: "" });
+   }.bind(this),5000);
+  }
+
   validateEmailAndSendToken(e) {
     let email = e.nativeEvent.text.trim().toLowerCase();
     let emailIsValid = String(email)
@@ -215,14 +223,18 @@ class UserProfile extends Component {
           `${global.profileAPI}/api/school/confirm?email=${email}`,
           this.getConfig(this.state.token)
         )
-        .then((res) => console.log(res.data))
+        .then(() => this.ShowEmailSentMessage())
         .catch(
-          (err) => (
-            this.setState({ emailIsValid: false, emailErrorMessage: err.response.data.message.toUpperCase() })
-          )
+          (err) => {
+              if (err.response.data.code == 404) {
+                this.setState({ emailIsValid: false, emailErrorMessage: err.response.data.message.toUpperCase() })
+              } else {
+                this.setState({ emailErrorMessage: "The email couldn't be confirmed at this point. Please try again later!" })
+              }
+          }
         );
     } else {
-      this.setState({ emailIsValid: false });
+      this.setState({ emailIsValid: false, emailErrorMessage: "Please enter a valid email" });
     }
   }
 
