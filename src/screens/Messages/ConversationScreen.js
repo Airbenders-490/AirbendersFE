@@ -12,6 +12,7 @@ import ParticipantListItem from '../../components/ParticipantListItem.js';
 import MessageBubble from '../../components/MessageBubble.js';
 import Test from '../../data/mock/FirstConversation.json';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 if (
@@ -31,7 +32,8 @@ class ConversationScreen extends Component {
       isCommonScheduleDisplayed: false,
       isSearchResultDisplayed: false,
       currentConversation: [],
-      wso: null
+      wso: null,
+      userID: ''
     };
 
     this.toggleFeaturedSection = this.toggleFeaturedSection.bind(this);
@@ -40,18 +42,38 @@ class ConversationScreen extends Component {
     this.loadMessages = this.loadMessages.bind(this);
   }
 
-  componentDidMount() {
+  getConfig = (token) => {
+    return {
+      headers: {
+          'Authorization': `Bearer ${token}`
+      }
+    }
+  }
+
+  getData = async (key) => {
+    try {
+        return await AsyncStorage.getItem(key)
+    } catch (e) {
+        // error reading value
+        return e;
+    }
+  }
+
+  async componentDidMount() {
     // Remove tab bar from conversation screen
     const { route } = this.props;
-    const { chatroomID } = route.params;
+    const { room } = route.params;
+
+    const token = await this.getData("token")
+    const userid = await this.getData("userID")
+    this.setState({ userID: userid })
 
     this.props.hideTabBar(false);
-    this.loadMessages();
+    this.loadMessages(room.room_id, token);
 
     // Initializing web socket for current chat room
-    let temp = 'real.encs.concordia.ca/chat/chat/office?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4NDIzMzQ2LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.r3vpxHbBxqxM8QNPOOLZ8ghzv4RXxIsWTKEt-lx6Rf0'
-    let replace = `${global.chatAPI}/chat/${chatroomID}`
-    var ws = new WebSocket(`ws://${temp}`);
+    let path = `${global.chatAPI}/chat/${room.room_id}?token=${token}`
+    var ws = new WebSocket(`ws://${path}`);
     this.setState({wso: ws})
 
     ws.onmessage = (e) => {
@@ -78,19 +100,15 @@ class ConversationScreen extends Component {
     };
   }
 
-  loadMessages() {
-    const { route } = this.props;
-    const { chatroomID } = route.params;
-    let replace = `${global.chatAPI}/api/chat/${chatroomID}`
-    let temp = `real.encs.concordia.ca/chat/api/chat/office?limit=30`
+  loadMessages(roomID, token, sentTimestamp = "2099-01-01T01:01:01.685296709Z") {
+    let route = `${global.chatAPI}/api/chat/${roomID}`
     axios
       .post(
-      
-        `http://${temp}?limit=30`, 
+        `http://${route}?limit=30`, 
         {
-          "SentTimestamp": "2099-03-19T21:12:54.685296709Z"
+          "SentTimestamp": sentTimestamp
         },
-        global.config)
+        this.getConfig(token))
       .then(
           response => {
               // Reverse in order to display oldest messages first
@@ -113,14 +131,13 @@ class ConversationScreen extends Component {
   }
 
   sendMessage(messageBody) {
-    let userID = "eaf54fae-1ab8-4b5a-8047-51904f6ae884"
     const { route } = this.props;
-    const { chatroomID } = route.params;
+    const { room } = route.params;
     this.state.wso?.send(messageBody)
     const message = {
-      FromStudentID: userID,
+      FromStudentID: this.state.userID,
       MessageBody: messageBody,
-      RoomID: chatroomID,
+      RoomID: room.room_id,
       SentTimestamp: " " // todo: format and replace
     }
     this.setState(prevState => ({
@@ -185,12 +202,10 @@ class ConversationScreen extends Component {
 
   render() {
     const { navigation, route } = this.props;
-    const { conversation, room, userID, getChatRooms } = route.params;
-
+    const { room, getChatRooms } = route.params;
     let conversationBubbles = this.state.currentConversation.map((data) => {
       return (
-        // TODO: Replace token with current token
-        <MessageBubble isAuthor={data.FromStudentID === "eaf54fae-1ab8-4b5a-8047-51904f6ae884"}>
+        <MessageBubble isAuthor={ data.FromStudentID === this.state.userID }>
           {data.MessageBody}
         </MessageBubble>
       )
@@ -205,7 +220,7 @@ class ConversationScreen extends Component {
           participantName={student.first_name}
           commonClass={room.class}
           userTeamStatus={student.isPending ? 'pending' : ''}
-          isAdmin={userID === room.admin.id ? true : false}
+          isAdmin={this.state.userID === room.admin.id ? true : false}
         />
       )
     })
@@ -220,8 +235,8 @@ class ConversationScreen extends Component {
                 <StyledBackIcon source={BackIcon} />
               </BackButton>
               <View>
-                <Subtitle titleColor={theme.COLOR_BLACK}>Lorem Ipsum</Subtitle>
-                <TextBody captionColor={theme.COLOR_BLACK}>SOEN 490</TextBody>
+                <Subtitle titleColor={theme.COLOR_BLACK}>{room.name}</Subtitle>
+                {room.class && <TextBody captionColor={theme.COLOR_BLACK}>{room.class}</TextBody>}
               </View>
             </LHSContainer>
             <FeatureButtons toggleSection={this.toggleFeaturedSection} />

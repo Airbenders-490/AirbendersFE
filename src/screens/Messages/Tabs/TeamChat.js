@@ -26,10 +26,9 @@ class TeamChat extends Component {
 
         this.state = {
             rooms: [],
-            userID: ''
         }
 
-        this.navigateToChat = this.navigateToChat.bind(this);
+        // this.navigateToChat = this.navigateToChat.bind(this);
         this.getChatRooms = this.getChatRooms.bind(this);
         this.getConfig = this.getConfig.bind(this)
         this.removeTeam = this.removeTeam.bind(this)
@@ -44,16 +43,14 @@ class TeamChat extends Component {
     }
 
     async getChatRooms() {
-        console.log("getting chat rooms")
         let token = await AsyncStorage.getItem("token")
-        let user = await AsyncStorage.getItem("userID")
 
         axios
             .get(`http://real.encs.concordia.ca/chat/api/rooms`, this.getConfig(token)) // w/ login
             // .get(`http://real.encs.concordia.ca/chat/api/rooms`, config) // for testing w/out login
             .then(
                 response => {
-                    this.setState({ rooms: response.data.Rooms, userID: user })
+                    this.setState({ rooms: response.data.Rooms })
                 }
             )
             .catch(
@@ -69,16 +66,13 @@ class TeamChat extends Component {
     navigateToChat(mockConversation, room) {
         this.props.navigation.navigate('ConversationScreen', {
             conversation: mockConversation,
-            room: room,
-            userID: this.state.userID,
-            getChatRooms: this.getChatRooms
+            room: room
         })
     }
 
     removeTeam = async (room) => {
 
         let token = await AsyncStorage.getItem("token")
-        let user = await AsyncStorage.getItem("userID")
 
         if (room.admin.id === user) {
             alert("Deleting delete room")
