@@ -33,13 +33,16 @@ class ConversationScreen extends Component {
       isSearchResultDisplayed: false,
       currentConversation: [],
       wso: null,
-      userID: ''
+      userID: '',
+      token: ''
     };
 
     this.toggleFeaturedSection = this.toggleFeaturedSection.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
     this.updateConversation = this.updateConversation.bind(this);
     this.loadMessages = this.loadMessages.bind(this);
+    this.onEditMessage = this.onEditMessage.bind(this);
+    this.onDeleteMessage = this.onDeleteMessage.bind(this);
   }
 
   getConfig = (token) => {
@@ -66,7 +69,7 @@ class ConversationScreen extends Component {
 
     const token = await this.getData("token")
     const userid = await this.getData("userID")
-    this.setState({ userID: userid })
+    this.setState({ userID: userid, token: token })
 
     this.props.hideTabBar(false);
     this.loadMessages(room.room_id, token);
@@ -122,6 +125,22 @@ class ConversationScreen extends Component {
       .catch(
           error => console.log("error: " + error)
       )
+  }
+
+  onEditMessage = (message) => {
+    if (!message) {
+      return Promise.resolve()
+    }
+
+    return axios.put(`http://${global.chatAPI}/api/chat/${message.RoomID}`, message, this.getConfig(this.state.token))
+  }
+
+  onDeleteMessage = (message) => {
+    if (!message) {
+      return Promise.resolve()
+    }
+
+    return axios.delete(`http://${global.chatAPI}/api/chat/${message.RoomID}/${message.SentTimestamp}`, this.getConfig(this.state.token))
   }
 
   handleBackPress(navigation) {
@@ -205,7 +224,12 @@ class ConversationScreen extends Component {
     const { room, getChatRooms } = route.params;
     let conversationBubbles = this.state.currentConversation.map((data) => {
       return (
-        <MessageBubble isAuthor={ data.FromStudentID === this.state.userID }>
+        <MessageBubble 
+          onDelete={this.onDeleteMessage}
+          onEdit={this.onEditMessage}
+          message={data} 
+          isAuthor={ data.FromStudentID === this.state.userID }
+        >
           {data.MessageBody}
         </MessageBubble>
       )
