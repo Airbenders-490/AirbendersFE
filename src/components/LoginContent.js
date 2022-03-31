@@ -112,14 +112,19 @@ class LoginContent extends Component {
                     response => {
                         console.log(response.data)
                         var decoded = jwt_decode(response.data.token)
-                        this.setState({
-                            isLoggedIn: response.data.token ? true : false
-                        }, () => {
-                            this.props.handleLogin(this.state.isLoggedIn)
-                        });
+
                         // Save jwt in AsyncStorage
                         this.storeData("token", response.data.token)
-                        this.storeData("userID", decoded.iss)
+                        .then(() =>
+                            this.storeData("userID", decoded.iss)
+                            .then(() =>
+                                this.setState({
+                                    isLoggedIn: response.data.token ? true : false
+                                }, () => {
+                                    this.props.handleLogin(this.state.isLoggedIn)
+                                })
+                            )
+                        )
                     }
                 )
                 .catch(
