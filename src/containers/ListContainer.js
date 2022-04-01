@@ -149,7 +149,8 @@ class ListContainer extends Component {
                 isElevated={this.props.isElevated}
                 backgroundColor='#E3E3E3'
                 marginTop={this.props.marginTop}
-                marginBottom={this.props.marginBottom}>
+                marginBottom={this.props.marginBottom}
+                contentContainerStyle={{ paddingBottom: 60 }}>
                 {this.Header()}
                 {this.props.children}
             </Container>

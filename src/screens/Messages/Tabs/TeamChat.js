@@ -66,13 +66,16 @@ class TeamChat extends Component {
     navigateToChat(mockConversation, room) {
         this.props.navigation.navigate('ConversationScreen', {
             conversation: mockConversation,
-            room: room
+            room: room,
+            userID: this.state.userID,
+            getChatRooms: this.getChatRooms
         })
     }
 
     removeTeam = async (room) => {
 
         let token = await AsyncStorage.getItem("token")
+        let user = await AsyncStorage.getItem("userID")
 
         if (room.admin.id === user) {
             alert("Deleting delete room")

@@ -31,7 +31,10 @@ class MessageBubble extends Component {
           if (this.props.onEdit) {
             let message = this.props.message;
             message.MessageBody = this.state.messageBody
-            this.props.onEdit(message)
+            let prom = this.props.onEdit(message)
+            prom
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log(err.response))
           }
           console.log('Update message content with edit');
         }
