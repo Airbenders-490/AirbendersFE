@@ -1,15 +1,11 @@
 import React, { Component, } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import PropTypes from 'prop-types';
-import { Button, View, TouchableOpacity, Text, Image, ScrollView, Pressable } from 'react-native';
+import { ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import styled from 'styled-components';
-import ScreenContainer from '../../../containers/ScreenContainer';
 import MessageListItem from '../../../components/GroupListItem.js';
 import theme from '../../../styles/theme.style.js';
-import { createStackNavigator } from '@react-navigation/stack';
-import MessagingScreen from '../Messaging.js';
 import FirstConvo from '../../../data/mock/FirstConversation.json';
 import SecondConvo from '../../../data/mock/SecondConversation.json';
 

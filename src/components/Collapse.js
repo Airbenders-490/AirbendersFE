@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { TouchableOpacity, LayoutAnimation } from 'react-native';
+import { LayoutAnimation } from 'react-native';
 import theme from '../styles/theme.style.js';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 

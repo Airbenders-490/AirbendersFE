@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';

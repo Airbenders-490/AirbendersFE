@@ -2,9 +2,9 @@ import React, { Component, useState } from 'react';
 import { LogBox } from "react-native"
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Text, View, TouchableOpacity, TextInput, Pressable, Image, LayoutAnimation, UIManager, Alert } from 'react-native';
+import { Pressable, LayoutAnimation, UIManager, Alert } from 'react-native';
 import theme from '../styles/theme.style.js';
-import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
+import { TextBody, Title } from '../containers/TextContainer.js';
 import CustomButton from './button.js';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';

@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
-import theme from "../../styles/theme.style.js";
-import { StyleSheet, View, Text, Pressable, Dimensions } from "react-native";
-import ScreenContainer from "../../containers/ScreenContainer.js";
 import MessageTabs from "./MessageTabs.js";
 import ConversationScreen from "./ConversationScreen.js";
 

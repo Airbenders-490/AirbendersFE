@@ -6,10 +6,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
-import { Caption, TextBody, Title, Subtitle } from '../containers/TextContainer.js';
-import UserIcon from '../assets/images/icons/user_fill.png'
+import { TextBody, Subtitle } from '../containers/TextContainer.js';
 import YesNoModal from './modals/YesNoModal.js'
-import { useCode } from 'react-native-reanimated';
 
 class TeamListItem extends Component {
     constructor(props) {

@@ -49,10 +49,3 @@ const Emoji = (props) => {
 };
 
 export default Emoji;
-
-
-
-
-
-
-

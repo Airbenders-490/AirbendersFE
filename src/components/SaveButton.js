@@ -1,6 +1,4 @@
 import React,  { Component, } from 'react';
-import PropTypes from 'prop-types';
-import { Button, View, TouchableOpacity, Text, Image} from 'react-native';
 import styled from 'styled-components';
 import SaveIcon from '../assets/images/icons/save-icon.png';
 import theme from '../styles/theme.style.js';

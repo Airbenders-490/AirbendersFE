@@ -2,16 +2,13 @@ import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import { Button, View, TouchableOpacity, Text, Image, ScrollView, Pressable, TouchableHighlightBase, Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
-import { Subtitle } from '../containers/TextContainer.js';
 import Label from './Label.js';
 import AcceptIcon from '../assets/images/icons/accept-icon.png'
 import DenyIcon from '../assets/images/icons/deny-icon.png'
-
-const totalWidth = Dimensions.get('window').width;
 
 class ParticipantListItem extends Component {
   constructor(props) {

@@ -5,7 +5,7 @@ import PinIcon from '../assets/images/icons/pin.png';
 import TrashIcon from '../assets/images/icons/trash-icon.png';
 import SaveIcon from '../assets/images/icons/save-icon.png';
 import theme from '../styles/theme.style.js';
-import { Container, Button, View, TouchableOpacity, Text, Image, Alert, StyleSheet} from 'react-native';
+import { Alert } from 'react-native';
 
 class MessageIcons extends Component {
   constructor(props) {

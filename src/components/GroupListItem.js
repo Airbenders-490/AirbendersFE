@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { View, Image, Switch, Platform } from 'react-native';
-import PropTypes from 'prop-types';
+import { Platform } from 'react-native';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
-import { Caption, TextBody, Title, Subtitle } from '../containers/TextContainer.js';
+import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
 import UserIcon from '../assets/images/icons/user_fill.png'
 
 class GroupListItem extends Component {

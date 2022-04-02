@@ -3,7 +3,6 @@ import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import styled from 'styled-components';
-import { createStackNavigator } from '@react-navigation/stack';
 import ListContainer from '../../../containers/ListContainer.js';
 import TeamListItem from '../../../components/TeamListItem';
 import CreateTeam from '../../../components/modals/CreateTeam.js';

@@ -1,7 +1,5 @@
 import React,  { Component, } from 'react';
-import PropTypes from 'prop-types';
-import { Button, View, TouchableOpacity, Text, Image, ScrollView} from 'react-native';
-import styled from 'styled-components';
+import { ScrollView} from 'react-native';
 import theme from '../../../styles/theme.style.js';
 import ParticipantListItem from '../../../components/ParticipantListItem';
 

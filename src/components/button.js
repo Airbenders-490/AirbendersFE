@@ -1,8 +1,7 @@
 import React,  { Component, } from 'react';
 import PropTypes from 'prop-types';
-import { View, TouchableOpacity, Text} from 'react-native';
 import styled from 'styled-components';
-import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
+import { Title } from '../containers/TextContainer.js';
 import theme from '../styles/theme.style.js';
 
 class Button extends Component {

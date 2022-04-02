@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
-import { View, Image, Switch,Text, Platform , ScrollView, TouchableOpacity} from 'react-native';
+import { View, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
-import MainContainer from './MainContainer.js';
-import { Caption, TextBody, Title, Subtitle } from './TextContainer.js';
-import UserIcon from '../assets/images/icons/user_fill.png'
-import { Pressable } from 'react-native';
 import MagnifyingIcon from '../assets/images/icons/magnifying.png';
-import Selection from '../assets/images/icons/selection.png';
 import Sort from '../assets/images/icons/sort.png';
 import XIcon from '../assets/images/icons/x-icon.png';
-import SearchBar from '../components/SearchBar.js';
-
 
 
 class ListContainer extends Component {

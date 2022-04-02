@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Pressable, Text, View, Image, TouchableOpacity, ScrollView, LayoutAnimation, KeyboardAvoidingView, UIManager } from 'react-native';
+import { View, ScrollView, LayoutAnimation, KeyboardAvoidingView, UIManager } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from '../../styles/theme.style.js';
 import { TextBody, Title, Subtitle, Caption } from '../../containers/TextContainer.js';
@@ -10,7 +9,6 @@ import MessageInput from '../../components/MessageInput.js';
 import FeatureButtons from '../../components/FeatureButtons.js';
 import ParticipantListItem from '../../components/ParticipantListItem.js';
 import MessageBubble from '../../components/MessageBubble.js';
-import Test from '../../data/mock/FirstConversation.json';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 

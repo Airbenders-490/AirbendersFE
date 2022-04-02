@@ -1,8 +1,6 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Switch, View, TouchableOpacity, Text, Image } from 'react-native';
 import styled from 'styled-components';
-import { TextBody } from '../containers/TextContainer';
 import theme from '../styles/theme.style.js';
 
 

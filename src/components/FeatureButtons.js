@@ -1,6 +1,4 @@
 import React,  { Component, } from 'react';
-import PropTypes from 'prop-types';
-import { Container, Button, View, TouchableOpacity, Text, Image} from 'react-native';
 import styled from 'styled-components';
 import SearchIcon from '../assets/images/icons/magnifying.png';
 import ProfileIcon from '../assets/images/icons/user_fill.png';

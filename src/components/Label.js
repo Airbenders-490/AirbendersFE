@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import StarIcon from '../assets/images/icons/star-icon.png';
-import XIcon from '../assets/images/icons/x-icon.png';
 import theme from '../styles/theme.style.js';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-
 
 class Label extends Component {
   constructor(props) {

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
-import { StyleSheet, Text, View, Image, TouchableOpacity, TextInputComponent, LayoutAnimation } from 'react-native';
-import TextInputContainer from '../containers/TextInputContainer';
-import { TextInput } from 'react-native-gesture-handler';
 import MessageOptions from '../components/MessageIcons.js';
 
 

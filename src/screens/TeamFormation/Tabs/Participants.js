@@ -1,11 +1,8 @@
 import React,  { Component, } from 'react';
 import ParticipantListItem from '../../../components/ParticipantListItem';
 import ListContainer from '../../../containers/ListContainer.js';
-import MainContainer from '../../../containers/MainContainer';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import { Text, View } from 'react-native';
 import styled from 'styled-components';
 import theme from '../../../styles/theme.style.js';
 
