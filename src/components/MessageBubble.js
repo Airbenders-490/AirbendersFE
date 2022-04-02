@@ -87,11 +87,9 @@ class MessageBubble extends Component {
             multiline={true}
             editable={this.state.isInEditingMode}
             isAuthor={this.props.isAuthor}
-            onEndEditing={(e) =>
-              {
-                  this.setState({messageBody: e.nativeEvent.text})
-              }}
-            />
+            defaultValue={this.props.children}
+            onChangeText={(text) => this.setState({ messageBody: text })}
+          />
         </TextContainer>
         {
           !this.props.isAuthor &&
@@ -122,7 +120,6 @@ const TextContainer = styled.TouchableOpacity`
   padding-horizontal: 13;
   max-width: 70%;
   display: flex;
-  flex:1;
 `;
 
 const WrittenMessage = styled.TextInput`
