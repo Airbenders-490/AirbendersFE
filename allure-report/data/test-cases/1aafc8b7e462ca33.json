@@ -1,12 +1,12 @@
 {
-  "uid" : "282952451c86829c",
-  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section",
-  "fullName" : "The Profile page.GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section",
-  "historyId" : "ca021d9d68b179fdbc2963576b3b521c",
+  "uid" : "1aafc8b7e462ca33",
+  "name" : "GIVEN a Team Chats tab THEN there is a Message conversation",
+  "fullName" : "The Chat Room.GIVEN a Team Chats tab THEN there is a Message conversation",
+  "historyId" : "ab888b79cc4863fc91db0c06544a2d75",
   "time" : {
-    "start" : 1648882606336,
-    "stop" : 1648882623471,
-    "duration" : 17135
+    "start" : 1648883318584,
+    "stop" : 1648883332027,
+    "duration" : 13443
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section"
+    "value" : "GIVEN a Team Chats tab THEN there is a Message conversation"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "282952451c86829c.json",
+  "source" : "1aafc8b7e462ca33.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

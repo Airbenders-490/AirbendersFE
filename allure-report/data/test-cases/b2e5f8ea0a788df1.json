@@ -1,12 +1,12 @@
 {
-  "uid" : "b62267d0f4229a67",
-  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
-  "fullName" : "The Profile page.GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
-  "historyId" : "614a137b4952a75440ec08a50fb3e954",
+  "uid" : "b2e5f8ea0a788df1",
+  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
+  "historyId" : "a06f333530d884b5ffdb87ee7c810f45",
   "time" : {
-    "start" : 1648882573911,
-    "stop" : 1648882591498,
-    "duration" : 17587
+    "start" : 1648882485228,
+    "stop" : 1648882499674,
+    "duration" : 14446
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section"
+    "value" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "b62267d0f4229a67.json",
+  "source" : "b2e5f8ea0a788df1.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

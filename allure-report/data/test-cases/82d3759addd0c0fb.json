@@ -1,12 +1,12 @@
 {
-  "uid" : "d9bcb8402c46d6fd",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
-  "historyId" : "365abf136701d09e9d79d6e6bb9eda82",
+  "uid" : "82d3759addd0c0fb",
+  "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
+  "historyId" : "c7ca8dc7ad9e66a48e630f616c0f8725",
   "time" : {
-    "start" : 1648882542996,
-    "stop" : 1648882558992,
-    "duration" : 15996
+    "start" : 1648882472120,
+    "stop" : 1648882484919,
+    "duration" : 12799
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message"
+    "value" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "d9bcb8402c46d6fd.json",
+  "source" : "82d3759addd0c0fb.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

@@ -1,12 +1,12 @@
 {
-  "uid" : "3e5a5e9facd9b9ea",
-  "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page THEN the Classes Taken section is displayed",
-  "historyId" : "dab5b6ca92adf9ef81945dc7659fbfca",
+  "uid" : "6d5bc4a95048535d",
+  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
+  "historyId" : "9072e228b7475d58cb1ee879fc750097",
   "time" : {
-    "start" : 1648882446085,
-    "stop" : 1648882458932,
-    "duration" : 12847
+    "start" : 1648882500081,
+    "stop" : 1648882514127,
+    "duration" : 14046
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN the Classes Taken section is displayed"
+    "value" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "3e5a5e9facd9b9ea.json",
+  "source" : "6d5bc4a95048535d.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

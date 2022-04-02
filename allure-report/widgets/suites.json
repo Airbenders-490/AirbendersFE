@@ -1,5 +1,5 @@
 {
-  "total" : 1,
+  "total" : 2,
   "items" : [ {
     "uid" : "4015aacb36c88f6bfc458178e68fadb2",
     "name" : "The Profile page",
@@ -10,6 +10,17 @@
       "passed" : 15,
       "unknown" : 0,
       "total" : 15
+    }
+  }, {
+    "uid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+    "name" : "The Chat Room",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
     }
   } ]
 }

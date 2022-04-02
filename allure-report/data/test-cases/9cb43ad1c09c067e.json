@@ -1,12 +1,12 @@
 {
-  "uid" : "62f1f40bd09afdb7",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
-  "historyId" : "f45c712336baeda3a7e5350a00f1a19f",
+  "uid" : "9cb43ad1c09c067e",
+  "name" : "GIVEN the profile page THEN the setting icon is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page THEN the setting icon is displayed",
+  "historyId" : "edf8c43ab5dea3e8b38f8e683d3c2f9e",
   "time" : {
-    "start" : 1648882527536,
-    "stop" : 1648882542789,
-    "duration" : 15253
+    "start" : 1648882421156,
+    "stop" : 1648882434165,
+    "duration" : 13009
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name"
+    "value" : "GIVEN the profile page THEN the setting icon is displayed"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "62f1f40bd09afdb7.json",
+  "source" : "9cb43ad1c09c067e.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

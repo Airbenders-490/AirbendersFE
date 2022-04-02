@@ -1,12 +1,12 @@
 {
-  "uid" : "88098ca18288d3d9",
-  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
-  "historyId" : "9072e228b7475d58cb1ee879fc750097",
+  "uid" : "f2a92c4714abc510",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
+  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
+  "historyId" : "d4624ed1824e8f0aa92dacc3e993511f",
   "time" : {
-    "start" : 1648882500081,
-    "stop" : 1648882514127,
-    "duration" : 14046
+    "start" : 1648882591816,
+    "stop" : 1648882606007,
+    "duration" : 14191
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed"
+    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "88098ca18288d3d9.json",
+  "source" : "f2a92c4714abc510.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

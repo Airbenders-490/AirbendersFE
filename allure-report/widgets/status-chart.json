@@ -1,25 +1,5 @@
 [ {
-  "uid" : "be148bf519f57819",
-  "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-  "time" : {
-    "start" : 1648882459227,
-    "stop" : 1648882471960,
-    "duration" : 12733
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "62f1f40bd09afdb7",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
-  "time" : {
-    "start" : 1648882527536,
-    "stop" : 1648882542789,
-    "duration" : 15253
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "de5a884e9dca15d4",
+  "uid" : "9cb43ad1c09c067e",
   "name" : "GIVEN the profile page THEN the setting icon is displayed",
   "time" : {
     "start" : 1648882421156,
@@ -29,107 +9,27 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "90e05c810054ac52",
-  "name" : "GIVEN the profile page THEN the user's name is displayed",
+  "uid" : "e9e42b4dd84cb780",
+  "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
   "time" : {
-    "start" : 1648882406093,
-    "stop" : 1648882420756,
-    "duration" : 14663
+    "start" : 1648882459227,
+    "stop" : 1648882471960,
+    "duration" : 12733
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "3e5a5e9facd9b9ea",
-  "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
+  "uid" : "e11eb24157ebef42",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
   "time" : {
-    "start" : 1648882446085,
-    "stop" : 1648882458932,
-    "duration" : 12847
+    "start" : 1648882527536,
+    "stop" : 1648882542789,
+    "duration" : 15253
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "68167cb5cee1edc",
-  "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
-  "time" : {
-    "start" : 1648882434461,
-    "stop" : 1648882445838,
-    "duration" : 11377
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "b62267d0f4229a67",
-  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
-  "time" : {
-    "start" : 1648882573911,
-    "stop" : 1648882591498,
-    "duration" : 17587
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "58f2804b0684881a",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
-  "time" : {
-    "start" : 1648882559354,
-    "stop" : 1648882573484,
-    "duration" : 14130
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "76c736904853da90",
-  "name" : "GIVEN the profile page THEN a search icon is displayed under the Classes Taken section",
-  "time" : {
-    "start" : 1648882514352,
-    "stop" : 1648882527281,
-    "duration" : 12929
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d9bcb8402c46d6fd",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
-  "time" : {
-    "start" : 1648882542996,
-    "stop" : 1648882558992,
-    "duration" : 15996
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "88098ca18288d3d9",
-  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
-  "time" : {
-    "start" : 1648882500081,
-    "stop" : 1648882514127,
-    "duration" : 14046
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "92a02a33ca7a7497",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
-  "time" : {
-    "start" : 1648882591816,
-    "stop" : 1648882606007,
-    "duration" : 14191
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "3730bbf15defd302",
-  "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
-  "time" : {
-    "start" : 1648882472120,
-    "stop" : 1648882484919,
-    "duration" : 12799
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "91a32212847dd3a4",
+  "uid" : "b2e5f8ea0a788df1",
   "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
   "time" : {
     "start" : 1648882485228,
@@ -139,12 +39,132 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "282952451c86829c",
+  "uid" : "f3484c61f4a823dd",
+  "name" : "GIVEN the profile page THEN a search icon is displayed under the Classes Taken section",
+  "time" : {
+    "start" : 1648882514352,
+    "stop" : 1648882527281,
+    "duration" : 12929
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f2a92c4714abc510",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
+  "time" : {
+    "start" : 1648882591816,
+    "stop" : 1648882606007,
+    "duration" : 14191
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b112818734e3f848",
   "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section",
   "time" : {
     "start" : 1648882606336,
     "stop" : 1648882623471,
     "duration" : 17135
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a365dcb156def21e",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
+  "time" : {
+    "start" : 1648882559354,
+    "stop" : 1648882573484,
+    "duration" : 14130
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "82d3759addd0c0fb",
+  "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
+  "time" : {
+    "start" : 1648882472120,
+    "stop" : 1648882484919,
+    "duration" : 12799
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e94d39a609a70ed8",
+  "name" : "GIVEN a loaded app page THEN there is a Team Chats tab",
+  "time" : {
+    "start" : 1648883303869,
+    "stop" : 1648883318350,
+    "duration" : 14481
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "76835e44787ef983",
+  "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
+  "time" : {
+    "start" : 1648882446085,
+    "stop" : 1648882458932,
+    "duration" : 12847
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1aafc8b7e462ca33",
+  "name" : "GIVEN a Team Chats tab THEN there is a Message conversation",
+  "time" : {
+    "start" : 1648883318584,
+    "stop" : 1648883332027,
+    "duration" : 13443
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ff7279edaf1d2930",
+  "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
+  "time" : {
+    "start" : 1648882434461,
+    "stop" : 1648882445838,
+    "duration" : 11377
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d308d25eaa06f8a5",
+  "name" : "GIVEN the profile page THEN the user's name is displayed",
+  "time" : {
+    "start" : 1648882406093,
+    "stop" : 1648882420756,
+    "duration" : 14663
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6d5bc4a95048535d",
+  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
+  "time" : {
+    "start" : 1648882500081,
+    "stop" : 1648882514127,
+    "duration" : 14046
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "11cba6591911c320",
+  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
+  "time" : {
+    "start" : 1648882573911,
+    "stop" : 1648882591498,
+    "duration" : 17587
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4948c94a5a7599b1",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
+  "time" : {
+    "start" : 1648882542996,
+    "stop" : 1648882558992,
+    "duration" : 15996
   },
   "status" : "passed",
   "severity" : "normal"
