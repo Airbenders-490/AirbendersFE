@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, View } from "react-native";
+import { Modal, View, Alert } from "react-native";
 import { TextBody, Subtitle } from '../../containers/TextContainer.js';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -53,31 +53,41 @@ class CreateTeam extends Component {
   }
 
   createTeam = async () => {
+    let profileExists = await AsyncStorage.getItem("profileExists")
     const regex = /^\d+$/g;
     let isnum = regex.test(this.state.maxNum.trim());
 
-    if (this.state.teamName !== "" && this.state.courseNumber !== "" && isnum) {
-      console.log('create team')
-      let room = {
-        "room_id": this.state.teamName.trim(),
-        "name": this.state.teamName.trim(),
-        "class": this.state.courseNumber.toLowerCase().trim(),
-        "max_participants": parseInt(this.state.maxNum.trim())
+    if (profileExists === "true") {
+
+      if (this.state.teamName !== "" && this.state.courseNumber !== "" && isnum) {
+        console.log('create team')
+        let room = {
+          "room_id": this.state.teamName.trim(),
+          "name": this.state.teamName.trim(),
+          "class": this.state.courseNumber.toLowerCase().trim(),
+          "max_participants": parseInt(this.state.maxNum.trim())
+        }
+        axios
+          .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, this.getConfig(await this.getData("token")))
+          // .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config) // for testing
+          .then(
+            response => {
+              console.log(response.data);
+            }
+          )
+          .catch(
+            // TODO: On 404, block all access to app until register is complete
+            error => console.log(error.response.data.code)
+          )
+      } else {
+        alert("All fields are mandatory to create a team, max participants is a number")
       }
-      axios
-        .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, this.getConfig(await this.getData("token")))
-        // .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config) // for testing
-        .then(
-          response => {
-            console.log(response.data);
-          }
-        )
-        .catch(
-          // TODO: On 404, block all access to app until register is complete
-          error => console.log(error.response.data.code)
-        )
     } else {
-      alert("All fields are mandatory to create a team, max participants is a number")
+      Alert.alert(
+        "Create Profile First",
+        "You must fill out your profile (name at least) before using the rest of the app! Tap the GEAR icon to edit and hit SAVE at the BOTTOM"
+      );
+      this.props.navigation.navigate('Profile')
     }
 
 
