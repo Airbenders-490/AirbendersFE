@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import theme from "../../styles/theme.style.js";
-import { StyleSheet, View, Text, Pressable, Dimensions } from "react-native";
+import { StyleSheet, View, Text, Pressable, Dimensions, ScrollView } from "react-native";
 import ScreenContainer from "../../containers/ScreenContainer.js";
 import MessageTabs from "./MessageTabs.js";
 import ConversationScreen from "./ConversationScreen.js";
+import styled from "styled-components";
+import { Title } from "../../containers/TextContainer.js";
 
 const Stack = createStackNavigator();
 
@@ -16,9 +18,12 @@ class MessagesScreen extends Component {
 
   render() {
     return (
-      // <ScreenContainer screenTitle="Messages" ignorePadding>
-      <MessageTabs navigation={this.props.navigation} hideTabBar={this.props.hideTabBar} />
-      // </ScreenContainer>
+      // <Container>
+      //   <Header>
+      //       <Title titleColor={theme.COLOR_BLACK}>{this.props.screenTitle}</Title>
+      //   </Header>
+        <MessageTabs navigation={this.props.navigation} hideTabBar={this.props.hideTabBar} />
+      // </Container>
     );
   }
 }
@@ -46,6 +51,19 @@ class Messages extends Component {
     );
   }
 }
+
+// STYLED-COMPONENTS
+const Container = styled.View`
+  /* padding separated as the following to allow unitless values */
+  padding-top: ${theme.SPACING_LARGE};
+`;
+
+const Header = styled.View`
+  margin-horizontal: ${theme.SPACING_MEDIUM};
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
 
 export default function (props) {
   const navigation = useNavigation();
