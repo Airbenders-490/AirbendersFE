@@ -15,6 +15,8 @@ class MessageBubble extends Component {
     this.state = {
       isInEditingMode: false,
       isSelected: false,
+      isDeleted: false,
+      messageBody: "",
     }
 
     this.triggerMessageOption = this.triggerMessageOption.bind(this);
@@ -26,14 +28,26 @@ class MessageBubble extends Component {
     switch (option) {
       case 'EDIT': {
         if (this.state.isInEditingMode) {
-          // CONNECT TO EDIT CONNECTION
+          if (this.props.onEdit) {
+            let message = this.props.message;
+            message.MessageBody = this.state.messageBody
+            let prom = this.props.onEdit(message)
+            prom
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log(err.response))
+          }
           console.log('Update message content with edit');
         }
         this.setState({ isInEditingMode: !this.state.isInEditingMode });
       }
         break;
       case 'DELETE': {
-        //TODO: Delete message
+        if (this.props.onDelete) {
+          let prom = this.props.onDelete(this.props.message)
+          prom
+            .then(() => (this.setState({ isDeleted: true }, this.setState({ isDeleted: true }))))
+            .catch((err) => console.log(err.response))
+        }
       }
         break;
       case 'PIN': {
@@ -53,7 +67,10 @@ class MessageBubble extends Component {
 
   render() {
     return (
-      <MessageContainer isAuthor={this.props.isAuthor}>
+      <MessageContainer 
+        isAuthor={this.props.isAuthor}
+        isDeleted={this.state.isDeleted}  
+      >
         {
           this.props.isAuthor &&
           <MessageOptions
@@ -69,7 +86,12 @@ class MessageBubble extends Component {
             placeholderTextColor={this.props.isAuthor ? theme.COLOR_WHITE : theme.COLOR_BLACK}
             multiline={true}
             editable={this.state.isInEditingMode}
-            isAuthor={this.props.isAuthor} />
+            isAuthor={this.props.isAuthor} 
+            onEndEditing={(e) => 
+              {
+                  this.setState({messageBody: e.nativeEvent.text})
+              }}
+            />
         </TextContainer>
         {
           !this.props.isAuthor &&
@@ -86,7 +108,7 @@ class MessageBubble extends Component {
 
 //STYLED-COMPONENTS
 const MessageContainer = styled.View`
-  display: flex;
+  display: ${props => props.isDeleted ? "none" : "flex"};
   flex-direction: row;
   width: 100%;
   justify-content: ${(props) => props.isAuthor ? 'flex-end' : 'flex-start'};

@@ -1,7 +1,12 @@
 // All required static values
 //Endpoints
-global.authAPI = 'http://34.125.37.12:8080/api';
-global.profileAPI = 'http://real.encs.concordia.ca/profile';
+global.authAPI = '34.125.37.12:8080/api';
+global.profileAPI = 'real.encs.concordia.ca/profile';
+global.chatAPI = 'real.encs.concordia.ca/chat';
 
 //Authentifications Bearer Token
-global.config = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4';
+global.config = {
+    headers: {
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4NDIxNjY0LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.mYn60gOei94Fw_tQG0c3JKMKlitbcPZbnhj8sKnQjPE'
+    }
+}

@@ -4,27 +4,46 @@ import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
 import PropTypes from 'prop-types';
 import SendIcon from '../assets/images/icons/right-arrow.png';
+import { Keyboard } from 'react-native';
 
 
 class MessageInput extends Component {
   constructor(props) {
         super(props);
+        this.state = {
+          message: ""
+        };
 
-        this.onButtonPress = this.onButtonPress.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.onTextChange = this.onTextChange.bind(this);
     }
 
-    onButtonPress() {
-      this.props.sendMessageAction && this.props.sendMessageAction();
+  onSubmit() {
+    if (this.props.sendMessageAction) {
+      this.props.sendMessageAction(this.state.message)
     }
+    this.textInput.clear()
+    Keyboard.dismiss()
+  }
+
+  onTextChange(text) {
+    this.setState({message: text})
+  }
+
+    onTextChange(text) {
+      this.setState({message: text})
+    }
+
 
   render() {
     return (
-        <MessageInputContainer>
-            <MessageTextInput multiline={true} placeholder='Message'></MessageTextInput>
-            <SendButton onPress={this.onButtonPress}>
-                <CustomSendButton source= {SendIcon}></CustomSendButton>
-            </SendButton>
-        </MessageInputContainer>
+      <MessageInputContainer>
+          <MessageTextInput ref={input => { this.textInput = input }} onChangeText={this.onTextChange}
+            value={this.state.message} multiline={true} placeholder='Message' onSubmitEditing={this.onSubmit}></MessageTextInput >
+          <SendButton onPress={this.onSubmit}>
+              <CustomSendButton source= {SendIcon}></CustomSendButton>
+          </SendButton>
+      </MessageInputContainer>
 
     );
   }
@@ -45,7 +64,7 @@ const MessageInputContainer = styled.View`
 
 const MessageTextInput = styled.TextInput`
     font-size: ${theme.FONT_SIZE_MEDIUM};
-    font-family: ${theme.FONT_REGULAR}; 
+    font-family: ${theme.FONT_REGULAR};
     color: ${(props) => (props.textColor ? props.textColor : theme.COLOR_BLACK)};
     width: 300;
 `;

@@ -70,6 +70,7 @@ class Teams extends Component {
             <ListContainer
               tabName={this.state.tabName}
               onSearchTeamByClass={this.onSearchTeamByClass}
+              marginBottom={40}
             >
             {displayTeams}
               <CreateTeam/>

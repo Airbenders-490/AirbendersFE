@@ -104,7 +104,8 @@ class UserProfile extends Component {
             token: await this.getData("token")
         })
         axios
-            .get(`http://real.encs.concordia.ca/profile/api/student/${this.state.userID}`, this.getConfig(this.state.token))
+            .get(`http://${global.profileAPI}/api/student/${this.state.userID}`, this.getConfig(this.state.token))
+            // .get(`http://real.encs.concordia.ca/profile/api/student/${this.state.userID}`, this.getConfig(this.state.token))
             // .get(`http://real.encs.concordia.ca/profile/api/student/${userID}`, config) // for testing w/out login
             .then(
                 response => {
