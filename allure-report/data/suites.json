@@ -2,229 +2,203 @@
   "uid" : "98d3104e051c652961429bf95fa0b5d6",
   "name" : "suites",
   "children" : [ {
-    "name" : "My Login application",
+    "name" : "The Profile page",
     "children" : [ {
-      "name" : "GIVEN a loaded app page THEN the welcome title should be displayed",
-      "uid" : "6f5a16c548af4d7f",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page THEN the user's name is displayed",
+      "uid" : "90e05c810054ac52",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431785731,
-        "stop" : 1648431798564,
-        "duration" : 12833
+        "start" : 1648882406093,
+        "stop" : 1648882420756,
+        "duration" : 14663
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN a loaded app page THEN user should see the email field",
-      "uid" : "f331dc2858f9b32",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page THEN the setting icon is displayed",
+      "uid" : "de5a884e9dca15d4",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431798791,
-        "stop" : 1648431809295,
-        "duration" : 10504
+        "start" : 1648882421156,
+        "stop" : 1648882434165,
+        "duration" : 13009
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN a loaded app page THEN user should see the password field",
-      "uid" : "58a8f18f8945c472",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
+      "uid" : "68167cb5cee1edc",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431809504,
-        "stop" : 1648431820038,
-        "duration" : 10534
+        "start" : 1648882434461,
+        "stop" : 1648882445838,
+        "duration" : 11377
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN a loaded app page THEN user should see the login button",
-      "uid" : "f3a9ffefc4872671",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
+      "uid" : "3e5a5e9facd9b9ea",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431820319,
-        "stop" : 1648431830601,
-        "duration" : 10282
+        "start" : 1648882446085,
+        "stop" : 1648882458932,
+        "duration" : 12847
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN a loaded app page THEN user should see the login button with LOGIN text",
-      "uid" : "6b2077c23bdc46e7",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
+      "uid" : "be148bf519f57819",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431830807,
-        "stop" : 1648431840878,
-        "duration" : 10071
+        "start" : 1648882459227,
+        "stop" : 1648882471960,
+        "duration" : 12733
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN a loaded app page THEN user should see the Forgot Password button with appropriate text",
-      "uid" : "dfaabf80983b06ab",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
+      "uid" : "3730bbf15defd302",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431841164,
-        "stop" : 1648431851330,
-        "duration" : 10166
+        "start" : 1648882472120,
+        "stop" : 1648882484919,
+        "duration" : 12799
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN a loaded app page THEN user should see the Register button with appropriate text",
-      "uid" : "6297ede027484ca0",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
+      "uid" : "91a32212847dd3a4",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431851802,
-        "stop" : 1648431862522,
-        "duration" : 10720
+        "start" : 1648882485228,
+        "stop" : 1648882499674,
+        "duration" : 14446
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN a loaded app page AND user clicks the Forgot Password link THEN user should be redirected to the Forgot Password page",
-      "uid" : "4ad9366abe3010fc",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
+      "uid" : "88098ca18288d3d9",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431862782,
-        "stop" : 1648431874971,
-        "duration" : 12189
+        "start" : 1648882500081,
+        "stop" : 1648882514127,
+        "duration" : 14046
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN the Forgot Password page AND user clicks the back button THEN user should be redirected to the login page",
-      "uid" : "8f4d9296fa6807c",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page THEN a search icon is displayed under the Classes Taken section",
+      "uid" : "76c736904853da90",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431875163,
-        "stop" : 1648431889531,
-        "duration" : 14368
+        "start" : 1648882514352,
+        "stop" : 1648882527281,
+        "duration" : 12929
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN a loaded app page AND user clicks the Register link THEN user should be redireted to the Register page",
-      "uid" : "69edc5a5539c5978",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
+      "uid" : "62f1f40bd09afdb7",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431889885,
-        "stop" : 1648431901625,
-        "duration" : 11740
+        "start" : 1648882527536,
+        "stop" : 1648882542789,
+        "duration" : 15253
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN the Register page THEN the register form is displayed",
-      "uid" : "9f50b279285cc67f",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
+      "uid" : "d9bcb8402c46d6fd",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431901981,
-        "stop" : 1648431914179,
-        "duration" : 12198
+        "start" : 1648882542996,
+        "stop" : 1648882558992,
+        "duration" : 15996
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN the Register page THEN the Forgot Password link is displayed",
-      "uid" : "3ca4b14e79237903",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
+      "uid" : "58f2804b0684881a",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431914548,
-        "stop" : 1648431924527,
-        "duration" : 9979
+        "start" : 1648882559354,
+        "stop" : 1648882573484,
+        "duration" : 14130
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN the Register page AND user clicks Forgot Password THEN the Forgot Password link is displayed",
-      "uid" : "e186c4044004f58",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
+      "uid" : "b62267d0f4229a67",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431924841,
-        "stop" : 1648431938247,
-        "duration" : 13406
+        "start" : 1648882573911,
+        "stop" : 1648882591498,
+        "duration" : 17587
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN the Forgot Password in the Register page AND user clicks the back button THEN the user is redirected to the Register page",
-      "uid" : "9bdad6f4e294ee0b",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
+      "uid" : "92a02a33ca7a7497",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431938559,
-        "stop" : 1648431953634,
-        "duration" : 15075
+        "start" : 1648882591816,
+        "stop" : 1648882606007,
+        "duration" : 14191
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN the Register page THEN the Register button with Register text is displayed",
-      "uid" : "3f51e87278884868",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
+      "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section",
+      "uid" : "282952451c86829c",
+      "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
-        "start" : 1648431953875,
-        "stop" : 1648431965388,
-        "duration" : 11513
-      },
-      "flaky" : false,
-      "newFailed" : false,
-      "parameters" : [ "emulator-5554 11-11" ]
-    }, {
-      "name" : "GIVEN the Register page AND user clicks the Login button THEN they are redirected to the login page",
-      "uid" : "d319a391f362c323",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
-      "status" : "passed",
-      "time" : {
-        "start" : 1648431965833,
-        "stop" : 1648431978808,
-        "duration" : 12975
-      },
-      "flaky" : false,
-      "newFailed" : false,
-      "parameters" : [ "emulator-5554 11-11" ]
-    }, {
-      "name" : "GIVEN a valid email and password THEN user should be able to login",
-      "uid" : "3f940f579eb0890f",
-      "parentUid" : "ff9b43c34a817b44fa9b6edf61b00141",
-      "status" : "passed",
-      "time" : {
-        "start" : 1648431979130,
-        "stop" : 1648431992289,
-        "duration" : 13159
+        "start" : 1648882606336,
+        "stop" : 1648882623471,
+        "duration" : 17135
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     } ],
-    "uid" : "ff9b43c34a817b44fa9b6edf61b00141"
+    "uid" : "4015aacb36c88f6bfc458178e68fadb2"
   } ]
 }

@@ -1,15 +1,15 @@
 {
   "total" : 1,
   "items" : [ {
-    "uid" : "ff9b43c34a817b44fa9b6edf61b00141",
-    "name" : "My Login application",
+    "uid" : "4015aacb36c88f6bfc458178e68fadb2",
+    "name" : "The Profile page",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 17,
+      "passed" : 15,
       "unknown" : 0,
-      "total" : 17
+      "total" : 15
     }
   } ]
 }

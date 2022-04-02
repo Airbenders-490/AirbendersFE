@@ -1,170 +1,150 @@
 [ {
-  "uid" : "9bdad6f4e294ee0b",
-  "name" : "GIVEN the Forgot Password in the Register page AND user clicks the back button THEN the user is redirected to the Register page",
+  "uid" : "be148bf519f57819",
+  "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
   "time" : {
-    "start" : 1648431938559,
-    "stop" : 1648431953634,
-    "duration" : 15075
+    "start" : 1648882459227,
+    "stop" : 1648882471960,
+    "duration" : 12733
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "6f5a16c548af4d7f",
-  "name" : "GIVEN a loaded app page THEN the welcome title should be displayed",
+  "uid" : "62f1f40bd09afdb7",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
   "time" : {
-    "start" : 1648431785731,
-    "stop" : 1648431798564,
-    "duration" : 12833
+    "start" : 1648882527536,
+    "stop" : 1648882542789,
+    "duration" : 15253
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "4ad9366abe3010fc",
-  "name" : "GIVEN a loaded app page AND user clicks the Forgot Password link THEN user should be redirected to the Forgot Password page",
+  "uid" : "de5a884e9dca15d4",
+  "name" : "GIVEN the profile page THEN the setting icon is displayed",
   "time" : {
-    "start" : 1648431862782,
-    "stop" : 1648431874971,
-    "duration" : 12189
+    "start" : 1648882421156,
+    "stop" : 1648882434165,
+    "duration" : 13009
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "f331dc2858f9b32",
-  "name" : "GIVEN a loaded app page THEN user should see the email field",
+  "uid" : "90e05c810054ac52",
+  "name" : "GIVEN the profile page THEN the user's name is displayed",
   "time" : {
-    "start" : 1648431798791,
-    "stop" : 1648431809295,
-    "duration" : 10504
+    "start" : 1648882406093,
+    "stop" : 1648882420756,
+    "duration" : 14663
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "9f50b279285cc67f",
-  "name" : "GIVEN the Register page THEN the register form is displayed",
+  "uid" : "3e5a5e9facd9b9ea",
+  "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
   "time" : {
-    "start" : 1648431901981,
-    "stop" : 1648431914179,
-    "duration" : 12198
+    "start" : 1648882446085,
+    "stop" : 1648882458932,
+    "duration" : 12847
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "e186c4044004f58",
-  "name" : "GIVEN the Register page AND user clicks Forgot Password THEN the Forgot Password link is displayed",
+  "uid" : "68167cb5cee1edc",
+  "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
   "time" : {
-    "start" : 1648431924841,
-    "stop" : 1648431938247,
-    "duration" : 13406
+    "start" : 1648882434461,
+    "stop" : 1648882445838,
+    "duration" : 11377
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "8f4d9296fa6807c",
-  "name" : "GIVEN the Forgot Password page AND user clicks the back button THEN user should be redirected to the login page",
+  "uid" : "b62267d0f4229a67",
+  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
   "time" : {
-    "start" : 1648431875163,
-    "stop" : 1648431889531,
-    "duration" : 14368
+    "start" : 1648882573911,
+    "stop" : 1648882591498,
+    "duration" : 17587
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "3ca4b14e79237903",
-  "name" : "GIVEN the Register page THEN the Forgot Password link is displayed",
+  "uid" : "58f2804b0684881a",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
   "time" : {
-    "start" : 1648431914548,
-    "stop" : 1648431924527,
-    "duration" : 9979
+    "start" : 1648882559354,
+    "stop" : 1648882573484,
+    "duration" : 14130
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "3f51e87278884868",
-  "name" : "GIVEN the Register page THEN the Register button with Register text is displayed",
+  "uid" : "76c736904853da90",
+  "name" : "GIVEN the profile page THEN a search icon is displayed under the Classes Taken section",
   "time" : {
-    "start" : 1648431953875,
-    "stop" : 1648431965388,
-    "duration" : 11513
+    "start" : 1648882514352,
+    "stop" : 1648882527281,
+    "duration" : 12929
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "58a8f18f8945c472",
-  "name" : "GIVEN a loaded app page THEN user should see the password field",
+  "uid" : "d9bcb8402c46d6fd",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
   "time" : {
-    "start" : 1648431809504,
-    "stop" : 1648431820038,
-    "duration" : 10534
+    "start" : 1648882542996,
+    "stop" : 1648882558992,
+    "duration" : 15996
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "d319a391f362c323",
-  "name" : "GIVEN the Register page AND user clicks the Login button THEN they are redirected to the login page",
+  "uid" : "88098ca18288d3d9",
+  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
   "time" : {
-    "start" : 1648431965833,
-    "stop" : 1648431978808,
-    "duration" : 12975
+    "start" : 1648882500081,
+    "stop" : 1648882514127,
+    "duration" : 14046
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "dfaabf80983b06ab",
-  "name" : "GIVEN a loaded app page THEN user should see the Forgot Password button with appropriate text",
+  "uid" : "92a02a33ca7a7497",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
   "time" : {
-    "start" : 1648431841164,
-    "stop" : 1648431851330,
-    "duration" : 10166
+    "start" : 1648882591816,
+    "stop" : 1648882606007,
+    "duration" : 14191
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "69edc5a5539c5978",
-  "name" : "GIVEN a loaded app page AND user clicks the Register link THEN user should be redireted to the Register page",
+  "uid" : "3730bbf15defd302",
+  "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
   "time" : {
-    "start" : 1648431889885,
-    "stop" : 1648431901625,
-    "duration" : 11740
+    "start" : 1648882472120,
+    "stop" : 1648882484919,
+    "duration" : 12799
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "f3a9ffefc4872671",
-  "name" : "GIVEN a loaded app page THEN user should see the login button",
+  "uid" : "91a32212847dd3a4",
+  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
   "time" : {
-    "start" : 1648431820319,
-    "stop" : 1648431830601,
-    "duration" : 10282
+    "start" : 1648882485228,
+    "stop" : 1648882499674,
+    "duration" : 14446
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "6b2077c23bdc46e7",
-  "name" : "GIVEN a loaded app page THEN user should see the login button with LOGIN text",
+  "uid" : "282952451c86829c",
+  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section",
   "time" : {
-    "start" : 1648431830807,
-    "stop" : 1648431840878,
-    "duration" : 10071
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "3f940f579eb0890f",
-  "name" : "GIVEN a valid email and password THEN user should be able to login",
-  "time" : {
-    "start" : 1648431979130,
-    "stop" : 1648431992289,
-    "duration" : 13159
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "6297ede027484ca0",
-  "name" : "GIVEN a loaded app page THEN user should see the Register button with appropriate text",
-  "time" : {
-    "start" : 1648431851802,
-    "stop" : 1648431862522,
-    "duration" : 10720
+    "start" : 1648882606336,
+    "stop" : 1648882623471,
+    "duration" : 17135
   },
   "status" : "passed",
   "severity" : "normal"

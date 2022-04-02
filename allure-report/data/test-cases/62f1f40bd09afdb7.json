@@ -1,0 +1,58 @@
+{
+  "uid" : "62f1f40bd09afdb7",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
+  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
+  "historyId" : "f45c712336baeda3a7e5350a00f1a19f",
+  "time" : {
+    "start" : 1648882527536,
+    "stop" : 1648882542789,
+    "duration" : 15253
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name"
+  }, {
+    "name" : "package",
+    "value" : "The Profile page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "62f1f40bd09afdb7.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

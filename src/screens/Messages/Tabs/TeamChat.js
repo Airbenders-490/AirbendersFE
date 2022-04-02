@@ -45,8 +45,8 @@ class TeamChat extends Component {
 
     async getChatRooms() {
         console.log("getting chat rooms")
-        let token = await AsyncStorage.getItem("token")
-        let user = await AsyncStorage.getItem("userID")
+        let userID = "eaf54fae-1ab8-4b5a-8047-51904f6ae884"
+        let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4OTQxMjY0LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.ZNP2zhdZvFLsI4Bgy0BkgHGpnGl-rQd5x81lYZayHO4"
 
         axios
             .get(`http://real.encs.concordia.ca/chat/api/rooms`, this.getConfig(token)) // w/ login
@@ -77,8 +77,8 @@ class TeamChat extends Component {
 
     removeTeam = async (room) => {
 
-        let token = await AsyncStorage.getItem("token")
-        let user = await AsyncStorage.getItem("userID")
+        let userID = "eaf54fae-1ab8-4b5a-8047-51904f6ae884"
+        let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4OTQxMjY0LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.ZNP2zhdZvFLsI4Bgy0BkgHGpnGl-rQd5x81lYZayHO4"
 
         if (room.admin.id === user) {
             alert("Deleting delete room")
@@ -86,7 +86,7 @@ class TeamChat extends Component {
 
             axios
             .delete(`http://real.encs.concordia.ca/chat/api/rooms/${room.room_id}`, this.getConfig(token)) // w/ login
-            // .delete(`http://real.encs.concordia.ca/chat/api/rooms/${room.room_id}`, config) // for testing w/out login
+             //.delete(`http://real.encs.concordia.ca/chat/api/rooms/${room.room_id}`, config) // for testing w/out login
             .then(
                 response => {
                     console.log(response.data)

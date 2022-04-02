@@ -29,6 +29,7 @@ import MessagesIconFill from './src/assets/images/icons/message_bubble_fill.png'
 import FeedIconFill from './src/assets/images/icons/feed_fill.png';
 import ScheduleIconFill from './src/assets/images/icons/calendar_fill.png';
 import ProfileIconFill from './src/assets/images/icons/user_fill.png';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 LogBox.ignoreAllLogs();
 
@@ -106,7 +107,7 @@ export default class App extends React.Component {
 
     this.state = {
       fontsLoaded: false,
-      isLoggedIn: false,
+      isLoggedIn: true,
       showTabBar: true,
     };
 
@@ -127,6 +128,8 @@ export default class App extends React.Component {
     this._loadFontsAsync();
 
     // TODO: Read login state from AsyncStorage and update accordingly
+    AsyncStorage.setItem("userID", "eaf54fae-1ab8-4b5a-8047-51904f6ae884")
+    AsyncStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4OTQxMjY0LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.ZNP2zhdZvFLsI4Bgy0BkgHGpnGl-rQd5x81lYZayHO4")
   }
 
   hideTabBar(tabBarDisplayState) {

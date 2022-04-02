@@ -25,7 +25,7 @@ exports.config = {
         platformName: 'Android',
         platformVersion: '11',
         deviceName: 'emulator-5554',
-        app: '/Users/Vithuu/Documents/Concordia/Semester 12 - Fall 2021/SOEN 490/AirbendersFE-18241e7483c640149381f9e177268e5f-signed.apk',
+        app: '/Users/Vithuu/Documents/Concordia/Semester 12 - Fall 2021/SOEN 490/AirbendersFE-d9e5204ede334440bfa167a6b41038fe-signed.apk',
         automationName: 'UiAutomator2'
       }
     ],
