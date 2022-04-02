@@ -1,12 +1,12 @@
 {
-  "uid" : "be148bf519f57819",
-  "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-  "historyId" : "4ad66b99e731382d5157009d1bd972b7",
+  "uid" : "6882f16a7a74adc2",
+  "name" : "GIVEN the profile page THEN the user's name is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page THEN the user's name is displayed",
+  "historyId" : "2bfb38fc41bd53379fe6b42ec62825e6",
   "time" : {
-    "start" : 1648882459227,
-    "stop" : 1648882471960,
-    "duration" : 12733
+    "start" : 1648882406093,
+    "stop" : 1648882420756,
+    "duration" : 14663
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed"
+    "value" : "GIVEN the profile page THEN the user's name is displayed"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "be148bf519f57819.json",
+  "source" : "6882f16a7a74adc2.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

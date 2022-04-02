@@ -1,0 +1,76 @@
+{
+  "uid" : "b263f270e3c66154",
+  "name" : "GIVEN a logged in App THEN the user's currently Enrolled Classes is displayed",
+  "fullName" : "The Feed page.GIVEN a logged in App THEN the user's currently Enrolled Classes is displayed",
+  "historyId" : "f6723d4d64da153266f8b116a21b6134",
+  "time" : {
+    "start" : 1648909228819,
+    "stop" : 1648909249156,
+    "duration" : 20337
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "broken",
+  "statusMessage" : "element (\"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[1]\") still not displayed after 10000ms",
+  "statusTrace" : "Error: element (\"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[1]\") still not displayed after 10000ms\n                    at C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\commands\\browser\\waitUntil.js:66:23\n                    at Element.elementErrorHandlerCallbackFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:24:32)\n                    at Element.runCommandWithHooks (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:105:25)\n                    at Element.runCommandWithHooks (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:100:24)\n                    at Element.wrapCommandFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:67:44)\n                    at Element.<anonymous> (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\utils\\build\\shim.js:276:24)\n                    at Element.elementErrorHandlerCallback (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:48:12)\n                    at Element.waitForDisplayed (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\commands\\element\\waitForDisplayed.js:45:17)\n                    at Element.wrapCommandFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:60:23)\n                    at Element.elementErrorHandlerCallbackFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:24:65)\n                    at Element.waitForDisplayed (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:48:12)\n                    at Context.<anonymous> (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\test\\specs\\/FeedScreen.js:25:548)\n                    at Context.executeSync (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\index.js:38:22)\n                    at C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\index.js:69:73",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "element (\"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[1]\") still not displayed after 10000ms",
+    "statusTrace" : "Error: element (\"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[1]\") still not displayed after 10000ms\n                    at C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\commands\\browser\\waitUntil.js:66:23\n                    at Element.elementErrorHandlerCallbackFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:24:32)\n                    at Element.runCommandWithHooks (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:105:25)\n                    at Element.runCommandWithHooks (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:100:24)\n                    at Element.wrapCommandFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:67:44)\n                    at Element.<anonymous> (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\utils\\build\\shim.js:276:24)\n                    at Element.elementErrorHandlerCallback (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:48:12)\n                    at Element.waitForDisplayed (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\commands\\element\\waitForDisplayed.js:45:17)\n                    at Element.wrapCommandFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\wrapCommand.js:60:23)\n                    at Element.elementErrorHandlerCallbackFn (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:24:65)\n                    at Element.waitForDisplayed (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\webdriverio\\build\\middlewares.js:48:12)\n                    at Context.<anonymous> (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\test\\specs\\/FeedScreen.js:25:548)\n                    at Context.executeSync (C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\index.js:38:22)\n                    at C:\\Users\\Vithuu\\Documents\\Concordia\\Semester 12 - Fall 2021\\SOEN 490\\AirbendersFE\\node_modules\\@wdio\\sync\\build\\index.js:69:73",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "441aa72b59da24bc",
+      "name" : "Screenshot",
+      "source" : "441aa72b59da24bc.png",
+      "type" : "image/png",
+      "size" : 84093
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a logged in App THEN the user's currently Enrolled Classes is displayed"
+  }, {
+    "name" : "package",
+    "value" : "The Feed page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b263f270e3c66154.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

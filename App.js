@@ -129,7 +129,7 @@ export default class App extends React.Component {
 
     // TODO: Read login state from AsyncStorage and update accordingly
     AsyncStorage.setItem("userID", "eaf54fae-1ab8-4b5a-8047-51904f6ae884")
-    AsyncStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4OTQxMjY0LCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.ZNP2zhdZvFLsI4Bgy0BkgHGpnGl-rQd5x81lYZayHO4")
+    AsyncStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoibWljaGFlbCIsImxhc3RfbmFtZSI6InNjb3R0IiwiZXhwIjoxNjQ4OTk2ODIyLCJpc3MiOiJlYWY1NGZhZS0xYWI4LTRiNWEtODA0Ny01MTkwNGY2YWU4ODQifQ.46Sg6OwvlQ2qIVO_RcQKXepK-SrFek4a7YLNC8Pl00w")
   }
 
   hideTabBar(tabBarDisplayState) {

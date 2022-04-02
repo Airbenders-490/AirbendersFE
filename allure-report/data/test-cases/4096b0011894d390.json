@@ -1,12 +1,12 @@
 {
-  "uid" : "3730bbf15defd302",
-  "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
-  "historyId" : "c7ca8dc7ad9e66a48e630f616c0f8725",
+  "uid" : "4096b0011894d390",
+  "name" : "GIVEN a logged in App THEN the Team Requests Status section is displayed",
+  "fullName" : "The Feed page.GIVEN a logged in App THEN the Team Requests Status section is displayed",
+  "historyId" : "eb279959c22906c9d710b7e135f4a92d",
   "time" : {
-    "start" : 1648882472120,
-    "stop" : 1648882484919,
-    "duration" : 12799
+    "start" : 1648910456031,
+    "stop" : 1648910469907,
+    "duration" : 13876
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed"
+    "value" : "GIVEN a logged in App THEN the Team Requests Status section is displayed"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -45,14 +45,12 @@
     "value" : "emulator-5554 11-11"
   } ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "3730bbf15defd302.json",
+  "source" : "4096b0011894d390.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

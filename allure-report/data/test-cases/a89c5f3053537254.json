@@ -1,12 +1,12 @@
 {
-  "uid" : "91a32212847dd3a4",
-  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
-  "historyId" : "a06f333530d884b5ffdb87ee7c810f45",
+  "uid" : "a89c5f3053537254",
+  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
+  "historyId" : "9072e228b7475d58cb1ee879fc750097",
   "time" : {
-    "start" : 1648882485228,
-    "stop" : 1648882499674,
-    "duration" : 14446
+    "start" : 1648882500081,
+    "stop" : 1648882514127,
+    "duration" : 14046
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed"
+    "value" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "91a32212847dd3a4.json",
+  "source" : "a89c5f3053537254.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

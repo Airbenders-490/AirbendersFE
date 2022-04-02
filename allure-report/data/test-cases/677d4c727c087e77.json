@@ -1,12 +1,12 @@
 {
-  "uid" : "58f2804b0684881a",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
-  "historyId" : "3180d4c904eb284f167892731fea6faf",
+  "uid" : "677d4c727c087e77",
+  "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page THEN the Classes Enrolled In section is displayed",
+  "historyId" : "4ad66b99e731382d5157009d1bd972b7",
   "time" : {
-    "start" : 1648882559354,
-    "stop" : 1648882573484,
-    "duration" : 14130
+    "start" : 1648882459227,
+    "stop" : 1648882471960,
+    "duration" : 12733
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section"
+    "value" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "58f2804b0684881a.json",
+  "source" : "677d4c727c087e77.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

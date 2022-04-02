@@ -1,12 +1,12 @@
 {
-  "uid" : "d9bcb8402c46d6fd",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
-  "historyId" : "365abf136701d09e9d79d6e6bb9eda82",
+  "uid" : "a2ec062f2149c13f",
+  "name" : "GIVEN a logged in App THEN the Team Requests Status section is displayed",
+  "fullName" : "The Feed page.GIVEN a logged in App THEN the Team Requests Status section is displayed",
+  "historyId" : "eb279959c22906c9d710b7e135f4a92d",
   "time" : {
-    "start" : 1648882542996,
-    "stop" : 1648882558992,
-    "duration" : 15996
+    "start" : 1648909675874,
+    "stop" : 1648909685255,
+    "duration" : 9381
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message"
+    "value" : "GIVEN a logged in App THEN the Team Requests Status section is displayed"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -45,14 +45,12 @@
     "value" : "emulator-5554 11-11"
   } ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "d9bcb8402c46d6fd.json",
+  "source" : "a2ec062f2149c13f.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

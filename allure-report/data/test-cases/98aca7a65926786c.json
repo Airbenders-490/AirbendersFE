@@ -1,12 +1,12 @@
 {
-  "uid" : "b62267d0f4229a67",
-  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
-  "fullName" : "The Profile page.GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
-  "historyId" : "614a137b4952a75440ec08a50fb3e954",
+  "uid" : "98aca7a65926786c",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
+  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
+  "historyId" : "365abf136701d09e9d79d6e6bb9eda82",
   "time" : {
-    "start" : 1648882573911,
-    "stop" : 1648882591498,
-    "duration" : 17587
+    "start" : 1648882542996,
+    "stop" : 1648882558992,
+    "duration" : 15996
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section"
+    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "b62267d0f4229a67.json",
+  "source" : "98aca7a65926786c.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

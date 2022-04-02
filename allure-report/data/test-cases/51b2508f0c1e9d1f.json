@@ -1,0 +1,58 @@
+{
+  "uid" : "51b2508f0c1e9d1f",
+  "name" : "GIVEN the profile page THEN the user's name is displayed",
+  "fullName" : "The Feed page.GIVEN the profile page THEN the user's name is displayed",
+  "historyId" : "c09e12054d8def5b1f10bf626c122cd1",
+  "time" : {
+    "start" : 1648909990997,
+    "stop" : 1648910002280,
+    "duration" : 11283
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN the profile page THEN the user's name is displayed"
+  }, {
+    "name" : "package",
+    "value" : "The Feed page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "51b2508f0c1e9d1f.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

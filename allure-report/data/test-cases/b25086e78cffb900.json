@@ -1,0 +1,99 @@
+{
+  "uid" : "b25086e78cffb900",
+  "name" : "GIVEN a logged in App THEN the Recent Team Conversation section is displayed",
+  "fullName" : "The Feed page.GIVEN a logged in App THEN the Recent Team Conversation section is displayed",
+  "historyId" : "55e7a2b3a987ecbf36e63541cc3d05ca",
+  "time" : {
+    "start" : 1648910554710,
+    "stop" : 1648910565638,
+    "duration" : 10928
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a logged in App THEN the Recent Team Conversation section is displayed"
+  }, {
+    "name" : "package",
+    "value" : "The Feed page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "7e139714763bb446",
+      "status" : "broken",
+      "statusDetails" : "element (\"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.TextView\") still not displayed after 10000ms",
+      "time" : {
+        "start" : 1648910435662,
+        "stop" : 1648910455023,
+        "duration" : 19361
+      }
+    }, {
+      "uid" : "2fd33ecdda4d8399",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648910033073,
+        "stop" : 1648910042673,
+        "duration" : 9600
+      }
+    }, {
+      "uid" : "3f298a33e321a771",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648909625843,
+        "stop" : 1648909635485,
+        "duration" : 9642
+      }
+    }, {
+      "uid" : "e33f0ebcf0c46f53",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648909249416,
+        "stop" : 1648909262136,
+        "duration" : 12720
+      }
+    }, {
+      "uid" : "a90cfbacceeb4149",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648908823376,
+        "stop" : 1648908835733,
+        "duration" : 12357
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b25086e78cffb900.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

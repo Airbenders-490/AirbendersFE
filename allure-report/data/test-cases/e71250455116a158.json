@@ -1,0 +1,56 @@
+{
+  "uid" : "e71250455116a158",
+  "name" : "GIVEN a logged in App THEN the Feed page is displayed",
+  "fullName" : "The Feed page.GIVEN a logged in App THEN the Feed page is displayed",
+  "historyId" : "b4e8cae25239f02fb51cba07ee8d105b",
+  "time" : {
+    "start" : 1648910410425,
+    "stop" : 1648910421525,
+    "duration" : 11100
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a logged in App THEN the Feed page is displayed"
+  }, {
+    "name" : "package",
+    "value" : "The Feed page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e71250455116a158.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

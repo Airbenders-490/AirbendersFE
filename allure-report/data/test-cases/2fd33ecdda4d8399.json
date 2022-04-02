@@ -1,12 +1,12 @@
 {
-  "uid" : "62f1f40bd09afdb7",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
-  "historyId" : "f45c712336baeda3a7e5350a00f1a19f",
+  "uid" : "2fd33ecdda4d8399",
+  "name" : "GIVEN a logged in App THEN the Recent Team Conversation section is displayed",
+  "fullName" : "The Feed page.GIVEN a logged in App THEN the Recent Team Conversation section is displayed",
+  "historyId" : "55e7a2b3a987ecbf36e63541cc3d05ca",
   "time" : {
-    "start" : 1648882527536,
-    "stop" : 1648882542789,
-    "duration" : 15253
+    "start" : 1648910033073,
+    "stop" : 1648910042673,
+    "duration" : 9600
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name"
+    "value" : "GIVEN a logged in App THEN the Recent Team Conversation section is displayed"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -45,14 +45,12 @@
     "value" : "emulator-5554 11-11"
   } ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "62f1f40bd09afdb7.json",
+  "source" : "2fd33ecdda4d8399.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

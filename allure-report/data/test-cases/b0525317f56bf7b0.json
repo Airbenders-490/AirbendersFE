@@ -1,12 +1,12 @@
 {
-  "uid" : "de5a884e9dca15d4",
-  "name" : "GIVEN the profile page THEN the setting icon is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page THEN the setting icon is displayed",
-  "historyId" : "edf8c43ab5dea3e8b38f8e683d3c2f9e",
+  "uid" : "b0525317f56bf7b0",
+  "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page THEN the Classes Taken section is displayed",
+  "historyId" : "dab5b6ca92adf9ef81945dc7659fbfca",
   "time" : {
-    "start" : 1648882421156,
-    "stop" : 1648882434165,
-    "duration" : 13009
+    "start" : 1648882446085,
+    "stop" : 1648882458932,
+    "duration" : 12847
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN the setting icon is displayed"
+    "value" : "GIVEN the profile page THEN the Classes Taken section is displayed"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "de5a884e9dca15d4.json",
+  "source" : "b0525317f56bf7b0.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

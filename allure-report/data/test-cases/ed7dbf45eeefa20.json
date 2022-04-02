@@ -1,0 +1,58 @@
+{
+  "uid" : "ed7dbf45eeefa20",
+  "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page THEN the Rated Quality section is displayed",
+  "historyId" : "869a35e628e1e81beee8402a2c7455a1",
+  "time" : {
+    "start" : 1648882434461,
+    "stop" : 1648882445838,
+    "duration" : 11377
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN the profile page THEN the Rated Quality section is displayed"
+  }, {
+    "name" : "package",
+    "value" : "The Profile page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ed7dbf45eeefa20.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

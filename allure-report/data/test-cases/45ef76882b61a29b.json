@@ -1,12 +1,12 @@
 {
-  "uid" : "3e5a5e9facd9b9ea",
-  "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page THEN the Classes Taken section is displayed",
-  "historyId" : "dab5b6ca92adf9ef81945dc7659fbfca",
+  "uid" : "45ef76882b61a29b",
+  "name" : "GIVEN a logged in App THEN the Enrolled Classes section is displayede",
+  "fullName" : "The Feed page.GIVEN a logged in App THEN the Enrolled Classes section is displayede",
+  "historyId" : "ae5328043d2e8e4ddeff70063725c695",
   "time" : {
-    "start" : 1648882446085,
-    "stop" : 1648882458932,
-    "duration" : 12847
+    "start" : 1648909595843,
+    "stop" : 1648909604533,
+    "duration" : 8690
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN the Classes Taken section is displayed"
+    "value" : "GIVEN a logged in App THEN the Enrolled Classes section is displayede"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Feed page"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -45,14 +45,12 @@
     "value" : "emulator-5554 11-11"
   } ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "3e5a5e9facd9b9ea.json",
+  "source" : "45ef76882b61a29b.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }
