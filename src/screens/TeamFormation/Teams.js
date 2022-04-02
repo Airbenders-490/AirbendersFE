@@ -19,7 +19,7 @@ class Teams extends Component {
     return (
       //<ScreenContainer screenTitle='Teams'>
 
-      <TeamFormationTabs/>
+      <TeamFormationTabs navigation={this.props.navigation} />
 
 
     //</ScreenContainer>

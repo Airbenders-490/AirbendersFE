@@ -38,20 +38,31 @@ class Feed extends Component {
   }
 
   async getCurrentUser() {
-        let userID
-        let token
-        try {
-          userID = await AsyncStorage.getItem("userID")
-          token = await AsyncStorage.getItem("token")
-        } catch (err) {
-          console.log(err)
-        }
+    let userID
+    let token
+    try {
+      userID = await AsyncStorage.getItem("userID")
+      token = await AsyncStorage.getItem("token")
+    } catch (err) {
+      console.log(err)
+    }
 
     axios
         .get(`http://real.encs.concordia.ca/profile/api/student/${userID}`, this.getConfig(token))
         // .get(`http://real.encs.concordia.ca/profile/api/student/${userID}`, config) // for testing w/out login
-        .then(response => { this.setState({ currentUserData: response.data, userID: userID }) })
-        .catch(err => console.log(err))
+        .then(response => {
+          AsyncStorage.setItem("profileExists", "true")
+          .then(()=> console.log("profile exists!"))
+          .catch(err => console.log("error saving profileExists",err))
+          this.setState({ currentUserData: response.data, userID: userID })
+        })
+        .catch(err => {
+          console.log(err)
+          console.log("not exist in feed get user from profile")
+          AsyncStorage.setItem("profileExists", "false")
+          .then(()=> this.props.navigation.navigate('Profile'))
+          .catch(err => console.log("error saving profileExists",err))
+        })
   }
 
   async getChatRooms() {
@@ -73,6 +84,7 @@ class Feed extends Component {
           console.log(error.response.status);
           console.log(error.response.headers);
           console.log(error.config)
+          console.log("not exist in feed get room from chat")
         })
   }
 

@@ -15,7 +15,8 @@ class MainContainer extends Component {
                 isElevated={this.props.isElevated}
                 backgroundColor={this.props.backgroundColor}
                 marginTop={this.props.marginTop}
-                marginBottom={this.props.marginBottom}>
+                marginBottom={this.props.marginBottom}
+                padding={this.props.padding}>
                 {this.props.children}
             </Container>
         );
@@ -25,8 +26,8 @@ class MainContainer extends Component {
 //STYLED-COMPONENTS
 const Container = styled.View`
     /* padding separated as the following to allow unitless values */
-    padding-horizontal: ${theme.SPACING_SLIGHT_MEDIUM};
-    padding-vertical: ${theme.SPACING_SLIGHT_MEDIUM};
+    padding-horizontal: ${(props) => props.padding ? props.padding : theme.SPACING_SLIGHT_MEDIUM};
+    padding-vertical: ${(props) => props.padding ? props.padding : theme.SPACING_SLIGHT_MEDIUM};
     margin-top: ${props => props.marginTop ? props.marginTop : 0}
     margin-bottom: ${props => props.marginBottom ? props.marginBottom : 0}
     border-radius: ${theme.SPACING_SMALL};

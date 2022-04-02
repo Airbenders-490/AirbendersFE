@@ -24,7 +24,7 @@ class Label extends Component {
     return (
       <Container disabled={this.props.isReadOnly} onPress={this.selectLabel} stacked={this.props.stacked}>
         <TextContainer isPressed={this.state.isPressed} backgroundColor={this.props.labelColor} isReadOnly={this.props.isReadOnly}>
-            <LabelText> 
+            <LabelText isCaption={this.props.isCaption} > 
               {this.props.children}
             </LabelText>
         </TextContainer>
@@ -56,6 +56,7 @@ const TextContainer = styled.View `
 
 const LabelText = styled.Text`
   color: white;
+  font-size: ${(props) => props.isCaption ? theme.FONT_SIZE_SMALL : theme.FONT_SIZE_MEDIUM};
   font-family: ${theme.FONT_SEMIBOLD};
   letter-spacing: ${theme.LETTER_SPACING_SMALL};
 `;

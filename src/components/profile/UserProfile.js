@@ -3,7 +3,7 @@ import { LogBox } from "react-native"
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { StyleSheet, Text, Touchable, TouchableOpacity, View, Image, ToastAndroid } from 'react-native';
+import { StyleSheet, Text, Touchable, TouchableOpacity, View, Alert } from 'react-native';
 import theme from '../../styles/theme.style.js';
 import MainContainer from '../../containers/MainContainer.js';
 import { Title, Subtitle, TextBody, Caption } from '../../containers/TextContainer';
@@ -48,7 +48,7 @@ class UserProfile extends Component {
             userID: '',
             token: '',
             emailIsValid: true,
-            emailErrorMessage: '',
+            emailErrorMessage: ''
         }
 
         this.toggleExpansion = this.toggleExpansion.bind(this);
@@ -104,7 +104,8 @@ class UserProfile extends Component {
             token: await this.getData("token")
         })
         axios
-            .get(`http://real.encs.concordia.ca/profile/api/student/${this.state.userID}`, this.getConfig(this.state.token))
+            .get(`http://${global.profileAPI}/api/student/${this.state.userID}`, this.getConfig(this.state.token))
+            // .get(`http://real.encs.concordia.ca/profile/api/student/${this.state.userID}`, this.getConfig(this.state.token))
             // .get(`http://real.encs.concordia.ca/profile/api/student/${userID}`, config) // for testing w/out login
             .then(
                 response => {
@@ -116,7 +117,16 @@ class UserProfile extends Component {
             )
             .catch(
                 // TODO: On 404, block all access to app until register is complete
-                error => console.log(error.response.data.code)
+                error => {
+                    console.log("User Profile does not exist",error)
+                    AsyncStorage.setItem("profileExists", "false")
+                    .then(()=> console.log("profile does not exist!"))
+                    .catch(err => console.log("error saving profileExists",err))
+                    Alert.alert(
+                        "Create Profile First",
+                        "You must fill out your profile (name at least) before using the rest of the app! Tap the GEAR icon to edit and hit SAVE at the BOTTOM"
+                      );
+                }
             )
     }
 
@@ -130,31 +140,51 @@ class UserProfile extends Component {
         this.setState({ lastRefresh: Date(Date.now()).toString() });
     }
 
-    onSettingsSave() {
-        console.log(this.payload);
+    async onSettingsSave() {
+        let token = await AsyncStorage.getItem("token")
+        let userID = await AsyncStorage.getItem("userID")
+        let email = await AsyncStorage.getItem("email")
+        let profileExists = await AsyncStorage.getItem("profileExists")
 
         let updatedUser = {
             "id": this.payload.studentID,
-            "first_name": this.payload.fullName.substr(0, this.payload.fullName.indexOf(' ')),
-            "last_name": this.payload.fullName.substr(this.payload.fullName.indexOf(' ') + 1),
+            "first_name": this.payload.fullName.split(' ').slice(0, -1).join(' '),
+            "last_name": this.payload.fullName.split(' ').slice(-1).join(' '),
             "email": this.payload.email,
             "general_info": this.payload.generalInfo,
         }
 
-        if (this.props.isFromRegister) {
+        if (this.props.isFromRegister || (profileExists === "false")) {
+            let newUser = {
+                "id": userID,
+                "first_name": this.payload.fullName.split(' ').slice(0, -1).join(' '),
+                "last_name": this.payload.fullName.split(' ').slice(-1).join(' '),
+                "email": email,
+                "general_info": this.payload.generalInfo ? this.payload.generalInfo : "",
+            }
+
             axios
-                .post('http://real.encs.concordia.ca/profile/api/student', updatedUser, this.getConfig(this.state.token))
+                .post('http://real.encs.concordia.ca/profile/api/student', newUser, this.getConfig(token))
                 .then(
                     response => {
                         console.log(response.data);
+                        AsyncStorage.setItem("profileExists", "true")
+                        .then(()=> console.log("profile exists!"))
+                        .catch(err => console.log("error saving profileExists",err))
+                        Alert.alert("Profile Created!")
+                        this.getCurrentUser()
                         if (this.props.additionalRegisterFuncOnSave) {
                             this.props.additionalRegisterFuncOnSave();
                         }
                     }
                 )
-                .catch(
-                    error => {
+                .catch( error => {
                         console.log(error)
+                        console.log(error.message)
+                        console.log(error.response.data);
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+                        console.log(error.config)
                     }
                 )
         } else {
@@ -165,6 +195,7 @@ class UserProfile extends Component {
                         console.log(response.data);
                         // calling getCurrentUser again bc update doesn't return reviews
                         this.getCurrentUser();
+                        Alert.alert("Changes Saved!")
                     }
                 )
                 .catch(
@@ -178,6 +209,7 @@ class UserProfile extends Component {
             this.props.additionalFuncOnSave();
         }
         this.props.setIsEdited(false)
+        this.props.triggerSettings()
     }
 
     async ShowEmailSentMessage() {

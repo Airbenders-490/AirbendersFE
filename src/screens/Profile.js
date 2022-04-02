@@ -47,7 +47,6 @@ class Profile extends Component {
 
 
   render() {
-
     return (
       <ScreenContainer>
         {this.state.isEdited ?

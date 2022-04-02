@@ -27,9 +27,6 @@ class Register extends Component {
           isCurrentUser
           isReadOnly={false}
           userPersonalEmail={this.props.userPersonalEmail}
-          // TODO: Update userID to dynamic current user ID
-          // when login/register endpoints are done
-          userID={'475a4c75-9006-4ab3-a9b8-2f6e704b0bfd'}
           triggerSettings={this.triggerSettings}
           additionalRegisterFuncOnSave={() => this.props.handleLogin(true)} />
       </ScreenContainer>

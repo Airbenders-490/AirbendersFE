@@ -7,7 +7,7 @@ import MainContainer from '../containers/MainContainer.js';
 import { Caption, TextBody, Title, Subtitle } from '../containers/TextContainer.js';
 import UserIcon from '../assets/images/icons/user_fill.png'
 
-class ClassListItem extends Component {
+class GroupListItem extends Component {
     constructor(props) {
         super(props);
 
@@ -80,8 +80,8 @@ const ParticipantIcon = styled.Image `
     margin-right: 5;
 `;
 
-ClassListItem.propTypes = {
-    children: PropTypes.element.isRequired,
+GroupListItem.propTypes = {
+    // children: PropTypes.element.isRequired,
 };
 
-export default ClassListItem;
+export default GroupListItem;

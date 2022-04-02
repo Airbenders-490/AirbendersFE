@@ -30,8 +30,12 @@ class Schedule extends Component {
 
     return (
       <ScreenContainer screenTitle={'Schedule'} >
-    
-     
+        <Pressable
+          onPress={onPressHandler}>
+            <MainContainer>
+              <Subtitle>John Smith</Subtitle>
+            </MainContainer>
+        </Pressable>
       </ScreenContainer>
         
     );

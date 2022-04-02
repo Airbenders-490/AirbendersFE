@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -56,23 +56,34 @@ class TeamListItem extends Component {
 
     handleModalConfirm = async () => {
         let token
+        let profileExists
         try{
           token = await AsyncStorage.getItem("token")
+          profileExists = await AsyncStorage.getItem("profileExists")
         } catch(err) {
           console.log(err)
           // TODO: redirect to login
           return
         }
 
-        axios.post(`http://real.encs.concordia.ca/chat/api/chat/joinRequest/${this.props.teamID}`,{}, this.getConfig(token))
-        .then(res => {
-            console.log(res.data)
-            this.setState({showModalButton: false})
-        })
-        .catch(err => {
-            console.log(err);
-            alert(`Unable to join team due to: ${err.response.data.message}`)
-        })
+        if (profileExists === "true") {
+
+            axios.post(`http://real.encs.concordia.ca/chat/api/chat/joinRequest/${this.props.teamID}`,{}, this.getConfig(token))
+            .then(res => {
+                console.log(res.data)
+                this.setState({showModalButton: false})
+            })
+            .catch(err => {
+                console.log(err);
+                alert(`Unable to join team due to: ${err.response.data.message}`)
+            })
+        } else {
+            Alert.alert(
+                "Create Profile First",
+                "You must fill out your profile (name at least) before using the rest of the app! Tap the GEAR icon to edit and hit SAVE at the BOTTOM"
+              );
+              this.props.navigation.navigate('Profile')
+        }
     }
 
     userAlreadyInRoom = () => {
