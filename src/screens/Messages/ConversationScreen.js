@@ -235,7 +235,7 @@ class ConversationScreen extends Component {
       )
     })
 
-    let showParticipantListItems = room.students.map(student => {
+    let chatParticipants = room.students.map(student => {
       return (
         <ParticipantListItem
           roomID={room.room_id}
@@ -266,10 +266,8 @@ class ConversationScreen extends Component {
             <FeatureButtons toggleSection={this.toggleFeaturedSection} />
           </Header>
 
-          <ExpandableSection isDisplayed={this.state.isParticipantListDisplayed}>
-            <ScrollView nestedScrollEnabled={true}>
-              {showParticipantListItems}
-            </ScrollView>
+          <ExpandableSection nestedScrollEnabled={true} contentContainerStyle={{ padding: theme.SPACING_MEDIUM }} isDisplayed={this.state.isParticipantListDisplayed}>
+            {chatParticipants}
           </ExpandableSection>
 
           <ConversationContainer onPress={() => this.toggleFeaturedSection('default')} >
@@ -316,11 +314,10 @@ const StyledBackIcon = styled.Image`
   width: 30;
 `;
 
-const ExpandableSection = styled.View`
+const ExpandableSection = styled.ScrollView`
   display: ${(props) => props.isDisplayed ? 'flex' : 'none'};
-  background: ${theme.COLOR_WHITE};
+  background: transparent;
   margin-top: ${theme.SPACING_MEDIUM};
-  margin-horizontal: ${theme.SPACING_MEDIUM};
   flex: 1;
 `;
 

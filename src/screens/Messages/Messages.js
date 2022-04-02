@@ -18,12 +18,7 @@ class MessagesScreen extends Component {
 
   render() {
     return (
-      // <Container>
-      //   <Header>
-      //       <Title titleColor={theme.COLOR_BLACK}>{this.props.screenTitle}</Title>
-      //   </Header>
-        <MessageTabs navigation={this.props.navigation} hideTabBar={this.props.hideTabBar} />
-      // </Container>
+      <MessageTabs navigation={this.props.navigation} hideTabBar={this.props.hideTabBar} />
     );
   }
 }
