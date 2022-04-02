@@ -25,6 +25,7 @@ class MessageTabs extends Component {
           tabBarStyle: {
             backgroundColor: "transparent",
             marginBottom: theme.SPACING_SMALL,
+            marginTop: theme.SPACING_LARGE
           },
           tabBarIndicatorStyle: {
             backgroundColor: theme.COLOR_BLACK,

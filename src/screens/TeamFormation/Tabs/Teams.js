@@ -56,6 +56,7 @@ class Teams extends Component {
 
         return (
           <TeamListItem
+          navigation={this.props.navigation}
           title={team.name}
           teamID={team.room_id}
           participants={team.students}
@@ -70,9 +71,10 @@ class Teams extends Component {
             <ListContainer
               tabName={this.state.tabName}
               onSearchTeamByClass={this.onSearchTeamByClass}
+              marginBottom={40}
             >
             {displayTeams}
-              <CreateTeam/>
+              <CreateTeam navigation={this.props.navigation} />
             </ListContainer>
           </TeamsTabContainer>
         );

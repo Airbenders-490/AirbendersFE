@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react';
 import { LogBox } from "react-native"
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Text, View, TouchableOpacity, TextInput, Pressable, Image, LayoutAnimation, UIManager } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Pressable, Image, LayoutAnimation, UIManager, Alert } from 'react-native';
 import theme from '../styles/theme.style.js';
 import { TextBody, Title, Subtitle } from '../containers/TextContainer.js';
 import CustomButton from './button.js';
@@ -13,6 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import EyeIcon from '../assets/images/icons/eye.png';
 import HideEyeIcon from '../assets/images/icons/invisible-2.png';
+
 
 LogBox.ignoreAllLogs();
 
@@ -71,7 +72,9 @@ class LoginContent extends Component {
         this.props.navigation.navigate('ForgotPasswordScreen');
     }
 
-    handleActionButton() {
+    async handleActionButton() {
+        AsyncStorage.setItem("email", this.payload.email)
+
         if (this.state.isInRegister) {
             // Handle register functions
             // JSON data to send when registering
@@ -86,10 +89,9 @@ class LoginContent extends Component {
                 .then(
                     response => {
                         console.log(response.data);
-                        this.props.navigation.navigate('RegisterScreen', {
-                            userPersonalEmail: this.payload.email,
-                        });
-                        // TODO: Save jwt in AsyncStorage
+                        Alert.alert("Account Created, please Log In to create your Profile")
+                        // redirect to login
+                        this.setState({isInRegister: false})
                     }
                 )
                 .catch(
@@ -112,19 +114,25 @@ class LoginContent extends Component {
                     response => {
                         console.log(response.data)
                         var decoded = jwt_decode(response.data.token)
-                        this.setState({
-                            isLoggedIn: response.data.token ? true : false
-                        }, () => {
-                            this.props.handleLogin(this.state.isLoggedIn)
-                        });
+
                         // Save jwt in AsyncStorage
                         this.storeData("token", response.data.token)
-                        this.storeData("userID", decoded.iss)
+                        .then(() =>
+                            this.storeData("userID", decoded.iss)
+                            .then(() =>
+                                this.setState({
+                                    isLoggedIn: response.data.token ? true : false
+                                }, () => {
+                                    this.props.handleLogin(this.state.isLoggedIn)
+                                })
+                            )
+                        )
                     }
                 )
                 .catch(
                     error => {
                         console.log(error)
+                        Alert.alert("Account does not exist")
                     }
                 )
         }

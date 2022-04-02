@@ -26,10 +26,9 @@ class TeamChat extends Component {
 
         this.state = {
             rooms: [],
-            userID: ''
         }
 
-        this.navigateToChat = this.navigateToChat.bind(this);
+        // this.navigateToChat = this.navigateToChat.bind(this);
         this.getChatRooms = this.getChatRooms.bind(this);
         this.getConfig = this.getConfig.bind(this)
         this.removeTeam = this.removeTeam.bind(this)
@@ -44,16 +43,14 @@ class TeamChat extends Component {
     }
 
     async getChatRooms() {
-        console.log("getting chat rooms")
         let token = await AsyncStorage.getItem("token")
-        let user = await AsyncStorage.getItem("userID")
 
         axios
             .get(`http://real.encs.concordia.ca/chat/api/rooms`, this.getConfig(token)) // w/ login
             // .get(`http://real.encs.concordia.ca/chat/api/rooms`, config) // for testing w/out login
             .then(
                 response => {
-                    this.setState({ rooms: response.data.Rooms, userID: user })
+                    this.setState({ rooms: response.data.Rooms })
                 }
             )
             .catch(
@@ -103,6 +100,28 @@ class TeamChat extends Component {
 
     }
 
+    getColor(name) {
+        name = name + ""
+        String.prototype.hashCode = function() {
+            var hash = 0;
+            for (var i = 0; i < this.length; i++) {
+                var char = this.charCodeAt(i);
+                hash = ((hash<<5)-hash)+char;
+                hash = hash & hash; // Convert to 32bit integer
+            }
+            return hash;
+        }
+
+        let colors = [theme.COLOR_PURPLE,
+        theme.COLOR_BLUE,
+        theme.COLOR_YELLOW,
+        theme.COLOR_GREEN,
+        theme.COLOR_RED,
+        theme.COLOR_ORANGE,
+        theme.COLOR_GRAY]
+        return colors[Math.abs(name.hashCode() % 7)]
+    }
+
     render() {
 
         let listChatRooms = this.state.rooms.map(room => {
@@ -111,7 +130,7 @@ class TeamChat extends Component {
                 onLongPress={() => this.removeTeam(room)}
                 onPress={() => this.navigateToChat(FirstConvo, room)}>
                     <MessageListItem
-                        backgroundColor={theme.COLOR_BLUE}
+                        backgroundColor={this.getColor(room.name)}
                         classNumber={room.class}
                         roomName={room.name}
                         getChatRooms={this.getChatRooms}
@@ -121,7 +140,8 @@ class TeamChat extends Component {
         })
 
         return (
-            <ScrollView contentContainerStyle={{ padding: theme.SPACING_MEDIUM }}>
+            <ScrollView 
+            contentContainerStyle={{ padding: theme.SPACING_MEDIUM, paddingBottom: 60 }}>
                 {listChatRooms}
             </ScrollView>
         );
