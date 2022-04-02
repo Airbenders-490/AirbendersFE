@@ -45,7 +45,6 @@ class ListContainer extends Component {
         const className = event.nativeEvent.text.toLowerCase().trim()
         this.setState({ showLabel: true });
         this.setState({ className: className })
-        console.log("part", this.state.participantName, this.state.className)
         this.className.clear();
         if (this.props.onFilter && className != '') {
           if (this.state.participantName != '') {
@@ -59,7 +58,7 @@ class ListContainer extends Component {
       handleTeamFilterSubmit = (event) => {
         const className = event.nativeEvent.text.toLowerCase().trim()
 
-        if (this.props.onSearchTeamByClass && className !== '') {
+        if (this.props.onSearchTeamByClass && className.trim() !== '') {
           this.setState({ showLabel: true });
           this.setState({ className: className })
           console.log("participant & class", this.state.participantName, this.state.className)
@@ -72,8 +71,8 @@ class ListContainer extends Component {
 
       handleSearchSubmit = (event) => {
         const participantName = event.nativeEvent.text.toLowerCase().trim()
-        this.setState({ participantName: participantName })
-        if (this.props.onSearch && participantName != '') {
+        this.setState({ participantName: participantName.trim() })
+        if (this.props.onSearch && participantName.trim() != '') {
           if (this.state.className != '') {
             this.props.onFilteredParticpant(participantName, this.state.className)
           } else {
@@ -128,11 +127,11 @@ class ListContainer extends Component {
                       <SearchButton onPress={this.triggerSearchBar}>
                           <SearchIcon source={MagnifyingIcon} />
                       </SearchButton>
-                      <SearchField placeholder={`Search by ${this.props.tabName} name`}
+                      <CustomText placeholder={`Search by ${this.props.tabName} name`}
                         nameEntered={this.state.nameEntered}
                         onSubmitEditing={this.handleSearchSubmit}
                         // ref={input => { this.participantName = input }}
-                        // onTextChange={(text) => this.setState({participantName: text})}
+                        onChangeText={(text) => this.setState({ participantName: text })}
                       />
                     </SearchContainer> }
 
@@ -193,9 +192,6 @@ const CustomText = styled.TextInput`
   padding-left: 10px;
 `;
 
-const SearchField = styled(CustomText)`
-
-`
 const FilterButton = styled.TouchableOpacity`
   align-items: center;
   margin-bottom: 5;
