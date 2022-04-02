@@ -66,7 +66,7 @@ const MessageTextInput = styled.TextInput`
     font-size: ${theme.FONT_SIZE_MEDIUM};
     font-family: ${theme.FONT_REGULAR};
     color: ${(props) => (props.textColor ? props.textColor : theme.COLOR_BLACK)};
-    width: 300;
+    width: 85%;
 `;
 
 
