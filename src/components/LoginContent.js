@@ -9,10 +9,10 @@ import CustomButton from './button.js';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import EyeIcon from '../assets/images/icons/eye.png';
 import HideEyeIcon from '../assets/images/icons/invisible-2.png';
+import { AuthAPI } from '../api/auth.js';
 
 
 LogBox.ignoreAllLogs();
@@ -55,7 +55,7 @@ class LoginContent extends Component {
     storeData = async (key, value) => {
         try {
             console.log("saving " + key + " : " + value)
-            await AsyncStorage.setItem(key, value)
+            await AuthAPI.setData(key, value)
         } catch (e) {
             // saving error
             console.log("error saving in async storage: " + e)
@@ -73,7 +73,7 @@ class LoginContent extends Component {
     }
 
     async handleActionButton() {
-        AsyncStorage.setItem("email", this.payload.email)
+        AuthAPI.setData("email", this.payload.email)
 
         if (this.state.isInRegister) {
             // Handle register functions
