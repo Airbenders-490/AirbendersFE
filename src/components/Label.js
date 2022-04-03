@@ -18,13 +18,18 @@ class Label extends Component {
 
   selectLabel = () => {
     this.setState({isPressed : !this.state.isPressed})
+   
+    this.props.review({"name":this.props.children, "positive":true}
+    );
+   
+   
   }
 
   render() {
     return (
-      <Container disabled={this.props.isReadOnly} onPress={this.selectLabel} stacked={this.props.stacked}>
+      <Container review={this.props.review} disabled={this.props.isReadOnly} onPress={this.selectLabel} stacked={this.props.stacked}>
         <TextContainer isPressed={this.state.isPressed} backgroundColor={this.props.labelColor} isReadOnly={this.props.isReadOnly}>
-            <LabelText isCaption={this.props.isCaption} > 
+            <LabelText> 
               {this.props.children}
             </LabelText>
         </TextContainer>

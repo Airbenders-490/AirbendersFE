@@ -44,6 +44,7 @@ class UserProfile extends Component {
             currentUserData: {
                 reviews: []
             },
+            reviews :[],
             lastRefresh: Date(Date.now()).toString(),
             userID: '',
             token: '',
@@ -59,6 +60,7 @@ class UserProfile extends Component {
         this.getData = this.getData.bind(this);
         this.validateEmailAndSendToken = this.validateEmailAndSendToken.bind(this);
         this.ShowEmailSentMessage = this.ShowEmailSentMessage.bind(this);
+        this.onSaveReview = this.onSaveReview.bind(this);
     }
 
     payload = {
@@ -67,6 +69,18 @@ class UserProfile extends Component {
         email: this.email,
         generalInfo: this.generalInfo,
     }
+
+
+    onAddReview = (review) => {
+        if(this.state.reviews.includes(review)) 
+ 
+        {this.setState({reviews: this.state.reviews.filter(function(r) { 
+         return r !==  review;
+      })})}
+ 
+ else 
+         this.setState({ reviews: [...this.state.reviews, review] });
+       }
 
     getConfig = (token) => {
         return {
@@ -97,6 +111,13 @@ class UserProfile extends Component {
         this.setState({ expanded: !this.state.expanded })
         console.log(this.state.expanded)
     }
+
+    onSaveReview(){
+        this.toggleExpansion();
+        console.log(this.state.reviews);
+        
+      
+        }
 
     async getCurrentUser() {
         this.setState({
@@ -378,10 +399,10 @@ class UserProfile extends Component {
                         <ToggableContainer isDisplayed={this.state.expanded}>
                             <Separator isDisplayed={this.props.isReadOnly} />
                             <LabelContainer>
-                                <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Integrity</Label>
-                                <Label labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Communication</Label>
+                                <Label review={this.onAddReview} labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Integrity</Label>
+                                <Label review={this.onAddReview} labelColor={theme.COLOR_ORANGE} labelIcon={StarIcon}>Communication</Label>
                             </LabelContainer>
-                            <SaveButton onPress={this.toggleExpansion} />
+                            <SaveButton onPress={this.onSaveReview} />
                         </ToggableContainer>
                     </MainContainer>
 
