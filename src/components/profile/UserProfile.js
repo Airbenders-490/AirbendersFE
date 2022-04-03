@@ -99,8 +99,16 @@ class UserProfile extends Component {
     }
 
     async getCurrentUser() {
+        let user;
+        if (this.props.isCurrentUser) {
+            user = await this.getData("userID")
+        } else {
+            console.log("here!!")
+            user = this.props.userID
+        }
+        
         this.setState({
-            userID: await this.getData("userID"),
+            userID: user,
             token: await this.getData("token")
         })
         axios

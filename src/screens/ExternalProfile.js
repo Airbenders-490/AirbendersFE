@@ -23,7 +23,7 @@ class Profile extends Component {
     return (
       <ScreenContainer isSecondaryScreen screenTitle="John Smith">
         {/* TODO: Input respective user id as prop in parent */}
-        <UserProfile isReadOnly={true} userID={userID} />
+        <UserProfile isReadOnly userID={userID} />
       </ScreenContainer>
     );
   }
