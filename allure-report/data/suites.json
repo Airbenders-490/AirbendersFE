@@ -5,7 +5,7 @@
     "name" : "The Profile page",
     "children" : [ {
       "name" : "GIVEN the profile page THEN the user's name is displayed",
-      "uid" : "6882f16a7a74adc2",
+      "uid" : "7867d74828026cf2",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -18,7 +18,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN the setting icon is displayed",
-      "uid" : "5321795739033f96",
+      "uid" : "18fbcfc6873ef716",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -31,7 +31,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
-      "uid" : "ed7dbf45eeefa20",
+      "uid" : "835ff0932b471ea1",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -44,7 +44,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
-      "uid" : "b0525317f56bf7b0",
+      "uid" : "965aa9ecf5d8e537",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -57,7 +57,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-      "uid" : "677d4c727c087e77",
+      "uid" : "d078ccf8d8d7f65d",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -70,7 +70,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
-      "uid" : "462dee918cd6e0b9",
+      "uid" : "f0fcd52adb577914",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -83,7 +83,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
-      "uid" : "fb44773ad4fa8bde",
+      "uid" : "4449d1964ea7ff85",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -96,7 +96,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
-      "uid" : "a89c5f3053537254",
+      "uid" : "5532e4ebd410c954",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -109,7 +109,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN a search icon is displayed under the Classes Taken section",
-      "uid" : "47cca2ccbe788845",
+      "uid" : "48b2a0ff5d27d800",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -122,7 +122,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
-      "uid" : "5c72e21a33717bf1",
+      "uid" : "9a9d87032ec46cb4",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -135,7 +135,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
-      "uid" : "98aca7a65926786c",
+      "uid" : "1025fe2ac3e42558",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -148,7 +148,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
-      "uid" : "ca88088e7cf6f7bf",
+      "uid" : "a86d020783608531",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -161,7 +161,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
-      "uid" : "78a6a7cf89f71ebf",
+      "uid" : "edf752f1af9bd46d",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -174,7 +174,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
-      "uid" : "bebd20584e226724",
+      "uid" : "aaee547357b9e330",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -187,7 +187,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section",
-      "uid" : "23ea3c4b5a63be24",
+      "uid" : "ea35e714f4919b52",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -203,118 +203,92 @@
   }, {
     "name" : "The Feed page",
     "children" : [ {
-      "name" : "GIVEN the profile page THEN the user's name is displayed",
-      "uid" : "51b2508f0c1e9d1f",
-      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
-      "status" : "passed",
-      "time" : {
-        "start" : 1648909990997,
-        "stop" : 1648910002280,
-        "duration" : 11283
-      },
-      "flaky" : false,
-      "newFailed" : false,
-      "parameters" : [ "emulator-5554 11-11" ]
-    }, {
-      "name" : "GIVEN a logged in App THEN the user's currently Enrolled Classes is displayed",
-      "uid" : "bd4b4d2f6c053d3d",
-      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
-      "status" : "broken",
-      "time" : {
-        "start" : 1648910012171,
-        "stop" : 1648910032755,
-        "duration" : 20584
-      },
-      "flaky" : false,
-      "newFailed" : false,
-      "parameters" : [ "emulator-5554 11-11" ]
-    }, {
-      "name" : "GIVEN a logged in App THEN the user's currently recent team conversation with a toggle button is displayed",
-      "uid" : "e61d5f7fdcd16656",
-      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
-      "status" : "broken",
-      "time" : {
-        "start" : 1648910042909,
-        "stop" : 1648910062542,
-        "duration" : 19633
-      },
-      "flaky" : false,
-      "newFailed" : false,
-      "parameters" : [ "emulator-5554 11-11" ]
-    }, {
-      "name" : "GIVEN a logged in App AND the user clicks the toggle button under the Recent Team Conversation section THEN the turned ON toggle button is displayed",
-      "uid" : "b3e840a11d5bded9",
-      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
-      "status" : "broken",
-      "time" : {
-        "start" : 1648910062864,
-        "stop" : 1648910082366,
-        "duration" : 19502
-      },
-      "flaky" : false,
-      "newFailed" : false,
-      "parameters" : [ "emulator-5554 11-11" ]
-    }, {
-      "name" : "GIVEN a logged in App THEN the user's team request status is displayed",
-      "uid" : "ce1ea425f4aa968d",
-      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
-      "status" : "broken",
-      "time" : {
-        "start" : 1648910091949,
-        "stop" : 1648910111972,
-        "duration" : 20023
-      },
-      "flaky" : false,
-      "newFailed" : false,
-      "parameters" : [ "emulator-5554 11-11" ]
-    }, {
       "name" : "GIVEN a logged in App THEN the Feed page is displayed",
-      "uid" : "b67cd847ad223d45",
+      "uid" : "4c3c214453353c68",
       "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
       "status" : "passed",
       "time" : {
-        "start" : 1648910532534,
-        "stop" : 1648910542453,
-        "duration" : 9919
+        "start" : 1649005849071,
+        "stop" : 1649005859531,
+        "duration" : 10460
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
-      "name" : "GIVEN a logged in App THEN the Enrolled Classes section is displayede",
-      "uid" : "165da75eccd9e9de",
+      "name" : "GIVEN a logged in App THEN the Enrolled Classes section is displayed",
+      "uid" : "9c3daf429d2f1332",
       "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
       "status" : "passed",
       "time" : {
-        "start" : 1648910542626,
-        "stop" : 1648910554462,
-        "duration" : 11836
+        "start" : 1649005859714,
+        "stop" : 1649005869368,
+        "duration" : 9654
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a logged in App THEN there are classes under the Enrolled Classes section is displayed",
+      "uid" : "e1c81dc740cd44c2",
+      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649005869623,
+        "stop" : 1649005879318,
+        "duration" : 9695
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN a logged in App THEN the Recent Team Conversation section is displayed",
-      "uid" : "b25086e78cffb900",
+      "uid" : "860fbd2bc1385ff8",
       "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
       "status" : "passed",
       "time" : {
-        "start" : 1648910554710,
-        "stop" : 1648910565638,
-        "duration" : 10928
+        "start" : 1649005879525,
+        "stop" : 1649005889538,
+        "duration" : 10013
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a logged in App THEN there are classes with a toggle button under the Recent Team Conversation section",
+      "uid" : "34bbb2c87e932700",
+      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649005889978,
+        "stop" : 1649005899762,
+        "duration" : 9784
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN a logged in App THEN the Team Requests Status section is displayed",
-      "uid" : "ac7947ae1ad87fb9",
+      "uid" : "84d7d8d0bfc8d6d3",
       "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
       "status" : "passed",
       "time" : {
-        "start" : 1648910565841,
-        "stop" : 1648910575830,
-        "duration" : 9989
+        "start" : 1649005900255,
+        "stop" : 1649005909513,
+        "duration" : 9258
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a logged in App THEN there is a list of requests with a title under the Team Requests Status section",
+      "uid" : "e7f611e4172056c1",
+      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649005909755,
+        "stop" : 1649005919943,
+        "duration" : 10188
       },
       "flaky" : false,
       "newFailed" : false,

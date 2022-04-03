@@ -1,0 +1,105 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1649005849070' stop='1649005920446'>
+    <name>The Feed page</name>
+    <title>The Feed page</title>
+    <test-cases>
+        <test-case start='1649005849071' status='passed' stop='1649005859531'>
+            <name>GIVEN a logged in App THEN the Feed page is displayed</name>
+            <title>GIVEN a logged in App THEN the Feed page is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649005859714' status='passed' stop='1649005869368'>
+            <name>GIVEN a logged in App THEN the Enrolled Classes section is displayed</name>
+            <title>GIVEN a logged in App THEN the Enrolled Classes section is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649005869623' status='passed' stop='1649005879318'>
+            <name>GIVEN a logged in App THEN there are classes under the Enrolled Classes section is displayed</name>
+            <title>GIVEN a logged in App THEN there are classes under the Enrolled Classes section is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649005879525' status='passed' stop='1649005889538'>
+            <name>GIVEN a logged in App THEN the Recent Team Conversation section is displayed</name>
+            <title>GIVEN a logged in App THEN the Recent Team Conversation section is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649005889978' status='passed' stop='1649005899762'>
+            <name>GIVEN a logged in App THEN there are classes with a toggle button under the Recent Team Conversation section</name>
+            <title>GIVEN a logged in App THEN there are classes with a toggle button under the Recent Team Conversation section</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649005900255' status='passed' stop='1649005909513'>
+            <name>GIVEN a logged in App THEN the Team Requests Status section is displayed</name>
+            <title>GIVEN a logged in App THEN the Team Requests Status section is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649005909755' status='passed' stop='1649005919943'>
+            <name>GIVEN a logged in App THEN there is a list of requests with a title under the Team Requests Status section</name>
+            <title>GIVEN a logged in App THEN there is a list of requests with a title under the Team Requests Status section</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

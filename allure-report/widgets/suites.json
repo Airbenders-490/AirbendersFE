@@ -1,17 +1,6 @@
 {
   "total" : 2,
   "items" : [ {
-    "uid" : "de49d0d9675a69558a3cf5737d454a5b",
-    "name" : "The Feed page",
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 4,
-      "skipped" : 0,
-      "passed" : 5,
-      "unknown" : 0,
-      "total" : 9
-    }
-  }, {
     "uid" : "4015aacb36c88f6bfc458178e68fadb2",
     "name" : "The Profile page",
     "statistic" : {
@@ -21,6 +10,17 @@
       "passed" : 15,
       "unknown" : 0,
       "total" : 15
+    }
+  }, {
+    "uid" : "de49d0d9675a69558a3cf5737d454a5b",
+    "name" : "The Feed page",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 7,
+      "unknown" : 0,
+      "total" : 7
     }
   } ]
 }

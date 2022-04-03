@@ -1,0 +1,58 @@
+{
+  "uid" : "a86d020783608531",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
+  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
+  "historyId" : "3180d4c904eb284f167892731fea6faf",
+  "time" : {
+    "start" : 1648882559354,
+    "stop" : 1648882573484,
+    "duration" : 14130
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section"
+  }, {
+    "name" : "package",
+    "value" : "The Profile page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a86d020783608531.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}
