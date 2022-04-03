@@ -223,7 +223,7 @@ class ConversationScreen extends Component {
 
   navigateToUserProfile(studentID) {
     this.props.navigation.navigate('ParticipantUserProfile', {
-      userID: studentID
+      userID: studentID,
     });
   }
 

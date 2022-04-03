@@ -121,6 +121,9 @@ class UserProfile extends Component {
                     this.setState({ currentUserData: response.data });
                     this.updatePayload();
                     console.log(this.state.currentUserData)
+                    if (this.props.updateTitle) {
+                        this.props.updateTitle(this.state.currentUserData.first_name + " " + this.state.currentUserData.last_name)
+                    }
                 }
             )
             .catch(

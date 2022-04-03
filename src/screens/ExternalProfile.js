@@ -12,18 +12,27 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 class Profile extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      screenTitle: ''
+    }
+
+    this.updateScreenTitle = this.updateScreenTitle.bind(this);
   }
 
   // Write functions here
+  updateScreenTitle(name) {
+    this.setState({ screenTitle: name })
+  }
 
   render() {
     const { route } = this.props;
     const { userID } = route.params;
 
     return (
-      <ScreenContainer isSecondaryScreen screenTitle="John Smith">
+      <ScreenContainer isSecondaryScreen screenTitle={this.state.screenTitle}>
         {/* TODO: Input respective user id as prop in parent */}
-        <UserProfile isReadOnly userID={userID} />
+        <UserProfile isReadOnly userID={userID} updateTitle={this.updateScreenTitle}/>
       </ScreenContainer>
     );
   }
