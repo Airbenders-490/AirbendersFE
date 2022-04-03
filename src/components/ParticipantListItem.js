@@ -1,15 +1,13 @@
 import React, { Component, } from 'react';
-import PropTypes from 'prop-types';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import { Button, View, TouchableOpacity, Text, Image, ScrollView, Pressable, TouchableHighlightBase, Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
-import { Subtitle } from '../containers/TextContainer.js';
 import Label from './Label.js';
 import AcceptIcon from '../assets/images/icons/accept-icon.png'
 import DenyIcon from '../assets/images/icons/deny-icon.png'
+import { AuthAPI } from '../api/auth.js';
 
 const totalWidth = Dimensions.get('window').width;
 
@@ -28,24 +26,18 @@ class ParticipantListItem extends Component {
     this.handleAddUserToTeamConfirm = this.handleAddUserToTeamConfirm.bind(this)
   };
 
-  getConfig = (token) => {
-    return {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    }
-  }
 
   handleAddUserToTeamConfirm = async () => {
-    let token
+    let config
     try{
-      token = await AsyncStorage.getItem("token")
+      config = await AuthAPI.getConfig()
     } catch(err) {
       console.log(err)
+      // TODO: redirect to login
     }
 
     axios
-        .put(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, this.getConfig(token))
+        .put(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, config)
         // .put(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, config) // for testing w/out login
         .then(
             response => {
@@ -67,15 +59,16 @@ class ParticipantListItem extends Component {
   acceptRequest = async () => {
     console.log("accept participant");
 
-    let token
+    let config
     try{
-      token = await AsyncStorage.getItem("token")
+      config = await AuthAPI.getConfig()
     } catch(err) {
       console.log(err)
+      // TODO: redirect to login
     }
 
     axios
-        .put(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, this.getConfig(token))
+        .put(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, config)
         // .put(`http://real.encs.concordia.ca/chat/api/rooms/add/${this.props.roomID}/${this.props.participantID}`,{}, config) // for testing w/out login
         .then(
             response => {
@@ -92,15 +85,16 @@ class ParticipantListItem extends Component {
   denyRequest = async () => {
     console.log("deny participant");
 
-    let token
+    let config
     try{
-      token = await AsyncStorage.getItem("token")
+      config = await AuthAPI.getConfig()
     } catch(err) {
       console.log(err)
+      // TODO: redirect to login
     }
 
     axios
-        .post(`http://real.encs.concordia.ca/chat/api/chat/rejectRequest/${this.props.roomID}/${this.props.participantID}`,{}, this.getConfig(token))
+        .post(`http://real.encs.concordia.ca/chat/api/chat/rejectRequest/${this.props.roomID}/${this.props.participantID}`,{}, config)
         // .post(`http://real.encs.concordia.ca/chat/api/chat/rejectRequest/${this.props.roomID}/${this.props.participantID}`,{}, config) // for testing w/out login
         .then(
             response => {
@@ -159,13 +153,15 @@ class ParticipantListItem extends Component {
   }
 
   removeParticipantFromRoom = async () => {
-    let token
     let user
+    let config
     try{
-      token = await AsyncStorage.getItem("token")
-      user = await AsyncStorage.getItem("userID")
+      config = await AuthAPI.getConfig()
+      user = await AuthAPI.getUserID()
     } catch(err) {
       console.log(err)
+      // TODO: redirect to login
+      return
     }
 
     if (this.props.participantID !== user && this.props.isAdmin) {
@@ -173,7 +169,7 @@ class ParticipantListItem extends Component {
       console.log("Deleting Participant");
 
       axios
-      .put(`http://real.encs.concordia.ca/chat/api/rooms/remove/${this.props.roomID}/${this.props.participantID}`,{}, this.getConfig(token))
+      .put(`http://real.encs.concordia.ca/chat/api/rooms/remove/${this.props.roomID}/${this.props.participantID}`,{}, config)
       // .put(`http://real.encs.concordia.ca/chat/api/rooms/remove/${this.props.roomID}/${this.props.participantID}`,{}, config) // for testing w/out login
       .then(
           response => {

@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { Modal, View, Alert } from "react-native";
 import { TextBody, Subtitle } from '../../containers/TextContainer.js';
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styled from 'styled-components';
 import theme from '../../styles/theme.style.js';
 import AddButton from '../../components/AddButton.js'
+import { AuthAPI } from "../../api/auth.js";
 
 // for testing
 let config = {
@@ -27,33 +27,24 @@ class CreateTeam extends Component {
     }
 
     this.createTeam = this.createTeam.bind(this)
-    this.getConfig = this.getConfig.bind(this)
-    this.getData = this.getData.bind(this)
   };
 
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   }
 
-  getConfig = (token) => {
-    return {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    }
-  }
-
-  getData = async (key) => {
-    try {
-      return await AsyncStorage.getItem(key)
-    } catch (e) {
-      // error reading value
-      return e;
-    }
-  }
-
   createTeam = async () => {
-    let profileExists = await AsyncStorage.getItem("profileExists")
+    let profileExists
+    let config
+    try{
+      config = await AuthAPI.getConfig()
+      profileExists = await AuthAPI.getData('profileExists')
+    } catch(err) {
+      console.log(err)
+      // TODO: redirect to login
+      return
+    }
+
     const regex = /^\d+$/g;
     let isnum = regex.test(this.state.maxNum.trim());
 
@@ -68,7 +59,7 @@ class CreateTeam extends Component {
           "max_participants": parseInt(this.state.maxNum.trim())
         }
         axios
-          .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, this.getConfig(await this.getData("token")))
+          .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config)
           // .post(`http://real.encs.concordia.ca/chat/api/rooms`, room, config) // for testing
           .then(
             response => {

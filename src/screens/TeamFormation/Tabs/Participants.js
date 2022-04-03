@@ -1,13 +1,10 @@
 import React,  { Component, } from 'react';
 import ParticipantListItem from '../../../components/ParticipantListItem';
 import ListContainer from '../../../containers/ListContainer.js';
-import MainContainer from '../../../containers/MainContainer';
-
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import { Text, View } from 'react-native';
 import styled from 'styled-components';
 import theme from '../../../styles/theme.style.js';
+import { AuthAPI } from '../../../api/auth';
 
 
 class Participants extends Component {
@@ -21,56 +18,41 @@ class Participants extends Component {
       this.onParticipantsFilter = this.onParticipantsFilter.bind(this)
     }
 
-    getConfig = (token) => {
-      return {
-          headers: {
-              'Authorization': `Bearer ${token}`
-          }
-      }
-    }
 
     onParticipantSearch = async (name) => {
-      let token
-      try{
-        token = await AsyncStorage.getItem("token")
-      } catch(err) {
-        console.log(err)
-        // TODO: redirect to login
-        return
-      }
+      const config = await AuthAPI.getConfig()
 
-      axios.get(`http://real.encs.concordia.ca/profile/api/search/?firstName=${name}`, this.getConfig(token))
+      axios.get(`http://real.encs.concordia.ca/profile/api/search/?firstName=${name}`, config)
         .then(res => this.setState({participants: res.data}))
         .catch(err => console.log(err))
     }
 
     onParticipantsFilter = async (className) => {
-      let token
+      let config
       try{
-        token = await AsyncStorage.getItem("token")
+        config = await AuthAPI.getConfig()
       } catch(err) {
         console.log(err)
         // TODO: redirect to login
         return
       }
 
-      axios.get(`http://real.encs.concordia.ca/profile/api/search/?classes=${className}`, this.getConfig(token))
+      axios.get(`http://real.encs.concordia.ca/profile/api/search/?classes=${className}`, config)
         .then(res => this.setState({participants: res.data}))
         .catch(err => console.log(err))
     }
 
     onFilteredParticpantSearch = async (participantName, className) => {
-      console.log(className, participantName)
-      let token
+      let config
       try{
-        token = await AsyncStorage.getItem("token")
+        config = await AuthAPI.getConfig()
       } catch(err) {
         console.log(err)
         // TODO: redirect to login
         return
       }
 
-      axios.get(`http://real.encs.concordia.ca/profile/api/search/?firstName=${participantName}&classes=${className}`, this.getConfig(token))
+      axios.get(`http://real.encs.concordia.ca/profile/api/search/?firstName=${participantName}&classes=${className}`, config)
         .then(res => this.setState({participants: res.data}))
         .catch(err => console.log(err))
     }

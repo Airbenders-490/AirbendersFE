@@ -1,9 +1,8 @@
 import React,  { Component, } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import styled from 'styled-components';
-import { createStackNavigator } from '@react-navigation/stack';
+import { AuthAPI } from '../../../api/auth.js';
 import ListContainer from '../../../containers/ListContainer.js';
 import TeamListItem from '../../../components/TeamListItem';
 import CreateTeam from '../../../components/modals/CreateTeam.js';
@@ -20,18 +19,10 @@ class Teams extends Component {
       this.onSearchTeamByClass = this.onSearchTeamByClass.bind(this)
     }
 
-    getConfig = (token) => {
-      return {
-          headers: {
-              'Authorization': `Bearer ${token}`
-          }
-      }
-    }
-
     onSearchTeamByClass = async (className) => {
-      let token
+      let config
       try{
-        token = await AsyncStorage.getItem("token")
+        config = await AuthAPI.getConfig()
       } catch(err) {
         console.log(err)
         // TODO: redirect to login
@@ -39,9 +30,8 @@ class Teams extends Component {
       }
 
       if (className !== "") {
-        axios.get(`http://real.encs.concordia.ca/chat/api/rooms/class/${className.toLowerCase().trim()}`, this.getConfig(token))
+        axios.get(`http://real.encs.concordia.ca/chat/api/rooms/class/${className.toLowerCase().trim()}`, config)
         .then(res => {
-          console.log(res.data)
           this.setState({teams: res.data})
         })
         .catch(err => console.log(err))
@@ -52,8 +42,6 @@ class Teams extends Component {
     render() {
 
       let displayTeams = this.state.teams.map(team => {
-        console.log(team)
-
         return (
           <TeamListItem
           navigation={this.props.navigation}

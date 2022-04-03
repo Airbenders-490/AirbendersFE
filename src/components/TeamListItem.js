@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
@@ -10,6 +9,7 @@ import { Caption, TextBody, Title, Subtitle } from '../containers/TextContainer.
 import UserIcon from '../assets/images/icons/user_fill.png'
 import YesNoModal from './modals/YesNoModal.js'
 import { useCode } from 'react-native-reanimated';
+import { AuthAPI } from '../api/auth.js';
 
 class TeamListItem extends Component {
     constructor(props) {
@@ -26,20 +26,16 @@ class TeamListItem extends Component {
         this.openModalButton = this.openModalButton.bind(this)
     }
 
-    componentDidMount(){
-        AsyncStorage.getItem("userID")
-        .then(value => {
-          this.setState({ userID: value });
-        })
-        .done();
-    }
-
-    getConfig = (token) => {
-        return {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
+    async componentDidMount(){
+        let user
+        try{
+            user = await AuthAPI.getUserID()
+        } catch(err) {
+        console.log(err)
+        // TODO: redirect to login
+        return
         }
+        this.setState({ userID: user });
     }
 
     onToggle() {
@@ -55,20 +51,19 @@ class TeamListItem extends Component {
     }
 
     handleModalConfirm = async () => {
-        let token
         let profileExists
+        let config
         try{
-          token = await AsyncStorage.getItem("token")
-          profileExists = await AsyncStorage.getItem("profileExists")
+            config = await AuthAPI.getConfig()
+            profileExists = await AuthAPI.getData('profileExists')
         } catch(err) {
-          console.log(err)
-          // TODO: redirect to login
-          return
+            console.log(err)
+            // TODO: redirect to login
         }
 
         if (profileExists === "true") {
 
-            axios.post(`http://real.encs.concordia.ca/chat/api/chat/joinRequest/${this.props.teamID}`,{}, this.getConfig(token))
+            axios.post(`http://real.encs.concordia.ca/chat/api/chat/joinRequest/${this.props.teamID}`,{}, config)
             .then(res => {
                 console.log(res.data)
                 this.setState({showModalButton: false})
