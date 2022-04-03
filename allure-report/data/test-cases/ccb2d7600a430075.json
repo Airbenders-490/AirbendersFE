@@ -1,0 +1,66 @@
+{
+  "uid" : "ccb2d7600a430075",
+  "name" : "GIVEN a conversation in the Team Chats tab AND user clicks the back button THEN they are redirected to the list of conversations",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab AND user clicks the back button THEN they are redirected to the list of conversations",
+  "historyId" : "154f33743ba81e2d1c84a3ed96c37c95",
+  "time" : {
+    "start" : 1649001858613,
+    "stop" : 1649001876489,
+    "duration" : 17876
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a conversation in the Team Chats tab AND user clicks the back button THEN they are redirected to the list of conversations"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "5603d089b6e4f16",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649001517862,
+        "stop" : 1649001535490,
+        "duration" : 17628
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ccb2d7600a430075.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

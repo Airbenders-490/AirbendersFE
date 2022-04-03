@@ -1,12 +1,12 @@
 {
-  "uid" : "ff7279edaf1d2930",
-  "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page THEN the Rated Quality section is displayed",
-  "historyId" : "869a35e628e1e81beee8402a2c7455a1",
+  "uid" : "2c607d7b60139a43",
+  "name" : "GIVEN a Team Chats tab AND user clicks a message conversation THEN the entire conversation is displayed",
+  "fullName" : "The Chat Room.GIVEN a Team Chats tab AND user clicks a message conversation THEN the entire conversation is displayed",
+  "historyId" : "eb68f529ada0707b68b5cb287d555e62",
   "time" : {
-    "start" : 1648882434461,
-    "stop" : 1648882445838,
-    "duration" : 11377
+    "start" : 1649001500814,
+    "stop" : 1649001517461,
+    "duration" : 16647
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN the Rated Quality section is displayed"
+    "value" : "GIVEN a Team Chats tab AND user clicks a message conversation THEN the entire conversation is displayed"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -45,14 +45,12 @@
     "value" : "emulator-5554 11-11"
   } ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "ff7279edaf1d2930.json",
+  "source" : "2c607d7b60139a43.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

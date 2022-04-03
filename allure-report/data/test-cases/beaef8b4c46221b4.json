@@ -1,0 +1,56 @@
+{
+  "uid" : "beaef8b4c46221b4",
+  "name" : "GIVEN a loaded app page THEN there is a Team Chats tab",
+  "fullName" : "The Chat Room.GIVEN a loaded app page THEN there is a Team Chats tab",
+  "historyId" : "272d2bd706bab755f201986283e660cc",
+  "time" : {
+    "start" : 1649001433794,
+    "stop" : 1649001446013,
+    "duration" : 12219
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a loaded app page THEN there is a Team Chats tab"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "beaef8b4c46221b4.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

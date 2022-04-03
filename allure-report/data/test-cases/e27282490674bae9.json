@@ -1,12 +1,12 @@
 {
-  "uid" : "4948c94a5a7599b1",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
-  "historyId" : "365abf136701d09e9d79d6e6bb9eda82",
+  "uid" : "e27282490674bae9",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can pin the other participant's message",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN user can pin the other participant's message",
+  "historyId" : "d0bee14fa14db1ff6b14f75f6d028e05",
   "time" : {
-    "start" : 1648882542996,
-    "stop" : 1648882558992,
-    "duration" : 15996
+    "start" : 1649001689904,
+    "stop" : 1649001706689,
+    "duration" : 16785
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message"
+    "value" : "GIVEN a conversation in the Team Chats tab THEN user can pin the other participant's message"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -45,14 +45,12 @@
     "value" : "emulator-5554 11-11"
   } ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "4948c94a5a7599b1.json",
+  "source" : "e27282490674bae9.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

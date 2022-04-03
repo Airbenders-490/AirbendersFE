@@ -1,12 +1,12 @@
 {
-  "uid" : "76835e44787ef983",
-  "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page THEN the Classes Taken section is displayed",
-  "historyId" : "dab5b6ca92adf9ef81945dc7659fbfca",
+  "uid" : "f70e50ca57bf3af6",
+  "name" : "GIVEN a Team Chats tab THEN there is a Message conversation with a toggle button that can be turned ON",
+  "fullName" : "The Chat Room.GIVEN a Team Chats tab THEN there is a Message conversation with a toggle button that can be turned ON",
+  "historyId" : "fab2ef8bf95a1f20527e3bae3c14ecf4",
   "time" : {
-    "start" : 1648882446085,
-    "stop" : 1648882458932,
-    "duration" : 12847
+    "start" : 1649001460022,
+    "stop" : 1649001473423,
+    "duration" : 13401
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN the Classes Taken section is displayed"
+    "value" : "GIVEN a Team Chats tab THEN there is a Message conversation with a toggle button that can be turned ON"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -45,14 +45,12 @@
     "value" : "emulator-5554 11-11"
   } ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "76835e44787ef983.json",
+  "source" : "f70e50ca57bf3af6.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

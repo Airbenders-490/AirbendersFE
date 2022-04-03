@@ -1,12 +1,12 @@
 {
-  "uid" : "e11eb24157ebef42",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
-  "historyId" : "f45c712336baeda3a7e5350a00f1a19f",
+  "uid" : "bce863ca81bef47a",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can delete a sent message",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN user can delete a sent message",
+  "historyId" : "a7909941433c881e2eb9d277f2fe7a83",
   "time" : {
-    "start" : 1648882527536,
-    "stop" : 1648882542789,
-    "duration" : 15253
+    "start" : 1649001653399,
+    "stop" : 1649001671519,
+    "duration" : 18120
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name"
+    "value" : "GIVEN a conversation in the Team Chats tab THEN user can delete a sent message"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -45,14 +45,12 @@
     "value" : "emulator-5554 11-11"
   } ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "e11eb24157ebef42.json",
+  "source" : "bce863ca81bef47a.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

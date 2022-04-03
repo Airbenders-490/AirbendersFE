@@ -1,12 +1,12 @@
 {
-  "uid" : "b2e5f8ea0a788df1",
-  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
-  "historyId" : "a06f333530d884b5ffdb87ee7c810f45",
+  "uid" : "826291063e0a558d",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can pin a sent message",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN user can pin a sent message",
+  "historyId" : "1f8ab237cfab9039a0dea359555fc744",
   "time" : {
-    "start" : 1648882485228,
-    "stop" : 1648882499674,
-    "duration" : 14446
+    "start" : 1649002014493,
+    "stop" : 1649002030974,
+    "duration" : 16481
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed"
+    "value" : "GIVEN a conversation in the Team Chats tab THEN user can pin a sent message"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -49,10 +49,18 @@
   "retry" : false,
   "extra" : {
     "severity" : "normal",
-    "retries" : [ ],
+    "retries" : [ {
+      "uid" : "d9b6c9822042a9d4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649001672166,
+        "stop" : 1649001689584,
+        "duration" : 17418
+      }
+    } ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "b2e5f8ea0a788df1.json",
+  "source" : "826291063e0a558d.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

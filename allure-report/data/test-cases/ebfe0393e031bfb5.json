@@ -1,12 +1,12 @@
 {
-  "uid" : "9cb43ad1c09c067e",
-  "name" : "GIVEN the profile page THEN the setting icon is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page THEN the setting icon is displayed",
-  "historyId" : "edf8c43ab5dea3e8b38f8e683d3c2f9e",
+  "uid" : "ebfe0393e031bfb5",
+  "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page THEN the Rated Quality section is displayed",
+  "historyId" : "869a35e628e1e81beee8402a2c7455a1",
   "time" : {
-    "start" : 1648882421156,
-    "stop" : 1648882434165,
-    "duration" : 13009
+    "start" : 1648882434461,
+    "stop" : 1648882445838,
+    "duration" : 11377
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN the setting icon is displayed"
+    "value" : "GIVEN the profile page THEN the Rated Quality section is displayed"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "9cb43ad1c09c067e.json",
+  "source" : "ebfe0393e031bfb5.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

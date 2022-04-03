@@ -1,12 +1,12 @@
 {
-  "uid" : "1aafc8b7e462ca33",
-  "name" : "GIVEN a Team Chats tab THEN there is a Message conversation",
-  "fullName" : "The Chat Room.GIVEN a Team Chats tab THEN there is a Message conversation",
-  "historyId" : "ab888b79cc4863fc91db0c06544a2d75",
+  "uid" : "d8f87cce49c19ff6",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can edit a sent message",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN user can edit a sent message",
+  "historyId" : "34fb97e1fb8e7dd1c68633b52ac7a127",
   "time" : {
-    "start" : 1648883318584,
-    "stop" : 1648883332027,
-    "duration" : 13443
+    "start" : 1649001617323,
+    "stop" : 1649001635346,
+    "duration" : 18023
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Chat Room"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN a Team Chats tab THEN there is a Message conversation"
+    "value" : "GIVEN a conversation in the Team Chats tab THEN user can edit a sent message"
   }, {
     "name" : "package",
     "value" : "The Chat Room"
@@ -45,14 +45,12 @@
     "value" : "emulator-5554 11-11"
   } ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "1aafc8b7e462ca33.json",
+  "source" : "d8f87cce49c19ff6.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

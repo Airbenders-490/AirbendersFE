@@ -1,0 +1,56 @@
+{
+  "uid" : "b2f2c4054f859cf3",
+  "name" : "GIVEN a conversation in the Team Chats tab AND user deletes a sent message THEN a pop up window appears to confirm their action",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab AND user deletes a sent message THEN a pop up window appears to confirm their action",
+  "historyId" : "5938449d72833148bb4a93623f079e53",
+  "time" : {
+    "start" : 1649001635610,
+    "stop" : 1649001653135,
+    "duration" : 17525
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a conversation in the Team Chats tab AND user deletes a sent message THEN a pop up window appears to confirm their action"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b2f2c4054f859cf3.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

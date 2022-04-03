@@ -1,12 +1,12 @@
 {
-  "uid" : "f2a92c4714abc510",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
-  "historyId" : "d4624ed1824e8f0aa92dacc3e993511f",
+  "uid" : "aa34b0fd5ca444f",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can edit a sent message",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN user can edit a sent message",
+  "historyId" : "34fb97e1fb8e7dd1c68633b52ac7a127",
   "time" : {
-    "start" : 1648882591816,
-    "stop" : 1648882606007,
-    "duration" : 14191
+    "start" : 1649001958673,
+    "stop" : 1649001977610,
+    "duration" : 18937
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section"
+    "value" : "GIVEN a conversation in the Team Chats tab THEN user can edit a sent message"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -49,10 +49,18 @@
   "retry" : false,
   "extra" : {
     "severity" : "normal",
-    "retries" : [ ],
+    "retries" : [ {
+      "uid" : "d8f87cce49c19ff6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649001617323,
+        "stop" : 1649001635346,
+        "duration" : 18023
+      }
+    } ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "f2a92c4714abc510.json",
+  "source" : "aa34b0fd5ca444f.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

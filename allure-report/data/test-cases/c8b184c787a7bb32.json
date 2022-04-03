@@ -1,0 +1,58 @@
+{
+  "uid" : "c8b184c787a7bb32",
+  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section",
+  "fullName" : "The Profile page.GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section",
+  "historyId" : "ca021d9d68b179fdbc2963576b3b521c",
+  "time" : {
+    "start" : 1648882606336,
+    "stop" : 1648882623471,
+    "duration" : 17135
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section"
+  }, {
+    "name" : "package",
+    "value" : "The Profile page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c8b184c787a7bb32.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

@@ -1,0 +1,74 @@
+{
+  "uid" : "3cef6e4aeeb68fa6",
+  "name" : "GIVEN a Team Chats tab THEN there is a Message conversation",
+  "fullName" : "The Chat Room.GIVEN a Team Chats tab THEN there is a Message conversation",
+  "historyId" : "ab888b79cc4863fc91db0c06544a2d75",
+  "time" : {
+    "start" : 1649001784756,
+    "stop" : 1649001801980,
+    "duration" : 17224
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a Team Chats tab THEN there is a Message conversation"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "fbec319b02889ef5",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649001446148,
+        "stop" : 1649001459796,
+        "duration" : 13648
+      }
+    }, {
+      "uid" : "b95dd64bc1467515",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648883318584,
+        "stop" : 1648883332027,
+        "duration" : 13443
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "3cef6e4aeeb68fa6.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

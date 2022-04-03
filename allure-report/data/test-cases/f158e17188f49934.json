@@ -1,12 +1,12 @@
 {
-  "uid" : "6d5bc4a95048535d",
-  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
-  "historyId" : "9072e228b7475d58cb1ee879fc750097",
+  "uid" : "f158e17188f49934",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN a pin button is displayed",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN a pin button is displayed",
+  "historyId" : "731655bbbd1c103f9ee667fedb59ffaf",
   "time" : {
-    "start" : 1648882500081,
-    "stop" : 1648882514127,
-    "duration" : 14046
+    "start" : 1649001876659,
+    "stop" : 1649001892386,
+    "duration" : 15727
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed"
+    "value" : "GIVEN a conversation in the Team Chats tab THEN a pin button is displayed"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -49,10 +49,18 @@
   "retry" : false,
   "extra" : {
     "severity" : "normal",
-    "retries" : [ ],
+    "retries" : [ {
+      "uid" : "f3b4d894759dc3ef",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649001535776,
+        "stop" : 1649001551564,
+        "duration" : 15788
+      }
+    } ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "6d5bc4a95048535d.json",
+  "source" : "f158e17188f49934.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

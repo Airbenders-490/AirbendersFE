@@ -1,12 +1,12 @@
 {
-  "uid" : "f3484c61f4a823dd",
-  "name" : "GIVEN the profile page THEN a search icon is displayed under the Classes Taken section",
-  "fullName" : "The Profile page.GIVEN the profile page THEN a search icon is displayed under the Classes Taken section",
-  "historyId" : "5bc994fac9d51a0220880eba99e9705",
+  "uid" : "2dd7b0ac7edc474a",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
+  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
+  "historyId" : "f45c712336baeda3a7e5350a00f1a19f",
   "time" : {
-    "start" : 1648882514352,
-    "stop" : 1648882527281,
-    "duration" : 12929
+    "start" : 1648882527536,
+    "stop" : 1648882542789,
+    "duration" : 15253
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -32,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN a search icon is displayed under the Classes Taken section"
+    "value" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "f3484c61f4a823dd.json",
+  "source" : "2dd7b0ac7edc474a.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

@@ -1,12 +1,12 @@
 {
-  "uid" : "e9e42b4dd84cb780",
-  "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-  "historyId" : "4ad66b99e731382d5157009d1bd972b7",
+  "uid" : "d9b6c9822042a9d4",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can pin a sent message",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN user can pin a sent message",
+  "historyId" : "1f8ab237cfab9039a0dea359555fc744",
   "time" : {
-    "start" : 1648882459227,
-    "stop" : 1648882471960,
-    "duration" : 12733
+    "start" : 1649001672166,
+    "stop" : 1649001689584,
+    "duration" : 17418
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -26,16 +26,16 @@
     "value" : "0-0"
   }, {
     "name" : "suite",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testClass",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed"
+    "value" : "GIVEN a conversation in the Team Chats tab THEN user can pin a sent message"
   }, {
     "name" : "package",
-    "value" : "The Profile page"
+    "value" : "The Chat Room"
   }, {
     "name" : "resultFormat",
     "value" : "allure1"
@@ -45,14 +45,12 @@
     "value" : "emulator-5554 11-11"
   } ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "e9e42b4dd84cb780.json",
+  "source" : "d9b6c9822042a9d4.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }
