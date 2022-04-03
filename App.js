@@ -187,8 +187,6 @@ const NavigationBarContainer = styled.View`
   justify-content: space-between;
   align-items: center;
   elevation: 30;
-
-
   /* iOS Shadows */
   shadowColor: #555;
   shadowOpacity: 0.05;
@@ -200,4 +198,3 @@ const TabIcon = styled.Image`
   height: 30;
   tint-color: ${props => props.tabIconTint};
 `;
-

@@ -1,0 +1,217 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1648882406092' stop='1648882623902'>
+    <name>The Profile page</name>
+    <title>The Profile page</title>
+    <test-cases>
+        <test-case start='1648882406093' status='passed' stop='1648882420756'>
+            <name>GIVEN the profile page THEN the user's name is displayed</name>
+            <title>GIVEN the profile page THEN the user's name is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882421156' status='passed' stop='1648882434165'>
+            <name>GIVEN the profile page THEN the setting icon is displayed</name>
+            <title>GIVEN the profile page THEN the setting icon is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882434461' status='passed' stop='1648882445838'>
+            <name>GIVEN the profile page THEN the Rated Quality section is displayed</name>
+            <title>GIVEN the profile page THEN the Rated Quality section is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882446085' status='passed' stop='1648882458932'>
+            <name>GIVEN the profile page THEN the Classes Taken section is displayed</name>
+            <title>GIVEN the profile page THEN the Classes Taken section is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882459227' status='passed' stop='1648882471960'>
+            <name>GIVEN the profile page THEN the Classes Enrolled In section is displayed</name>
+            <title>GIVEN the profile page THEN the Classes Enrolled In section is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882472120' status='passed' stop='1648882484919'>
+            <name>GIVEN the profile page THEN the Self-Promoted Skills section is displayed</name>
+            <title>GIVEN the profile page THEN the Self-Promoted Skills section is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882485228' status='passed' stop='1648882499674'>
+            <name>GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed</name>
+            <title>GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882500081' status='passed' stop='1648882514127'>
+            <name>GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed</name>
+            <title>GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882514352' status='passed' stop='1648882527281'>
+            <name>GIVEN the profile page THEN a search icon is displayed under the Classes Taken section</name>
+            <title>GIVEN the profile page THEN a search icon is displayed under the Classes Taken section</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882527536' status='passed' stop='1648882542789'>
+            <name>GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name</name>
+            <title>GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882542996' status='passed' stop='1648882558992'>
+            <name>GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message</name>
+            <title>GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882559354' status='passed' stop='1648882573484'>
+            <name>GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section</name>
+            <title>GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882573911' status='passed' stop='1648882591498'>
+            <name>GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section</name>
+            <title>GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882591816' status='passed' stop='1648882606007'>
+            <name>GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section</name>
+            <title>GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648882606336' status='passed' stop='1648882623471'>
+            <name>GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section</name>
+            <title>GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

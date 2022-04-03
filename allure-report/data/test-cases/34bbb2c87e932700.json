@@ -1,0 +1,58 @@
+{
+  "uid" : "34bbb2c87e932700",
+  "name" : "GIVEN a logged in App THEN there are classes with a toggle button under the Recent Team Conversation section",
+  "fullName" : "The Feed page.GIVEN a logged in App THEN there are classes with a toggle button under the Recent Team Conversation section",
+  "historyId" : "f0ef18789e153d715f6c798b3620fcbb",
+  "time" : {
+    "start" : 1649005889978,
+    "stop" : 1649005899762,
+    "duration" : 9784
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a logged in App THEN there are classes with a toggle button under the Recent Team Conversation section"
+  }, {
+    "name" : "package",
+    "value" : "The Feed page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "34bbb2c87e932700.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}
