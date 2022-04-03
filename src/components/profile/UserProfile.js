@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { LogBox } from "react-native"
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, Text, Touchable, TouchableOpacity, View, Alert } from 'react-native';
 import theme from '../../styles/theme.style.js';
 import MainContainer from '../../containers/MainContainer.js';
@@ -18,6 +17,7 @@ import Label from '../Label.js';
 import StarIcon from '../../assets/images/icons/star-icon.png';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import axios from 'axios';
+import { AuthAPI } from '../../api/auth.js';
 // import ToggleSwitch from 'toggle-switch-react-native'
 import Emoji from '../Emoji.js';
 import AddClassesTakenModal from '../AddClassesTakenModal.js';
@@ -27,13 +27,6 @@ import RemoveCurrentClassModal from '../RemoveCurrentClassModal.js';
 import CompleteClassModal from '../CompleteClassModal.js';
 
 LogBox.ignoreAllLogs();
-
-// for testing w/out login
-let config = {
-    headers: {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
-    }
-}
 
 class UserProfile extends Component {
     constructor(props) {
@@ -55,8 +48,6 @@ class UserProfile extends Component {
         this.refreshScreen = this.refreshScreen.bind(this);
         this.onSettingsSave = this.onSettingsSave.bind(this);
         this.getCurrentUser = this.getCurrentUser.bind(this);
-        this.getConfig = this.getConfig.bind(this);
-        this.getData = this.getData.bind(this);
         this.validateEmailAndSendToken = this.validateEmailAndSendToken.bind(this);
         this.ShowEmailSentMessage = this.ShowEmailSentMessage.bind(this);
     }
@@ -66,23 +57,6 @@ class UserProfile extends Component {
         studentID: this.studentID,
         email: this.email,
         generalInfo: this.generalInfo,
-    }
-
-    getConfig = (token) => {
-        return {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        }
-    }
-
-    getData = async (key) => {
-        try {
-            return await AsyncStorage.getItem(key)
-        } catch (e) {
-            // error reading value
-            return e;
-        }
     }
 
     updatePayload() {
@@ -101,18 +75,18 @@ class UserProfile extends Component {
     async getCurrentUser() {
         let user;
         if (this.props.isCurrentUser) {
-            user = await this.getData("userID")
+            user = await AuthAPI.getUserID()
         } else {
-            console.log("here!!")
             user = this.props.userID
         }
         
         this.setState({
             userID: user,
-            token: await this.getData("token")
+            token: await AuthAPI.getToken()
         })
+        const config = await AuthAPI.getConfig()
         axios
-            .get(`http://${global.profileAPI}/api/student/${this.state.userID}`, this.getConfig(this.state.token))
+            .get(`http://${global.profileAPI}/api/student/${this.state.userID}`, config)
             // .get(`http://real.encs.concordia.ca/profile/api/student/${this.state.userID}`, this.getConfig(this.state.token))
             // .get(`http://real.encs.concordia.ca/profile/api/student/${userID}`, config) // for testing w/out login
             .then(
@@ -130,7 +104,7 @@ class UserProfile extends Component {
                 // TODO: On 404, block all access to app until register is complete
                 error => {
                     console.log("User Profile does not exist",error)
-                    AsyncStorage.setItem("profileExists", "false")
+                    AuthAPI.setData("profileExists", "false")
                     .then(()=> console.log("profile does not exist!"))
                     .catch(err => console.log("error saving profileExists",err))
                     Alert.alert(
@@ -152,11 +126,11 @@ class UserProfile extends Component {
     }
 
     async onSettingsSave() {
-        let token = await AsyncStorage.getItem("token")
-        let userID = await AsyncStorage.getItem("userID")
-        let email = await AsyncStorage.getItem("email")
-        let profileExists = await AsyncStorage.getItem("profileExists")
-
+        let userID = await AuthAPI.getUserID()
+        let email = await AuthAPI.getData("email")
+        let profileExists = await AuthAPI.getData("profileExists")
+        const config = await  AuthAPI.getConfig()
+        
         let updatedUser = {
             "id": this.payload.studentID,
             "first_name": this.payload.fullName.split(' ').slice(0, -1).join(' '),
@@ -173,13 +147,12 @@ class UserProfile extends Component {
                 "email": email,
                 "general_info": this.payload.generalInfo ? this.payload.generalInfo : "",
             }
-
             axios
-                .post('http://real.encs.concordia.ca/profile/api/student', newUser, this.getConfig(token))
+                .post('http://real.encs.concordia.ca/profile/api/student', newUser, config)
                 .then(
                     response => {
                         console.log(response.data);
-                        AsyncStorage.setItem("profileExists", "true")
+                        AuthAPI.setData("profileExists", "true")
                         .then(()=> console.log("profile exists!"))
                         .catch(err => console.log("error saving profileExists",err))
                         Alert.alert("Profile Created!")
@@ -200,7 +173,7 @@ class UserProfile extends Component {
                 )
         } else {
             axios
-                .put(`http://real.encs.concordia.ca/profile/api/student/${this.state.userID}`, updatedUser, this.getConfig(this.state.token))
+                .put(`http://real.encs.concordia.ca/profile/api/student/${this.state.userID}`, updatedUser, config)
                 .then(
                     response => {
                         console.log(response.data);
@@ -230,7 +203,7 @@ class UserProfile extends Component {
        }.bind(this),5000);
       }
 
-    validateEmailAndSendToken(e) {
+    async validateEmailAndSendToken(e) {
     let email = e.nativeEvent.text.trim().toLowerCase();
     // What is considered a valid email? Test here: http://jsfiddle.net/ghvj4gy9/
     let emailIsValid = String(email)
@@ -238,13 +211,13 @@ class UserProfile extends Component {
         .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         );
-
+    const config = await  AuthAPI.getConfig()
     if (emailIsValid) {
         this.setState({ emailIsValid: true });
         axios
         .get(
             `http://${global.profileAPI}/api/school/confirm?email=${email}`,
-            this.getConfig(this.state.token)
+            config
         )
         .then(() => this.ShowEmailSentMessage())
         .catch(
@@ -252,6 +225,7 @@ class UserProfile extends Component {
                 if (err.response.data.code == 404) {
                 this.setState({ emailIsValid: false, emailErrorMessage: err.response.data.message.toUpperCase() })
                 } else {
+                    console.log(err)
                 this.setState({ emailErrorMessage: "The email couldn't be confirmed at this point. Please try again later!" })
                 }
             }
@@ -262,7 +236,6 @@ class UserProfile extends Component {
     }
 
     render() {
-
         let classesTaken = this.state.currentUserData.classes_taken?.map((completedClass) => {
             return (
                 <Label labelColor={theme.COLOR_YELLOW} isReadOnly stacked>

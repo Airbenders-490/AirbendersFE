@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import styled from 'styled-components';
 import { View, ScrollView, Text } from 'react-native';
@@ -7,13 +6,14 @@ import theme from '../styles/theme.style.js';
 import ScreenContainer from '../containers/ScreenContainer.js';
 import TeamRequestItem from '../components/feed/TeamRequestItem.js';
 import TeamItem from '../components/feed/TeamItem.js';
+import { AuthAPI } from "../api/auth.js";
 
 // for testing w/out login
-let config = {
-  headers: {
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
-  }
-}
+// let config = {
+//   headers: {
+//       'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiU3RlbGxhIiwibGFzdF9uYW1lIjoiTmd1eWVuIiwiZXhwIjoxNjM3ODg2OTkyLCJpc3MiOiIwZWE1MmFhZi1jMmRiLTRkZTctYjAxNC03N2MxZDI2YjVlZWEifQ.JoLJUdi6rLAAhyDXbaUWoGvS_W1x2PyrdDjksjoL_I4'
+//   }
+// }
 
 class Feed extends Component {
   constructor(props) {
@@ -29,29 +29,23 @@ class Feed extends Component {
     this.getChatRooms = this.getChatRooms.bind(this);
   }
 
-  getConfig = (token) => {
-    return {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    }
-  }
-
   async getCurrentUser() {
+    let config
     let userID
-    let token
-    try {
-      userID = await AsyncStorage.getItem("userID")
-      token = await AsyncStorage.getItem("token")
-    } catch (err) {
+    try{
+      config = await AuthAPI.getConfig()
+      userID = await AuthAPI.getUserID()
+    } catch(err) {
       console.log(err)
+      // TODO: redirect to login
+      return
     }
 
     axios
-        .get(`http://real.encs.concordia.ca/profile/api/student/${userID}`, this.getConfig(token))
+        .get(`http://real.encs.concordia.ca/profile/api/student/${userID}`, config)
         // .get(`http://real.encs.concordia.ca/profile/api/student/${userID}`, config) // for testing w/out login
         .then(response => {
-          AsyncStorage.setItem("profileExists", "true")
+          AuthAPI.setData("profileExists", "true")
           .then(()=> console.log("profile exists!"))
           .catch(err => console.log("error saving profileExists",err))
           this.setState({ currentUserData: response.data, userID: userID })
@@ -59,22 +53,22 @@ class Feed extends Component {
         .catch(err => {
           console.log(err)
           console.log("not exist in feed get user from profile")
-          AsyncStorage.setItem("profileExists", "false")
+          AuthAPI.setData("profileExists", "false")
           .then(()=> this.props.navigation.navigate('Profile'))
           .catch(err => console.log("error saving profileExists",err))
         })
   }
 
   async getChatRooms() {
-    let token
+    let config
     try {
-      token = await AsyncStorage.getItem("token")
+      config = await AuthAPI.getConfig()
     } catch (err) {
       console.log(err)
     }
 
     axios
-        .get(`http://real.encs.concordia.ca/chat/api/rooms`, this.getConfig(token)) // w/ login
+        .get(`http://real.encs.concordia.ca/chat/api/rooms`, config) // w/ login
         // .get(`http://real.encs.concordia.ca/chat/api/rooms`, config) // for testing w/out login
         .then(response => {this.setState({ rooms: response.data.Rooms })})
         .catch( error => {

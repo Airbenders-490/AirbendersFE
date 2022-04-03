@@ -11,9 +11,9 @@ import FeatureButtons from '../../components/FeatureButtons.js';
 import ParticipantListItem from '../../components/ParticipantListItem.js';
 import MessageBubble from '../../components/MessageBubble.js';
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import ParticipantUserProfile from './../ExternalProfile.js';
 import { createStackNavigator } from '@react-navigation/stack';
+import ParticipantUserProfile from './../ExternalProfile.js';
+import { AuthAPI } from '../../api/auth.js';
 
 if (
   Platform.OS === "android" &&
@@ -47,30 +47,21 @@ class ConversationScreen extends Component {
     this.onDeleteMessage = this.onDeleteMessage.bind(this);
   }
 
-  getConfig = (token) => {
-    return {
-      headers: {
-          'Authorization': `Bearer ${token}`
-      }
-    }
-  }
-
-  getData = async (key) => {
-    try {
-        return await AsyncStorage.getItem(key)
-    } catch (e) {
-        // error reading value
-        return e;
-    }
-  }
-
   async componentDidMount() {
     // Remove tab bar from conversation screen
     const { route } = this.props;
     const { room } = route.params;
 
-    const token = await this.getData("token")
-    const userid = await this.getData("userID")
+    let userid
+    let token
+    try{
+      token = await AuthAPI.getToken()
+      userid = await AuthAPI.getUserID()
+    } catch(err) {
+      console.log(err)
+      // TODO: redirect to login
+      return
+    }
     this.setState({ userID: userid, token: token })
 
     this.props.hideTabBar(false);
@@ -105,15 +96,23 @@ class ConversationScreen extends Component {
     };
   }
 
-  loadMessages(roomID, token, sentTimestamp = "2099-01-01T01:01:01.685296709Z") {
+  async loadMessages(roomID, token, sentTimestamp = "2099-01-01T01:01:01.685296709Z") {
     let route = `${global.chatAPI}/api/chat/${roomID}`
+    let config
+    try{
+      config = await AuthAPI.getConfig()
+    } catch(err) {
+      console.log(err)
+      // TODO: redirect to login
+      return
+    }
     axios
       .post(
         `http://${route}?limit=30`, 
         {
           "SentTimestamp": sentTimestamp
         },
-        this.getConfig(token))
+        config)
       .then(
           response => {
               // Reverse in order to display oldest messages first
@@ -129,20 +128,34 @@ class ConversationScreen extends Component {
       )
   }
 
-  onEditMessage = (message) => {
+  onEditMessage = async (message) => {
     if (!message) {
       return Promise.resolve()
     }
-
-    return axios.put(`http://${global.chatAPI}/api/chat/${message.RoomID}`, message, this.getConfig(this.state.token))
+    let config
+    try{
+      config = await AuthAPI.getConfig()
+    } catch(err) {
+      console.log(err)
+      // TODO: redirect to login
+      return
+    }
+    return axios.put(`http://${global.chatAPI}/api/chat/${message.RoomID}`, message, config)
   }
 
-  onDeleteMessage = (message) => {
+  onDeleteMessage = async (message) => {
     if (!message) {
       return Promise.resolve()
     }
-
-    return axios.delete(`http://${global.chatAPI}/api/chat/${message.RoomID}/${message.SentTimestamp}`, this.getConfig(this.state.token))
+    let config
+    try{
+      config = await AuthAPI.getConfig()
+    } catch(err) {
+      console.log(err)
+      // TODO: redirect to login
+      return
+    }
+    return axios.delete(`http://${global.chatAPI}/api/chat/${message.RoomID}/${message.SentTimestamp}`, config)
   }
 
   handleBackPress(navigation) {
