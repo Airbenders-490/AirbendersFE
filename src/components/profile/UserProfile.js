@@ -254,9 +254,9 @@ class UserProfile extends Component {
 
         let classesTaken = this.state.currentUserData.classes_taken?.map((completedClass) => {
             return (
-                <TouchableOpacity disabled={this.props.isReadOnly}>
-                    <ClassLabel>{completedClass}</ClassLabel>
-                </TouchableOpacity>
+                <Label labelColor={theme.COLOR_YELLOW} isReadOnly stacked>
+                    {completedClass}
+                </Label>
             )
         });
 
