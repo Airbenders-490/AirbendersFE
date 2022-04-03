@@ -232,7 +232,7 @@ class UserProfile extends Component {
         this.setState({ emailIsValid: true });
         axios
         .get(
-            `${global.profileAPI}/api/school/confirm?email=${email}`,
+            `http://${global.profileAPI}/api/school/confirm?email=${email}`,
             this.getConfig(this.state.token)
         )
         .then(() => this.ShowEmailSentMessage())

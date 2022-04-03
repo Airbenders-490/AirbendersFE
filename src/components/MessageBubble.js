@@ -67,9 +67,9 @@ class MessageBubble extends Component {
 
   render() {
     return (
-      <MessageContainer 
+      <MessageContainer
         isAuthor={this.props.isAuthor}
-        isDeleted={this.state.isDeleted}  
+        isDeleted={this.state.isDeleted}
       >
         {
           this.props.isAuthor &&
@@ -86,12 +86,10 @@ class MessageBubble extends Component {
             placeholderTextColor={this.props.isAuthor ? theme.COLOR_WHITE : theme.COLOR_BLACK}
             multiline={true}
             editable={this.state.isInEditingMode}
-            isAuthor={this.props.isAuthor} 
-            onEndEditing={(e) => 
-              {
-                  this.setState({messageBody: e.nativeEvent.text})
-              }}
-            />
+            isAuthor={this.props.isAuthor}
+            defaultValue={this.props.children}
+            onChangeText={(text) => this.setState({ messageBody: text })}
+          />
         </TextContainer>
         {
           !this.props.isAuthor &&
