@@ -1,5 +1,5 @@
 {
-  "uid" : "edf752f1af9bd46d",
+  "uid" : "e4545083c625272b",
   "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
   "fullName" : "The Profile page.GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
   "historyId" : "614a137b4952a75440ec08a50fb3e954",
@@ -53,6 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "edf752f1af9bd46d.json",
+  "source" : "e4545083c625272b.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

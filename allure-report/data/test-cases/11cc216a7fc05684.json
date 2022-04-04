@@ -1,0 +1,56 @@
+{
+  "uid" : "11cc216a7fc05684",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can pin the other participant's message",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN user can pin the other participant's message",
+  "historyId" : "d0bee14fa14db1ff6b14f75f6d028e05",
+  "time" : {
+    "start" : 1649002031208,
+    "stop" : 1649002048210,
+    "duration" : 17002
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a conversation in the Team Chats tab THEN user can pin the other participant's message"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "11cc216a7fc05684.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

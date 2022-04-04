@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD:allure-report/data/test-cases/fb99092a9618893a.json
+  "uid" : "fb99092a9618893a",
+=======
   "uid" : "4449d1964ea7ff85",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/4449d1964ea7ff85.json
   "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
   "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
   "historyId" : "a06f333530d884b5ffdb87ee7c810f45",
@@ -53,6 +57,10 @@
     "categories" : [ ],
     "tags" : [ ]
   },
+<<<<<<< HEAD:allure-report/data/test-cases/fb99092a9618893a.json
+  "source" : "fb99092a9618893a.json",
+=======
   "source" : "4449d1964ea7ff85.json",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/4449d1964ea7ff85.json
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

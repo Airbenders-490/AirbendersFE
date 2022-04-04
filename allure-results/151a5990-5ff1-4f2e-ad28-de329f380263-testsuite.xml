@@ -1,0 +1,245 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1649001771372' stop='1649002048521'>
+    <name>The Chat Room</name>
+    <title>The Chat Room</title>
+    <test-cases>
+        <test-case start='1649001771373' status='passed' stop='1649001784346'>
+            <name>GIVEN a loaded app page THEN there is a Team Chats tab</name>
+            <title>GIVEN a loaded app page THEN there is a Team Chats tab</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001784756' status='passed' stop='1649001801980'>
+            <name>GIVEN a Team Chats tab THEN there is a Message conversation</name>
+            <title>GIVEN a Team Chats tab THEN there is a Message conversation</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001802529' status='passed' stop='1649001815682'>
+            <name>GIVEN a Team Chats tab THEN there is a Message conversation with a toggle button that can be turned ON</name>
+            <title>GIVEN a Team Chats tab THEN there is a Message conversation with a toggle button that can be turned ON</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001816152' status='passed' stop='1649001829475'>
+            <name>GIVEN a Team Chats tab THEN there is a Message conversation with a title</name>
+            <title>GIVEN a Team Chats tab THEN there is a Message conversation with a title</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001829691' status='passed' stop='1649001842709'>
+            <name>GIVEN a Team Chats tab THEN there is a Message conversation with the number of participants</name>
+            <title>GIVEN a Team Chats tab THEN there is a Message conversation with the number of participants</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001842996' status='passed' stop='1649001858364'>
+            <name>GIVEN a Team Chats tab AND user clicks a message conversation THEN the entire conversation is displayed</name>
+            <title>GIVEN a Team Chats tab AND user clicks a message conversation THEN the entire conversation is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001858613' status='passed' stop='1649001876489'>
+            <name>GIVEN a conversation in the Team Chats tab AND user clicks the back button THEN they are redirected to the list of conversations</name>
+            <title>GIVEN a conversation in the Team Chats tab AND user clicks the back button THEN they are redirected to the list of conversations</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001876659' status='passed' stop='1649001892386'>
+            <name>GIVEN a conversation in the Team Chats tab THEN a pin button is displayed</name>
+            <title>GIVEN a conversation in the Team Chats tab THEN a pin button is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001892591' status='passed' stop='1649001908046'>
+            <name>GIVEN a conversation in the Team Chats tab THEN a participant button is displayed</name>
+            <title>GIVEN a conversation in the Team Chats tab THEN a participant button is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001908380' status='passed' stop='1649001924381'>
+            <name>GIVEN a conversation in the Team Chats tab THEN a calendar button is displayed</name>
+            <title>GIVEN a conversation in the Team Chats tab THEN a calendar button is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001924705' status='passed' stop='1649001940350'>
+            <name>GIVEN a conversation in the Team Chats tab THEN a search button is displayed</name>
+            <title>GIVEN a conversation in the Team Chats tab THEN a search button is displayed</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001940655' status='passed' stop='1649001958391'>
+            <name>GIVEN a conversation in the Team Chats tab THEN user can send message</name>
+            <title>GIVEN a conversation in the Team Chats tab THEN user can send message</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001958673' status='passed' stop='1649001977610'>
+            <name>GIVEN a conversation in the Team Chats tab THEN user can edit a sent message</name>
+            <title>GIVEN a conversation in the Team Chats tab THEN user can edit a sent message</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001977869' status='passed' stop='1649001995842'>
+            <name>GIVEN a conversation in the Team Chats tab AND user deletes a sent message THEN a pop up window appears to confirm their action</name>
+            <title>GIVEN a conversation in the Team Chats tab AND user deletes a sent message THEN a pop up window appears to confirm their action</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649001996136' status='passed' stop='1649002014259'>
+            <name>GIVEN a conversation in the Team Chats tab THEN user can delete a sent message</name>
+            <title>GIVEN a conversation in the Team Chats tab THEN user can delete a sent message</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649002014493' status='passed' stop='1649002030974'>
+            <name>GIVEN a conversation in the Team Chats tab THEN user can pin a sent message</name>
+            <title>GIVEN a conversation in the Team Chats tab THEN user can pin a sent message</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1649002031208' status='passed' stop='1649002048210'>
+            <name>GIVEN a conversation in the Team Chats tab THEN user can pin the other participant's message</name>
+            <title>GIVEN a conversation in the Team Chats tab THEN user can pin the other participant's message</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

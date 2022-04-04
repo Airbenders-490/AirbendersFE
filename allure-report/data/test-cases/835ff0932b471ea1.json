@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD:allure-report/data/test-cases/f44d3a98fea4421.json
+  "uid" : "f44d3a98fea4421",
+=======
   "uid" : "835ff0932b471ea1",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/835ff0932b471ea1.json
   "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
   "fullName" : "The Profile page.GIVEN the profile page THEN the Rated Quality section is displayed",
   "historyId" : "869a35e628e1e81beee8402a2c7455a1",
@@ -53,6 +57,10 @@
     "categories" : [ ],
     "tags" : [ ]
   },
+<<<<<<< HEAD:allure-report/data/test-cases/f44d3a98fea4421.json
+  "source" : "f44d3a98fea4421.json",
+=======
   "source" : "835ff0932b471ea1.json",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/835ff0932b471ea1.json
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

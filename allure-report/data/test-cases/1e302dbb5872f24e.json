@@ -1,0 +1,56 @@
+{
+  "uid" : "1e302dbb5872f24e",
+  "name" : "GIVEN a Team Chats tab THEN there is a Message conversation with a toggle button that can be turned ON",
+  "fullName" : "The Chat Room.GIVEN a Team Chats tab THEN there is a Message conversation with a toggle button that can be turned ON",
+  "historyId" : "fab2ef8bf95a1f20527e3bae3c14ecf4",
+  "time" : {
+    "start" : 1649001460022,
+    "stop" : 1649001473423,
+    "duration" : 13401
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a Team Chats tab THEN there is a Message conversation with a toggle button that can be turned ON"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "1e302dbb5872f24e.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

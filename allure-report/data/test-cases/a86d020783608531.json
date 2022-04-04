@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD:allure-report/data/test-cases/2c541881eb5f7663.json
+  "uid" : "2c541881eb5f7663",
+=======
   "uid" : "a86d020783608531",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/a86d020783608531.json
   "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
   "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
   "historyId" : "3180d4c904eb284f167892731fea6faf",
@@ -53,6 +57,10 @@
     "categories" : [ ],
     "tags" : [ ]
   },
+<<<<<<< HEAD:allure-report/data/test-cases/2c541881eb5f7663.json
+  "source" : "2c541881eb5f7663.json",
+=======
   "source" : "a86d020783608531.json",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/a86d020783608531.json
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

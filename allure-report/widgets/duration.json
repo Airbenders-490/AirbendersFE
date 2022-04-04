@@ -1,135 +1,5 @@
 [ {
-  "uid" : "edf752f1af9bd46d",
-  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
-  "time" : {
-    "start" : 1648882573911,
-    "stop" : 1648882591498,
-    "duration" : 17587
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "34bbb2c87e932700",
-  "name" : "GIVEN a logged in App THEN there are classes with a toggle button under the Recent Team Conversation section",
-  "time" : {
-    "start" : 1649005889978,
-    "stop" : 1649005899762,
-    "duration" : 9784
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "835ff0932b471ea1",
-  "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
-  "time" : {
-    "start" : 1648882434461,
-    "stop" : 1648882445838,
-    "duration" : 11377
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "5532e4ebd410c954",
-  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
-  "time" : {
-    "start" : 1648882500081,
-    "stop" : 1648882514127,
-    "duration" : 14046
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d078ccf8d8d7f65d",
-  "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-  "time" : {
-    "start" : 1648882459227,
-    "stop" : 1648882471960,
-    "duration" : 12733
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "1025fe2ac3e42558",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
-  "time" : {
-    "start" : 1648882542996,
-    "stop" : 1648882558992,
-    "duration" : 15996
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "965aa9ecf5d8e537",
-  "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
-  "time" : {
-    "start" : 1648882446085,
-    "stop" : 1648882458932,
-    "duration" : 12847
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "9c3daf429d2f1332",
-  "name" : "GIVEN a logged in App THEN the Enrolled Classes section is displayed",
-  "time" : {
-    "start" : 1649005859714,
-    "stop" : 1649005869368,
-    "duration" : 9654
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "7867d74828026cf2",
-  "name" : "GIVEN the profile page THEN the user's name is displayed",
-  "time" : {
-    "start" : 1648882406093,
-    "stop" : 1648882420756,
-    "duration" : 14663
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "18fbcfc6873ef716",
-  "name" : "GIVEN the profile page THEN the setting icon is displayed",
-  "time" : {
-    "start" : 1648882421156,
-    "stop" : 1648882434165,
-    "duration" : 13009
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "84d7d8d0bfc8d6d3",
-  "name" : "GIVEN a logged in App THEN the Team Requests Status section is displayed",
-  "time" : {
-    "start" : 1649005900255,
-    "stop" : 1649005909513,
-    "duration" : 9258
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a86d020783608531",
-  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
-  "time" : {
-    "start" : 1648882559354,
-    "stop" : 1648882573484,
-    "duration" : 14130
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "48b2a0ff5d27d800",
-  "name" : "GIVEN the profile page THEN a search icon is displayed under the Classes Taken section",
-  "time" : {
-    "start" : 1648882514352,
-    "stop" : 1648882527281,
-    "duration" : 12929
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "4449d1964ea7ff85",
+  "uid" : "fb99092a9618893a",
   "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
   "time" : {
     "start" : 1648882485228,
@@ -139,17 +9,77 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "e7f611e4172056c1",
-  "name" : "GIVEN a logged in App THEN there is a list of requests with a title under the Team Requests Status section",
+  "uid" : "7ecb1f054507d98b",
+  "name" : "GIVEN a Team Chats tab THEN there is a Message conversation with a title",
   "time" : {
-    "start" : 1649005909755,
-    "stop" : 1649005919943,
-    "duration" : 10188
+    "start" : 1649031568528,
+    "stop" : 1649031582148,
+    "duration" : 13620
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "9a9d87032ec46cb4",
+  "uid" : "21b148f8858e030a",
+  "name" : "GIVEN the profile page THEN the user's name is displayed",
+  "time" : {
+    "start" : 1648882406093,
+    "stop" : 1648882420756,
+    "duration" : 14663
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bc2fbf5a19453d5e",
+  "name" : "GIVEN a Team Chats tab AND user clicks a message conversation THEN the entire conversation is displayed",
+  "time" : {
+    "start" : 1649031595137,
+    "stop" : 1649031610395,
+    "duration" : 15258
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7d0333a9b19882a9",
+  "name" : "GIVEN a Team Chats tab THEN there is a Message conversation with the number of participants",
+  "time" : {
+    "start" : 1649031582513,
+    "stop" : 1649031594912,
+    "duration" : 12399
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8092f511bf77d093",
+  "name" : "GIVEN a logged in App THEN the Team Requests Status section is displayed",
+  "time" : {
+    "start" : 1649031866673,
+    "stop" : 1649031876817,
+    "duration" : 10144
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e4545083c625272b",
+  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
+  "time" : {
+    "start" : 1648882406093,
+    "stop" : 1648882420756,
+    "duration" : 14663
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cb25854efe45701d",
+  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
+  "time" : {
+    "start" : 1648882500081,
+    "stop" : 1648882514127,
+    "duration" : 14046
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "39f8dfcadc2c7649",
   "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
   "time" : {
     "start" : 1648882527536,
@@ -159,7 +89,287 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "aaee547357b9e330",
+  "uid" : "ef2e2abb16ca6eea",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN a search button is displayed",
+  "time" : {
+    "start" : 1649031674793,
+    "stop" : 1649031689852,
+    "duration" : 15059
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8e55eae9a2873f25",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN a calendar button is displayed",
+  "time" : {
+    "start" : 1649031659198,
+    "stop" : 1649031674586,
+    "duration" : 15388
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "decda84d0e56cbb8",
+  "name" : "GIVEN a logged in App THEN the Enrolled Classes section is displayed",
+  "time" : {
+    "start" : 1649031822391,
+    "stop" : 1649031832539,
+    "duration" : 10148
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f44d3a98fea4421",
+  "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
+  "time" : {
+    "start" : 1648882434461,
+    "stop" : 1648882445838,
+    "duration" : 11377
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8f811b63c1cedf6a",
+  "name" : "GIVEN the profile page THEN a search icon is displayed under the Classes Taken section",
+  "time" : {
+    "start" : 1648882514352,
+    "stop" : 1648882527281,
+    "duration" : 12929
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dead1a56fd2e0d46",
+  "name" : "GIVEN a Team Chats tab THEN there is a Message conversation",
+  "time" : {
+    "start" : 1649031541358,
+    "stop" : 1649031554404,
+    "duration" : 13046
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cbd670e35b024379",
+  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section",
+  "time" : {
+    "start" : 1648882606336,
+    "stop" : 1648882623471,
+    "duration" : 17135
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dafb98009f705e57",
+  "name" : "GIVEN a logged in App THEN the Recent Team Conversation section is displayed",
+  "time" : {
+    "start" : 1649031843405,
+    "stop" : 1649031854820,
+    "duration" : 11415
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e98e73aae9389bb0",
+  "name" : "GIVEN a conversation in the Team Chats tab AND user clicks the back button THEN they are redirected to the list of conversations",
+  "time" : {
+    "start" : 1649031610710,
+    "stop" : 1649031627312,
+    "duration" : 16602
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "909dbad4ccfdf5f6",
+  "name" : "GIVEN a logged in App THEN the Feed page is displayed",
+  "time" : {
+    "start" : 1649031811451,
+    "stop" : 1649031821999,
+    "duration" : 10548
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9af02b5c5ba12c12",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN a pin button is displayed",
+  "time" : {
+    "start" : 1649031627613,
+    "stop" : 1649031643577,
+    "duration" : 15964
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "75d9855df06a3019",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
+  "time" : {
+    "start" : 1648882485228,
+    "stop" : 1648882499674,
+    "duration" : 14446
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fa4e69c9b73fd0b8",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN a participant button is displayed",
+  "time" : {
+    "start" : 1649031643869,
+    "stop" : 1649031658895,
+    "duration" : 15026
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "87db43caf4e924fe",
+  "name" : "GIVEN a logged in App THEN there are classes under the Enrolled Classes section is displayed",
+  "time" : {
+    "start" : 1649031832777,
+    "stop" : 1649031843211,
+    "duration" : 10434
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7c8d2d234678357c",
+  "name" : "GIVEN a logged in App THEN there are classes with a toggle button under the Recent Team Conversation section",
+  "time" : {
+    "start" : 1649031855170,
+    "stop" : 1649031866280,
+    "duration" : 11110
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ac7f028f9f22ec87",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can delete a sent message",
+  "time" : {
+    "start" : 1649031742735,
+    "stop" : 1649031760022,
+    "duration" : 17287
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "da52ada60ebac1be",
+  "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
+  "time" : {
+    "start" : 1648882459227,
+    "stop" : 1648882471960,
+    "duration" : 12733
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d6491be6c6d9ddd4",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can edit a sent message",
+  "time" : {
+    "start" : 1649031706808,
+    "stop" : 1649031724931,
+    "duration" : 18123
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "65781c7c5ba11530",
+  "name" : "GIVEN a loaded app page THEN there is a Team Chats tab",
+  "time" : {
+    "start" : 1649031528853,
+    "stop" : 1649031541161,
+    "duration" : 12308
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cf4e958abd704e86",
+  "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
+  "time" : {
+    "start" : 1648882446085,
+    "stop" : 1648882458932,
+    "duration" : 12847
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3943bd39ba2eb1ef",
+  "name" : "GIVEN a Team Chats tab THEN there is a Message conversation with a toggle button that can be turned ON",
+  "time" : {
+    "start" : 1649031554683,
+    "stop" : 1649031568229,
+    "duration" : 13546
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2c541881eb5f7663",
+  "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
+  "time" : {
+    "start" : 1648882559354,
+    "stop" : 1648882573484,
+    "duration" : 14130
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a5e8ffe1f0d34b11",
+  "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
+  "time" : {
+    "start" : 1649005869623,
+    "stop" : 1649005879318,
+    "duration" : 9695
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b8088fbbbe7a3a1b",
+  "name" : "GIVEN a logged in App THEN there is a list of requests with a title under the Team Requests Status section",
+  "time" : {
+    "start" : 1649031877082,
+    "stop" : 1649031887464,
+    "duration" : 10382
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "64b761f730130b6",
+  "name" : "GIVEN the profile page THEN the setting icon is displayed",
+  "time" : {
+    "start" : 1648882421156,
+    "stop" : 1648882434165,
+    "duration" : 13009
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "aa6e9ab7d6b5c72e",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can pin a sent message",
+  "time" : {
+    "start" : 1649031760528,
+    "stop" : 1649031777202,
+    "duration" : 16674
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c2b8d8bd6bb48f28",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can send message",
+  "time" : {
+    "start" : 1649031690262,
+    "stop" : 1649031706584,
+    "duration" : 16322
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b6026be619204a12",
+  "name" : "GIVEN a conversation in the Team Chats tab AND user deletes a sent message THEN a pop up window appears to confirm their action",
+  "time" : {
+    "start" : 1649031725088,
+    "stop" : 1649031742369,
+    "duration" : 17281
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fdd8c1597a54c2e9",
   "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
   "time" : {
     "start" : 1648882591816,
@@ -169,32 +379,12 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "e1c81dc740cd44c2",
-  "name" : "GIVEN a logged in App THEN there are classes under the Enrolled Classes section is displayed",
+  "uid" : "f1166bbb350fd464",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can pin the other participant's message",
   "time" : {
-    "start" : 1649005869623,
-    "stop" : 1649005879318,
-    "duration" : 9695
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "4c3c214453353c68",
-  "name" : "GIVEN a logged in App THEN the Feed page is displayed",
-  "time" : {
-    "start" : 1649005849071,
-    "stop" : 1649005859531,
-    "duration" : 10460
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "ea35e714f4919b52",
-  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section",
-  "time" : {
-    "start" : 1648882606336,
-    "stop" : 1648882623471,
-    "duration" : 17135
+    "start" : 1649031777450,
+    "stop" : 1649031794251,
+    "duration" : 16801
   },
   "status" : "passed",
   "severity" : "normal"
