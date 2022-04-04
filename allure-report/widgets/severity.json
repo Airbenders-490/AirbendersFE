@@ -172,9 +172,9 @@
   "uid" : "fdd8c1597a54c2e9",
   "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
   "time" : {
-    "start" : 1648882591816,
-    "stop" : 1648882606007,
-    "duration" : 14191
+    "start" : 1649005889978,
+    "stop" : 1649005899762,
+    "duration" : 9784
   },
   "status" : "passed",
   "severity" : "normal"
@@ -292,9 +292,9 @@
   "uid" : "2c541881eb5f7663",
   "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
   "time" : {
-    "start" : 1648882559354,
-    "stop" : 1648882573484,
-    "duration" : 14130
+    "start" : 1648882527536,
+    "stop" : 1648882542789,
+    "duration" : 15253
   },
   "status" : "passed",
   "severity" : "normal"
@@ -322,9 +322,9 @@
   "uid" : "cb25854efe45701d",
   "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
   "time" : {
-    "start" : 1648882500081,
-    "stop" : 1648882514127,
-    "duration" : 14046
+    "start" : 1648882573911,
+    "stop" : 1648882591498,
+    "duration" : 17587
   },
   "status" : "passed",
   "severity" : "normal"
@@ -352,9 +352,9 @@
   "uid" : "21b148f8858e030a",
   "name" : "GIVEN the profile page THEN the user's name is displayed",
   "time" : {
-    "start" : 1648882406093,
-    "stop" : 1648882420756,
-    "duration" : 14663
+    "start" : 1649005869623,
+    "stop" : 1649005879318,
+    "duration" : 9695
   },
   "status" : "passed",
   "severity" : "normal"

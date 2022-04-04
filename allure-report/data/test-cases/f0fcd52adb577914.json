@@ -1,16 +1,12 @@
 {
-<<<<<<< HEAD:allure-report/data/test-cases/da52ada60ebac1be.json
-  "uid" : "da52ada60ebac1be",
-=======
-  "uid" : "d078ccf8d8d7f65d",
->>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/d078ccf8d8d7f65d.json
-  "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-  "historyId" : "4ad66b99e731382d5157009d1bd972b7",
+  "uid" : "a5e8ffe1f0d34b11",
+  "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
+  "historyId" : "c7ca8dc7ad9e66a48e630f616c0f8725",
   "time" : {
-    "start" : 1648882459227,
-    "stop" : 1648882471960,
-    "duration" : 12733
+    "start" : 1648882472120,
+    "stop" : 1648882484919,
+    "duration" : 12799
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -36,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed"
+    "value" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -57,10 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-<<<<<<< HEAD:allure-report/data/test-cases/da52ada60ebac1be.json
-  "source" : "da52ada60ebac1be.json",
-=======
-  "source" : "d078ccf8d8d7f65d.json",
->>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/d078ccf8d8d7f65d.json
+  "source" : "a5e8ffe1f0d34b11.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

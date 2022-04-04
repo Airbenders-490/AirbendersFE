@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD:allure-report/data/test-cases/a5e8ffe1f0d34b11.json
   "uid" : "a5e8ffe1f0d34b11",
+=======
+  "uid" : "f0fcd52adb577914",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/f0fcd52adb577914.json
   "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
   "fullName" : "The Profile page.GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
   "historyId" : "c7ca8dc7ad9e66a48e630f616c0f8725",
@@ -53,6 +57,10 @@
     "categories" : [ ],
     "tags" : [ ]
   },
+<<<<<<< HEAD:allure-report/data/test-cases/a5e8ffe1f0d34b11.json
   "source" : "a5e8ffe1f0d34b11.json",
+=======
+  "source" : "f0fcd52adb577914.json",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/f0fcd52adb577914.json
   "parameterValues" : [ "emulator-5554 11-11" ]
 }

@@ -87,9 +87,9 @@
       "parentUid" : "516fe00eea05ad99e936fa729b55eff4",
       "status" : "passed",
       "time" : {
-        "start" : 1648882485228,
-        "stop" : 1648882499674,
-        "duration" : 14446
+        "start" : 1648882606336,
+        "stop" : 1648882623471,
+        "duration" : 17135
       },
       "flaky" : false,
       "newFailed" : false,
@@ -178,9 +178,9 @@
       "parentUid" : "516fe00eea05ad99e936fa729b55eff4",
       "status" : "passed",
       "time" : {
-        "start" : 1648882472120,
-        "stop" : 1648882484919,
-        "duration" : 12799
+        "start" : 1648882542996,
+        "stop" : 1648882558992,
+        "duration" : 15996
       },
       "flaky" : false,
       "newFailed" : false,
@@ -217,9 +217,9 @@
       "parentUid" : "516fe00eea05ad99e936fa729b55eff4",
       "status" : "passed",
       "time" : {
-        "start" : 1648882591816,
-        "stop" : 1648882606007,
-        "duration" : 14191
+        "start" : 1648882446085,
+        "stop" : 1648882458932,
+        "duration" : 12847
       },
       "flaky" : false,
       "newFailed" : false,

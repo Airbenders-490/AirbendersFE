@@ -1,16 +1,12 @@
 {
-<<<<<<< HEAD:allure-report/data/test-cases/da52ada60ebac1be.json
-  "uid" : "da52ada60ebac1be",
-=======
-  "uid" : "d078ccf8d8d7f65d",
->>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/d078ccf8d8d7f65d.json
-  "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-  "fullName" : "The Profile page.GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-  "historyId" : "4ad66b99e731382d5157009d1bd972b7",
+  "uid" : "e4545083c625272b",
+  "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
+  "fullName" : "The Profile page.GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
+  "historyId" : "614a137b4952a75440ec08a50fb3e954",
   "time" : {
-    "start" : 1648882459227,
-    "stop" : 1648882471960,
-    "duration" : 12733
+    "start" : 1648882573911,
+    "stop" : 1648882591498,
+    "duration" : 17587
   },
   "description" : "",
   "descriptionHtml" : "",
@@ -36,7 +32,7 @@
     "value" : "The Profile page"
   }, {
     "name" : "testMethod",
-    "value" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed"
+    "value" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section"
   }, {
     "name" : "package",
     "value" : "The Profile page"
@@ -57,10 +53,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-<<<<<<< HEAD:allure-report/data/test-cases/da52ada60ebac1be.json
-  "source" : "da52ada60ebac1be.json",
-=======
-  "source" : "d078ccf8d8d7f65d.json",
->>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/d078ccf8d8d7f65d.json
+  "source" : "e4545083c625272b.json",
   "parameterValues" : [ "emulator-5554 11-11" ]
 }
