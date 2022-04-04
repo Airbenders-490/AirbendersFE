@@ -1,0 +1,74 @@
+{
+  "uid" : "ac7f028f9f22ec87",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can delete a sent message",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN user can delete a sent message",
+  "historyId" : "a7909941433c881e2eb9d277f2fe7a83",
+  "time" : {
+    "start" : 1649031742735,
+    "stop" : 1649031760022,
+    "duration" : 17287
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a conversation in the Team Chats tab THEN user can delete a sent message"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "6d11504bfcb03e0d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649001996136,
+        "stop" : 1649002014259,
+        "duration" : 18123
+      }
+    }, {
+      "uid" : "7863f55b8f39738d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649001653399,
+        "stop" : 1649001671519,
+        "duration" : 18120
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ac7f028f9f22ec87.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

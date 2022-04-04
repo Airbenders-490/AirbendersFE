@@ -1,0 +1,66 @@
+{
+<<<<<<< HEAD:allure-report/data/test-cases/a5e8ffe1f0d34b11.json
+  "uid" : "a5e8ffe1f0d34b11",
+=======
+  "uid" : "f0fcd52adb577914",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/f0fcd52adb577914.json
+  "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
+  "historyId" : "c7ca8dc7ad9e66a48e630f616c0f8725",
+  "time" : {
+    "start" : 1648882472120,
+    "stop" : 1648882484919,
+    "duration" : 12799
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed"
+  }, {
+    "name" : "package",
+    "value" : "The Profile page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+<<<<<<< HEAD:allure-report/data/test-cases/a5e8ffe1f0d34b11.json
+  "source" : "a5e8ffe1f0d34b11.json",
+=======
+  "source" : "f0fcd52adb577914.json",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/f0fcd52adb577914.json
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

@@ -5,7 +5,7 @@
     "name" : "The Profile page",
     "children" : [ {
       "name" : "GIVEN the profile page THEN the user's name is displayed",
-      "uid" : "90e05c810054ac52",
+      "uid" : "21b148f8858e030a",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -18,7 +18,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN the setting icon is displayed",
-      "uid" : "de5a884e9dca15d4",
+      "uid" : "64b761f730130b6",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -31,7 +31,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN the Rated Quality section is displayed",
-      "uid" : "68167cb5cee1edc",
+      "uid" : "f44d3a98fea4421",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -44,7 +44,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN the Classes Taken section is displayed",
-      "uid" : "3e5a5e9facd9b9ea",
+      "uid" : "cf4e958abd704e86",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -57,7 +57,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN the Classes Enrolled In section is displayed",
-      "uid" : "be148bf519f57819",
+      "uid" : "da52ada60ebac1be",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -70,7 +70,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN the Self-Promoted Skills section is displayed",
-      "uid" : "3730bbf15defd302",
+      "uid" : "a5e8ffe1f0d34b11",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -83,7 +83,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a new quality is displayed",
-      "uid" : "91a32212847dd3a4",
+      "uid" : "fb99092a9618893a",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -96,7 +96,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
-      "uid" : "88098ca18288d3d9",
+      "uid" : "cb25854efe45701d",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -109,7 +109,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page THEN a search icon is displayed under the Classes Taken section",
-      "uid" : "76c736904853da90",
+      "uid" : "8f811b63c1cedf6a",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -122,7 +122,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user name",
-      "uid" : "62f1f40bd09afdb7",
+      "uid" : "39f8dfcadc2c7649",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -135,7 +135,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can change user's message",
-      "uid" : "d9bcb8402c46d6fd",
+      "uid" : "75d9855df06a3019",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -148,7 +148,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Taken section",
-      "uid" : "58f2804b0684881a",
+      "uid" : "2c541881eb5f7663",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -161,7 +161,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Taken section",
-      "uid" : "b62267d0f4229a67",
+      "uid" : "e4545083c625272b",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -174,7 +174,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the profile page AND the user clicks the setting icon THEN the user can click the Add button under the Classes Enrolled In section",
-      "uid" : "92a02a33ca7a7497",
+      "uid" : "fdd8c1597a54c2e9",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -187,7 +187,7 @@
       "parameters" : [ "emulator-5554 11-11" ]
     }, {
       "name" : "GIVEN the setting page in the profile screen THEN the user can add classes by clicking the Add button under the Classes Enrolled In section",
-      "uid" : "282952451c86829c",
+      "uid" : "cbd670e35b024379",
       "parentUid" : "4015aacb36c88f6bfc458178e68fadb2",
       "status" : "passed",
       "time" : {
@@ -200,5 +200,325 @@
       "parameters" : [ "emulator-5554 11-11" ]
     } ],
     "uid" : "4015aacb36c88f6bfc458178e68fadb2"
+  }, {
+    "name" : "The Chat Room",
+    "children" : [ {
+      "name" : "GIVEN a loaded app page THEN there is a Team Chats tab",
+      "uid" : "65781c7c5ba11530",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031528853,
+        "stop" : 1649031541161,
+        "duration" : 12308
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a Team Chats tab THEN there is a Message conversation",
+      "uid" : "dead1a56fd2e0d46",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031541358,
+        "stop" : 1649031554404,
+        "duration" : 13046
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a Team Chats tab THEN there is a Message conversation with a toggle button that can be turned ON",
+      "uid" : "3943bd39ba2eb1ef",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031554683,
+        "stop" : 1649031568229,
+        "duration" : 13546
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a Team Chats tab THEN there is a Message conversation with a title",
+      "uid" : "7ecb1f054507d98b",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031568528,
+        "stop" : 1649031582148,
+        "duration" : 13620
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a Team Chats tab THEN there is a Message conversation with the number of participants",
+      "uid" : "7d0333a9b19882a9",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031582513,
+        "stop" : 1649031594912,
+        "duration" : 12399
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a Team Chats tab AND user clicks a message conversation THEN the entire conversation is displayed",
+      "uid" : "bc2fbf5a19453d5e",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031595137,
+        "stop" : 1649031610395,
+        "duration" : 15258
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a conversation in the Team Chats tab AND user clicks the back button THEN they are redirected to the list of conversations",
+      "uid" : "e98e73aae9389bb0",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031610710,
+        "stop" : 1649031627312,
+        "duration" : 16602
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a conversation in the Team Chats tab THEN a pin button is displayed",
+      "uid" : "9af02b5c5ba12c12",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031627613,
+        "stop" : 1649031643577,
+        "duration" : 15964
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a conversation in the Team Chats tab THEN a participant button is displayed",
+      "uid" : "fa4e69c9b73fd0b8",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031643869,
+        "stop" : 1649031658895,
+        "duration" : 15026
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a conversation in the Team Chats tab THEN a calendar button is displayed",
+      "uid" : "8e55eae9a2873f25",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031659198,
+        "stop" : 1649031674586,
+        "duration" : 15388
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a conversation in the Team Chats tab THEN a search button is displayed",
+      "uid" : "ef2e2abb16ca6eea",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031674793,
+        "stop" : 1649031689852,
+        "duration" : 15059
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a conversation in the Team Chats tab THEN user can send message",
+      "uid" : "c2b8d8bd6bb48f28",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031690262,
+        "stop" : 1649031706584,
+        "duration" : 16322
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a conversation in the Team Chats tab THEN user can edit a sent message",
+      "uid" : "d6491be6c6d9ddd4",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031706808,
+        "stop" : 1649031724931,
+        "duration" : 18123
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a conversation in the Team Chats tab AND user deletes a sent message THEN a pop up window appears to confirm their action",
+      "uid" : "b6026be619204a12",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031725088,
+        "stop" : 1649031742369,
+        "duration" : 17281
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a conversation in the Team Chats tab THEN user can delete a sent message",
+      "uid" : "ac7f028f9f22ec87",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031742735,
+        "stop" : 1649031760022,
+        "duration" : 17287
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a conversation in the Team Chats tab THEN user can pin a sent message",
+      "uid" : "aa6e9ab7d6b5c72e",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031760528,
+        "stop" : 1649031777202,
+        "duration" : 16674
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a conversation in the Team Chats tab THEN user can pin the other participant's message",
+      "uid" : "f1166bbb350fd464",
+      "parentUid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031777450,
+        "stop" : 1649031794251,
+        "duration" : 16801
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    } ],
+    "uid" : "8c905c99ed1e1e4cfd2eb3508ec121b0"
+  }, {
+    "name" : "The Feed page",
+    "children" : [ {
+      "name" : "GIVEN a logged in App THEN the Feed page is displayed",
+      "uid" : "909dbad4ccfdf5f6",
+      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031811451,
+        "stop" : 1649031821999,
+        "duration" : 10548
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a logged in App THEN the Enrolled Classes section is displayed",
+      "uid" : "decda84d0e56cbb8",
+      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031822391,
+        "stop" : 1649031832539,
+        "duration" : 10148
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a logged in App THEN there are classes under the Enrolled Classes section is displayed",
+      "uid" : "87db43caf4e924fe",
+      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031832777,
+        "stop" : 1649031843211,
+        "duration" : 10434
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a logged in App THEN the Recent Team Conversation section is displayed",
+      "uid" : "dafb98009f705e57",
+      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031843405,
+        "stop" : 1649031854820,
+        "duration" : 11415
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a logged in App THEN there are classes with a toggle button under the Recent Team Conversation section",
+      "uid" : "7c8d2d234678357c",
+      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031855170,
+        "stop" : 1649031866280,
+        "duration" : 11110
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a logged in App THEN the Team Requests Status section is displayed",
+      "uid" : "8092f511bf77d093",
+      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031866673,
+        "stop" : 1649031876817,
+        "duration" : 10144
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    }, {
+      "name" : "GIVEN a logged in App THEN there is a list of requests with a title under the Team Requests Status section",
+      "uid" : "b8088fbbbe7a3a1b",
+      "parentUid" : "de49d0d9675a69558a3cf5737d454a5b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649031877082,
+        "stop" : 1649031887464,
+        "duration" : 10382
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "emulator-5554 11-11" ]
+    } ],
+    "uid" : "de49d0d9675a69558a3cf5737d454a5b"
   } ]
 }

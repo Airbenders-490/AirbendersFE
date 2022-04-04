@@ -1,0 +1,56 @@
+{
+  "uid" : "4243a6daee479259",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN a search button is displayed",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN a search button is displayed",
+  "historyId" : "9b044aeaa4f44723ea263185e27cb070",
+  "time" : {
+    "start" : 1649001583398,
+    "stop" : 1649001598325,
+    "duration" : 14927
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a conversation in the Team Chats tab THEN a search button is displayed"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "4243a6daee479259.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

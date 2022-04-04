@@ -1,0 +1,56 @@
+{
+  "uid" : "19797062f0587a81",
+  "name" : "GIVEN a Team Chats tab THEN there is a Message conversation with the number of participants",
+  "fullName" : "The Chat Room.GIVEN a Team Chats tab THEN there is a Message conversation with the number of participants",
+  "historyId" : "c38ca6d3dabd694d01b23065f4101187",
+  "time" : {
+    "start" : 1649001829691,
+    "stop" : 1649001842709,
+    "duration" : 13018
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a Team Chats tab THEN there is a Message conversation with the number of participants"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "19797062f0587a81.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

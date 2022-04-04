@@ -1,0 +1,74 @@
+{
+  "uid" : "aa6e9ab7d6b5c72e",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can pin a sent message",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN user can pin a sent message",
+  "historyId" : "1f8ab237cfab9039a0dea359555fc744",
+  "time" : {
+    "start" : 1649031760528,
+    "stop" : 1649031777202,
+    "duration" : 16674
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a conversation in the Team Chats tab THEN user can pin a sent message"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "476ab7af3fb9f4f5",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649002014493,
+        "stop" : 1649002030974,
+        "duration" : 16481
+      }
+    }, {
+      "uid" : "5110f035a213e17b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649001672166,
+        "stop" : 1649001689584,
+        "duration" : 17418
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "aa6e9ab7d6b5c72e.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

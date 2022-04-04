@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1648883303867' stop='1648883332300'>
+    <name>The Chat Room</name>
+    <title>The Chat Room</title>
+    <test-cases>
+        <test-case start='1648883303869' status='passed' stop='1648883318350'>
+            <name>GIVEN a loaded app page THEN there is a Team Chats tab</name>
+            <title>GIVEN a loaded app page THEN there is a Team Chats tab</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1648883318584' status='passed' stop='1648883332027'>
+            <name>GIVEN a Team Chats tab THEN there is a Message conversation</name>
+            <title>GIVEN a Team Chats tab THEN there is a Message conversation</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='emulator-5554 11-11'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

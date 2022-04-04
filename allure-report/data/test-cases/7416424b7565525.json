@@ -1,0 +1,56 @@
+{
+  "uid" : "7416424b7565525",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN user can send message",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN user can send message",
+  "historyId" : "2429359a10f001f3efae0ed751fa7a3",
+  "time" : {
+    "start" : 1649001940655,
+    "stop" : 1649001958391,
+    "duration" : 17736
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a conversation in the Team Chats tab THEN user can send message"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7416424b7565525.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

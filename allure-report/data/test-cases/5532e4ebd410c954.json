@@ -1,0 +1,66 @@
+{
+<<<<<<< HEAD:allure-report/data/test-cases/cb25854efe45701d.json
+  "uid" : "cb25854efe45701d",
+=======
+  "uid" : "5532e4ebd410c954",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/5532e4ebd410c954.json
+  "name" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
+  "fullName" : "The Profile page.GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed",
+  "historyId" : "9072e228b7475d58cb1ee879fc750097",
+  "time" : {
+    "start" : 1648882500081,
+    "stop" : 1648882514127,
+    "duration" : 14046
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Profile page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN the profile page AND the user clicks the dropdown under the Rated Quality section THEN a check mark icon is displayed"
+  }, {
+    "name" : "package",
+    "value" : "The Profile page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+<<<<<<< HEAD:allure-report/data/test-cases/cb25854efe45701d.json
+  "source" : "cb25854efe45701d.json",
+=======
+  "source" : "5532e4ebd410c954.json",
+>>>>>>> a42ab85d3f56e6c88c32f30b606925499a6b02f6:allure-report/data/test-cases/5532e4ebd410c954.json
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

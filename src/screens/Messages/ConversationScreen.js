@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Pressable, Text, View, Image, TouchableOpacity, ScrollView, LayoutAnimation, KeyboardAvoidingView, UIManager } from 'react-native';
+import { Pressable, Text, View, Image, TouchableOpacity, TouchableHighlight, ScrollView, LayoutAnimation, KeyboardAvoidingView, UIManager } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -10,10 +10,10 @@ import MessageInput from '../../components/MessageInput.js';
 import FeatureButtons from '../../components/FeatureButtons.js';
 import ParticipantListItem from '../../components/ParticipantListItem.js';
 import MessageBubble from '../../components/MessageBubble.js';
-import Test from '../../data/mock/FirstConversation.json';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import ParticipantUserProfile from './../ExternalProfile.js';
+import { createStackNavigator } from '@react-navigation/stack';
 
 if (
   Platform.OS === "android" &&
@@ -21,6 +21,8 @@ if (
 ) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
+
+const Stack = createStackNavigator();
 
 class ConversationScreen extends Component {
   constructor(props) {
@@ -219,9 +221,16 @@ class ConversationScreen extends Component {
     }
   }
 
+  navigateToUserProfile(studentID) {
+    this.props.navigation.navigate('ParticipantUserProfile', {
+      userID: studentID,
+    });
+  }
+
   render() {
     const { navigation, route } = this.props;
     const { room, getChatRooms } = route.params;
+
     let conversationBubbles = this.state.currentConversation.map((data) => {
       return (
         <MessageBubble 
@@ -235,17 +244,19 @@ class ConversationScreen extends Component {
       )
     })
 
-    let showParticipantListItems = room.students.map(student => {
+    let chatParticipants = room.students.map(student => {
       return (
-        <ParticipantListItem
-          roomID={room.room_id}
-          participantID={student.id}
-          getChatRooms={getChatRooms}
-          participantName={student.first_name}
-          commonClass={room.class}
-          userTeamStatus={student.isPending ? 'pending' : ''}
-          isAdmin={this.state.userID === room.admin.id ? true : false}
-        />
+        <Pressable onPress={() => this.navigateToUserProfile(student.id)}>
+          <ParticipantListItem
+            roomID={room.room_id}
+            participantID={student.id}
+            getChatRooms={getChatRooms}
+            participantName={student.first_name}
+            commonClass={room.class}
+            userTeamStatus={student.isPending ? 'pending' : ''}
+            isAdmin={this.state.userID === room.admin.id ? true : false}
+          />
+        </Pressable>
       )
     })
 
@@ -266,10 +277,8 @@ class ConversationScreen extends Component {
             <FeatureButtons toggleSection={this.toggleFeaturedSection} />
           </Header>
 
-          <ExpandableSection isDisplayed={this.state.isParticipantListDisplayed}>
-            <ScrollView nestedScrollEnabled={true}>
-              {showParticipantListItems}
-            </ScrollView>
+          <ExpandableSection nestedScrollEnabled={true} contentContainerStyle={{ padding: theme.SPACING_MEDIUM }} isDisplayed={this.state.isParticipantListDisplayed}>
+            {chatParticipants}
           </ExpandableSection>
 
           <ConversationContainer onPress={() => this.toggleFeaturedSection('default')} >
@@ -280,6 +289,33 @@ class ConversationScreen extends Component {
           </ConversationContainer>
         </Container>
       </KeyboardAvoidingView>
+    );
+  }
+}
+
+class ChatNavigation extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen
+          name="ConversationScreen">
+          {(props) => <ConversationScreen
+            navigation={this.props.navigation}
+            route={this.props.route}
+            hideTabBar={this.props.hideTabBar} />}
+        </Stack.Screen>
+        <Stack.Screen name="ParticipantUserProfile">
+          {(props) => <ParticipantUserProfile />}
+        </Stack.Screen>
+      </Stack.Navigator>
     );
   }
 }
@@ -316,11 +352,10 @@ const StyledBackIcon = styled.Image`
   width: 30;
 `;
 
-const ExpandableSection = styled.View`
+const ExpandableSection = styled.ScrollView`
   display: ${(props) => props.isDisplayed ? 'flex' : 'none'};
-  background: ${theme.COLOR_WHITE};
+  background: transparent;
   margin-top: ${theme.SPACING_MEDIUM};
-  margin-horizontal: ${theme.SPACING_MEDIUM};
   flex: 1;
 `;
 
@@ -350,5 +385,5 @@ export default function (props) {
   const navigation = useNavigation();
   const route = useRoute();
 
-  return <ConversationScreen {...props} navigation={navigation} route={route} />;
+  return <ChatNavigation {...props} navigation={navigation} route={route} />;
 }
