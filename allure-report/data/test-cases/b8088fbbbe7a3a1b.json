@@ -1,0 +1,66 @@
+{
+  "uid" : "b8088fbbbe7a3a1b",
+  "name" : "GIVEN a logged in App THEN there is a list of requests with a title under the Team Requests Status section",
+  "fullName" : "The Feed page.GIVEN a logged in App THEN there is a list of requests with a title under the Team Requests Status section",
+  "historyId" : "ca0aceaa5ff63e6a2258b44a53a2e0a2",
+  "time" : {
+    "start" : 1649031877082,
+    "stop" : 1649031887464,
+    "duration" : 10382
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-1"
+  }, {
+    "name" : "suite",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a logged in App THEN there is a list of requests with a title under the Team Requests Status section"
+  }, {
+    "name" : "package",
+    "value" : "The Feed page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "f324ee3b3c935298",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649005909755,
+        "stop" : 1649005919943,
+        "duration" : 10188
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b8088fbbbe7a3a1b.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

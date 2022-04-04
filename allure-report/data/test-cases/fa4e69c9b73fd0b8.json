@@ -1,0 +1,74 @@
+{
+  "uid" : "fa4e69c9b73fd0b8",
+  "name" : "GIVEN a conversation in the Team Chats tab THEN a participant button is displayed",
+  "fullName" : "The Chat Room.GIVEN a conversation in the Team Chats tab THEN a participant button is displayed",
+  "historyId" : "def26cf9daab4515204f9bf70fa45496",
+  "time" : {
+    "start" : 1649031643869,
+    "stop" : 1649031658895,
+    "duration" : 15026
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testClass",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a conversation in the Team Chats tab THEN a participant button is displayed"
+  }, {
+    "name" : "package",
+    "value" : "The Chat Room"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "bd1ec6e330ccfe1e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649001892591,
+        "stop" : 1649001908046,
+        "duration" : 15455
+      }
+    }, {
+      "uid" : "c4830f99fcbe2c0b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649001551847,
+        "stop" : 1649001566813,
+        "duration" : 14966
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "fa4e69c9b73fd0b8.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

@@ -1,5 +1,5 @@
 {
-  "total" : 2,
+  "total" : 3,
   "items" : [ {
     "uid" : "8c905c99ed1e1e4cfd2eb3508ec121b0",
     "name" : "The Chat Room",
@@ -21,6 +21,17 @@
       "passed" : 15,
       "unknown" : 0,
       "total" : 15
+    }
+  }, {
+    "uid" : "de49d0d9675a69558a3cf5737d454a5b",
+    "name" : "The Feed page",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 7,
+      "unknown" : 0,
+      "total" : 7
     }
   } ]
 }

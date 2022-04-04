@@ -1,0 +1,66 @@
+{
+  "uid" : "909dbad4ccfdf5f6",
+  "name" : "GIVEN a logged in App THEN the Feed page is displayed",
+  "fullName" : "The Feed page.GIVEN a logged in App THEN the Feed page is displayed",
+  "historyId" : "b4e8cae25239f02fb51cba07ee8d105b",
+  "time" : {
+    "start" : 1649031811451,
+    "stop" : 1649031821999,
+    "duration" : 10548
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-1"
+  }, {
+    "name" : "suite",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a logged in App THEN the Feed page is displayed"
+  }, {
+    "name" : "package",
+    "value" : "The Feed page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "33c80b88add1c722",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649005849071,
+        "stop" : 1649005859531,
+        "duration" : 10460
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "909dbad4ccfdf5f6.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}

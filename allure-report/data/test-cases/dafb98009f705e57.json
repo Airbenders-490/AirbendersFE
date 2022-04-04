@@ -1,0 +1,66 @@
+{
+  "uid" : "dafb98009f705e57",
+  "name" : "GIVEN a logged in App THEN the Recent Team Conversation section is displayed",
+  "fullName" : "The Feed page.GIVEN a logged in App THEN the Recent Team Conversation section is displayed",
+  "historyId" : "55e7a2b3a987ecbf36e63541cc3d05ca",
+  "time" : {
+    "start" : 1649031843405,
+    "stop" : 1649031854820,
+    "duration" : 11415
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-1"
+  }, {
+    "name" : "suite",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testClass",
+    "value" : "The Feed page"
+  }, {
+    "name" : "testMethod",
+    "value" : "GIVEN a logged in App THEN the Recent Team Conversation section is displayed"
+  }, {
+    "name" : "package",
+    "value" : "The Feed page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "device",
+    "value" : "emulator-5554 11-11"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "1b69697121a35cff",
+      "status" : "passed",
+      "time" : {
+        "start" : 1649005879525,
+        "stop" : 1649005889538,
+        "duration" : 10013
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "dafb98009f705e57.json",
+  "parameterValues" : [ "emulator-5554 11-11" ]
+}
