@@ -72,15 +72,16 @@ class MessageBubble extends Component {
         isDeleted={this.state.isDeleted}
       >
         {
-          this.props.isAuthor &&
+          this.props.isAuthor ?
           <MessageOptions
             isDisplayed={this.state.isSelected}
             isAuthor={this.props.isAuthor}
-            triggerOption={this.triggerMessageOption} />
+            triggerOption={this.triggerMessageOption} /> : null
         }
         <TextContainer
           isAuthor={this.props.isAuthor}
           onPress={this.triggerSelection} >
+          {this.props.isAuthor || !this.props.name ? null : <AuthorText>{this.props.name}</AuthorText>}
           <WrittenMessage
             placeholder={this.props.children}
             placeholderTextColor={this.props.isAuthor ? theme.COLOR_WHITE : theme.COLOR_BLACK}
@@ -129,5 +130,11 @@ const WrittenMessage = styled.TextInput`
   text-align: left;
   bottom: 2;
 `;
+
+const AuthorText = styled.Text`
+  font-size: ${theme.FONT_SIZE_MEDIUM};
+  font-family: ${theme.FONT_BOLD};
+  color: ${theme.COLOR_ORANGE}
+`
 
 export default MessageBubble;

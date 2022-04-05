@@ -36,7 +36,8 @@ class ConversationScreen extends Component {
       currentConversation: [],
       wso: null,
       userID: '',
-      token: ''
+      token: '',
+      users: new Map()
     };
 
     this.toggleFeaturedSection = this.toggleFeaturedSection.bind(this);
@@ -51,7 +52,12 @@ class ConversationScreen extends Component {
     // Remove tab bar from conversation screen
     const { route } = this.props;
     const { room } = route.params;
-
+    const { students } = room;
+    if (students) {
+      students.map(student => {
+        this.state.users.set(student.id, student.first_name)
+      })
+    }
     let userid
     let token
     try{
@@ -251,6 +257,7 @@ class ConversationScreen extends Component {
           onEdit={this.onEditMessage}
           message={data} 
           isAuthor={ data.FromStudentID === this.state.userID }
+          name={this.state.users.get(data.FromStudentID)}
         >
           {data.MessageBody}
         </MessageBubble>
