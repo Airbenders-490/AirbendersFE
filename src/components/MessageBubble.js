@@ -23,6 +23,18 @@ class MessageBubble extends Component {
     this.triggerSelection = this.triggerSelection.bind(this);
   }
 
+  getColor(name) {
+    String.prototype.hashCode = function() {
+        var hash = 0;
+        for (var i = 0; i < this.length; i++) {
+            var char = this.charCodeAt(i);
+            hash = ((hash<<5)-hash)+char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash;
+    }
+}
+
   triggerMessageOption(option) {
     //TODO: Add enum for message options
     switch (option) {
@@ -81,7 +93,10 @@ class MessageBubble extends Component {
         <TextContainer
           isAuthor={this.props.isAuthor}
           onPress={this.triggerSelection} >
-          {this.props.isAuthor || !this.props.name ? null : <AuthorText>{this.props.name}</AuthorText>}
+          {this.props.isAuthor || !this.props.name ? null : 
+          <AuthorText authorColor={this.props.authorColor}>
+            {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}
+          </AuthorText>}
           <WrittenMessage
             placeholder={this.props.children}
             placeholderTextColor={this.props.isAuthor ? theme.COLOR_WHITE : theme.COLOR_BLACK}
@@ -132,9 +147,11 @@ const WrittenMessage = styled.TextInput`
 `;
 
 const AuthorText = styled.Text`
-  font-size: ${theme.FONT_SIZE_MEDIUM};
+  font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
   font-family: ${theme.FONT_BOLD};
-  color: ${theme.COLOR_ORANGE}
+  color: ${props => props.authorColor ? props.authorColor : theme.COLOR_BLACK};
+  margin-top: -3;
+  margin-bottom: 2;
 `
 
 export default MessageBubble;

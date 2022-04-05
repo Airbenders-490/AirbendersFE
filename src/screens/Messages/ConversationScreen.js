@@ -183,6 +183,8 @@ class ConversationScreen extends Component {
     this.setState(prevState => ({
       currentConversation: [...prevState.currentConversation, message]
     }))
+
+  
   }
 
   componentDidUpdate() {
@@ -246,6 +248,30 @@ class ConversationScreen extends Component {
     });
   }
 
+  getColor(name) {
+    // AAAAAA changes nothing. It's just to see the difference easier with 
+    // the existing names like Creed and Michael which were both returning gray
+    name = name + "AAAAAA"
+    String.prototype.hashCode = function() {
+        var hash = 0;
+        for (var i = 0; i < this.length; i++) {
+            var char = this.charCodeAt(i);
+            hash = ((hash<<5)-hash)+char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash;
+    }
+
+    let colors = [theme.COLOR_PURPLE,
+    theme.COLOR_BLUE,
+    theme.COLOR_GREEN,
+    theme.COLOR_RED,
+    theme.COLOR_ORANGE,
+    theme.COLOR_GRAY]
+
+    return colors[Math.abs(name.hashCode() % 6)]
+}
+
   render() {
     const { navigation, route } = this.props;
     const { room, getChatRooms } = route.params;
@@ -258,6 +284,7 @@ class ConversationScreen extends Component {
           message={data} 
           isAuthor={ data.FromStudentID === this.state.userID }
           name={this.state.users.get(data.FromStudentID)}
+          authorColor={this.getColor(data.FromStudentID)}
         >
           {data.MessageBody}
         </MessageBubble>
