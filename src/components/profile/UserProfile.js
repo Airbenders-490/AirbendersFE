@@ -427,9 +427,9 @@ class UserProfile extends Component {
                         onFocus={() => {
                         this.setState({ emailErrorMessage: "" });
                         }}
-                        isConfirmed={this.state.currentUserData.school}
+                        isConfirmed={ this.state.currentUserData.school ? true : false }
                         labelName="School email"
-                        placeholder={this.state.currentUserData.school ?? "yourschool@email.edu"}
+                        placeholder={this.state.currentUserData.school ? this.state.currentUserData.email : "yourschool@email.edu"}
                         onEndEditing={this.validateEmailAndSendToken}
                         onChangeText={(text) => this.setState({ email: text })}
                     />
