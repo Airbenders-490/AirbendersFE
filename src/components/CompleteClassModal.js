@@ -2,6 +2,9 @@ import React, { useState, Component } from "react";
 import { Button, Text, View, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Alert, Modal, Pressable } from "react-native";
 import axios from 'axios';
 import theme from '../styles/theme.style.js';
+import CompleteIcon from '../assets/images/icons/accept-icon.png';
+import styled from 'styled-components';
+import { Subtitle, TextBody } from '../containers/TextContainer.js';
 
 class CompleteClassModal extends Component {
   constructor(props) {
@@ -28,13 +31,13 @@ class CompleteClassModal extends Component {
 
   handleSubmit = () => {
 
-    console.log("Completed Class entered: " + this.state.text.toLowerCase().trim());
+    console.log("Completed Class entered: " + this.props.classToComplete.toLowerCase().trim());
     let student = {
-      "current_classes": [this.state.text.toLowerCase().trim()]
+      "current_classes": [this.props.classToComplete.toLowerCase().trim()]
     }
 
 
-    if (this.state.text.trim() !== '') {
+    if (this.props.classToComplete.trim() !== '') {
       axios
         .put(`http://real.encs.concordia.ca/profile/api/completeClasses/${this.props.userID}`, student, this.config(this.props.token))
         .then(
@@ -64,14 +67,14 @@ class CompleteClassModal extends Component {
             this.setModalVisible(!modalVisible);
           }}
         >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Complete A Current Class</Text>
+          <Container isDimBackground={this.state.modalVisible} onPress={() => this.setModalVisible(false)}>
+            <Pressable style={styles.modalView}>
+              <TextBody>Have you completed {this.props.classToComplete}?</TextBody>
 
-              <TextInput
+              {/* <TextInput
                 style={styles.input}
                 onChangeText={text => this.setState({ text })}
-              />
+              /> */}
 
               <View style={styles.modalButtons}>
                 <Pressable
@@ -82,32 +85,42 @@ class CompleteClassModal extends Component {
 
                   }}
                 >
-                  <Text style={styles.textStyle}>Submit</Text>
+                  <Subtitle subtitleColor={theme.COLOR_WHITE}>Yes</Subtitle>
                 </Pressable>
                 <View style={styles.buttonSpace} />
                 <Pressable
                   style={[styles.button, styles.buttonClose, styles.closeButton]}
                   onPress={() => this.setModalVisible(!modalVisible)}
                 >
-                  <Text style={styles.textStyle}>Cancel</Text>
+                  <Subtitle subtitleColor={theme.COLOR_WHITE}>No</Subtitle>
                 </Pressable>
 
               </View>
 
-            </View>
-          </View>
+            </Pressable>
+          </Container>
         </Modal>
 
-        <Pressable
-          style={[styles.button, styles.buttonOpen]}
-          onPress={() => this.setModalVisible(true)}
-        >
-          <Text style={styles.textStyle}>Complete</Text>
-        </Pressable>
+        <TouchableOpacity onPress={() => this.setModalVisible(true)}>
+          <LabelIcon source={CompleteIcon}/>
+        </TouchableOpacity>
       </View>
     );
   }
 }
+
+const LabelIcon = styled.Image`
+  tintColor: ${theme.COLOR_BLUE};
+  width: 18;
+  height: 18;
+`;
+
+const Container = styled.Pressable`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.isDimBackground ? "rgba(0, 0, 0, 0.5)" : 'transparent'};
+`;
 
 const styles = StyleSheet.create({
   input: {
@@ -121,7 +134,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
   },
   modalView: {
     margin: 20,
@@ -142,7 +154,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     elevation: 2,
-    width: '90%'
+    width: '90%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   buttonOpen: {
     backgroundColor: "#F194FF",

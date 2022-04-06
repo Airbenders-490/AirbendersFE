@@ -25,6 +25,8 @@ import RemoveClassesTakenModal from '../RemoveClassesTakenModal.js';
 import AddCurrentClassModal from '../AddCurrentClassModal.js';
 import RemoveCurrentClassModal from '../RemoveCurrentClassModal.js';
 import CompleteClassModal from '../CompleteClassModal.js';
+import RemoveIcon from '../../assets/images/icons/deny-icon.png';
+import CompleteIcon from '../../assets/images/icons/accept-icon.png';
 
 LogBox.ignoreAllLogs();
 
@@ -238,8 +240,36 @@ class UserProfile extends Component {
     render() {
         let classesTaken = this.state.currentUserData.classes_taken?.map((completedClass) => {
             return (
-                <Label labelColor={theme.COLOR_YELLOW} isReadOnly stacked>
+                <Label
+                    labelColor={theme.COLOR_YELLOW}
+                    stacked
+                    isReadOnly={this.props.isReadOnly}
+                    buttonTag={
+                        <RemoveClassesTakenModal
+                            userID={this.state.userID}
+                            token={this.state.token}
+                            classToRemove={completedClass}
+                            getCurrentUser={this.getCurrentUser} />
+                    }>
                     {completedClass}
+                </Label>
+            )
+        });
+
+        let currentlytaken = this.state.currentUserData.current_classes?.map((enrolledClass) => {
+            return (
+                <Label
+                    labelColor={theme.COLOR_BLUE}
+                    stacked
+                    isReadOnly={this.props.isReadOnly}
+                    buttonTag={
+                        <CompleteClassModal
+                            userID={this.state.userID}
+                            token={this.state.token}
+                            classToComplete={enrolledClass}
+                            getCurrentUser={this.getCurrentUser} />
+                    }>
+                    {enrolledClass}
                 </Label>
             )
         });
@@ -275,18 +305,6 @@ class UserProfile extends Component {
                 </Label>
             )
         });
-
-
-        let currentlytaken = this.state.currentUserData.current_classes?.map((enrolledClass) => {
-            return (
-                <Label labelColor={theme.COLOR_BLUE} isReadOnly stacked>
-                    {enrolledClass}
-                </Label>
-            )
-        });
-
-
-
 
         return (
             <KeyboardAwareScrollView behaviour="padding" style={{marginBottom:100}} >
@@ -372,31 +390,41 @@ class UserProfile extends Component {
                     <MainContainer marginTop={15}>
                         <SectionHeader>
                             <SectionTitle>Classes Taken</SectionTitle>
-                            <SearchIcon source={MagnifyingIcon} />
+                            {/* <SearchIcon source={MagnifyingIcon} /> */}
+                            <ModifyIcons isDisplayed={!this.props.isReadOnly}>
+                                <AddClassesTakenModal
+                                    userID={this.state.userID}
+                                    token={this.state.token}
+                                    getCurrentUser={this.getCurrentUser} />
+                            </ModifyIcons>
                         </SectionHeader>
                         <LabelContainer>
                             {classesTaken}
                         </LabelContainer>
-                        <ModalsContainer isDisplayed={!this.props.isReadOnly}>
+                        {/* <ModalsContainer isDisplayed={!this.props.isReadOnly}>
                             <AddClassesTakenModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
                             <RemoveClassesTakenModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
-                        </ModalsContainer>
+                        </ModalsContainer> */}
 
                     </MainContainer>
 
                     <MainContainer marginTop={15}>
                         <SectionHeader>
                             <SectionTitle>Classes enrolled in </SectionTitle>
+                            <ModifyIcons isDisplayed={!this.props.isReadOnly}>
+                                <RemoveCurrentClassModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
+                                <AddCurrentClassModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
+                            </ModifyIcons>
                         </SectionHeader>
                         <LabelContainer>
                             {currentlytaken}
                         </LabelContainer>
 
-                        <ModalsContainer isDisplayed={!this.props.isReadOnly}>
+                        {/* <ModalsContainer isDisplayed={!this.props.isReadOnly}>
                             <AddCurrentClassModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
                             <RemoveCurrentClassModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
                             <CompleteClassModal userID={this.state.userID} token={this.state.token} getCurrentUser={this.getCurrentUser} />
-                        </ModalsContainer>
+                        </ModalsContainer> */}
                     </MainContainer>
 
                 </PersonalProfile>
@@ -518,6 +546,13 @@ const SectionHeader = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+const ModifyIcons = styled.View`
+  display: ${(props) => props.isDisplayed ? 'flex' : 'none'};
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ClassLabel = styled.Text`

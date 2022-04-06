@@ -6,6 +6,7 @@ import { AuthAPI } from '../../../api/auth.js';
 import ListContainer from '../../../containers/ListContainer.js';
 import TeamListItem from '../../../components/TeamListItem';
 import CreateTeam from '../../../components/modals/CreateTeam.js';
+import theme from '../../../styles/theme.style.js';
 
 class Teams extends Component {
     constructor(props) {
@@ -70,7 +71,8 @@ class Teams extends Component {
 }
 
 const TeamsTabContainer = styled.View`
-  height: 100%
+  height: 100%;
+  background-color: ${theme.COLOR_WHITE};
 `;
 
 export default function(props) {
