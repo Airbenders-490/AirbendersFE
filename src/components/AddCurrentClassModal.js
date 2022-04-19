@@ -2,6 +2,8 @@ import React, { useState, Component } from "react";
 import { Button, Text, View, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Alert, Modal, Pressable } from "react-native";
 import axios from 'axios';
 import theme from '../styles/theme.style.js';
+import styled from 'styled-components';
+import { Subtitle, TextBody } from '../containers/TextContainer.js';
 
 class AddCurrentClassModal extends Component {
   constructor(props) {
@@ -64,9 +66,9 @@ class AddCurrentClassModal extends Component {
             this.setModalVisible(!modalVisible);
           }}
         >
-          <View style={styles.centeredView}>
+          <Container isDimBackground={this.state.modalVisible} onPress={() => this.setModalVisible(false)}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}>Add A Current Class</Text>
+              <TextBody>Add A Current Class</TextBody>
 
               <TextInput
                 style={styles.input}
@@ -82,46 +84,50 @@ class AddCurrentClassModal extends Component {
 
                   }}
                 >
-                  <Text style={styles.textStyle}>Submit</Text>
+                  <Subtitle subtitleColor={theme.COLOR_WHITE}>Submit</Subtitle>
                 </Pressable>
                 <View style={styles.buttonSpace} />
                 <Pressable
                   style={[styles.button, styles.buttonClose, styles.closeButton]}
                   onPress={() => this.setModalVisible(!modalVisible)}
                 >
-                  <Text style={styles.textStyle}>Cancel</Text>
+                  <Subtitle subtitleColor={theme.COLOR_WHITE}>Cancel</Subtitle>
                 </Pressable>
 
               </View>
 
             </View>
-          </View>
+          </Container>
         </Modal>
 
-        <Pressable
-          style={[styles.button, styles.buttonOpen]}
-          onPress={() => this.setModalVisible(true)}
-        >
-          <Text style={styles.textStyle}>Add</Text>
-        </Pressable>
+        <TouchableOpacity onPress={() => this.setModalVisible(true)}>
+          <Subtitle subtitleColor={theme.COLOR_GRAY}>+</Subtitle>
+        </TouchableOpacity>
       </View>
     );
   }
 }
 
+const Container = styled.Pressable`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.isDimBackground ? "rgba(0, 0, 0, 0.5)" : 'transparent'};
+`;
+
 const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
-    borderWidth: 1,
     padding: 10,
-    width: 90
+    width: 90,
+    backgroundColor: theme.COLOR_LIGHT_GRAY,
+    borderRadius: 100,
   },
   centeredView: {
-    flex: 1,
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
   },
   modalView: {
     margin: 20,

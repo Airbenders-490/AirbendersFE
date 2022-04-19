@@ -22,14 +22,24 @@ class Label extends Component {
 
   render() {
     return (
-      <Container disabled={this.props.isReadOnly} onPress={this.selectLabel} stacked={this.props.stacked}>
-        <TextContainer isPressed={this.state.isPressed} backgroundColor={this.props.labelColor} isReadOnly={this.props.isReadOnly}>
+      <Container
+        disabled={this.props.isReadOnly}
+        onPress={this.selectLabel}
+        stacked={this.props.stacked}>
+        <TextContainer
+          // isPressed={this.state.isPressed}
+          backgroundColor={this.props.labelColor}
+          isReadOnly={this.props.isReadOnly}>
             <LabelText isCaption={this.props.isCaption} > 
               {this.props.children}
             </LabelText>
         </TextContainer>
-        <IconTag isPressed={this.state.isPressed} backgroundColor={this.props.labelColor} isReadOnly={this.props.isReadOnly}>
-          <LabelIcon source={this.props.labelIcon} />
+        <IconTag
+          // isPressed={this.state.isPressed}
+          backgroundColor={this.props.labelColor}
+          isReadOnly={this.props.isReadOnly}>
+          {/* <LabelIcon iconColor={this.props.labelColor} source={this.props.labelIcon} /> */}
+          {this.props.buttonTag}
         </IconTag>
       </Container>
     ); 
@@ -62,9 +72,9 @@ const LabelText = styled.Text`
 `;
 
 const LabelIcon = styled.Image`
-  tintColor: #000000;
-  width: 20;
-  height: 20;
+  tintColor: ${(props) => props.iconColor};
+  width: 18;
+  height: 18;
 `;
 
 const IconTag = styled.View `
@@ -74,7 +84,8 @@ const IconTag = styled.View `
   border-bottom-right-radius: 100;
   display: ${props => props.isReadOnly ? 'none' : 'flex'};
   justify-content: center;
-  padding-horizontal: 5;
+  padding-right: 5;
+  padding-left: 4;
   background-color: ${props => props.isPressed ? '#CECECE' : (props.backgroundColor ? `${props.backgroundColor}50` : `${theme.COLOR_BLUE}50`)};
 `;
 

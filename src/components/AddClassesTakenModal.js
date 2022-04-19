@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Text, View, StyleSheet, TextInput, Alert, Modal, Pressable } from "react-native";
 import axios from 'axios';
 import theme from '../styles/theme.style.js';
+import { Subtitle, TextBody } from '../containers/TextContainer.js';
+import styled from 'styled-components';
 
 class AddClassesTakenModal extends Component {
   constructor(props) {
@@ -54,7 +56,7 @@ class AddClassesTakenModal extends Component {
   render() {
     const { modalVisible } = this.state;
     return (
-      <View style={styles.centeredView}>
+      <View>
         <Modal
           animationType="slide"
           transparent={true}
@@ -64,9 +66,9 @@ class AddClassesTakenModal extends Component {
             this.setModalVisible(!modalVisible);
           }}
         >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Add A Class Taken</Text>
+          <Container isDimBackground={this.state.modalVisible} onPress={() => this.setModalVisible(false)}>
+            <Pressable style={styles.modalView}>
+              <TextBody style={styles.modalText}>Add A Class Taken</TextBody>
 
               <TextInput
                 style={styles.input}
@@ -82,48 +84,44 @@ class AddClassesTakenModal extends Component {
 
                   }}
                 >
-                  <Text style={styles.textStyle}>Submit</Text>
+                  <Subtitle subtitleColor={theme.COLOR_WHITE}>Submit</Subtitle>
                 </Pressable>
                 <View style={styles.buttonSpace} />
                 <Pressable
                   style={[styles.button, styles.buttonClose, styles.closeButton]}
                   onPress={() => this.setModalVisible(!modalVisible)}
                 >
-                  <Text style={styles.textStyle}>Cancel</Text>
+                  <Subtitle subtitleColor={theme.COLOR_WHITE}>Cancel</Subtitle>
                 </Pressable>
 
               </View>
-
-
-
-            </View>
-          </View>
+            </Pressable>
+          </Container>
         </Modal>
 
-        <Pressable
-          style={[styles.button, styles.buttonOpen]}
-          onPress={() => this.setModalVisible(true)}
-        >
-          <Text style={styles.textStyle}>Add</Text>
+        <Pressable onPress={() => this.setModalVisible(true)}>
+          <Subtitle subtitleColor={theme.COLOR_GRAY}>+</Subtitle>
         </Pressable>
       </View>
     );
   }
 }
 
+const Container = styled.Pressable`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.isDimBackground ? "rgba(0, 0, 0, 0.5)" : 'transparent'};
+`;
+
 const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
-    borderWidth: 1,
     padding: 10,
-    width: 90
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
+    width: 90,
+    backgroundColor: theme.COLOR_LIGHT_GRAY,
+    borderRadius: 100,
   },
   modalView: {
     margin: 20,

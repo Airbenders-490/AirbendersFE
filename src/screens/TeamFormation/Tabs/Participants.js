@@ -84,7 +84,7 @@ class Participants extends Component {
 
 const NotFoundError = styled.View `
   align-items: center;
-  background-color: white;
+  background-color: ${theme.COLOR_WHITE};
   border-radius: 10;
   padding: 10px;
 `

@@ -2,7 +2,9 @@ import React, { useState, Component } from "react";
 import { Button, Text, View, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Alert, Modal, Pressable } from "react-native";
 import axios from 'axios';
 import theme from '../styles/theme.style.js';
-
+import RemoveIcon from '../assets/images/icons/deny-icon.png';
+import styled from 'styled-components';
+import { Subtitle, TextBody } from '../containers/TextContainer.js';
 
 class RemoveClassesTakenModal extends Component {
   constructor(props) {
@@ -30,11 +32,11 @@ class RemoveClassesTakenModal extends Component {
 
   handleSubmit = () => {
     let student = {
-      "classes_taken": [this.state.text.toLowerCase().trim()]
+      "classes_taken": [this.props.classToRemove.toLowerCase().trim()]
     }
 
 
-    if (this.state.text.trim() !== '') {
+    if (this.props.classToRemove.trim() !== '') {
       axios
         .put(`http://real.encs.concordia.ca/profile/api/removeClasses/${this.props.userID}`, student, this.config(this.props.token))
         .then(
@@ -63,14 +65,14 @@ class RemoveClassesTakenModal extends Component {
             this.setModalVisible(!modalVisible);
           }}
         >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Remove A Class Taken</Text>
+          <Container isDimBackground={this.state.modalVisible} onPress={() => this.setModalVisible(false)}>
+            <Pressable style={styles.modalView}>
+              <TextBody>Do you wish to remove {this.props.classToRemove}?</TextBody>
 
-              <TextInput
+              {/* <TextInput
                 style={styles.input}
                 onChangeText={text => this.setState({ text })}
-              />
+              /> */}
 
               <View style={styles.modalButtons}>
                 <Pressable
@@ -81,46 +83,56 @@ class RemoveClassesTakenModal extends Component {
 
                   }}
                 >
-                  <Text style={styles.textStyle}>Submit</Text>
+                  <Subtitle subtitleColor={theme.COLOR_WHITE}>Yes</Subtitle>
                 </Pressable>
                 <View style={styles.buttonSpace} />
                 <Pressable
                   style={[styles.button, styles.buttonClose, styles.closeButton]}
                   onPress={() => this.setModalVisible(!modalVisible)}
                 >
-                  <Text style={styles.textStyle}>Cancel</Text>
+                  <Subtitle subtitleColor={theme.COLOR_WHITE}>No</Subtitle>
                 </Pressable>
 
               </View>
 
-            </View>
-          </View>
+            </Pressable>
+          </Container>
         </Modal>
 
-        <Pressable
-          style={[styles.button, styles.buttonOpen]}
-          onPress={() => this.setModalVisible(true)}
-        >
-          <Text style={styles.textStyle}>Remove</Text>
-        </Pressable>
+        <TouchableOpacity onPress={() => this.setModalVisible(true)}>
+          <LabelIcon source={RemoveIcon}/>
+        </TouchableOpacity>
       </View>
     );
   }
 }
+
+
+const LabelIcon = styled.Image`
+  tintColor: ${theme.COLOR_YELLOW};
+  width: 18;
+  height: 18;
+`;
+
+const Container = styled.Pressable`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.isDimBackground ? "rgba(0, 0, 0, 0.5)" : 'transparent'};
+`;
 
 const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
-    padding: 10,
+    padding: 10,  
     width: 90
   },
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
   },
   modalView: {
     margin: 20,
@@ -139,9 +151,12 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 20,
-    padding: 10,
+    padding: 8,
     elevation: 2,
-    width: '90%'
+    width: '90%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   buttonOpen: {
     backgroundColor: "#F194FF",
