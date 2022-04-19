@@ -5,6 +5,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import theme from '../../../styles/theme.style.js';
 import { AuthAPI } from '../../../api/auth';
+import RecommendedTeammates from '../../../components/RecommendedTeammates';
 
 
 class Participants extends Component {
@@ -65,6 +66,9 @@ class Participants extends Component {
           onSearch={this.onParticipantSearch}
           onFilter={this.onParticipantsFilter}
           onFilteredParticpant={this.onFilteredParticpantSearch}>
+
+          {/* <RecommendedTeammates /> */}
+
            {this.state.participants ? this.state.participants.map(participant => (
              <ParticipantListItem id={participant.id}
              participantName={`${participant.first_name} ${participant.last_name}`}
@@ -76,6 +80,7 @@ class Participants extends Component {
          />
            )) :
             <NotFoundError><ErrorMsg>No user found 😕</ErrorMsg></NotFoundError>}
+
         </ListContainer>
 
       );
