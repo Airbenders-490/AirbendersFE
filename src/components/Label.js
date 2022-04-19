@@ -47,7 +47,7 @@ class Label extends Component {
 }
 
 // STYLED-COMPONENTS
-const Container = styled.View `
+const Container = styled.TouchableOpacity `
   display: flex;
   flex-direction: row;
   margin-right: 10;

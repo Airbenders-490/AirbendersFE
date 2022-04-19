@@ -457,7 +457,7 @@ class UserProfile extends Component {
                         }}
                         isConfirmed={ this.state.currentUserData.school ? true : false }
                         labelName="School email"
-                        placeholder={this.state.currentUserData.school ? this.state.currentUserData.email : "yourschool@email.edu"}
+                        placeholder={this.state.currentUserData.school ? "CONFIRMED" : "yourschool@email.edu"}
                         onEndEditing={this.validateEmailAndSendToken}
                         onChangeText={(text) => this.setState({ email: text })}
                     />
