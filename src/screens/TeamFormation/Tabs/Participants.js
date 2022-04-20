@@ -17,6 +17,7 @@ class Participants extends Component {
       }
       this.onParticipantSearch = this.onParticipantSearch.bind(this)
       this.onParticipantsFilter = this.onParticipantsFilter.bind(this)
+
     }
 
 
@@ -67,7 +68,7 @@ class Participants extends Component {
           onFilter={this.onParticipantsFilter}
           onFilteredParticpant={this.onFilteredParticpantSearch}>
 
-          {/* <RecommendedTeammates /> */}
+          <RecommendedTeammates navigation={this.props.navigation} />
 
            {this.state.participants ? this.state.participants.map(participant => (
              <ParticipantListItem id={participant.id}

@@ -1,43 +1,26 @@
 import React, { Component, } from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import axios from 'axios';
-import { Dimensions } from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
-import Label from './Label.js';
-import AcceptIcon from '../assets/images/icons/accept-icon.png'
-import DenyIcon from '../assets/images/icons/deny-icon.png'
 import { AuthAPI } from '../api/auth.js';
+import ParticipantUserProfile from './../screens/ExternalProfile.js';
 
-const totalWidth = Dimensions.get('window').width;
+const Stack = createStackNavigator();
 
 class RecommendedTeammates extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      recommendedTeammates: [],
-      currentUserData: {}
+      recommendedTeammates: []
     }
 
-    this.getCurrentUser = this.getCurrentUser.bind(this);
     this.getRecommendedTeammates = this.getRecommendedTeammates.bind(this);
   };
-
-  async getCurrentUser() {
-    let userID = await AuthAPI.getUserID()
-    const config = await AuthAPI.getConfig()
-    axios
-        .get(`http://${global.profileAPI}/api/student/${userID}`, config)
-        .then(response => {
-          console.log(response.data);
-          this.setState({ currentUserData: response.data });
-        })
-        .catch(error => {
-          console.log("User Profile does not exist",error)
-          AuthAPI.setData("profileExists", "false")
-        })
-  }
 
   async getRecommendedTeammates() {
     axios
@@ -56,45 +39,80 @@ class RecommendedTeammates extends Component {
     })
   };
 
+
+  navigateToStudentProfile(studentID) {
+    this.props.navigation.navigate('ParticipantUserProfile', {
+      userID: studentID,
+    });
+  }
+
   componentDidMount() {
-      // this.getCurrentUser();
       this.getRecommendedTeammates();
   }
 
   render() {
+    const {recommendedTeammates} = this.state
+    // const {navigateToStudentProfile} = this.props
 
-    let listRecommendedTeammates = this.state.recommendedTeammates?.map((student) => {
-      return (
+    let listRecommendedTeammates = () => {
+      var studentsList = []
+      for (let i = 0 ;  i< 3 && i < recommendedTeammates.length ; i++) {
+        studentsList.push(
           <StudentItem>
-            <StudentName>{student.first_name} {student.last_name}</StudentName>
-            <ViewStudentButton>View</ViewStudentButton>
+              <UserProfileImage />
+              <StudentName>{recommendedTeammates[i].first_name.trim()} {recommendedTeammates[i].last_name.trim()}</StudentName>
+              <ViewStudentButton onPress={this.navigateToStudentProfile(recommendedTeammates[i].id)}><ViewBtnText>View</ViewBtnText></ViewStudentButton>
           </StudentItem>
-      )
-    });
+        )
+      }
+      return studentsList
+    }
+
     return (
-      <MainContainer marginBottom={5} padding={10} isElevated>
-        <Title>Recommended Teammates</Title>
-        {/* recommended label */}
-        <ContentContainer>
-          <ContentLHS>
-            {/* {this.props.commonClass && <Label isReadOnly labelColor={theme.COLOR_ORANGE}>{this.props.commonClass}</Label>}
-            <ParticipantName>{this.props.participantName}</ParticipantName> */}
-          </ContentLHS>
-          <ContentRHS>
-            {/* {this.showJoinRequestButtons()}
-            <TeamFormationStatus onLongPress={() => this.removeParticipantFromRoom()}
-            statusColor={this.setTeamFormationColor(this.props.userTeamStatus)} /> */}
-          </ContentRHS>
-        </ContentContainer>
-      </MainContainer>
+        <MainContainer marginBottom={5} padding={10} isElevated>
+          {recommendedTeammates.length > 0 ?
+            <RecommendedContainer>
+              <Title>Recommended Teammates</Title>
+              {listRecommendedTeammates()}
+            </RecommendedContainer>
+            :
+            <View></View>
+          }
+        </MainContainer>
     );
   }
 }
 
-const ContentContainer = styled.View`
+class TeammateNavigation extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen
+          name="RecommendedTeammates">
+          {(props) => <RecommendedTeammates
+            navigation={this.props.navigation}
+            route={this.props.route}
+            hideTabBar={this.props.hideTabBar} />}
+        </Stack.Screen>
+        <Stack.Screen name="ParticipantUserProfile">
+          {(props) => <ParticipantUserProfile />}
+        </Stack.Screen>
+      </Stack.Navigator>
+    );
+  }
+}
+
+const RecommendedContainer = styled.View`
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
 `;
@@ -106,54 +124,51 @@ const Title = styled.Text `
   letter-spacing: ${theme.LETTER_SPACING_LARGE};
   text-transform: uppercase;
   margin-bottom: 5;
-`;
-
-const ContentLHS = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-`;
-
-const ContentRHS = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  padding: 15px;
 `;
 
 const StudentItem = styled.View `
-  background: pink
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-horizontal:15px;
+  padding-vertical:15px;
 `
 
 const StudentName = styled.Text `
-  font-family: ${theme.FONT_SEMIBOLD};
-  font-size: ${theme.FONT_SIZE_SLIGHT_LARGE};
+  font-family: ${theme.FONT_BOLD};
+  font-size: ${theme.FONT_SIZE_MEDIUM};
   text-transform: capitalize;
+  text-align-vertical: center;
 `
 
 const ViewStudentButton = styled.TouchableOpacity `
-  display: flex;
-  flex-direction: row;
-  margin-right: ${theme.SPACING_XSMALL}};
+  margin-left: auto;
+  border-radius: 14;
+  width: 30%;
+  align-items:center;
+  justify-content: center;
+  background: #46C7EF;
+`
+const ViewBtnText = styled.Text `
+  font-size: ${theme.FONT_SIZE_SLIGHT_MEDIUM};
+  color:white;
 `
 
-const ButtonsContainer = styled.View`
-  display: flex;
-  flex-direction: row;
-  margin-right: ${theme.SPACING_SMALL}};
+const UserProfileImage = styled.View`
+  height: 30;
+  width: 30;
+  border-radius: 40;
+  align-self: center;
+  background: ${theme.COLOR_GREEN};
+  margin-right: 20px;
 `;
 
-const ButtonContainer = styled.TouchableOpacity`
-  display: flex;
-  flex-direction: row;
-  margin-right: ${theme.SPACING_XSMALL}};
-`;
+// export default RecommendedTeammates;
 
-const AcceptButton = styled.Image`
-  height: 25;
-  width: 25;
-  tintColor: ${theme.COLOR_GREEN};
-`
+export default function (props) {
+  const navigation = useNavigation();
+  const route = useRoute();
 
-export default RecommendedTeammates;
+  return <TeammateNavigation {...props} navigation={navigation} route={route} />;
+}
