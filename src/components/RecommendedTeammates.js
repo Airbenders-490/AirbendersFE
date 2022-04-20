@@ -1,15 +1,10 @@
 import React, { Component, } from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { useNavigation, useRoute } from '@react-navigation/native';
 import axios from 'axios';
 import { View } from 'react-native';
 import styled from 'styled-components';
 import theme from '../styles/theme.style.js';
 import MainContainer from '../containers/MainContainer.js';
 import { AuthAPI } from '../api/auth.js';
-import ParticipantUserProfile from './../screens/ExternalProfile.js';
-
-const Stack = createStackNavigator();
 
 class RecommendedTeammates extends Component {
   constructor(props) {
@@ -39,20 +34,13 @@ class RecommendedTeammates extends Component {
     })
   };
 
-
-  navigateToStudentProfile(studentID) {
-    this.props.navigation.navigate('ParticipantUserProfile', {
-      userID: studentID,
-    });
-  }
-
   componentDidMount() {
       this.getRecommendedTeammates();
   }
 
   render() {
     const {recommendedTeammates} = this.state
-    // const {navigateToStudentProfile} = this.props
+    const {navigateToStudentProfile} = this.props
 
     let listRecommendedTeammates = () => {
       var studentsList = []
@@ -61,7 +49,7 @@ class RecommendedTeammates extends Component {
           <StudentItem>
               <UserProfileImage />
               <StudentName>{recommendedTeammates[i].first_name.trim()} {recommendedTeammates[i].last_name.trim()}</StudentName>
-              <ViewStudentButton onPress={this.navigateToStudentProfile(recommendedTeammates[i].id)}><ViewBtnText>View</ViewBtnText></ViewStudentButton>
+              <ViewStudentButton onPress={()=>navigateToStudentProfile(recommendedTeammates[i].id)}><ViewBtnText>View</ViewBtnText></ViewStudentButton>
           </StudentItem>
         )
       }
@@ -79,33 +67,6 @@ class RecommendedTeammates extends Component {
             <View></View>
           }
         </MainContainer>
-    );
-  }
-}
-
-class TeammateNavigation extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen
-          name="RecommendedTeammates">
-          {(props) => <RecommendedTeammates
-            navigation={this.props.navigation}
-            route={this.props.route}
-            hideTabBar={this.props.hideTabBar} />}
-        </Stack.Screen>
-        <Stack.Screen name="ParticipantUserProfile">
-          {(props) => <ParticipantUserProfile />}
-        </Stack.Screen>
-      </Stack.Navigator>
     );
   }
 }
@@ -164,11 +125,4 @@ const UserProfileImage = styled.View`
   margin-right: 20px;
 `;
 
-// export default RecommendedTeammates;
-
-export default function (props) {
-  const navigation = useNavigation();
-  const route = useRoute();
-
-  return <TeammateNavigation {...props} navigation={navigation} route={route} />;
-}
+export default RecommendedTeammates;

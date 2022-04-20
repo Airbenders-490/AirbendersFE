@@ -1,4 +1,6 @@
 import React,  { Component, } from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import ParticipantListItem from '../../../components/ParticipantListItem';
 import ListContainer from '../../../containers/ListContainer.js';
 import axios from 'axios';
@@ -6,7 +8,9 @@ import styled from 'styled-components';
 import theme from '../../../styles/theme.style.js';
 import { AuthAPI } from '../../../api/auth';
 import RecommendedTeammates from '../../../components/RecommendedTeammates';
+import ParticipantUserProfile from './../../ExternalProfile.js';
 
+const Stack = createStackNavigator();
 
 class Participants extends Component {
     constructor(props) {
@@ -17,9 +21,8 @@ class Participants extends Component {
       }
       this.onParticipantSearch = this.onParticipantSearch.bind(this)
       this.onParticipantsFilter = this.onParticipantsFilter.bind(this)
-
+      this.navigateToStudentProfile = this.navigateToStudentProfile.bind(this)
     }
-
 
     onParticipantSearch = async (name) => {
       const config = await AuthAPI.getConfig()
@@ -59,6 +62,12 @@ class Participants extends Component {
         .catch(err => console.log(err))
     }
 
+    navigateToStudentProfile(studentID) {
+      this.props.navigation.navigate('ParticipantUserProfile', {
+        userID: studentID,
+      });
+    }
+
     render() {
       return (
         <ListContainer
@@ -68,7 +77,7 @@ class Participants extends Component {
           onFilter={this.onParticipantsFilter}
           onFilteredParticpant={this.onFilteredParticpantSearch}>
 
-          <RecommendedTeammates navigation={this.props.navigation} />
+          <RecommendedTeammates navigateToStudentProfile={this.navigateToStudentProfile} />
 
            {this.state.participants ? this.state.participants.map(participant => (
              <ParticipantListItem id={participant.id}
@@ -88,6 +97,27 @@ class Participants extends Component {
     }
 }
 
+class TeammateNavigation extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="Participants">
+            {(props) => <Participants {...props} />}
+          </Stack.Screen>
+          <Stack.Screen name="ParticipantUserProfile" component={ParticipantUserProfile} />
+        </Stack.Navigator>
+    );
+  }
+}
+
 const NotFoundError = styled.View `
   align-items: center;
   background-color: ${theme.COLOR_WHITE};
@@ -101,4 +131,9 @@ font-size: ${theme.FONT_SIZE_SLIGHT_LARGE};
 text-transform: capitalize;
 `
 
-export default Participants;
+export default function (props) {
+  const navigation = useNavigation();
+  const route = useRoute();
+
+  return <TeammateNavigation {...props} navigation={navigation} route={route} />;
+}
